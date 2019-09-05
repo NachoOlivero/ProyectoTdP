@@ -1,3 +1,4 @@
+package Logica;
 
 public abstract class Torre extends Personaje{
 	protected Mapa mapa;

@@ -1,3 +1,4 @@
+package Logica;
 
 public class Torre1 extends Torre {
 	
@@ -8,15 +9,13 @@ public class Torre1 extends Torre {
 	}
 
 	public void atacar(Personaje p) {
-		p.recibirDaño(dp);
-		
+		Disparo disp=new Disparo(rango,dp);
+		celda.añadirDisparo(disp);
 	}
+	
 	public void recibirDaño(float daño) {
 		hp-=daño;
-		//if(hp<=0)
-			////celda.  eliminar 
-		
-	}
-	
-	
+		if(hp<=0)
+			celda.eliminarTorre();
+		}
 }

@@ -1,4 +1,4 @@
-
+package Logica;
 public abstract class Personaje {
 	protected float hp;
 	protected float dp;

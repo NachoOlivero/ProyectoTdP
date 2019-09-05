@@ -1,4 +1,4 @@
-
+package Logica;
 public class Mapa {
 	Celda celdas[][];
 	
@@ -6,6 +6,6 @@ public class Mapa {
 		celdas= new Celda[x][y];
 		for(int i=0;i<x;i++)
 			for(int j=0;j<y;j++)
-				celdas[i][j]=new Celda();
+				celdas[i][j]=new Celda(i);
 	}
 }

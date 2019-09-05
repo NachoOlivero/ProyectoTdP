@@ -1,9 +1,11 @@
+package Logica;
 
-/**public class Enemigo1 extends Enemigo{
+public class Enemigo1 extends Enemigo{
 
 	public void avanzar() {
-		
-		
+		if (celda.hayTorre())
+			atacar(celda.getTorre());
+		else avanzar();
 	}
 
 	public void atacar(Personaje p) {
@@ -17,4 +19,4 @@
 			//retirar de la celda
 	}
 
-}*/
+}
