@@ -1,4 +1,9 @@
-package Logica;
+package Logica.Torres;
+
+import Logica.Celda;
+import Logica.Disparo;
+import Logica.abstracto.Personaje;
+import Logica.abstracto.Torre;
 
 public class Torre1 extends Torre {
 	

@@ -1,5 +1,8 @@
 package Logica;
 
+import Logica.abstracto.Enemigo;
+import Logica.abstracto.Torre;
+
 public class Celda {
 	protected Torre torre;
 	protected Enemigo enemigo; //o bien una coleccion de enemigos

@@ -1,4 +1,7 @@
-package Logica;
+package Logica.abstracto;
+
+import Logica.Celda;
+
 public abstract class Personaje {
 	protected float hp;
 	protected float dp;
