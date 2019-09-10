@@ -1,4 +1,7 @@
-package Logica;
+package Logica.Enemigos;
+
+import Logica.abstracto.Enemigo;
+import Logica.abstracto.Personaje;
 
 public class Enemigo1 extends Enemigo{
 
