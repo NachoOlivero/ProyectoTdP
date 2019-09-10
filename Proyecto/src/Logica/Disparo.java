@@ -1,15 +1,15 @@
 package Logica;
 
 public class Disparo {
-	protected int alcance_maximo;
+	protected int recorrido_restante;
 	protected float daño;
 	
 	public Disparo(int alcance, float dñ) {
-		alcance_maximo=alcance;
+		recorrido_restante=alcance;
 		daño=dñ;
 	}
 	
 	public void decrementarAlcance() {
-		alcance_maximo--;
+		recorrido_restante--;
 	}
 }

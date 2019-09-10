@@ -1,7 +1,6 @@
 package gui_prueba;
 
 import java.awt.EventQueue;
-import java.awt.Rectangle;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -9,23 +8,23 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class gui_mapa_inicial extends JFrame {
 	private static final long serialVersionUID = 1L;
 
-	private JPanel contentPane;
+	private JPanelConFondo contentPane;
 	
 	private JLabel dibujo;
+
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -44,25 +43,41 @@ public class gui_mapa_inicial extends JFrame {
 	public gui_mapa_inicial() {
 		addMouseListener(new Mouse());
 		getContentPane().setLayout(null);
+			
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
+		setBounds(100, 100, 1200, 700);
+		setResizable(false);
+		
+		contentPane = new JPanelConFondo("./torre1.png");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		/**JLabel imFondo=new JLabel();
+		ImageIcon fondo = new ImageIcon(this.getClass().getResource("./torre1.png"));
+		imFondo.setIcon(fondo);
+		imFondo.setBounds(100, 100, 450, 300);
+		contentPane.add(imFondo);
+		*/
 	}
 	
 	
 	
 	private void agregarDibujo(int x,int y){
-		ImageIcon imagen = new ImageIcon(this.getClass().getResource("./up.png"));
+		x-=x % 145;
+		y-=y % 130;
+		
+		ImageIcon imagen = new ImageIcon(this.getClass().getResource("./torre1.png"));
 		dibujo = new JLabel(imagen);
 		
-		dibujo.setBounds(x, y, 25, 25);
+		dibujo.setBounds(x, y, 50, 100);
 		
 		this.add(dibujo);
 	}
+	
+	//public Indices getIndices(int x, int y) {
+		
+	//}
 	
 	private class Mouse implements MouseListener { 
 	          
