@@ -66,16 +66,16 @@ public class gui_mapa_inicial extends JFrame {
 	
 	
 	private void agregarDibujo(int x,int y){
+		//agrega dibujo solo dentro de las coordenadas posibles
 		if(x>50 && x<1150 && y<600) {
 		//System.out.println(x+"::::"+y);
-		x=(x-50)/110;
+		x=(x-50)/110; //compenso el espacio de 50 pixeles que decidimos no utilizar
 		y=y/100;
-		
 		ImageIcon imagen = new ImageIcon(this.getClass().getResource("./torre1.1.jpg"));
 		dibujo = new JLabel(imagen);
 		
-		dibujo.setBounds((x*110)+75, (y*100)+10, 50, 50);
-		
+		dibujo.setBounds((x*110)+75, (y*100) +10, 50, 50);  //75=50 de lo compensado  y 25 extra para centrar (el 10 del y tambien es para centrar)
+															//110 y 100 son el ancho y el alto en px de las celdas
 		this.add(dibujo);
 		}
 	}
