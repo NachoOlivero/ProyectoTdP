@@ -87,8 +87,9 @@ public class gui_mapa_inicial extends JFrame {
 	private class Mouse implements MouseListener { 
 	          
 	        
-	    public void mouseClicked(MouseEvent e) {  
-	       agregarDibujo(e.getXOnScreen(),e.getYOnScreen());
+	    public void mouseClicked(MouseEvent e) { 
+	    
+	       agregarDibujo(e.getX(),e.getY());
 	       repaint();
 	    }  
 	    public void mouseEntered(MouseEvent e) {  
