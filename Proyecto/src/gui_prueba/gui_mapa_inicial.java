@@ -33,6 +33,7 @@ public class gui_mapa_inicial extends JFrame {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				
 			}
 		});
 	}
@@ -46,13 +47,14 @@ public class gui_mapa_inicial extends JFrame {
 			
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1200, 700);
+		setBounds(0,0, 1200, 700);
 		setResizable(false);
 		
-		contentPane = new JPanelConFondo("./torre1.png");
+		contentPane = new JPanelConFondo("./mapa ver 1.jpg");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		//System.out.println(getWidth()+":::::"+getHeight());
 		/**JLabel imFondo=new JLabel();
 		ImageIcon fondo = new ImageIcon(this.getClass().getResource("./torre1.png"));
 		imFondo.setIcon(fondo);
@@ -64,15 +66,18 @@ public class gui_mapa_inicial extends JFrame {
 	
 	
 	private void agregarDibujo(int x,int y){
-		x-=x % 145;
-		y-=y % 130;
+		if(x>50 && x<1150 && y<600) {
+		//System.out.println(x+"::::"+y);
+		x=(x-50)/110;
+		y=y/100;
 		
-		ImageIcon imagen = new ImageIcon(this.getClass().getResource("./torre1.png"));
+		ImageIcon imagen = new ImageIcon(this.getClass().getResource("./torre1.1.jpg"));
 		dibujo = new JLabel(imagen);
 		
-		dibujo.setBounds(x, y, 50, 100);
+		dibujo.setBounds((x*110)+75, (y*100)+10, 50, 50);
 		
 		this.add(dibujo);
+		}
 	}
 	
 	//public Indices getIndices(int x, int y) {
