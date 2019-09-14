@@ -3,6 +3,7 @@ package gui_prueba;
 import java.awt.EventQueue;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -15,9 +16,8 @@ public class gui_mapa_inicial extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	private JPanelConFondo contentPane;
-	
 	private JLabel dibujo;
-
+	private JButton b1;
 
 	/**
 	 * Launch the application.
@@ -54,6 +54,12 @@ public class gui_mapa_inicial extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		for(int b=1 ; b<6;  b++) {
+		b1=new JButton("test:"+b);
+		contentPane.add(b1);
+		b1.setBounds(40+(b*100), 590 , 70, 70);
+		//agregar listener
+		}
 		//System.out.println(getWidth()+":::::"+getHeight());
 		/**JLabel imFondo=new JLabel();
 		ImageIcon fondo = new ImageIcon(this.getClass().getResource("./torre1.png"));
