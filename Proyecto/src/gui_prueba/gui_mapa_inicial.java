@@ -17,7 +17,7 @@ public class gui_mapa_inicial extends JFrame {
 
 	private JPanelConFondo contentPane;
 	private JLabel dibujo;
-	private JButton b1;
+	private JButton[] botonesT;
 
 	/**
 	 * Launch the application.
@@ -54,10 +54,11 @@ public class gui_mapa_inicial extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		botonesT=new JButton[6];
 		for(int b=1 ; b<6;  b++) {
-		b1=new JButton("test:"+b);
-		contentPane.add(b1);
-		b1.setBounds(40+(b*100), 590 , 70, 70);
+		botonesT[b]=new JButton("test:"+b);
+		contentPane.add(botonesT[b]);
+		botonesT[b].setBounds(40+(b*100), 590 , 70, 70);
 		//agregar listener
 		}
 		//System.out.println(getWidth()+":::::"+getHeight());
