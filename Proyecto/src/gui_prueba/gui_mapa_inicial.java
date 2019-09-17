@@ -1,8 +1,12 @@
 package gui_prueba;
 
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -18,6 +22,7 @@ public class gui_mapa_inicial extends JFrame {
 	
 	private JLabel dibujo;
 
+	private JButton bot1;
 
 	/**
 	 * Launch the application.
@@ -43,7 +48,7 @@ public class gui_mapa_inicial extends JFrame {
 	 */
 	public gui_mapa_inicial() {
 		addMouseListener(new Mouse());
-		getContentPane().setLayout(null);
+		getContentPane().setLayout(new GridLayout(2,1));
 			
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -54,13 +59,18 @@ public class gui_mapa_inicial extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		JPanel panelBotones= new JPanel();
+		panelBotones.setVisible(true);
+		panelBotones.setLayout(new GridLayout(1,6));
+		add(panelBotones);
+		
+		bot1=new JButton();
+		bot1.setText("Torre 1: $500");
+		panelBotones.add(bot1);
+		bot1.setBounds(1100, 1150, 20, 30);
+		
 		//System.out.println(getWidth()+":::::"+getHeight());
-		/**JLabel imFondo=new JLabel();
-		ImageIcon fondo = new ImageIcon(this.getClass().getResource("./torre1.png"));
-		imFondo.setIcon(fondo);
-		imFondo.setBounds(100, 100, 450, 300);
-		contentPane.add(imFondo);
-		*/
 	}
 	
 	
