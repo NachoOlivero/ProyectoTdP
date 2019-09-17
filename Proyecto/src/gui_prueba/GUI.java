@@ -15,14 +15,14 @@ import javax.swing.border.EmptyBorder;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class gui_mapa_inicial extends JFrame {
+public class GUI extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	private JPanelConFondo contentPane;
 	
-	private JLabel dibujo;
+	//private JLabel dibujo;
 
-	private JButton bot1;
+	private JLabel enemigo;
 	private JLabel dibujo;
 	private JButton[] botonesT;
 
@@ -35,7 +35,7 @@ public class gui_mapa_inicial extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					gui_mapa_inicial frame = new gui_mapa_inicial();
+					GUI frame = new GUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -48,7 +48,7 @@ public class gui_mapa_inicial extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public gui_mapa_inicial() {
+	public GUI() {
 		addMouseListener(new Mouse());
 		getContentPane().setLayout(new GridLayout(2,1));
 		getContentPane().setLayout(null);
@@ -67,11 +67,6 @@ public class gui_mapa_inicial extends JFrame {
 		panelBotones.setVisible(true);
 		panelBotones.setLayout(new GridLayout(1,6));
 		add(panelBotones);
-		
-		bot1=new JButton();
-		bot1.setText("Torre 1: $500");
-		panelBotones.add(bot1);
-		bot1.setBounds(1100, 1150, 20, 30);
 		
 		botonesT=new JButton[6];
 		for(int b=1 ; b<6;  b++) {
@@ -98,6 +93,10 @@ public class gui_mapa_inicial extends JFrame {
 															//110 y 100 son el ancho y el alto en px de las celdas
 		this.add(dibujo);
 		}
+	}
+	
+	public void mover() {
+		
 	}
 	
 	//public Indices getIndices(int x, int y) {
