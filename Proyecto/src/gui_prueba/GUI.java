@@ -25,7 +25,7 @@ public class GUI extends JFrame {
 	private JLabel dibujo;
 
 	private JButton[] botonesT;
-	// private abstractFactoriT torres;
+    private abstractFactoriT torres;
 	private JLabel[][] matrizTorres ;
 
 	/**
@@ -53,7 +53,7 @@ public class GUI extends JFrame {
 	public GUI() {
 		addMouseListener(new Mouse());
 		getContentPane().setLayout(null);
-		// torres=new fabricaT(); 
+		torres=new fabricaT(); 
 		 matrizTorres=new JLabel[10][6];
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -92,9 +92,9 @@ public class GUI extends JFrame {
 			x=(x-50)/110; //compenso el espacio de 50 pixeles que decidimos no utilizar
 			y=y/100;
 			if(matrizTorres[x][y]==null) {
-			//	ImageIcon imagen = torres.Torre1();
+			    ImageIcon imagen = torres.Torre1();
 				dibujo = new JLabel("");
-				//dibujo = new JLabel(imagen);
+				dibujo = new JLabel(imagen);
 				matrizTorres[x][y]=dibujo;
 				dibujo.setBounds((x*110)+75, (y*100) +10, 50, 50);  //75=50 de lo compensado  y 25 extra para centrar (el 10 del y tambien es para centrar)
 																	//110 y 100 son el ancho y el alto en px de las celdas
