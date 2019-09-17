@@ -23,6 +23,8 @@ public class gui_mapa_inicial extends JFrame {
 	private JLabel dibujo;
 
 	private JButton bot1;
+	private JLabel dibujo;
+	private JButton[] botonesT;
 
 	/**
 	 * Launch the application.
@@ -49,6 +51,7 @@ public class gui_mapa_inicial extends JFrame {
 	public gui_mapa_inicial() {
 		addMouseListener(new Mouse());
 		getContentPane().setLayout(new GridLayout(2,1));
+		getContentPane().setLayout(null);
 			
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -70,6 +73,13 @@ public class gui_mapa_inicial extends JFrame {
 		panelBotones.add(bot1);
 		bot1.setBounds(1100, 1150, 20, 30);
 		
+		botonesT=new JButton[6];
+		for(int b=1 ; b<6;  b++) {
+		botonesT[b]=new JButton("test:"+b);
+		contentPane.add(botonesT[b]);
+		botonesT[b].setBounds(40+(b*100), 590 , 70, 70);
+		//agregar listener
+		}
 		//System.out.println(getWidth()+":::::"+getHeight());
 	}
 	
