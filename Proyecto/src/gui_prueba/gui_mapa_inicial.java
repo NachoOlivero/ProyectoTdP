@@ -22,7 +22,7 @@ public class gui_mapa_inicial extends JFrame {
 	
 	private JLabel dibujo;
 
-	private JButton bot1;
+	private JButton[] botones;
 
 	/**
 	 * Launch the application.
@@ -64,11 +64,14 @@ public class gui_mapa_inicial extends JFrame {
 		panelBotones.setVisible(true);
 		panelBotones.setLayout(new GridLayout(1,6));
 		add(panelBotones);
+		botones=new JButton[6];
+		for(int i=0;i<6;i++) {
+			botones[i]=new JButton("boton "+i);
+			contentPane.add(botones[i]);
+			botones[i].setBounds(40+(i*100), 590 , 90, 70);
+			
+		}
 		
-		bot1=new JButton();
-		bot1.setText("Torre 1: $500");
-		panelBotones.add(bot1);
-		bot1.setBounds(1100, 1150, 20, 30);
 		
 		//System.out.println(getWidth()+":::::"+getHeight());
 	}
