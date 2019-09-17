@@ -1,19 +1,63 @@
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
 
-.metadata/.lock
-.metadata/.log
-.metadata/.mylyn/.taskListIndex/segments_1
-.metadata/.mylyn/.taskListIndex/write.lock
-.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index
-.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.ui.prefs
-.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jsch.core.prefs
-.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.context.core.prefs
-.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.monitor.ui.prefs
-.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.mylyn.tasks.ui.prefs
-.metadata/.plugins/org.eclipse.jdt.core/index.db
-.metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log
-.metadata/.plugins/org.eclipse.m2e.logback.configuration/logback.1.10.0.20181127-2120.xml
-.metadata/.plugins/org.eclipse.oomph.setup/workspace.setup
-.metadata/.plugins/org.eclipse.ui.intro/introstate
-.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml
-.metadata/version.ini
-/.metadata/
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# =========================
+# Operating System Files
+# =========================
+
+# OSX
+# =========================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+.recommenders/
+.metadata/
