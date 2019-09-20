@@ -24,8 +24,7 @@ public class GUI extends JFrame {
 	private JButton[] botonesT;
     private abstractFactoriT torres;
 	private JLabel[][] matrizTorres ;
-	
-	private JLabel iconPrueba;
+
 
 	/**
 	 * Launch the application.
@@ -64,11 +63,6 @@ public class GUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		ImageIcon imagen = torres.Torre1();
-		iconPrueba=new JLabel(imagen);
-		iconPrueba.setBounds(650, 300, 50, 50);
-		this.add(iconPrueba);
-
 		botonesT=new JButton[6];
 		for(int b=1 ; b<6;  b++) {
 		botonesT[b]=new JButton("test:"+b);
@@ -106,10 +100,6 @@ public class GUI extends JFrame {
 				this.add(dibujo);
 		}
 		}
-	}
-	
-	public void moverImagen() {
-		iconPrueba.setBounds(iconPrueba.getX()-10, iconPrueba.getY(), 50, 50);
 	}
 	
 	public void mover() {

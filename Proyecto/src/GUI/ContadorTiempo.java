@@ -25,17 +25,17 @@ public class ContadorTiempo extends Thread {
 			}
 			crearEnemigo();
 			mapa.mover();
-			//gui.moverImagen();
 			
 		}
 	}
 	
 	private Enemigo crearEnemigo() {
-		Enemigo nuevo=new Enemigo1();
+		Enemigo nuevo=new Enemigo1(null);
 		Random r=new Random();
 		int fila=r.nextInt(5);
 		mapa.insertarEnemigo(nuevo,fila);
 		System.out.println(nuevo.getGrafico());
+		nuevo.getGrafico().getGrafico().setBounds(1100, 500-100*fila, 50, 50);
 		gui.add(nuevo.getGrafico().getGrafico());
 		
 		return nuevo;
