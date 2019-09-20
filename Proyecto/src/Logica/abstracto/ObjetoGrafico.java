@@ -8,4 +8,9 @@ public abstract class ObjetoGrafico {
 	public JLabel getGrafico() {
 		return grafico;
 	}
+
+	public void avanzar() {
+		// TODO Auto-generated method stub
+		
+	}
 }

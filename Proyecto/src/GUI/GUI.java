@@ -64,10 +64,10 @@ public class GUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		ImageIcon imagen = torres.Torre1();
-		iconPrueba=new JLabel(imagen);
-		iconPrueba.setBounds(650, 300, 50, 50);
-		this.add(iconPrueba);
+		//ImageIcon imagen = torres.Torre1();
+		//iconPrueba=new JLabel(imagen);
+		//iconPrueba.setBounds(650, 300, 50, 50);
+		//this.add(iconPrueba);
 
 		botonesT=new JButton[6];
 		for(int b=1 ; b<6;  b++) {
@@ -113,6 +113,12 @@ public class GUI extends JFrame {
 	}
 	
 	public void mover() {
+		
+	}
+	public void agregarEnemigo(JLabel enemigo) {
+		int numero=(int) (Math.random()*6);
+		enemigo.setBounds(1200,numero*50,50,50);
+		this.add(enemigo);
 		
 	}
 	

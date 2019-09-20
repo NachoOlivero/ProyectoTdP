@@ -2,9 +2,12 @@ package GUI;
 
 import java.util.Random;
 
+import javax.swing.JLabel;
+
 import Logica.Mapa;
 import Logica.Enemigos.Enemigo1;
 import Logica.abstracto.Enemigo;
+import Logica.abstracto.ObjetoGrafico;
 
 public class ContadorTiempo extends Thread {
 
@@ -31,12 +34,15 @@ public class ContadorTiempo extends Thread {
 	}
 	
 	private Enemigo crearEnemigo() {
+		JLabel grafico;
 		Enemigo nuevo=new Enemigo1();
 		Random r=new Random();
 		int fila=r.nextInt(5);
 		mapa.insertarEnemigo(nuevo,fila);
 		System.out.println(nuevo.getGrafico());
-		gui.add(nuevo.getGrafico().getGrafico());
+		ObjetoGrafico aux=nuevo.getGrafico();
+		grafico=(aux.getGrafico());
+		gui.agregarEnemigo(grafico);
 		
 		return nuevo;
 	}

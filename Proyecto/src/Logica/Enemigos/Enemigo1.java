@@ -11,13 +11,13 @@ public class Enemigo1 extends Enemigo{
 		hp=100;
 		dp=100;
 		celda=null;
-		OGEnemigo grafico=new OGEnemigo1();
+		grafico=new OGEnemigo1();
 	}
 	
 	public void avanzar() {
-		if (celda.hayTorre())
-			atacar(celda.getTorre());
-		else grafico.avanzar();
+		//if (celda.hayTorre())
+			//atacar(celda.getTorre());
+		 grafico.avanzar();
 	}
 
 	public void atacar(Personaje p) {
