@@ -71,10 +71,10 @@ public class prueba extends JFrame {
 	}
 	
 	private void agregarDibujo(){
-		ImageIcon imagen = new ImageIcon(this.getClass().getResource("./up.png"));
+		ImageIcon imagen = new ImageIcon(this.getClass().getResource("./Seige_Tower.png"));
 		dibujo = new JLabel(imagen);
 		
-		dibujo.setBounds(0, 0, 25, 25);
+		dibujo.setBounds(0, 0, 75, 75);
 		
 		this.add(dibujo);
 	}

@@ -97,10 +97,11 @@ public class GUI extends JFrame {
 			y=y/100;
 			if(matrizTorres[x][y]==null) {
 			    ImageIcon imagen = torres.Torre1();
-				dibujo = new JLabel("");
+				//dibujo = new JLabel("");
 				dibujo = new JLabel(imagen);
+				//dibujo.setIcon(imagen);
 				matrizTorres[x][y]=dibujo;
-				dibujo.setBounds((x*110)+75, (y*100) +10, 50, 50);  //75=50 de lo compensado  y 25 extra para centrar (el 10 del y tambien es para centrar)
+				dibujo.setBounds((x*110)+60, (y*100)-15 , 80, 90);  //75=50 de lo compensado  y 20 extra para centrar (el 10 del y tambien es para centrar)
 																	//110 y 100 son el ancho y el alto en px de las celdas
 				this.add(dibujo);
 		}
