@@ -1,4 +1,4 @@
-package gui_prueba;
+package GUI;
 
 import java.awt.EventQueue;
 import java.awt.Rectangle;

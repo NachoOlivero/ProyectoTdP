@@ -1,4 +1,4 @@
-package gui_prueba;
+package GUI;
 
 import java.net.URL;
 

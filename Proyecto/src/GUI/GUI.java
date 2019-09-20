@@ -1,4 +1,4 @@
-package gui_prueba;
+package GUI;
 
 import java.awt.EventQueue;
 
@@ -19,18 +19,17 @@ public class GUI extends JFrame {
 
 	private JPanelConFondo contentPane;
 	
-	//private JLabel dibujo;
-
-//	private JLabel enemigo;
 	private JLabel dibujo;
 
 	private JButton[] botonesT;
     private abstractFactoriT torres;
 	private JLabel[][] matrizTorres ;
+	
+	private JLabel iconPrueba;
 
 	/**
 	 * Launch the application.
-	 */
+	 
 	public static void main(String[] args) {
 		
 		
@@ -45,7 +44,7 @@ public class GUI extends JFrame {
 				
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
@@ -64,6 +63,11 @@ public class GUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		ImageIcon imagen = torres.Torre1();
+		iconPrueba=new JLabel(imagen);
+		iconPrueba.setBounds(650, 300, 50, 50);
+		this.add(iconPrueba);
 
 		botonesT=new JButton[6];
 		for(int b=1 ; b<6;  b++) {
@@ -101,6 +105,10 @@ public class GUI extends JFrame {
 				this.add(dibujo);
 		}
 		}
+	}
+	
+	public void moverImagen() {
+		iconPrueba.setBounds(iconPrueba.getX()-10, iconPrueba.getY(), 50, 50);
 	}
 	
 	public void mover() {
