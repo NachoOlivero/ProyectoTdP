@@ -27,24 +27,21 @@ public class ContadorTiempo extends Thread {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			if( aux==0){
+	
 				crearEnemigo();
 				aux++;
-			}
-			mapa.mover();
-			
+				mapa.mover();
+				System.out.println(aux);
 		}
 	}
 	
 	private Enemigo crearEnemigo() {
 		int numero=(int) (Math.random()*6);
-		JLabel grafico;
 		Enemigo nuevo=new Enemigo1(mapa.getCelda(5, numero));
 		mapa.insertarEnemigo(nuevo,numero);
 		//System.out.println(nuevo.getGrafico());
 		ObjetoGrafico aux=nuevo.getGrafico();
-		grafico=(aux.getGrafico());
-		gui.agregarEnemigo(grafico);
+		//gui.agregarEnemigo(grafico);
 		nuevo.getGrafico().getGrafico().setBounds(1200, 500-100*numero, 50, 50);
 		gui.add(nuevo.getGrafico().getGrafico());
 		

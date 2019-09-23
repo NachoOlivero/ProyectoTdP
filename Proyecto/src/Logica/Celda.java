@@ -2,6 +2,8 @@ package Logica;
 
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Torre;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Celda {
 	protected Torre torre;
@@ -9,9 +11,12 @@ public class Celda {
 	protected int fila;
 	protected int columna;
 	protected Mapa mapa;
+	protected List<Enemigo> listaEnemigos;
+	
 	
 	public Celda(int f,int c,Mapa map) {
 		torre=null;
+		listaEnemigos=new LinkedList<Enemigo>();
 		enemigo=null; //o bien inicializar la coleccion
 		fila=f;
 		columna=c;
@@ -31,7 +36,7 @@ public class Celda {
 	}
 	
 	public void setEnemigo(Enemigo ene) {
-		enemigo=ene;
+		listaEnemigos.add(ene);
 	}
 	
 	public void eliminarTorre() {  //avisar al mapa
@@ -43,8 +48,9 @@ public class Celda {
 	}
 	
 	public void avanzarEnemigo() {
-		if(enemigo!=null)
-			enemigo.avanzar();
+		for(Enemigo e: listaEnemigos) {
+				e.avanzar();
+		}
 	}
 	
 	public void dispararTorre() {
@@ -52,6 +58,16 @@ public class Celda {
 			Enemigo ene=mapa.enemigoEnRango(torre.getRango(),fila,columna);
 			if(ene!=null)
 				torre.atacar(ene);
+		}
+	}
+	public void eliminarTodos() {
+		List<Enemigo> aux =new LinkedList<Enemigo>();
+		for(Enemigo e: listaEnemigos) {
+			aux.add(e);
+	}
+		for(Enemigo e:aux) {
+			e.Eliminar();
+			listaEnemigos.remove(e);
 		}
 	}
 }

@@ -22,6 +22,14 @@ public class Mapa {
 			}
 		
 	}
+		public void KillAll() {
+			for(int i=0;i<celdas.length;i++)
+				for(int j=0;j<celdas[0].length;j++) {
+					celdas[i][j].eliminarTodos();
+			
+		}
+		
+	}
 	
 	public Enemigo enemigoEnRango(int rango,int fila,int columna) {
 		Enemigo ret=null;

@@ -110,12 +110,12 @@ public class GUI extends JFrame {
 	public void mover() {
 		
 	}
-	public void agregarEnemigo(JLabel enemigo) {
-		int numero=(int) (Math.random()*6);
-		enemigo.setBounds(1200,numero*50,50,50);
-		this.add(enemigo);
+	//public void agregarEnemigo(JLabel enemigo) {
+		//int numero=(int) (Math.random()*6);
+		//enemigo.setBounds(1200,numero*50,50,50);
+		//this.add(enemigo);
 		
-	}
+	//}
 	
 	//public Indices getIndices(int x, int y) {
 		
