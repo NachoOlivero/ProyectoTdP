@@ -19,14 +19,16 @@ public class ContadorTiempo extends Thread {
 
 	private GUI gui;
 	private Mapa mapa;
-	
+
+
 	private boolean agregar=true;
 	//KeyListener elim=new ClickEnemigo();
 
 	public ContadorTiempo(GUI gui,Mapa mapa) {
 		this.gui = gui;
 		this.mapa=mapa;
-		
+
+
 		/**gui.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent arg0) {
@@ -47,10 +49,14 @@ public class ContadorTiempo extends Thread {
 				crearEnemigo();
 				agregar=false;
 			}
+
 				aux++;
 				mapa.mover();
 				System.out.println(aux);
 			
+			mapa.mover();
+
+
 			mapa.mover();
 
 		}
@@ -60,7 +66,6 @@ public class ContadorTiempo extends Thread {
 		Enemigo nuevo=new Enemigo1(null);
 		Random r=new Random();
 		int fila=r.nextInt(5);
-		
 		mapa.insertarEnemigo(nuevo,fila);
 		System.out.println(nuevo.getGrafico());
 		nuevo.getGrafico().getGrafico().setBounds(1100, 500-100*fila, 50, 50);
@@ -98,10 +103,14 @@ public class ContadorTiempo extends Thread {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+
 				mapa.KillAll();
 				agregar=true;
 			
+
+			}
+
 		}
 		
 	}
-}
+
