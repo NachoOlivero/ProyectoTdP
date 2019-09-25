@@ -12,14 +12,15 @@ public class Enemigo1 extends Enemigo{
 	public Enemigo1(Celda cel) {
 		hp=100;
 		dp=100;
+		celda=null;
 		celda=new Celda(0,0, null);  //por ahora nomas
 		grafico=new OGEnemigo1();
 	}
 	
 	public void avanzar() {
-		if (celda.hayTorre())
-			atacar(celda.getTorre());
-		else grafico.avanzar();
+		//if (celda.hayTorre())
+			//atacar(celda.getTorre());
+		 grafico.avanzar();
 	}
 
 	public void atacar(Personaje p) {

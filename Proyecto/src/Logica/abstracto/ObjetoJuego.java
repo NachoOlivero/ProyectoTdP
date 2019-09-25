@@ -9,4 +9,8 @@ public abstract class ObjetoJuego {
 	public ObjetoGrafico getGrafico() {
 		return grafico;
 	}
+	
+public void Eliminar() {
+		grafico.eliminar();
+	}
 }

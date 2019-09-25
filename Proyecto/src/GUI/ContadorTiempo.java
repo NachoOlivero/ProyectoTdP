@@ -8,9 +8,12 @@ import java.awt.event.KeyListener;
 import java.util.LinkedList;
 import java.util.Random;
 
+import javax.swing.JLabel;
+
 import Logica.Mapa;
 import Logica.Enemigos.Enemigo1;
 import Logica.abstracto.Enemigo;
+import Logica.abstracto.ObjetoGrafico;
 
 public class ContadorTiempo extends Thread {
 
@@ -31,6 +34,7 @@ public class ContadorTiempo extends Thread {
 			);*/
 		gui.agregarBoton(new Eliminar());
 	}
+	int aux=0;
 
 	public void run() {
 		while(true){
@@ -44,7 +48,6 @@ public class ContadorTiempo extends Thread {
 				agregar=false;
 			}
 			mapa.mover();
-			
 		}
 	}
 	
