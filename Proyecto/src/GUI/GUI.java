@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -64,7 +65,7 @@ public class GUI extends JFrame {
 		contentPane.setLayout(null);
 		
 		botonesT=new JButton[6];
-		for(int b=1 ; b<6;  b++) {
+		for(int b=0 ; b<6;  b++) {
 		botonesT[b]=new JButton("test:"+b);
 		contentPane.add(botonesT[b]);
 		botonesT[b].setBounds(40+(b*100), 590 , 70, 70);
@@ -126,6 +127,9 @@ public class GUI extends JFrame {
 	    }  
 	    public void mouseReleased(MouseEvent e) {  
 	    }  
- }
-
+     }
+	
+	public void agregarBoton(ActionListener ac) {
+		botonesT[0].addActionListener(ac);
+	}
 }
