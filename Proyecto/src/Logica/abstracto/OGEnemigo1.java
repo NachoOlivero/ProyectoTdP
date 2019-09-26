@@ -1,5 +1,6 @@
 package Logica.abstracto;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import GUI.fabricaT;
@@ -16,5 +17,10 @@ public class OGEnemigo1 extends OGEnemigo {
 
 	public JLabel getGrafico() {
 		return grafico;
+	}
+	public void eliminar() {
+		grafico.setVisible(false);
+		grafico.setIcon(null);
+		grafico.getParent().remove(grafico);
 	}
 }

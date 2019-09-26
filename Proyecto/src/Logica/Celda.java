@@ -32,7 +32,10 @@ public class Celda {
 	}
 	
 	public Enemigo getEnemigo() {
-		return enemigo;
+		Enemigo aux=null;
+		if (listaEnemigos.size()!=0)
+			 aux=listaEnemigos.get(0);
+		 return aux;
 	}
 	
 	public void setEnemigo(Enemigo ene) {

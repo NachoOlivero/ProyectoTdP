@@ -61,3 +61,6 @@ hs_err_pid*
 
 .recommenders/
 .metadata/
+*.prefs
+Extras/.classpath
+Extras/.project

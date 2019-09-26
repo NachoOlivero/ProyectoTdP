@@ -19,14 +19,16 @@ public class ContadorTiempo extends Thread {
 
 	private GUI gui;
 	private Mapa mapa;
-	private LinkedList<Enemigo> listaEnemigos;
+
+
 	private boolean agregar=true;
 	//KeyListener elim=new ClickEnemigo();
 
 	public ContadorTiempo(GUI gui,Mapa mapa) {
 		this.gui = gui;
 		this.mapa=mapa;
-		listaEnemigos=new LinkedList<Enemigo>();
+
+
 		/**gui.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent arg0) {
@@ -47,7 +49,16 @@ public class ContadorTiempo extends Thread {
 				crearEnemigo();
 				agregar=false;
 			}
+
+				aux++;
+				mapa.mover();
+				System.out.println(aux);
+			
 			mapa.mover();
+
+
+			mapa.mover();
+
 		}
 	}
 	
@@ -57,7 +68,6 @@ public class ContadorTiempo extends Thread {
 		int fila=r.nextInt(6);
 		if(fila==6)
 			fila=0;
-		listaEnemigos.addLast(nuevo);
 		mapa.insertarEnemigo(nuevo,fila);
 		System.out.println(nuevo.getGrafico());
 		nuevo.getGrafico().getGrafico().setBounds(1100, 500-100*fila, 50, 50);
@@ -90,24 +100,19 @@ public class ContadorTiempo extends Thread {
 		}
 		
 	}*/
-	protected void  aux(KeyEvent e) {
-			//if((int)e.getKeyChar()==8) {
-				//Enemigo rem=listaEnemigos.removeFirst();
-				gui.remove(listaEnemigos.removeFirst().getGrafico().getGrafico());
-				System.out.println("hola");
-			//}
-		}
+
 	public class Eliminar implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			if(!(listaEnemigos.isEmpty())) {
-				gui.remove(listaEnemigos.removeFirst().getGrafico().getGrafico());
+
+				mapa.KillAll();
 				agregar=true;
-				System.out.println("hola");
-				gui.repaint();
+			
+
 			}
+
 		}
 		
 	}
-}
+
