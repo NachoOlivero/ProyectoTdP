@@ -54,7 +54,9 @@ public class ContadorTiempo extends Thread {
 	private Enemigo crearEnemigo() {
 		Enemigo nuevo=new Enemigo1(null);
 		Random r=new Random();
-		int fila=r.nextInt(5);
+		int fila=r.nextInt(6);
+		if(fila==6)
+			fila=0;
 		listaEnemigos.addLast(nuevo);
 		mapa.insertarEnemigo(nuevo,fila);
 		System.out.println(nuevo.getGrafico());
