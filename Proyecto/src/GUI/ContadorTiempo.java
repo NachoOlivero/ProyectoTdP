@@ -15,10 +15,12 @@ import Logica.Enemigos.Enemigo1;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.ObjetoGrafico;
 
+
 public class ContadorTiempo extends Thread {
 
 	private GUI gui;
 	private Mapa mapa;
+	private LinkedList<Enemigo> listaEnemigos;
 
 
 	private boolean agregar=true;
@@ -27,6 +29,7 @@ public class ContadorTiempo extends Thread {
 	public ContadorTiempo(GUI gui,Mapa mapa) {
 		this.gui = gui;
 		this.mapa=mapa;
+		listaEnemigos=new LinkedList<Enemigo>();
 
 
 		/**gui.addKeyListener(new KeyAdapter() {
@@ -34,7 +37,8 @@ public class ContadorTiempo extends Thread {
 			public void keyReleased(KeyEvent arg0) {
 				aux(arg0);}}
 			);*/
-		gui.agregarBoton(new Eliminar());
+		gui.agregarBoton(new Eliminar(),0);
+		gui.agregarBoton(new EliminarAll(),1);
 	}
 	int aux=0;
 
@@ -45,10 +49,10 @@ public class ContadorTiempo extends Thread {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			if(agregar) {
+			//if(agregar) {
 				crearEnemigo();
-				agregar=false;
-			}
+			//	agregar=false;
+		//	}
 
 				aux++;
 				mapa.mover();
@@ -69,39 +73,16 @@ public class ContadorTiempo extends Thread {
 		if(fila==6)
 			fila=0;
 		mapa.insertarEnemigo(nuevo,fila);
+		listaEnemigos.addLast(nuevo);
 		System.out.println(nuevo.getGrafico());
 		nuevo.getGrafico().getGrafico().setBounds(1100, 500-100*fila, 50, 50);
 		gui.add(nuevo.getGrafico().getGrafico());
 		
 		return nuevo;
 	}
-	
-	/**public class ClickEnemigo implements KeyListener{
 
-		@Override
-		public void keyPressed(KeyEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
 
-		@Override
-		public void keyReleased(KeyEvent e) {
-			//if((int)e.getKeyChar()==8) {
-				//Enemigo rem=listaEnemigos.removeFirst();
-				gui.remove(listaEnemigos.removeFirst().getGrafico().getGrafico());
-				System.out.println("hola");
-			//}
-		}
-
-		@Override
-		public void keyTyped(KeyEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-		
-	}*/
-
-	public class Eliminar implements ActionListener{
+	public class EliminarAll implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
@@ -113,6 +94,27 @@ public class ContadorTiempo extends Thread {
 			}
 
 		}
+	protected void  aux(KeyEvent e) {
+		//if((int)e.getKeyChar()==8) {
+			//Enemigo rem=listaEnemigos.removeFirst();
+			gui.remove(listaEnemigos.removeFirst().getGrafico().getGrafico());
+			System.out.println("hola");
+		//}
+	}
+public class Eliminar implements ActionListener{
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		if(!(listaEnemigos.isEmpty())) {
+			Enemigo eliminado=listaEnemigos.removeFirst();
+			eliminado.Eliminar();
+			agregar=true;
+			System.out.println("hola");
+			gui.repaint();
+		}
+	}
+	
+}
 		
 	}
 

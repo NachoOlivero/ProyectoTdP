@@ -21,6 +21,6 @@ public class OGEnemigo1 extends OGEnemigo {
 	public void eliminar() {
 		grafico.setVisible(false);
 		grafico.setIcon(null);
-		grafico.getParent().remove(grafico);
+		//grafico.getParent().remove(grafico);
 	}
 }

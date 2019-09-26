@@ -140,7 +140,7 @@ public class GUI extends JFrame {
 	    }  
      }
 	
-	public void agregarBoton(ActionListener ac) {
-		botonesT[0].addActionListener(ac);
+	public void agregarBoton(ActionListener ac,int boton) {
+		botonesT[boton].addActionListener(ac);
 	}
 }
