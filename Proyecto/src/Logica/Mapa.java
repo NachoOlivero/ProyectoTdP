@@ -41,6 +41,7 @@ public class Mapa {
 	public void insertarEnemigo(Enemigo ene,int fila) {			
 			celdas[fila][celdas[0].length-1].setEnemigo(ene);
 		}
+	
 	public Celda getCelda(int x,int y) {
 		return celdas[x][y];
 	}

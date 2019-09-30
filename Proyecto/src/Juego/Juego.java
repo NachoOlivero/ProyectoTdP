@@ -1,8 +1,9 @@
 package Juego;
 
-import GUI.ContadorTiempo;
 import GUI.GUI;
 import Logica.Mapa;
+import Threads.HiloGui;
+import Threads.MovimientoEnemigos;
 
 public class Juego {
 	public static void main(String args[]) {
@@ -10,9 +11,10 @@ public class Juego {
 		gui.setVisible(true);
 		Mapa mapa=new Mapa(6,10);
 		
-		ContadorTiempo contador=new ContadorTiempo(gui,mapa);
+		MovimientoEnemigos movEnemigos= new MovimientoEnemigos(mapa,gui);
+		HiloGui contador=new HiloGui(gui,movEnemigos);
+	
+		movEnemigos.run();
 		contador.run();
-		
-		
 	}
 }
