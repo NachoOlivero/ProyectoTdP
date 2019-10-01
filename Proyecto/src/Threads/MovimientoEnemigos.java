@@ -29,7 +29,7 @@ public class MovimientoEnemigos extends Thread {
 			}
 			crearEnemigo();
 			mapa.mover();
-			System.out.println("hola");
+			//System.out.println("hola");
 		}
 	}
 	
