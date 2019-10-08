@@ -9,6 +9,8 @@ import Logica.Enemigos.Enemigo1;
 import Logica.abstracto.Enemigo;
 
 public class MovimientoEnemigos extends Thread {
+	protected volatile boolean execute;
+	
 	protected Mapa mapa;
 	protected LinkedList<Enemigo> listaEnemigos;
 	protected GUI gui; // por ahora tine la gui
@@ -29,7 +31,6 @@ public class MovimientoEnemigos extends Thread {
 			}
 			crearEnemigo();
 			mapa.mover();
-			System.out.println("hola");
 		}
 	}
 	

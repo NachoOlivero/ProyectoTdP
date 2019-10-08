@@ -35,12 +35,13 @@ public class HiloGui extends Thread {
 
 	public void run() {
 		while(true){
-			System.out.println("hola");
+			//System.out.println("hola");
 		}
 	}
 	
 	private void agregarDibujo(int x,int y){
 		JLabel dibujo;
+		System.out.println(x+" "+y);
 		//agrega dibujo solo dentro de las coordenadas posibles
 		if(x>50 && x<1150 && y<600) {
 		//System.out.println(x+"::::"+y);

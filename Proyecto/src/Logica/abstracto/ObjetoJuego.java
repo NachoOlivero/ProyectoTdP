@@ -11,6 +11,7 @@ public abstract class ObjetoJuego {
 	}
 	
 public void Eliminar() {
+		System.out.println(grafico);
 		grafico.eliminar();
 	}
 }

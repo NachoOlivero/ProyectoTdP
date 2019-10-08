@@ -11,10 +11,6 @@ public abstract class ObjetoGrafico {
 		return grafico;
 	}
 
-	public void avanzar() {
-		// TODO Auto-generated method stub
-		
-	}
 	public void eliminar() {
 		
 		grafico.setVisible(false);

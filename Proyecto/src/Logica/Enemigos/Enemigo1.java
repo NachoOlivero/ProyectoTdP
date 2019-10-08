@@ -1,6 +1,5 @@
 package Logica.Enemigos;
 
-import Logica.abstracto.OGEnemigo;
 import Logica.abstracto.OGEnemigo1;
 import Logica.abstracto.ObjetoGrafico;
 import Logica.Celda;
@@ -12,15 +11,17 @@ public class Enemigo1 extends Enemigo{
 	public Enemigo1(Celda cel) {
 		hp=100;
 		dp=100;
-		celda=null;
-		celda=new Celda(0,0, null);  //por ahora nomas
+		celda=cel;
 		grafico=new OGEnemigo1();
 	}
 	
 	public void avanzar() {
 		//if (celda.hayTorre())
 			//atacar(celda.getTorre());
-		 grafico.avanzar();
+		//else {
+			grafico.avanzar();
+			celda.moverEnemigoCelda(this,grafico.ubicacionGrafico());
+		//}
 	}
 
 	public void atacar(Personaje p) {
@@ -36,6 +37,10 @@ public class Enemigo1 extends Enemigo{
 	
 	public ObjetoGrafico getGrafico() {
 		return grafico;
+	}
+	
+	public void Eliminar() {
+		grafico.eliminar();
 	}
 
 }
