@@ -28,11 +28,17 @@ public class Celda {
 	}
 	
 	public boolean hayTorre() {
-		return torre!=null;
+		System.out.println("Referencia celda "+this);
+		return torre != null;
 	}
 	
 	public Torre getTorre() {
 		return torre;
+	}
+	
+	public void insertarTorre(Torre t) {
+		torre=t;
+		System.out.println("Torre "+t+" insertada");
 	}
 	
 	public Enemigo getEnemigo() {
@@ -42,7 +48,7 @@ public class Celda {
 		 return aux;
 	}
 	
-	public void setEnemigo(Enemigo ene) {
+	public void addEnemigo(Enemigo ene) {
 		listaEnem.add(ene);
 	}
 	
@@ -76,9 +82,8 @@ public class Celda {
 		LinkedList<Enemigo> listaAux=new LinkedList<Enemigo>();
 		for(Enemigo e:listaEnem)
 			listaAux.add(e);
-		Iterator<Enemigo> it=listaAux.iterator();
-		while(it.hasNext())
-				it.next().avanzar();
+		for(Enemigo e:listaAux) 
+			e.avanzar();
 	}
 	
 	public void dispararTorre() {
@@ -100,10 +105,10 @@ public class Celda {
 		}
 	}
 	
-	public void moverEnemigoCelda(Enemigo e,int pos) {
-		if(pos>columna) {
+	public void moverEnemigoCelda(Enemigo e) {
 			listaEnem.remove(e);
 			mapa.insertarEnemigo(e, fila,columna-1);
-		}
+			e.actualizarCelda(mapa.getCelda(fila, columna-1));
+			System.out.println("movimiento");
 	}
 }

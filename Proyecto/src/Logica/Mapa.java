@@ -1,6 +1,7 @@
 package Logica;
 
 import Logica.abstracto.Enemigo;
+import Logica.abstracto.Torre;
 
 public class Mapa {
 	private Celda celdas[][];
@@ -39,17 +40,22 @@ public class Mapa {
 	
 	public Enemigo enemigoEnRango(int rango,int fila,int columna) {
 		Enemigo ret=null;
-		while(ret==null)
+		for(int i=0;i<rango;i++)
 			ret=celdas[fila][columna++].getEnemigo();
 		return ret;
 	}
 	
 	public void insertarEnemigo(Enemigo ene,int fila) {			
-			celdas[fila][celdas[0].length-1].setEnemigo(ene);
+			celdas[fila][celdas[0].length-1].addEnemigo(ene);
 		}
 	
-	public void insertarEnemigo(Enemigo ene,int fila,int columna) {			
-		celdas[fila][columna].setEnemigo(ene);
+	public void insertarEnemigo(Enemigo ene,int fila,int columna) {
+		if(columna>=0)
+			celdas[fila][columna].addEnemigo(ene);
+	}
+	
+	public void insertarTorre(Torre t,int fila,int columna) {
+		celdas[fila][columna].insertarTorre(t);
 	}
 	
 	public void insertarDisparo(Disparo disp, int fila,int columna) {

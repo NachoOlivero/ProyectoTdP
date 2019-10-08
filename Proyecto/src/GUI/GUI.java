@@ -13,14 +13,13 @@ public class GUI extends JFrame {
 	private JButton[] botonesT;
 
 	public GUI() {
-		//addMouseListener(new Mouse());
 		getContentPane().setLayout(null);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0,0, 1200, 700);
+		setBounds(0,0, 1280, 700);
 		setResizable(false);
 		
-		contentPane = new JPanelConFondo("./mapa ver 1.jpg");
+		contentPane = new JPanelConFondo("./mapaV2_3(64x35).jpg");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

@@ -15,6 +15,7 @@ public class Torre1 extends Torre {
 
 	public void atacar(Personaje p) {
 		Disparo disp=new Disparo(rango,dp);
+		SingletonGui.getGui().add(grafico);
 		celda.añadirDisparo(disp);
 	}
 	

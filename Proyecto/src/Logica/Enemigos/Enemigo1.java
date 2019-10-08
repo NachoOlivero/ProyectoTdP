@@ -12,6 +12,7 @@ public class Enemigo1 extends Enemigo{
 		hp=100;
 		dp=100;
 		celda=cel;
+		vel=1;
 		grafico=new OGEnemigo1();
 	}
 	
@@ -20,7 +21,12 @@ public class Enemigo1 extends Enemigo{
 			//atacar(celda.getTorre());
 		//else {
 			grafico.avanzar();
-			celda.moverEnemigoCelda(this,grafico.ubicacionGrafico());
+			if(pos>max) {
+				celda.moverEnemigoCelda(this);
+				pos=1;
+			}
+			pos+=vel;
+			
 		//}
 	}
 
@@ -41,6 +47,10 @@ public class Enemigo1 extends Enemigo{
 	
 	public void Eliminar() {
 		grafico.eliminar();
+	}
+	
+	public void actualizarCelda(Celda c) {
+		celda=c;
 	}
 
 }

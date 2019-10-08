@@ -11,6 +11,10 @@ import javax.swing.JLabel;
 import GUI.GUI;
 import GUI.abstractFactoriT;
 import GUI.fabricaT;
+import Logica.Mapa;
+import Logica.SingletonMapa;
+import Logica.Torres.Torre1;
+import Logica.abstracto.Torre;
 
 
 public class HiloGui extends Thread {
@@ -43,9 +47,9 @@ public class HiloGui extends Thread {
 		JLabel dibujo;
 		System.out.println(x+" "+y);
 		//agrega dibujo solo dentro de las coordenadas posibles
-		if(x>50 && x<1150 && y<600) {
+		if(x>40 && x<1240 && y<600) {
 		//System.out.println(x+"::::"+y);
-			x=(x-50)/110; //compenso el espacio de 50 pixeles que decidimos no utilizar
+			x=(x-40)/120; //compenso el espacio de 50 pixeles que decidimos no utilizar
 			y=y/100;
 			if(matrizTorres[x][y]==null) {
 			    ImageIcon imagen = torres.Torre1();
@@ -64,9 +68,19 @@ public class HiloGui extends Thread {
 	private class Mouse implements MouseListener { 
 	          
 	        
-	    public void mouseClicked(MouseEvent e) { 
-	    
-	       agregarDibujo(e.getX(),e.getY());
+	    public void mouseClicked(MouseEvent e) {
+	    	int f=(e.getX()-40)/120;
+	    	int c=e.getY()/100;
+	    	Mapa mapa=SingletonMapa.getMapa();
+	    	boolean hayTorre=mapa.getCelda(f, c).hayTorre();
+	    	System.out.println("mapa "+mapa+"  "+hayTorre);
+	    	
+	    	if(f>=0 && f<6 && c>=0 && c<10  && !hayTorre) {  //por ahora numeros, dps vemos como poner atributos
+		    	Torre torre=new Torre1(mapa.getCelda(f, c));
+		    	agregarDibujo(e.getX(),e.getY());
+		    	mapa.insertarTorre(torre,f,c);
+		    	System.out.println("Fila: "+f+" Columna: "+c);
+	    	}
 	  
 	    }  
 	    public void mouseEntered(MouseEvent e) {  

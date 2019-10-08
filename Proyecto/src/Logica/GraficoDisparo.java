@@ -1,18 +1,18 @@
-package Logica.abstracto;
+package Logica;
 
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import GUI.fabricaT;
+import Logica.abstracto.ObjetoGrafico;
 
-public class OGEnemigo1 extends OGEnemigo {
-	
-	public OGEnemigo1() {
+public class GraficoDisparo extends ObjetoGrafico {
+	public GraficoDisparo() {
 		fabricaT f=new fabricaT();
 		grafico=new JLabel(f.Enemigo1());
 	}
+	
 	public void avanzar() {
-		grafico.setBounds(grafico.getX()-10, grafico.getY(), 50, 50);
+		grafico.setBounds(grafico.getX()+10, grafico.getY(), 50, 50);
 	}
 
 	public JLabel getGrafico() {
@@ -23,8 +23,5 @@ public class OGEnemigo1 extends OGEnemigo {
 		grafico.setVisible(false);
 		grafico.setIcon(null);
 	}
-	
-	public int ubicacionGrafico() {
-		return (grafico.getX()-50)/120;
-	}
+
 }
