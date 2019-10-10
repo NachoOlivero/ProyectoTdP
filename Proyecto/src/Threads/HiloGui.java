@@ -12,7 +12,7 @@ import GUI.GUI;
 import GUI.abstractFactoriT;
 import GUI.fabricaT;
 import Logica.Mapa;
-import Logica.SingletonMapa;
+import Logica.Singleton;
 import Logica.Torres.Torre1;
 import Logica.abstracto.Torre;
 
@@ -69,13 +69,13 @@ public class HiloGui extends Thread {
 	          
 	        
 	    public void mouseClicked(MouseEvent e) {
-	    	int f=(e.getX()-40)/120;
-	    	int c=e.getY()/100;
-	    	Mapa mapa=SingletonMapa.getMapa();
+	    	int f=e.getY()/100;
+	    	int c=(e.getX()-40)/120;
+	    	Mapa mapa=Singleton.getMapa();
 	    	boolean hayTorre=mapa.getCelda(f, c).hayTorre();
 	    	System.out.println("mapa "+mapa+"  "+hayTorre);
 	    	
-	    	if(f>=0 && f<6 && c>=0 && c<10  && !hayTorre) {  //por ahora numeros, dps vemos como poner atributos
+	    	if(f>=0 && f<6 && c>=0 && c<10  && !hayTorre) {  //por ahora numeros, dps vemos como poner atributos para los limites
 		    	Torre torre=new Torre1(mapa.getCelda(f, c));
 		    	agregarDibujo(e.getX(),e.getY());
 		    	mapa.insertarTorre(torre,f,c);

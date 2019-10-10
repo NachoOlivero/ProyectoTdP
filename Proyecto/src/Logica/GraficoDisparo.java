@@ -6,9 +6,11 @@ import GUI.fabricaT;
 import Logica.abstracto.ObjetoGrafico;
 
 public class GraficoDisparo extends ObjetoGrafico {
-	public GraficoDisparo() {
+	public GraficoDisparo(int x,int y) {
 		fabricaT f=new fabricaT();
 		grafico=new JLabel(f.Enemigo1());
+		grafico.setBounds(x*120,y*100,50,50);
+		Singleton.getGui().add(grafico);
 	}
 	
 	public void avanzar() {

@@ -17,9 +17,9 @@ public class Enemigo1 extends Enemigo{
 	}
 	
 	public void avanzar() {
-		//if (celda.hayTorre())
-			//atacar(celda.getTorre());
-		//else {
+		if (celda.hayTorre())
+			atacar(celda.getTorre());
+		else {
 			grafico.avanzar();
 			if(pos>max) {
 				celda.moverEnemigoCelda(this);
@@ -27,7 +27,7 @@ public class Enemigo1 extends Enemigo{
 			}
 			pos+=vel;
 			
-		//}
+		}
 	}
 
 	public void atacar(Personaje p) {
@@ -37,8 +37,8 @@ public class Enemigo1 extends Enemigo{
 
 	public void recibirDaño(float daño) {
 		hp-=daño;
-		//if(hp<=0)
-			//retirar de la celda
+		if(hp<=0) 
+			Eliminar();
 	}
 	
 	public ObjetoGrafico getGrafico() {
@@ -46,11 +46,20 @@ public class Enemigo1 extends Enemigo{
 	}
 	
 	public void Eliminar() {
+		celda.eliminarEnemigo(this);
 		grafico.eliminar();
 	}
 	
 	public void actualizarCelda(Celda c) {
 		celda=c;
+	}
+	
+	public boolean estaEnPosicion(int pos) {
+		return this.pos==pos;
+	}
+	
+	public boolean tieneMenorPosicion(int pos) {
+		return this.pos<pos;
 	}
 
 }

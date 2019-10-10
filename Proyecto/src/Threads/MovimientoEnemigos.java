@@ -65,7 +65,6 @@ public class MovimientoEnemigos extends Thread {
 			if(!(listaEnemigos.isEmpty())) {
 				Enemigo eliminado=listaEnemigos.removeFirst();
 				eliminado.Eliminar();
-				System.out.println("hola");
 				gui.repaint();
 				cant--;
 			}

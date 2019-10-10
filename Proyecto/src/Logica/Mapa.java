@@ -26,6 +26,7 @@ public class Mapa {
 			for(int j=0;j<celdas[0].length;j++) {
 				celdas[i][j].avanzarEnemigo();
 				celdas[i][j].dispararTorre();
+				celdas[i][j].avanzarDisparos();
 			}
 		
 	}
@@ -40,8 +41,13 @@ public class Mapa {
 	
 	public Enemigo enemigoEnRango(int rango,int fila,int columna) {
 		Enemigo ret=null;
-		for(int i=0;i<rango;i++)
+		int cont=0;
+		while(cont<rango && columna<10){
 			ret=celdas[fila][columna++].getEnemigo();
+			cont++;
+		}
+		
+		System.out.println(ret);
 		return ret;
 	}
 	

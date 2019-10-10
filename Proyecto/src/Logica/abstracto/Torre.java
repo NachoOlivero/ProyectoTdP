@@ -9,4 +9,6 @@ public abstract class Torre extends Personaje{
 	public int getRango() {
 		return rango;
 	}
+	
+	public abstract void atacar();
 }

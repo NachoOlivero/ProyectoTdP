@@ -12,4 +12,8 @@ public abstract class Enemigo extends Personaje{
 	
 	public abstract void actualizarCelda(Celda c);
 	
+	public abstract boolean estaEnPosicion(int pos);
+	
+	public abstract boolean tieneMenorPosicion(int pos);
+	
 }

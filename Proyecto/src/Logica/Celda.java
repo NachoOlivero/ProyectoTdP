@@ -28,7 +28,6 @@ public class Celda {
 	}
 	
 	public boolean hayTorre() {
-		System.out.println("Referencia celda "+this);
 		return torre != null;
 	}
 	
@@ -41,15 +40,33 @@ public class Celda {
 		System.out.println("Torre "+t+" insertada");
 	}
 	
-	public Enemigo getEnemigo() {
-		Enemigo aux=null;
-		if (listaEnem.size()!=0)
-			 aux=listaEnem.get(0);
-		 return aux;
+	public Enemigo getEnemigo() { // retorna el enemigo con menor valor de posicion
+		Enemigo ret=null;
+		int min=13;
+		Iterator<Enemigo> it=listaEnem.iterator();
+		while(it.hasNext()) {
+			Enemigo nxt=it.next();
+			if(nxt.tieneMenorPosicion(min))
+				ret=nxt;
+		}
+		System.out.println("Enemigo en rango: "+ret+"Esta vacia: "+listaEnem.isEmpty());
+		 return ret;
+	}
+	
+	public Enemigo getEnemigo(int posicion) { 
+		Enemigo ret=null;
+		Iterator<Enemigo> it=listaEnem.iterator();
+		while(it.hasNext() && ret==null) {
+			Enemigo enm=it.next();
+			if(enm.estaEnPosicion(posicion))
+				ret=enm;
+		}
+		
+		return ret;
 	}
 	
 	public void addEnemigo(Enemigo ene) {
-		listaEnem.add(ene);
+		listaEnem.add(ene);System.out.println("Lista vacia?: "+listaEnem.isEmpty());
 	}
 	
 	public void eliminarTorre() {  //avisar al mapa
@@ -74,7 +91,7 @@ public class Celda {
 	}
 	
 	public void moverCeldaDisparo(Disparo disp) {
-		//mapa.insertarDisparo(disp,fila,columna+1);
+		mapa.insertarDisparo(disp,fila,columna+1);
 		listaDisparos.remove(disp);
 	}
 	
@@ -89,8 +106,8 @@ public class Celda {
 	public void dispararTorre() {
 		if(torre!=null) {
 			Enemigo ene=mapa.enemigoEnRango(torre.getRango(),fila,columna);
-			if(ene!=null)
-				torre.atacar(ene);
+			if(ene!=null) {
+				torre.atacar();System.out.println("ddd");}
 		}
 	}
 	
@@ -110,5 +127,17 @@ public class Celda {
 			mapa.insertarEnemigo(e, fila,columna-1);
 			e.actualizarCelda(mapa.getCelda(fila, columna-1));
 			System.out.println("movimiento");
+	}
+	
+	public void eliminarEnemigo(Enemigo ene) {
+			listaEnem.remove(ene);
+	}
+	
+	public int getX() {
+		return columna;
+	}
+	
+	public int getY() {
+		return fila;
 	}
 }

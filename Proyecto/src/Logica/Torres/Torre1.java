@@ -2,7 +2,6 @@ package Logica.Torres;
 
 import Logica.Celda;
 import Logica.Disparo;
-import Logica.abstracto.Personaje;
 import Logica.abstracto.Torre;
 
 public class Torre1 extends Torre {
@@ -11,11 +10,11 @@ public class Torre1 extends Torre {
 		this.hp=500;
 		this.dp=500;
 		this.celda=cel;
+		this.rango=5;
 	}
 
-	public void atacar(Personaje p) {
+	public void atacar() {
 		Disparo disp=new Disparo(rango,dp);
-		SingletonGui.getGui().add(grafico);
 		celda.añadirDisparo(disp);
 	}
 	
