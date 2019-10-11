@@ -46,7 +46,7 @@ public class MovimientoEnemigos extends Thread {
 		
 		mapa.insertarEnemigo(nuevo,fila);
 		listaEnemigos.addLast(nuevo);
-		nuevo.getGrafico().getGrafico().setBounds(1240,fila*100, 50, 50);
+		nuevo.getGrafico().getGrafico().setBounds(1220,fila*100, 50, 50);
 		gui.add(nuevo.getGrafico().getGrafico());
 		cant++;
 		

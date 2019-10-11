@@ -1,4 +1,4 @@
-package Logica.abstracto;
+package ObjetosGraficos;
 
 public abstract class OGEnemigo extends ObjetoGrafico {
 	

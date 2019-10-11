@@ -1,10 +1,10 @@
 package Logica.Enemigos;
 
-import Logica.abstracto.OGEnemigo1;
-import Logica.abstracto.ObjetoGrafico;
 import Logica.Celda;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Personaje;
+import ObjetosGraficos.OGEnemigo1;
+import ObjetosGraficos.ObjetoGrafico;
 
 public class Enemigo1 extends Enemigo{
 

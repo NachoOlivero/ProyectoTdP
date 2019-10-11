@@ -1,4 +1,4 @@
-package Logica.abstracto;
+package ObjetosGraficos;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;

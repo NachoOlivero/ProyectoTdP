@@ -1,6 +1,7 @@
 package Logica.abstracto;
 
 import Logica.Celda;
+import ObjetosGraficos.ObjetoGrafico;
 
 public abstract class ObjetoJuego {
 	protected ObjetoGrafico grafico;

@@ -22,14 +22,12 @@ public class HiloGui extends Thread {
 	private GUI gui;
 	private MovimientoEnemigos movEnemigos;
 	private abstractFactoriT torres;
-	private JLabel[][] matrizTorres ;
 
 
 	public HiloGui(GUI g,MovimientoEnemigos movEnem) {
 		gui = g;
 		movEnemigos=movEnem;
 		torres=new fabricaT(); 
-		matrizTorres=new JLabel[10][6];
 		
 		gui.agregarOyenteBoton(new Eliminar(),0);
 		gui.agregarOyenteBoton(new EliminarAll(),1);
@@ -51,17 +49,17 @@ public class HiloGui extends Thread {
 		//System.out.println(x+"::::"+y);
 			x=(x-40)/120; //compenso el espacio de 50 pixeles que decidimos no utilizar
 			y=y/100;
-			if(matrizTorres[x][y]==null) {
+			
 			    ImageIcon imagen = torres.Torre1();
 				//dibujo = new JLabel("");
 				dibujo = new JLabel(imagen);
 				//dibujo.setIcon(imagen);
-				matrizTorres[x][y]=dibujo;
+				
 				dibujo.setBounds((x*110)+60, (y*100)-15 , 80, 90);  //75=50 de lo compensado  y 20 extra para centrar (el 10 del y tambien es para centrar)
 																	//110 y 100 son el ancho y el alto en px de las celdas
 				gui.add(dibujo);
 				gui.repaint();
-			}
+			
 		}
 	}
 	
@@ -73,14 +71,15 @@ public class HiloGui extends Thread {
 	    	int c=(e.getX()-40)/120;
 	    	Mapa mapa=Singleton.getMapa();
 	    	boolean hayTorre=mapa.getCelda(f, c).hayTorre();
-	    	System.out.println("mapa "+mapa+"  "+hayTorre);
+	    	//System.out.println("mapa "+mapa+"  "+hayTorre);
 	    	
 	    	if(f>=0 && f<6 && c>=0 && c<10  && !hayTorre) {  //por ahora numeros, dps vemos como poner atributos para los limites
 		    	Torre torre=new Torre1(mapa.getCelda(f, c));
-		    	agregarDibujo(e.getX(),e.getY());
+		    	//agregarDibujo(e.getX(),e.getY());
 		    	mapa.insertarTorre(torre,f,c);
 		    	System.out.println("Fila: "+f+" Columna: "+c);
 	    	}
+	    	//System.out.println("las gui's son iguales"+ (gui==Singleton.getGui()));
 	  
 	    }  
 	    public void mouseEntered(MouseEvent e) {  

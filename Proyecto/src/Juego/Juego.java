@@ -8,7 +8,7 @@ import Threads.MovimientoEnemigos;
 
 public class Juego {
 	public static void main(String args[]) {
-		GUI gui=new GUI();
+		GUI gui=Singleton.getGui();
 		gui.setVisible(true);
 		Mapa mapa=Singleton.getMapa();
 		

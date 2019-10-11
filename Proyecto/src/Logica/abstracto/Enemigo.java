@@ -1,6 +1,7 @@
 package Logica.abstracto;
 
 import Logica.Celda;
+import ObjetosGraficos.OGEnemigo;
 
 public abstract class Enemigo extends Personaje{
 	protected int vel;

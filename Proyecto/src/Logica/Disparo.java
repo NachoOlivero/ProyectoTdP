@@ -1,7 +1,8 @@
 package Logica;
 
 import Logica.abstracto.Enemigo;
-import Logica.abstracto.ObjetoGrafico;
+import ObjetosGraficos.GraficoDisparo;
+import ObjetosGraficos.ObjetoGrafico;
 
 public class Disparo {
 	protected int recorrido_restante;
@@ -10,10 +11,11 @@ public class Disparo {
 	protected Celda celda;
 	protected ObjetoGrafico grafico;
 	
-	public Disparo(int alcance, float dñ) {
+	public Disparo(int alcance, float dñ,Celda celda) {
 		recorrido_restante=alcance;
 		daño=dñ;
 		posRelativa=1;
+		this.celda=celda;
 		grafico=new GraficoDisparo(celda.getX(),celda.getY());
 	}
 	

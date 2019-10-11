@@ -17,5 +17,8 @@ public class fabricaT extends abstractFactoriT {
 	public ImageIcon Enemigo1() {
 		return new ImageIcon(this.getClass().getResource("./ezgif.com-rotate.gif"));
 	}
+	public ImageIcon disparo() {
+		return new ImageIcon(this.getClass().getResource("./torre1.png"));
+	}
 
 }
