@@ -39,15 +39,14 @@ public class MovimientoEnemigos extends Thread {
 	}
 	
 	private Enemigo crearEnemigo() {
-		Random r=new Random();
-		int fila=r.nextInt(6);
+		int fila=(int) (Math.random()*6);
 		if(fila==6)
 			fila=0;
 		Enemigo nuevo=new Enemigo1(mapa.getCelda(fila, 9));
 		
 		mapa.insertarEnemigo(nuevo,fila);
 		listaEnemigos.addLast(nuevo);
-		nuevo.getGrafico().getGrafico().setBounds(1240, 500-100*fila, 50, 50);
+		nuevo.getGrafico().getGrafico().setBounds(1240,fila*100, 50, 50);
 		gui.add(nuevo.getGrafico().getGrafico());
 		cant++;
 		

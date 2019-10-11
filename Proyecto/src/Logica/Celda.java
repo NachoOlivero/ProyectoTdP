@@ -37,19 +37,21 @@ public class Celda {
 	
 	public void insertarTorre(Torre t) {
 		torre=t;
-		System.out.println("Torre "+t+" insertada");
+		//System.out.println("Torre "+t+" insertada");
 	}
 	
 	public Enemigo getEnemigo() { // retorna el enemigo con menor valor de posicion
 		Enemigo ret=null;
 		int min=13;
+		
 		Iterator<Enemigo> it=listaEnem.iterator();
-		while(it.hasNext()) {
+		System.out.println("lista"+it.hasNext()+" en "+fila+" "+ columna);
+			while(it.hasNext()) {
 			Enemigo nxt=it.next();
 			if(nxt.tieneMenorPosicion(min))
 				ret=nxt;
-		}
-		System.out.println("Enemigo en rango: "+ret+"Esta vacia: "+listaEnem.isEmpty());
+	}
+		//System.out.println("Enemigo en rango: "+ret+" Esta vacia: "+listaEnem.isEmpty());
 		 return ret;
 	}
 	
@@ -66,7 +68,8 @@ public class Celda {
 	}
 	
 	public void addEnemigo(Enemigo ene) {
-		listaEnem.add(ene);System.out.println("Lista vacia?: "+listaEnem.isEmpty());
+		listaEnem.add(ene);
+		System.out.println("Lista vacia?: "+listaEnem.isEmpty()+" en "+fila+" "+ columna);
 	}
 	
 	public void eliminarTorre() {  //avisar al mapa

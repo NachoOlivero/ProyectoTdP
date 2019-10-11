@@ -16,4 +16,8 @@ public abstract class Enemigo extends Personaje{
 	
 	public abstract boolean tieneMenorPosicion(int pos);
 	
+	public int PosActual() {
+		return pos;
+	}
+	
 }
