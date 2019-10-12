@@ -6,8 +6,8 @@ import ObjetosGraficos.OGMovil;
 public abstract class Enemigo extends Personaje{
 	protected int vel;
 	protected OGMovil grafico;
-	protected final int max=12;
-	protected int pos=1;
+	protected final int min=1;
+	protected int pos=12;
 	
 	public abstract void avanzar();
 	

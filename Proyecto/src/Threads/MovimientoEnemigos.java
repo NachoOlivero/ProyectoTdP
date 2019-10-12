@@ -14,7 +14,7 @@ public class MovimientoEnemigos extends Thread {
 	protected Mapa mapa;
 	protected LinkedList<Enemigo> listaEnemigos;
 	protected GUI gui; // por ahora tine la gui
-	private int cant=0;
+	//protected int cant=0;
 	
 	public MovimientoEnemigos(Mapa map,GUI g) {
 		listaEnemigos=new LinkedList<Enemigo>();
@@ -30,7 +30,7 @@ public class MovimientoEnemigos extends Thread {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			if(cant==0)
+			//if(cant==0)
 				crearEnemigo();
 			
 			mapa.mover();
@@ -48,7 +48,7 @@ public class MovimientoEnemigos extends Thread {
 		listaEnemigos.addLast(nuevo);
 		nuevo.getGrafico().getGrafico().setBounds(1220,fila*100, 50, 50);
 		gui.add(nuevo.getGrafico().getGrafico());
-		cant++;
+		//cant++;
 		
 		return nuevo;
 	}
@@ -57,7 +57,7 @@ public class MovimientoEnemigos extends Thread {
 
 	public void eliminarAll() {
 			mapa.KillAll();
-			cant--;
+			//cant--;
 	}
 
 	public void eliminarEnemigo() {
@@ -65,9 +65,9 @@ public class MovimientoEnemigos extends Thread {
 				Enemigo eliminado=listaEnemigos.removeFirst();
 				eliminado.Eliminar();
 				gui.repaint();
-				cant--;
+				//cant--;
 			}
-		}
+	}
 	
 }
 

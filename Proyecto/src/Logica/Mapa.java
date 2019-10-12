@@ -69,6 +69,7 @@ public class Mapa {
 			celdas[fila][columna].añadirDisparo(disp);
 			disp.setCelda(celdas[fila][columna]);
 		}
+		else disp.eliminar();
 	}
 	
 	public Celda getCelda(int x,int y) {

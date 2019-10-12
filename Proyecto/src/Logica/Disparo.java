@@ -29,24 +29,19 @@ public class Disparo {
 		//System.out.println("posRel: "+posRelativa);
 		if(ene!=null) {
 			ene.recibirDaño(daño);
-			celda.eliminarDisparo(this);
+			eliminar();
 		}
-		else {
-			posRelativa++;
-			if(posRelativa>12) {
+		else 
+			if(++posRelativa>12) {
 				if(--recorrido_restante>0) {
 					celda.moverCeldaDisparo(this);
 					posRelativa=1;
+					grafico.avanzar();
 				}
-				else {
-				//System.out.println("hello");
-				celda.eliminarDisparo(this);
-				grafico.eliminar();
-		    }
-				}
-
-	    }
-		grafico.avanzar();
+				else 
+					eliminar();
+			}
+			else grafico.avanzar();
 		System.out.println("Disparo :"+posRelativa);
 	}
 
@@ -56,5 +51,10 @@ public class Disparo {
 	}
 	public void setCelda(Celda c) {
 		celda=c;
+	}
+	
+	public void eliminar() {
+		celda.eliminarDisparo(this);
+		grafico.eliminar();
 	}
 }

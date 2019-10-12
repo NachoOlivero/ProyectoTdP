@@ -23,7 +23,7 @@ public class Torre1 extends Torre {
 		if(cooldown==0) {
 		Disparo disp=new Disparo(rango,dp,celda);
 		celda.añadirDisparo(disp);
-		cooldown=60;
+		cooldown=0;
 		}else
 			cooldown--;
 	}

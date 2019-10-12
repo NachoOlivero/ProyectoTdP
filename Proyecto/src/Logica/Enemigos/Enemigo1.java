@@ -27,12 +27,12 @@ public class Enemigo1 extends Enemigo{
 			atacar(celda.getTorre());
 		else {
 			grafico.avanzar();
-			if(pos>max) {
+			if(pos<min) {
 				celda.moverEnemigoCelda(this);
-				pos=1;
+				pos=12;
 				
 			}
-			pos+=vel;
+			pos-=vel;
 			
 		}
 		System.out.println("enemigo :"+pos);

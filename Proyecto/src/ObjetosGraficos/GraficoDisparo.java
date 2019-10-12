@@ -24,6 +24,7 @@ public class GraficoDisparo extends OGMovil {
 	public void eliminar() {
 		grafico.setVisible(false);
 		grafico.setIcon(null);
+		Singleton.getGui().remove(grafico);
 	}
 
 	@Override

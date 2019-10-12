@@ -4,6 +4,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import Factory.fabricaT;
+import Logica.Singleton;
 
 public class OGEnemigo1 extends OGMovil {
 	
@@ -22,6 +23,7 @@ public class OGEnemigo1 extends OGMovil {
 	public void eliminar() {
 		grafico.setVisible(false);
 		grafico.setIcon(null);
+		Singleton.getGui().remove(grafico);
 	}
 	
 	public int ubicacionGrafico() {
