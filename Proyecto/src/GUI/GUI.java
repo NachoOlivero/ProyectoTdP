@@ -70,4 +70,5 @@ public class GUI extends JFrame {
 		din.setText("Dinero: "+ju.getDinero());
 	}
 	
+	
 }

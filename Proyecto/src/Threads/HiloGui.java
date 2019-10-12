@@ -13,6 +13,7 @@ import Factory.fabricaT;
 import GUI.GUI;
 import Logica.Mapa;
 import Logica.Singleton;
+import Logica.Tienda;
 import Logica.Torres.Torre1;
 import Logica.abstracto.Torre;
 
@@ -22,6 +23,7 @@ public class HiloGui extends Thread {
 	private GUI gui;
 	private MovimientoEnemigos movEnemigos;
 	private abstractFactoriT torres;
+	private Torre torreactiva;
 
 
 	public HiloGui(GUI g,MovimientoEnemigos movEnem) {
@@ -29,7 +31,8 @@ public class HiloGui extends Thread {
 		movEnemigos=movEnem;
 		torres=new fabricaT(); 
 		
-		gui.agregarOyenteBoton(new Eliminar(),0);
+		gui.agregarOyenteBoton(new ComprarTorre1(),0);
+		gui.agregarOyenteBoton(new Eliminar(),2);
 		gui.agregarOyenteBoton(new EliminarAll(),1);
 		gui.agregarOyenteClick(new Mouse());
 	}
@@ -72,12 +75,13 @@ public class HiloGui extends Thread {
 	    	Mapa mapa=Singleton.getMapa();
 	    	boolean hayTorre=mapa.getCelda(f, c).hayTorre();
 	    	//System.out.println("mapa "+mapa+"  "+hayTorre);
-	    	
-	    	if(f>=0 && f<6 && c>=0 && c<10  && !hayTorre) {  //por ahora numeros, dps vemos como poner atributos para los limites
-		    	Torre torre=new Torre1(mapa.getCelda(f, c));
+	    	if(f>=0 && f<6 && c>=0 && c<10  && !hayTorre && torreactiva!=null) {  //por ahora numeros, dps vemos como poner atributos para los limites
+		    	
+		    	torreactiva.setCelda(mapa.getCelda(f, c));
 		    	//agregarDibujo(e.getX(),e.getY());
-		    	mapa.insertarTorre(torre,f,c);
+		    	mapa.insertarTorre(torreactiva,f,c);
 		    	System.out.println("Fila: "+f+" Columna: "+c);
+		    	torreactiva=null;
 	    	}
 	    	//System.out.println("las gui's son iguales"+ (gui==Singleton.getGui()));
 	  
@@ -106,6 +110,13 @@ public class HiloGui extends Thread {
 		public void actionPerformed(ActionEvent arg0) {
 			movEnemigos.eliminarAll();
 			gui.repaint();
+		}
+	}
+	public class ComprarTorre1 implements ActionListener{
+		public void actionPerformed(ActionEvent arg0) {
+			if (torreactiva==null)
+					torreactiva=Tienda.comprarT1();
+			
 		}
 	}
 		

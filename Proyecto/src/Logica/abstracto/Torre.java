@@ -1,5 +1,6 @@
 package Logica.abstracto;
 
+import Logica.Celda;
 import Logica.Mapa;
 
 public abstract class Torre extends Personaje{
@@ -12,4 +13,6 @@ public abstract class Torre extends Personaje{
 	}
 	
 	public abstract void atacar();
+
+	public abstract void setCelda(Celda c);
 }

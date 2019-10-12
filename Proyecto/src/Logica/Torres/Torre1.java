@@ -7,13 +7,16 @@ import ObjetosGraficos.ObjetoGraficoT1;
 
 public class Torre1 extends Torre {
 	
-	public Torre1(Celda cel) {
+	public Torre1() {
 		this.hp=500;
 		this.dp=500;
-		this.celda=cel;
 		this.rango=5;
-		grafico=new ObjetoGraficoT1(cel);
 		cooldown=0;
+		grafico=null;
+	}
+	public void setCelda(Celda c) {
+		grafico=new ObjetoGraficoT1(c);
+		celda=c;
 	}
 
 	public void atacar() {
