@@ -14,7 +14,7 @@ public class GraficoDisparo extends OGMovil {
 	}
 	
 	public void avanzar() {
-		grafico.setBounds(grafico.getX()+10, grafico.getY(), 110, 60);
+		grafico.setBounds(grafico.getX()+1, grafico.getY(), 110, 60);
 	}
 
 	public JLabel getGrafico() {

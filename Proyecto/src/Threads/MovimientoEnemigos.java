@@ -14,7 +14,7 @@ public class MovimientoEnemigos extends Thread {
 	protected Mapa mapa;
 	protected LinkedList<Enemigo> listaEnemigos;
 	protected GUI gui; // por ahora tine la gui
-	//protected int cant=0;
+	protected int coolDown=0;
 	
 	public MovimientoEnemigos(Mapa map,GUI g) {
 		listaEnemigos=new LinkedList<Enemigo>();
@@ -25,13 +25,16 @@ public class MovimientoEnemigos extends Thread {
 	public void run() {
 		while(true) {
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			//if(cant==0)
+			if(coolDown==0) {
 				crearEnemigo();
+				coolDown=20;
+			}
+			else coolDown--;
 			
 			mapa.mover();
 			//System.out.println("---------------------");

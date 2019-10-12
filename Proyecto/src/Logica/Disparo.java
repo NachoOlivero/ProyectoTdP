@@ -32,7 +32,7 @@ public class Disparo {
 			eliminar();
 		}
 		else 
-			if(++posRelativa>12) {
+			if(++posRelativa>120) {
 				if(--recorrido_restante>0) {
 					celda.moverCeldaDisparo(this);
 					posRelativa=1;

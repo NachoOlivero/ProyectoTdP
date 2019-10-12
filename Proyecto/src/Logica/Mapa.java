@@ -26,7 +26,8 @@ public class Mapa {
 			for(int j=0;j<celdas[0].length;j++) {
 				celdas[i][j].avanzarEnemigo();
 				celdas[i][j].dispararTorre();
-				celdas[i][j].avanzarDisparos();
+				for(int m=0;m<10;m++)
+					celdas[i][j].avanzarDisparos();
 			}
 		
 	}

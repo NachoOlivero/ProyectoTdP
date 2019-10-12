@@ -29,7 +29,7 @@ public class Enemigo1 extends Enemigo{
 			grafico.avanzar();
 			if(pos<min) {
 				celda.moverEnemigoCelda(this);
-				pos=12;
+				pos=120;
 				
 			}
 			pos-=vel;
@@ -58,6 +58,7 @@ public class Enemigo1 extends Enemigo{
 		celda.eliminarEnemigo(this);
 		grafico.eliminar();
 		Singleton.getJugador().aumentarPuntaje(20);
+		Singleton.getJugador().aumentarDinero(50);
 	}
 	
 	public void actualizarCelda(Celda c) {
