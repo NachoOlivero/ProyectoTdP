@@ -18,7 +18,7 @@ public class fabricaT extends abstractFactoriT {
 		return new ImageIcon(this.getClass().getResource("./Esqueleto.gif"));
 	}
 	public ImageIcon disparo() {
-		return new ImageIcon(this.getClass().getResource("./proyectil.gif"));
+		return new ImageIcon(this.getClass().getResource("./Proyectiltemp.png"));
 	}
 
 }
