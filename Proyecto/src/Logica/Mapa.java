@@ -43,8 +43,9 @@ public class Mapa {
 	public Enemigo enemigoEnRango(int rango,int fila,int columna) {
 		Enemigo ret=null;
 		int cont=0;
-		while(cont<rango && columna<10){
-			ret=celdas[fila][columna++].getEnemigo();
+		while(cont<rango && columna<10 && ret==null) {
+			ret=celdas[fila][columna].getEnemigo();
+			columna++;
 			cont++;
 		}
 		

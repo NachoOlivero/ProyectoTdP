@@ -57,4 +57,8 @@ public class Disparo {
 		celda.eliminarDisparo(this);
 		grafico.eliminar();
 	}
+	
+	public float getDaño() {
+		return daño;
+	}
 }

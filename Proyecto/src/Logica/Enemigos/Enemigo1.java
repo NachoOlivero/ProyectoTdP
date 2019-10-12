@@ -19,23 +19,22 @@ public class Enemigo1 extends Enemigo{
 	}
 	
 	public void avanzar() {
-		Disparo dis=celda.getDisparo(vel);
-			if(dis!=null) {
-				dis.avanzar();
-			}
-		if (celda.hayTorre())
-			atacar(celda.getTorre());
-		else {
-			grafico.avanzar();
-			if(pos<min) {
-				celda.moverEnemigoCelda(this);
-				pos=120;
-				
-			}
-			pos-=vel;
-			
+		Disparo dis=celda.getDisparo(pos);
+		
+		if(dis==null) {
+			if (celda.hayTorre())
+				atacar(celda.getTorre());
+			else {
+				grafico.avanzar();
+				pos-=vel;
+				if(pos<min) {
+					celda.moverEnemigoCelda(this);
+					pos=120;
+				 }
+		    }
 		}
-		System.out.println("enemigo :"+pos);
+		else recibirDaño(dis.getDaño());
+		//System.out.println("enemigo :"+pos);
 	}
 
 	public void atacar(Personaje p) {
