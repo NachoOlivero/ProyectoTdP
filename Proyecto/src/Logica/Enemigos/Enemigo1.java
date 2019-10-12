@@ -1,6 +1,7 @@
 package Logica.Enemigos;
 
 import Logica.Celda;
+import Logica.Singleton;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Personaje;
 import ObjetosGraficos.OGEnemigo1;
@@ -48,6 +49,7 @@ public class Enemigo1 extends Enemigo{
 	public void Eliminar() {
 		celda.eliminarEnemigo(this);
 		grafico.eliminar();
+		Singleton.getJugador().aumentarPuntaje(20);
 	}
 	
 	public void actualizarCelda(Celda c) {

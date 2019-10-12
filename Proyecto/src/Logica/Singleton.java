@@ -5,6 +5,7 @@ import GUI.GUI;
 public class Singleton {
 	protected static Mapa mapa;
 	protected static GUI gui;
+	protected static Jugador ju;
 	
 	public synchronized static Mapa getMapa() {
 		if(mapa != null)
@@ -22,6 +23,14 @@ public class Singleton {
 		else {
 			gui=new GUI();
 			return gui;
+		}
+	}
+	public synchronized static Jugador getJugador() {
+		if(ju != null)
+			return ju;
+		else {
+			ju = new Jugador();
+			return ju;
 		}
 	}
 }
