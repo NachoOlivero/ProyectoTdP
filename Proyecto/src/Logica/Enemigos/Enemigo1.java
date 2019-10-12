@@ -1,6 +1,7 @@
 package Logica.Enemigos;
 
 import Logica.Celda;
+import Logica.Disparo;
 import Logica.Singleton;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Personaje;
@@ -18,6 +19,10 @@ public class Enemigo1 extends Enemigo{
 	}
 	
 	public void avanzar() {
+		Disparo dis=celda.getDisparo(vel);
+			if(dis!=null) {
+				dis.avanzar();
+			}
 		if (celda.hayTorre())
 			atacar(celda.getTorre());
 		else {
@@ -25,10 +30,12 @@ public class Enemigo1 extends Enemigo{
 			if(pos>max) {
 				celda.moverEnemigoCelda(this);
 				pos=1;
+				
 			}
 			pos+=vel;
 			
 		}
+		System.out.println("enemigo :"+pos);
 	}
 
 	public void atacar(Personaje p) {
@@ -37,6 +44,7 @@ public class Enemigo1 extends Enemigo{
 	}
 
 	public void recibirDaño(float daño) {
+		System.out.println("ouch");
 		hp-=daño;
 		if(hp<=0) 
 			Eliminar();

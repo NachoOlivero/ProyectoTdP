@@ -47,7 +47,7 @@ public class Mapa {
 			cont++;
 		}
 		
-		System.out.println(ret);
+		//System.out.println(ret);
 		return ret;
 	}
 	
@@ -65,8 +65,10 @@ public class Mapa {
 	}
 	
 	public void insertarDisparo(Disparo disp, int fila,int columna) {
-		if(columna<maxColumnas)
+		if(columna<maxColumnas) {
 			celdas[fila][columna].añadirDisparo(disp);
+			disp.setCelda(celdas[fila][columna]);
+		}
 	}
 	
 	public Celda getCelda(int x,int y) {

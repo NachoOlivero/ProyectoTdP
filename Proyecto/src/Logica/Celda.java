@@ -45,7 +45,7 @@ public class Celda {
 		int min=13;
 		
 		Iterator<Enemigo> it=listaEnem.iterator();
-		System.out.println("lista"+it.hasNext()+" en "+fila+" "+ columna);
+		//System.out.println("lista"+it.hasNext()+" en "+fila+" "+ columna);
 			while(it.hasNext()) {
 			Enemigo nxt=it.next();
 			if(nxt.tieneMenorPosicion(min))
@@ -69,7 +69,7 @@ public class Celda {
 	
 	public void addEnemigo(Enemigo ene) {
 		listaEnem.add(ene);
-		System.out.println("Lista vacia?: "+listaEnem.isEmpty()+" en "+fila+" "+ columna);
+		//System.out.println("Lista vacia?: "+listaEnem.isEmpty()+" en "+fila+" "+ columna);
 	}
 	
 	public void eliminarTorre() {  //avisar al mapa
@@ -111,7 +111,9 @@ public class Celda {
 		if(torre!=null) {
 			Enemigo ene=mapa.enemigoEnRango(torre.getRango(),fila,columna);
 			if(ene!=null) {
-				torre.atacar();System.out.println("ddd");}
+				torre.atacar();
+				//System.out.println("ddd");
+				}
 		}
 	}
 	
@@ -130,7 +132,7 @@ public class Celda {
 			listaEnem.remove(e);
 			mapa.insertarEnemigo(e, fila,columna-1);
 			e.actualizarCelda(mapa.getCelda(fila, columna-1));
-			System.out.println("movimiento");
+			//System.out.println("movimiento");
 	}
 	
 	public void eliminarEnemigo(Enemigo ene) {
@@ -146,5 +148,16 @@ public class Celda {
 	}
 	public int cantD() {
 		return listaDisparos.size();
+	}
+
+	public Disparo getDisparo(int vel) {
+		Disparo ret=null;
+		Iterator<Disparo> it=listaDisparos.iterator();
+		while(it.hasNext() && ret==null) {
+			Disparo enm=it.next();
+			if(enm.estaEnPosicion(vel))
+				ret=enm;
+		}
+		return ret;
 	}
 }

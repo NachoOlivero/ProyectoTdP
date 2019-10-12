@@ -9,7 +9,7 @@ public class GraficoDisparo extends OGMovil {
 	public GraficoDisparo(int x,int y) {
 		fabricaT f=new fabricaT();
 		grafico=new JLabel(f.disparo());
-		grafico.setBounds(x*120,y*100,110,60);
+		grafico.setBounds(x*120-60,y*100,110,60);
 		Singleton.getGui().add(grafico);
 	}
 	

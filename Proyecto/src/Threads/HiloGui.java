@@ -46,7 +46,7 @@ public class HiloGui extends Thread {
 	
 	private void agregarDibujo(int x,int y){
 		JLabel dibujo;
-		System.out.println(x+" "+y);
+		//System.out.println(x+" "+y);
 		//agrega dibujo solo dentro de las coordenadas posibles
 		if(x>40 && x<1240 && y<600) {
 		//System.out.println(x+"::::"+y);
@@ -80,7 +80,7 @@ public class HiloGui extends Thread {
 		    	torreactiva.setCelda(mapa.getCelda(f, c));
 		    	//agregarDibujo(e.getX(),e.getY());
 		    	mapa.insertarTorre(torreactiva,f,c);
-		    	System.out.println("Fila: "+f+" Columna: "+c);
+		    	//System.out.println("Fila: "+f+" Columna: "+c);
 		    	torreactiva=null;
 	    	}
 	    	//System.out.println("las gui's son iguales"+ (gui==Singleton.getGui()));

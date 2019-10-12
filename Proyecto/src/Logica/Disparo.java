@@ -26,7 +26,7 @@ public class Disparo {
 	
 	public void avanzar() {
 		Enemigo ene=celda.getEnemigo(posRelativa);
-		System.out.println("posRel: "+posRelativa);
+		//System.out.println("posRel: "+posRelativa);
 		if(ene!=null) {
 			ene.recibirDaño(daño);
 			celda.eliminarDisparo(this);
@@ -38,10 +38,23 @@ public class Disparo {
 					celda.moverCeldaDisparo(this);
 					posRelativa=1;
 				}
-				else celda.eliminarDisparo(this);
+				else {
+				//System.out.println("hello");
+				celda.eliminarDisparo(this);
+				grafico.eliminar();
 		    }
+				}
 
 	    }
 		grafico.avanzar();
+		System.out.println("Disparo :"+posRelativa);
+	}
+
+	public boolean estaEnPosicion(int vel) {
+		
+		return vel==posRelativa;
+	}
+	public void setCelda(Celda c) {
+		celda=c;
 	}
 }
