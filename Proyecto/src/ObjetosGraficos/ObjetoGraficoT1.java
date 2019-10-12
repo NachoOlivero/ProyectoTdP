@@ -15,7 +15,7 @@ public class ObjetoGraficoT1 extends OGTorre {
 		ImageIcon imagen = to.Torre1();
 		grafico=new JLabel(imagen);
 		GUI gui=Singleton.getGui();
-		grafico.setBounds((c.getX()*120)+40, (c.getY()*100)-15 , 80, 90);
+		grafico.setBounds((c.getX()*120)+20, (c.getY()*100)-15 , 80, 90);
 		gui.add(grafico);
 		grafico.setVisible(true);
 		gui.repaint();
