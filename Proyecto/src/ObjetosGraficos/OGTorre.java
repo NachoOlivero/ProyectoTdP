@@ -2,7 +2,7 @@ package ObjetosGraficos;
 
 import javax.swing.JLabel;
 
-import GUI.fabricaT;
+import Factory.fabricaT;
 import Logica.Celda;
 import Logica.Singleton;
 

@@ -2,6 +2,7 @@ package Logica;
 
 import Logica.abstracto.Enemigo;
 import ObjetosGraficos.GraficoDisparo;
+import ObjetosGraficos.OGMovil;
 import ObjetosGraficos.ObjetoGrafico;
 
 public class Disparo {
@@ -9,7 +10,7 @@ public class Disparo {
 	protected float daño;
 	protected int posRelativa;
 	protected Celda celda;
-	protected ObjetoGrafico grafico;
+	protected OGMovil grafico;
 	
 	public Disparo(int alcance, float dñ,Celda celda) {
 		recorrido_restante=alcance;
@@ -25,7 +26,7 @@ public class Disparo {
 	
 	public void avanzar() {
 		Enemigo ene=celda.getEnemigo(posRelativa);
-		System.out.println("posdisparo: "+celda.getX());
+		System.out.println("posRel: "+posRelativa);
 		if(ene!=null) {
 			ene.recibirDaño(daño);
 			celda.eliminarDisparo(this);
@@ -33,10 +34,14 @@ public class Disparo {
 		else {
 			posRelativa++;
 			if(posRelativa>12) {
-				if(--recorrido_restante>0)
+				if(--recorrido_restante>0) {
 					celda.moverCeldaDisparo(this);
+					posRelativa=1;
+				}
 				else celda.eliminarDisparo(this);
 		    }
+
 	    }
+		grafico.avanzar();
 	}
 }

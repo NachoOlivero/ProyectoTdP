@@ -73,6 +73,7 @@ public class Celda {
 	}
 	
 	public void eliminarTorre() {  //avisar al mapa
+		torre.Eliminar();
 		torre=null;
 	}
 	
@@ -142,5 +143,8 @@ public class Celda {
 	
 	public int getY() {
 		return fila;
+	}
+	public int cantD() {
+		return listaDisparos.size();
 	}
 }

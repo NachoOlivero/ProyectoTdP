@@ -1,4 +1,4 @@
-package GUI;
+package Factory;
 
 import java.awt.Image;
 import java.net.URL;
@@ -15,10 +15,10 @@ public class fabricaT extends abstractFactoriT {
 	}
 	
 	public ImageIcon Enemigo1() {
-		return new ImageIcon(this.getClass().getResource("./ezgif.com-rotate.gif"));
+		return new ImageIcon(this.getClass().getResource("./Esqueleto.gif"));
 	}
 	public ImageIcon disparo() {
-		return new ImageIcon(this.getClass().getResource("./torre1.png"));
+		return new ImageIcon(this.getClass().getResource("./proyectil.gif"));
 	}
 
 }

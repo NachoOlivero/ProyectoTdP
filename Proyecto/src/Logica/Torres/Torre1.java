@@ -13,11 +13,16 @@ public class Torre1 extends Torre {
 		this.celda=cel;
 		this.rango=5;
 		grafico=new ObjetoGraficoT1(cel);
+		cooldown=0;
 	}
 
 	public void atacar() {
+		if(cooldown==0) {
 		Disparo disp=new Disparo(rango,dp,celda);
 		celda.añadirDisparo(disp);
+		cooldown=6;
+		}else
+			cooldown--;
 	}
 	
 	public void recibirDaño(float daño) {

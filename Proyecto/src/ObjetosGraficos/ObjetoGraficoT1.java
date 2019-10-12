@@ -3,8 +3,8 @@ package ObjetosGraficos;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import Factory.fabricaT;
 import GUI.GUI;
-import GUI.fabricaT;
 import Logica.Celda;
 import Logica.Singleton;
 

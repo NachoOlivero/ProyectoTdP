@@ -2,19 +2,19 @@ package ObjetosGraficos;
 
 import javax.swing.JLabel;
 
-import GUI.fabricaT;
+import Factory.fabricaT;
 import Logica.Singleton;
 
-public class GraficoDisparo extends ObjetoGrafico {
+public class GraficoDisparo extends OGMovil {
 	public GraficoDisparo(int x,int y) {
 		fabricaT f=new fabricaT();
 		grafico=new JLabel(f.disparo());
-		grafico.setBounds(x*120,y*100,50,50);
+		grafico.setBounds(x*120,y*100,110,60);
 		Singleton.getGui().add(grafico);
 	}
 	
 	public void avanzar() {
-		grafico.setBounds(grafico.getX()+10, grafico.getY(), 10, 10);
+		grafico.setBounds(grafico.getX()+10, grafico.getY(), 110, 60);
 	}
 
 	public JLabel getGrafico() {
@@ -24,6 +24,11 @@ public class GraficoDisparo extends ObjetoGrafico {
 	public void eliminar() {
 		grafico.setVisible(false);
 		grafico.setIcon(null);
+	}
+
+	@Override
+	public int ubicacionGrafico() {
+		return 0;
 	}
 
 }

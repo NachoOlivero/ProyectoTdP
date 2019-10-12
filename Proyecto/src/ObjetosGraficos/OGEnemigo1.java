@@ -3,9 +3,9 @@ package ObjetosGraficos;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import GUI.fabricaT;
+import Factory.fabricaT;
 
-public class OGEnemigo1 extends OGEnemigo {
+public class OGEnemigo1 extends OGMovil {
 	
 	public OGEnemigo1() {
 		fabricaT f=new fabricaT();

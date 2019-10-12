@@ -1,11 +1,11 @@
 package Logica.abstracto;
 
 import Logica.Celda;
-import ObjetosGraficos.OGEnemigo;
+import ObjetosGraficos.OGMovil;
 
 public abstract class Enemigo extends Personaje{
 	protected int vel;
-	protected OGEnemigo grafico;
+	protected OGMovil grafico;
 	protected final int max=12;
 	protected int pos=1;
 	

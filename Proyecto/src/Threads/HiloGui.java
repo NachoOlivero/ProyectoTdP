@@ -8,9 +8,9 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import Factory.abstractFactoriT;
+import Factory.fabricaT;
 import GUI.GUI;
-import GUI.abstractFactoriT;
-import GUI.fabricaT;
 import Logica.Mapa;
 import Logica.Singleton;
 import Logica.Torres.Torre1;
