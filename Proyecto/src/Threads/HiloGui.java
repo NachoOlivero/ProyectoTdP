@@ -14,7 +14,6 @@ import GUI.GUI;
 import Logica.Mapa;
 import Logica.Singleton;
 import Logica.Tienda;
-import Logica.Torres.Torre1;
 import Logica.abstracto.Torre;
 
 

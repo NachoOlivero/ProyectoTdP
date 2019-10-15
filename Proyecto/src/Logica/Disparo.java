@@ -3,7 +3,6 @@ package Logica;
 import Logica.abstracto.Enemigo;
 import ObjetosGraficos.GraficoDisparo;
 import ObjetosGraficos.OGMovil;
-import ObjetosGraficos.ObjetoGrafico;
 
 public class Disparo {
 	protected int recorrido_restante;
@@ -42,7 +41,7 @@ public class Disparo {
 					eliminar();
 			}
 			else grafico.avanzar();
-		System.out.println("Disparo :"+posRelativa);
+		//System.out.println("Disparo :"+posRelativa);
 	}
 
 	public boolean estaEnPosicion(int vel) {

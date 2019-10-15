@@ -8,7 +8,7 @@ import ObjetosGraficos.ObjetoGraficoT1;
 public class Torre1 extends Torre {
 	
 	public Torre1() {
-		this.hp=500;
+		this.hp=5000;
 		this.dp=500;
 		this.rango=5;
 		cooldown=0;
@@ -21,11 +21,11 @@ public class Torre1 extends Torre {
 
 	public void atacar() {
 		if(cooldown==0) {
-		Disparo disp=new Disparo(rango,dp,celda);
-		celda.añadirDisparo(disp);
-		cooldown=6;
-		}else
-			cooldown--;
+			Disparo disp=new Disparo(rango,dp,celda);
+			celda.añadirDisparo(disp);
+			cooldown=6;
+		}
+		else cooldown--;
 	}
 	
 	public void recibirDaño(float daño) {

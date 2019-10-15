@@ -6,14 +6,14 @@ import Logica.abstracto.Torre;
 public class Mapa {
 	private Celda celdas[][];
 	private int maxColumnas;
-	private int maxFilas;
+	//private int maxFilas;
 	
 	public Mapa() {
 	}
 	
 	public void inicializarCeldas(int x,int y) {
 		maxColumnas=y;
-		maxFilas=x;
+		//maxFilas=x;
 		celdas= new Celda[x][y];
 		for(int i=0;i<x;i++)
 			for(int j=0;j<y;j++)
@@ -22,13 +22,14 @@ public class Mapa {
 	
 	public void mover() {
 		
-		for(int i=0;i<celdas.length;i++)
+		for(int i=0;i<celdas.length;i++) {
 			for(int j=0;j<celdas[0].length;j++) {
 				celdas[i][j].avanzarEnemigo();
 				celdas[i][j].dispararTorre();
 				for(int m=0;m<10;m++)
 					celdas[i][j].avanzarDisparos();
 			}
+		}
 		
 	}
 		public void KillAll() {
@@ -40,21 +41,19 @@ public class Mapa {
 		
 	}
 	
-	public Enemigo enemigoEnRango(int rango,int fila,int columna) {
-		Enemigo ret=null;
+	public boolean hayEnemigoEnRango(int rango,int fila,int columna) {
+		boolean hayEnemigo=false;
 		int cont=0;
-		while(cont<rango && columna<10 && ret==null) {
-			ret=celdas[fila][columna].getEnemigo();
+		while(cont<rango && columna<10 && !hayEnemigo) {
+			hayEnemigo=celdas[fila][columna].hayEnemigo();
 			columna++;
 			cont++;
 		}
-		
-		//System.out.println(ret);
-		return ret;
+		return hayEnemigo;
 	}
 	
 	public void insertarEnemigo(Enemigo ene,int fila) {			
-			celdas[fila][celdas[0].length-1].addEnemigo(ene);
+			celdas[fila][maxColumnas-1].addEnemigo(ene);
 		}
 	
 	public void insertarEnemigo(Enemigo ene,int fila,int columna) {
@@ -76,6 +75,10 @@ public class Mapa {
 	
 	public Celda getCelda(int x,int y) {
 		return celdas[x][y];
+	}
+	
+	public Celda getCelda(int x) {
+		return celdas[x][maxColumnas-1];
 	}
 }
 

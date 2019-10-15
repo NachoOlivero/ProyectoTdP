@@ -40,19 +40,8 @@ public class Celda {
 		//System.out.println("Torre "+t+" insertada");
 	}
 	
-	public Enemigo getEnemigo() { // retorna el enemigo con menor valor de posicion
-		Enemigo ret=null;
-		int min=13;
-		
-		Iterator<Enemigo> it=listaEnem.iterator();
-		//System.out.println("lista"+it.hasNext()+" en "+fila+" "+ columna);
-			while(it.hasNext()) {
-			Enemigo nxt=it.next();
-			if(nxt.tieneMenorPosicion(min))
-				ret=nxt;
-	}
-		//System.out.println("Enemigo en rango: "+ret+" Esta vacia: "+listaEnem.isEmpty());
-		 return ret;
+	public boolean hayEnemigo() { // retorna el enemigo con menor valor de posicion
+		return !listaEnem.isEmpty();
 	}
 	
 	public Enemigo getEnemigo(int posicion) { 
@@ -69,7 +58,7 @@ public class Celda {
 	
 	public void addEnemigo(Enemigo ene) {
 		listaEnem.add(ene);
-		//System.out.println("Lista vacia?: "+listaEnem.isEmpty()+" en "+fila+" "+ columna);
+		System.out.println("Lista vacia?: "+listaEnem.isEmpty()+" en "+fila+" "+ columna);
 	}
 	
 	public void eliminarTorre() {  //avisar al mapa
@@ -108,13 +97,10 @@ public class Celda {
 	}
 	
 	public void dispararTorre() {
-		if(torre!=null) {
-			Enemigo ene=mapa.enemigoEnRango(torre.getRango(),fila,columna);
-			if(ene!=null) {
+		if(torre!=null) 
+			if(Singleton.getMapa().hayEnemigoEnRango(torre.getRango(), fila, columna)) 
 				torre.atacar();
-				//System.out.println("ddd");
-				}
-		}
+				
 	}
 	
 	public void eliminarTodos() {

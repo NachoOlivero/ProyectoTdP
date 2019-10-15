@@ -1,7 +1,6 @@
 package Threads;
 
 import java.util.LinkedList;
-import java.util.Random;
 
 import GUI.GUI;
 import Logica.Mapa;
@@ -45,13 +44,12 @@ public class MovimientoEnemigos extends Thread {
 		int fila=(int) (Math.random()*6);
 		if(fila==6)
 			fila=0;
-		Enemigo nuevo=new Enemigo1(mapa.getCelda(fila, 9));
+		
+		Enemigo nuevo=new Enemigo1(mapa.getCelda(fila));
+		nuevo.setGrafico(fila);
 		
 		mapa.insertarEnemigo(nuevo,fila);
 		listaEnemigos.addLast(nuevo);
-		nuevo.getGrafico().getGrafico().setBounds(1220,fila*100, 50, 50);
-		gui.add(nuevo.getGrafico().getGrafico());
-		//cant++;
 		
 		return nuevo;
 	}

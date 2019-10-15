@@ -21,4 +21,6 @@ public abstract class Enemigo extends Personaje{
 		return pos;
 	}
 	
+	public abstract void setGrafico(int pos);
+	
 }

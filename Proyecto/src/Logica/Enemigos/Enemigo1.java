@@ -33,8 +33,10 @@ public class Enemigo1 extends Enemigo{
 				 }
 		    }
 		}
-		else recibirDaño(dis.getDaño());
-		//System.out.println("enemigo :"+pos);
+		else {
+			recibirDaño(dis.getDaño());
+			dis.eliminar();
+		}
 	}
 
 	public void atacar(Personaje p) {
@@ -70,6 +72,10 @@ public class Enemigo1 extends Enemigo{
 	
 	public boolean tieneMenorPosicion(int pos) {
 		return this.pos<pos;
+	}
+	
+	public void setGrafico(int pos) {
+		grafico.setPosicion(pos);
 	}
 
 }

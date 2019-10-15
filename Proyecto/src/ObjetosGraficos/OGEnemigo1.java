@@ -1,6 +1,5 @@
 package ObjetosGraficos;
 
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import Factory.fabricaT;
@@ -28,5 +27,10 @@ public class OGEnemigo1 extends OGMovil {
 	
 	public int ubicacionGrafico() {
 		return (grafico.getX()-50)/120;
+	}
+	
+	public void setPosicion(int pos) {
+		grafico.setBounds(1220,pos*100, 50, 50);
+		Singleton.getGui().add(grafico);
 	}
 }

@@ -27,9 +27,12 @@ public class GraficoDisparo extends OGMovil {
 		Singleton.getGui().remove(grafico);
 	}
 
-	@Override
 	public int ubicacionGrafico() {
 		return 0;
+	}
+
+	public void setPosicion(int pos) {
+		
 	}
 
 }
