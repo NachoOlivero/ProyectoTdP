@@ -32,7 +32,7 @@ public class Disparo {
 			eliminar();
 		}
 		else 
-			if(++posRelativa>12) {
+			if(++posRelativa>120) {
 				if(--recorrido_restante>0) {
 					celda.moverCeldaDisparo(this);
 					posRelativa=1;
@@ -56,5 +56,9 @@ public class Disparo {
 	public void eliminar() {
 		celda.eliminarDisparo(this);
 		grafico.eliminar();
+	}
+	
+	public float getDaño() {
+		return daño;
 	}
 }

@@ -13,7 +13,7 @@ public class OGEnemigo1 extends OGMovil {
 		grafico=new JLabel(f.Enemigo1());
 	}
 	public void avanzar() {
-		grafico.setBounds(grafico.getX()-10, grafico.getY(), 50, 50);
+		grafico.setBounds(grafico.getX()-1, grafico.getY(), 50, 50);
 	}
 
 	public JLabel getGrafico() {

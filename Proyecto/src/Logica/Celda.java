@@ -150,13 +150,13 @@ public class Celda {
 		return listaDisparos.size();
 	}
 
-	public Disparo getDisparo(int vel) {
+	public Disparo getDisparo(int pos) {
 		Disparo ret=null;
 		Iterator<Disparo> it=listaDisparos.iterator();
 		while(it.hasNext() && ret==null) {
-			Disparo enm=it.next();
-			if(enm.estaEnPosicion(vel))
-				ret=enm;
+			Disparo disp=it.next();
+			if(disp.estaEnPosicion(pos))
+				ret=disp;
 		}
 		return ret;
 	}
