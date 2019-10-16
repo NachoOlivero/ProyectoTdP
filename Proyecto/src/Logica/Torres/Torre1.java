@@ -2,6 +2,7 @@ package Logica.Torres;
 
 import Logica.Celda;
 import Logica.Disparo;
+import Logica.abstracto.Personaje;
 import Logica.abstracto.Torre;
 import ObjetosGraficos.ObjetoGraficoT1;
 
@@ -34,5 +35,10 @@ public class Torre1 extends Torre {
 			celda.eliminarTorre();
 			grafico.eliminar();
 		}
+	}
+	
+	public void atacar(Personaje e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
