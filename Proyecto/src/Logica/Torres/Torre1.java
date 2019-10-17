@@ -51,6 +51,4 @@ public class Torre1 extends Torre {
 	public void resetCooldown() {
 		cooldownActual=cooldownOriginal;
 	}
-	
-	
 }

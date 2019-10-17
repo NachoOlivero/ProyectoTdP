@@ -3,8 +3,7 @@ package Logica.abstracto;
 import Logica.Celda;
 import Logica.Mapa;
 
-public abstract class Torre extends Personaje{
-	protected Mapa mapa;
+public abstract class Torre extends Estructura{
 	protected int rango;
 	protected int cooldown;
 	protected int cooldownActual;

@@ -15,4 +15,6 @@ public void Eliminar() {
 		System.out.println(grafico);
 		grafico.eliminar();
 	}
+
+public abstract void atacar(Personaje e);
 }
