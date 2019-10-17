@@ -21,15 +21,16 @@ public class KillAll implements PowerUp {
 	}
 	
 	public void eliminar() {
+		grafico.eliminar();
+		Singleton.getMapa().eliminarPowerUp(this);
 		
 	}
 
 	public class Oyente extends MouseAdapter{
 
 		public void mouseClicked(MouseEvent arg0) {
-			eliminar();  //por ahora asi
 			comenzar();
-			System.out.println("hola");
+			eliminar();
 		}
 	}
 	

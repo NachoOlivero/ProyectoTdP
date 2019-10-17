@@ -58,7 +58,6 @@ public class Celda {
 	
 	public void addEnemigo(Enemigo ene) {
 		listaEnem.add(ene);
-		System.out.println("Lista vacia?: "+listaEnem.isEmpty()+" en "+fila+" "+ columna);
 	}
 	
 	public void eliminarTorre() {  //avisar al mapa

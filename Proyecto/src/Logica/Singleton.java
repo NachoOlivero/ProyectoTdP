@@ -40,17 +40,17 @@ public class Singleton {
 		Random rand=new Random();
 		PowerUp pu=null;
 		
-		int caso=rand.nextInt(100);
+		int caso=rand.nextInt(10);
 		
-		//switch (caso) {
-		//case 0:
+		switch (caso) {
+		case 0:
 				pu=new SpeedUp(x,y);
-				//break;
-		//case 1:
-			//	pu=new moneyBoost();
-				//break;
+				break;
+		case 1:
+				pu=new KillAll(x,y);
+				break;
 		
-		//}
+		}
 		
 		return pu;
 	}

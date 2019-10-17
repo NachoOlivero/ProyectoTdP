@@ -34,7 +34,7 @@ public class Torre1 extends Torre {
 	public void recibirDaño(float daño) {
 		hp-=daño;
 		if(hp<=0) {
-			Singleton.getMapa().eliminarTorre(this,celda.getX(),celda.getY());
+			Singleton.getMapa().eliminarTorre(this,celda.getY(),celda.getX());
 			grafico.eliminar();
 		}
 	}

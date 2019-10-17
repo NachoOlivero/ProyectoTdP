@@ -11,9 +11,11 @@ public class Mapa {
 	private int maxColumnas;
 	//private int maxFilas;
 	private List<Torre> listaTorres;
+	private List<PowerUp> listaPowerUps;
 	
 	public Mapa() {
 		listaTorres=new LinkedList<Torre>();
+		listaPowerUps=new LinkedList<PowerUp>();
 	}
 	
 	public void inicializarCeldas(int x,int y) {
@@ -94,6 +96,14 @@ public class Mapa {
 	
 	public List<Torre> getListaTorres(){
 		return listaTorres;
+	}
+	
+	public void insertarPowerUp(PowerUp pu) {
+		listaPowerUps.add(pu);
+	}
+	
+	public void eliminarPowerUp(PowerUp pu) {  
+		listaPowerUps.remove(pu); 
 	}
 	
 	

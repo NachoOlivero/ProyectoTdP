@@ -19,12 +19,6 @@ public class OGEnemigo1 extends OGMovil {
 		return grafico;
 	}
 	
-	public void eliminar() {
-		grafico.setVisible(false);
-		grafico.setIcon(null);
-		Singleton.getGui().remove(grafico);
-	}
-	
 	public int ubicacionGrafico() {
 		return (grafico.getX()-50)/120;
 	}

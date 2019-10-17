@@ -26,14 +26,15 @@ public class SpeedUp implements PowerUp{
 		List<Torre> listaTorres=Singleton.getMapa().getListaTorres();
 		for(Torre t:listaTorres) {
 			int vel=t.getCooldown();
-			t.setCooldown(0*vel);
+			t.setCooldown(vel/2);
 		}
 		timer.schedule(new SpeedUpAction(), 5000);
 	}
 	
 	
 	public void eliminar() {
-		
+		grafico.eliminar();
+		Singleton.getMapa().eliminarPowerUp(this);
 	}
 	
 	private class SpeedUpAction extends TimerTask {
@@ -42,6 +43,7 @@ public class SpeedUp implements PowerUp{
 			List<Torre> listaTorres=Singleton.getMapa().getListaTorres();
 			for(Torre t:listaTorres)
 				t.resetCooldown();
+			eliminar();
 			
 		}
 	

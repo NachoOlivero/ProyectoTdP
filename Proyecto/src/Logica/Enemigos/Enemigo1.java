@@ -46,7 +46,6 @@ public class Enemigo1 extends Enemigo{
 	}
 
 	public void recibirDaño(float daño) {
-		System.out.println("ouch");
 		hp-=daño;
 		if(hp<=0) 
 			Eliminar();
@@ -62,6 +61,7 @@ public class Enemigo1 extends Enemigo{
 		Singleton.getJugador().aumentarPuntaje(20);
 		Singleton.getJugador().aumentarDinero(50);
 		PowerUp pu=Singleton.powerUp(grafico.getGrafico().getX(),grafico.getGrafico().getY());
+		Singleton.getMapa().insertarPowerUp(pu);
 	}
 	
 	public void actualizarCelda(Celda c) {
