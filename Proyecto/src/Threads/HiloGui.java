@@ -8,7 +8,7 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import Factory.abstractFactoriT;
+import Factory.AbstractFactoryT;
 import Factory.fabricaT;
 import GUI.GUI;
 import Logica.Mapa;
@@ -21,7 +21,7 @@ public class HiloGui extends Thread {
 
 	private GUI gui;
 	private MovimientoEnemigos movEnemigos;
-	private abstractFactoriT torres;
+	private AbstractFactoryT torres;
 	private Torre torreactiva;
 
 

@@ -1,5 +1,7 @@
 package Logica;
 
+import java.util.Random;
+
 import GUI.GUI;
 
 public class Singleton {
@@ -33,4 +35,24 @@ public class Singleton {
 			return ju;
 		}
 	}
+	
+	public static PowerUp powerUp(int x,int y) {
+		Random rand=new Random();
+		PowerUp pu=null;
+		
+		int caso=rand.nextInt(100);
+		
+		//switch (caso) {
+		//case 0:
+				pu=new SpeedUp(x,y);
+				//break;
+		//case 1:
+			//	pu=new moneyBoost();
+				//break;
+		
+		//}
+		
+		return pu;
+	}
+	
 }

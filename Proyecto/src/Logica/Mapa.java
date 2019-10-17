@@ -1,5 +1,8 @@
 package Logica;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Torre;
 
@@ -7,8 +10,10 @@ public class Mapa {
 	private Celda celdas[][];
 	private int maxColumnas;
 	//private int maxFilas;
+	private List<Torre> listaTorres;
 	
 	public Mapa() {
+		listaTorres=new LinkedList<Torre>();
 	}
 	
 	public void inicializarCeldas(int x,int y) {
@@ -61,8 +66,14 @@ public class Mapa {
 			celdas[fila][columna].addEnemigo(ene);
 	}
 	
-	public void insertarTorre(Torre t,int fila,int columna) {
+	public void insertarTorre(Torre t,int fila,int columna) {  
 		celdas[fila][columna].insertarTorre(t);
+		listaTorres.add(t); 
+	}
+	
+	public void eliminarTorre(Torre t,int fila,int columna) {  
+		celdas[fila][columna].eliminarTorre();
+		listaTorres.remove(t); 
 	}
 	
 	public void insertarDisparo(Disparo disp, int fila,int columna) {
@@ -80,5 +91,11 @@ public class Mapa {
 	public Celda getCelda(int x) {
 		return celdas[x][maxColumnas-1];
 	}
+	
+	public List<Torre> getListaTorres(){
+		return listaTorres;
+	}
+	
+	
 }
 
