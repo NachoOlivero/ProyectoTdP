@@ -4,16 +4,19 @@ import Logica.Disparo;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Torre;
 
-public class VisitorEnemigos extends Visitor  {
+public class VisitorCeldaEstructura extends Visitor {
 
+	
 	@Override
 	public void visitAliado(Disparo a) {
-		//miEntidad.atacar(a);
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void visitEnemigo(Enemigo e) {
+		// TODO Auto-generated method stub
+		
 	}
 
-	
 }
