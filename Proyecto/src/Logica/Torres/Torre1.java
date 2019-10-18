@@ -3,8 +3,10 @@ package Logica.Torres;
 import Logica.Celda;
 import Logica.Disparo;
 import Logica.Singleton;
+import Logica.abstracto.Personaje;
 import Logica.abstracto.Torre;
 import ObjetosGraficos.ObjetoGraficoT1;
+import Visitors.VisitorCeldaTorre1;
 
 public class Torre1 extends Torre {
 	
@@ -16,13 +18,14 @@ public class Torre1 extends Torre {
 		cooldownActual=cooldownOriginal;
 		cooldown=0;
 		grafico=null;
+		visitor=new VisitorCeldaTorre1(this);
 	}
 	public void setCelda(Celda c) {
 		grafico=new ObjetoGraficoT1(c);
 		celda=c;
 	}
 
-	public void atacar() {
+	public void atacar(Personaje e) {
 		if(cooldown==0) {
 			Disparo disp=new Disparo(rango,dp,celda);
 			celda.añadirDisparo(disp);
@@ -51,4 +54,6 @@ public class Torre1 extends Torre {
 	public void resetCooldown() {
 		cooldownActual=cooldownOriginal;
 	}
+	
+	
 }

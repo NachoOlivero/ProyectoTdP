@@ -2,12 +2,11 @@ package Visitors;
 
 import Logica.Disparo;
 import Logica.abstracto.Enemigo;
-import Logica.abstracto.ObjetoJuego;
-import Logica.abstracto.Torre;
+import Logica.abstracto.Personaje;
 
 public abstract class Visitor {
 	
-	protected ObjetoJuego miEntidad;
+	protected Personaje miEntidad;
 
 	
 	public abstract void visitAliado(Disparo a);

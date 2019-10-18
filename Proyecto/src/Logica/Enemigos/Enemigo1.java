@@ -8,36 +8,26 @@ import Logica.abstracto.Enemigo;
 import Logica.abstracto.Personaje;
 import ObjetosGraficos.OGEnemigo1;
 import ObjetosGraficos.ObjetoGrafico;
+import Visitors.VisitorEnemigos;
 
 public class Enemigo1 extends Enemigo{
 
 	public Enemigo1(Celda cel) {
-		hp=100;
-		dp=100;
+		hp=1000;
+		dp=1000;
 		celda=cel;
 		vel=1;
 		grafico=new OGEnemigo1();
+		visitor=new VisitorEnemigos(this);
 	}
 	
 	public void avanzar() {
-		Disparo dis=celda.getDisparo(pos);
-		
-		if(dis==null) {
-			if (celda.hayTorre())
-				atacar(celda.getTorre());
-			else {
 				grafico.avanzar();
 				pos-=vel;
 				if(pos<min) {
 					celda.moverEnemigoCelda(this);
 					pos=120;
 				 }
-		    }
-		}
-		else {
-			recibirDaño(dis.getDaño());
-			dis.eliminar();
-		}
 	}
 
 	public void atacar(Personaje p) {
@@ -60,8 +50,8 @@ public class Enemigo1 extends Enemigo{
 		grafico.eliminar();
 		Singleton.getJugador().aumentarPuntaje(20);
 		Singleton.getJugador().aumentarDinero(50);
-		PowerUp pu=Singleton.powerUp(grafico.getGrafico().getX(),grafico.getGrafico().getY());
-		Singleton.getMapa().insertarPowerUp(pu);
+		//PowerUp pu=Singleton.powerUp(grafico.getGrafico().getX(),grafico.getGrafico().getY());
+		//Singleton.getMapa().insertarPowerUp(pu);
 	}
 	
 	public void actualizarCelda(Celda c) {

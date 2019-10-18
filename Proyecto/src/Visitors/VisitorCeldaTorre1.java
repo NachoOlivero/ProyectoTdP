@@ -18,8 +18,8 @@ public class VisitorCeldaTorre1 extends Visitor {
 
 	@Override
 	public void visitEnemigo(Enemigo e) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("si");
+		e.atacar(miEntidad);
 	}
 
 }

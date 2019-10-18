@@ -2,6 +2,7 @@ package Logica.abstracto;
 
 import Logica.Celda;
 import Logica.Mapa;
+import Logica.Singleton;
 
 public abstract class Torre extends Estructura{
 	protected int rango;
@@ -13,7 +14,7 @@ public abstract class Torre extends Estructura{
 		return rango;
 	}
 	
-	public abstract void atacar();
+	//public abstract void atacar();
 
 	public abstract void setCelda(Celda c);
 	
@@ -22,4 +23,9 @@ public abstract class Torre extends Estructura{
 	public abstract void resetCooldown();
 	
 	public abstract int getCooldown();
+	
+	public void turno() {
+		if(Singleton.getMapa().hayEnemigoEnRango(rango, celda.getY(), celda.getX()))
+				atacar(null);
+	}
 }

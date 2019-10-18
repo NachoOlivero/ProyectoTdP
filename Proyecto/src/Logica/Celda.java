@@ -1,6 +1,7 @@
 package Logica;
 
 import Logica.abstracto.Enemigo;
+import Logica.abstracto.Estructura;
 import Logica.abstracto.Torre;
 
 import java.util.Iterator;
@@ -9,7 +10,7 @@ import java.util.List;
 
 
 public class Celda {
-	protected Torre torre;
+	protected Estructura estructura;
 	protected Enemigo enemigo; //o bien una coleccion de enemigos
 	protected int fila;
 	protected int columna;
@@ -18,7 +19,7 @@ public class Celda {
 	protected List<Disparo> listaDisparos;
 	
 	public Celda(int f,int c,Mapa map) {
-		torre=null;
+		estructura=null;
 		listaEnem=new LinkedList<Enemigo>();
 		listaDisparos=new LinkedList<Disparo>();
 		enemigo=null; //o bien inicializar la coleccion
@@ -27,42 +28,32 @@ public class Celda {
 		mapa=map;
 	}
 	
-	public boolean hayTorre() {
-		return torre != null;
+	
+	
+	public Estructura getTorre() {
+		return estructura;
 	}
 	
-	public Torre getTorre() {
-		return torre;
-	}
-	
-	public void insertarTorre(Torre t) {
-		torre=t;
+	public boolean insertarTorre(Torre t) {
+		boolean aux=(estructura==null);
+		if(aux)
+			estructura=t;
+		return aux;
 		//System.out.println("Torre "+t+" insertada");
 	}
 	
 	public boolean hayEnemigo() { // retorna el enemigo con menor valor de posicion
 		return !listaEnem.isEmpty();
 	}
-	
-	public Enemigo getEnemigo(int posicion) { 
-		Enemigo ret=null;
-		Iterator<Enemigo> it=listaEnem.iterator();
-		while(it.hasNext() && ret==null) {
-			Enemigo enm=it.next();
-			if(enm.estaEnPosicion(posicion))
-				ret=enm;
-		}
-		
-		return ret;
-	}
+
 	
 	public void addEnemigo(Enemigo ene) {
 		listaEnem.add(ene);
 	}
 	
 	public void eliminarTorre() {  //avisar al mapa
-		torre.Eliminar();
-		torre=null;
+		estructura.Eliminar();
+		estructura=null;
 	}
 	
 	public void añadirDisparo(Disparo disp) {
@@ -79,7 +70,7 @@ public class Celda {
 			listaAux.add(d);
 		Iterator<Disparo> it=listaAux.iterator();
 		while(it.hasNext())
-				it.next().avanzar();
+				it.next().turno();
 	}
 	
 	public void moverCeldaDisparo(Disparo disp) {
@@ -92,14 +83,12 @@ public class Celda {
 		for(Enemigo e:listaEnem)
 			listaAux.add(e);
 		for(Enemigo e:listaAux) 
-			e.avanzar();
+			e.turno();
 	}
 	
 	public void dispararTorre() {
-		if(torre!=null) 
-			if(Singleton.getMapa().hayEnemigoEnRango(torre.getRango(), fila, columna)) 
-				torre.atacar();
-				
+		if(estructura!=null) 
+			estructura.turno();
 	}
 	
 	public void eliminarTodos() {
@@ -135,7 +124,7 @@ public class Celda {
 		return listaDisparos.size();
 	}
 
-	public Disparo getDisparo(int pos) {
+	private Disparo getDisparo(int pos) {
 		Disparo ret=null;
 		Iterator<Disparo> it=listaDisparos.iterator();
 		while(it.hasNext() && ret==null) {
@@ -144,5 +133,43 @@ public class Celda {
 				ret=disp;
 		}
 		return ret;
+	}
+	private Enemigo getEnemigo(int posicion) { 
+		Enemigo ret=null;
+		Iterator<Enemigo> it=listaEnem.iterator();
+		while(it.hasNext() && ret==null) {
+			Enemigo enm=it.next();
+			if(enm.estaEnPosicion(posicion))
+				ret=enm;
+		}
+		
+		return ret;
+	}
+
+	public void recibirEnemigo(Enemigo enemigo2) {
+		if(estructura!=null) {
+			estructura.AceptarEnemigo(enemigo2);
+		}else {
+			enemigo2.avanzar();
+		}
+		
+		if(listaDisparos.size()>0) {
+			Disparo aux= getDisparo(enemigo2.PosActual());
+			if(aux!=null)
+				enemigo2.aceptarAliado(aux);
+		}
+		
+		
+	}
+	
+	public void recibirDisparo(Disparo p) {
+		Enemigo e=null;
+		if(listaEnem.size()>0) {
+			e=getEnemigo(p.pos());
+		}
+		if(e==null)
+			p.avanzar();
+		else
+			e.aceptarAliado(p);
 	}
 }
