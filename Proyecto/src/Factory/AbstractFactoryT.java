@@ -10,6 +10,8 @@ public abstract class AbstractFactoryT {
 	
 	public abstract ImageIcon killAll();
 	
+	public abstract ImageIcon barrera();
+
 	public abstract ImageIcon disparo();
 	
 	public abstract ImageIcon MuerteEne1();

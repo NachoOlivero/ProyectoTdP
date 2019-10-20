@@ -43,16 +43,20 @@ public class Singleton {
 		int caso=rand.nextInt(10);
 		
 		switch (caso) {
+		
 		case 0:
 				pu=new SpeedUp(x,y);
 				break;
 		case 1:
 				pu=new KillAll(x,y);
 				break;
+		case 2:
+				pu=new Barrera(x,y);
+				break;
 		
 		}
 		
-		return pu;
+		return new Barrera(x,y);  //porque a veces se genera un killAll?
 	}
 	
 }

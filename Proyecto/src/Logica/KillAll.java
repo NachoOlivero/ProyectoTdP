@@ -1,37 +1,21 @@
 package Logica;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import ObjetosGraficos.GraficoKillAll;
 import ObjetosGraficos.ObjetoGrafico;
 
-public class KillAll implements PowerUp {
-	protected ObjetoGrafico grafico;
+public class KillAll extends PowerUp {
 	protected MouseListener oyente;
 	
 	public KillAll(int x,int y) {
-		grafico=new GraficoKillAll(x,y,oyente,this);
+		grafico=new GraficoKillAll(x,y,this);
 	}
 
 
 	public void comenzar() {
 		Singleton.getMapa().KillAll();
-	}
-	
-	public void eliminar() {
-		grafico.eliminar();
-		Singleton.getMapa().eliminarPowerUp(this);
-		
-	}
-
-	public class Oyente extends MouseAdapter{
-
-		public void mouseClicked(MouseEvent arg0) {
-			comenzar();
-			eliminar();
-		}
+		eliminar();
 	}
 	
 }

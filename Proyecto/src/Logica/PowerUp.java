@@ -1,9 +1,16 @@
 package Logica;
 
-public interface PowerUp {
+import ObjetosGraficos.ObjetoGrafico;
+
+public abstract class PowerUp {
+	protected ObjetoGrafico grafico;
 	
-	public void comenzar();
+	public abstract void comenzar();
 	
-	public void eliminar();
+	public void eliminar() {
+		Singleton.getMapa().eliminarPowerUp(this);
+		grafico.eliminar();
+	}
+	
 
 }
