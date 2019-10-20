@@ -68,9 +68,10 @@ public class Mapa {
 			celdas[fila][columna].addEnemigo(ene);
 	}
 	
-	public void insertarTorre(Torre t,int fila,int columna) {  
-		celdas[fila][columna].insertarTorre(t);
-		listaTorres.add(t); 
+	public boolean insertarTorre(Torre t,int fila,int columna) {  
+		boolean aux =celdas[fila][columna].insertarTorre(t);
+		if(aux) listaTorres.add(t); 
+		return aux;
 	}
 	
 	public void eliminarTorre(Torre t,int fila,int columna) {  

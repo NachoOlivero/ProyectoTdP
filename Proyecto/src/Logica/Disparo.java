@@ -1,10 +1,12 @@
 package Logica;
 
 import Logica.abstracto.Enemigo;
+import Logica.abstracto.Personaje;
 import ObjetosGraficos.GraficoDisparo;
 import ObjetosGraficos.OGMovil;
+import Visitors.VisitorDisparo;
 
-public class Disparo {
+public class Disparo extends Personaje{
 	protected int recorrido_restante;
 	protected float daño;
 	protected int posRelativa;
@@ -17,6 +19,7 @@ public class Disparo {
 		posRelativa=1;
 		this.celda=celda;
 		grafico=new GraficoDisparo(celda.getX(),celda.getY());
+		visitor=new VisitorDisparo(this);
 	}
 	
 	public void decrementarAlcance() {
@@ -24,13 +27,6 @@ public class Disparo {
 	}
 	
 	public void avanzar() {
-		Enemigo ene=celda.getEnemigo(posRelativa);
-		//System.out.println("posRel: "+posRelativa);
-		if(ene!=null) {
-			ene.recibirDaño(daño);
-			eliminar();
-		}
-		else 
 			if(++posRelativa>120) {
 				if(--recorrido_restante>0) {
 					celda.moverCeldaDisparo(this);
@@ -59,5 +55,20 @@ public class Disparo {
 	
 	public float getDaño() {
 		return daño;
+	}
+	public void atacar(Personaje e) {
+		e.recibirDaño(daño);
+		eliminar();
+	}
+
+	@Override
+	public void recibirDaño(float daño) {	
+	}
+	
+	public void turno() {
+		celda.recibirDisparo(this);
+	}
+	public int pos() {
+		return posRelativa;
 	}
 }

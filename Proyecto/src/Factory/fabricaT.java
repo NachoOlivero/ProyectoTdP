@@ -1,6 +1,10 @@
 package Factory;
 
+import java.io.File;
+
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
+
 
 public class fabricaT extends AbstractFactoryT {
 	
@@ -14,7 +18,7 @@ public class fabricaT extends AbstractFactoryT {
 		return new ImageIcon(this.getClass().getResource("./Esqueleto.gif"));
 	}
 	public ImageIcon disparo() {
-		return new ImageIcon(this.getClass().getResource("./Proyectiltemp.png"));
+		return new ImageIcon(this.getClass().getResource("./Disparo.PNG"));
 	}
 	public ImageIcon killAll() {
 		return new ImageIcon(this.getClass().getResource("./Proyectiltemp.png"));
@@ -23,4 +27,9 @@ public class fabricaT extends AbstractFactoryT {
 		return new ImageIcon(this.getClass().getResource("./Proyectiltemp.png"));
 	}
 
+	@Override
+	public ImageIcon MuerteEne1() {
+		return new ImageIcon(this.getClass().getResource("./Ene1Muerte.gif"));
+	
+	}
 }

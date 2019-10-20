@@ -9,7 +9,7 @@ public abstract class Enemigo extends Personaje{
 	protected OGMovil grafico;
 	protected final int min=1;
 	protected int pos=120;
-	protected Visitor visitor;
+	
 	
 	public abstract void avanzar();
 	
@@ -24,6 +24,11 @@ public abstract class Enemigo extends Personaje{
 	}
 	
 	public abstract void setGrafico(int pos);
+	
+	public void turno() {
+		celda.recibirEnemigo(this);
+	}
+	
 	
 
 	

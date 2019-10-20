@@ -6,13 +6,17 @@ import Logica.abstracto.Torre;
 
 public class VisitorDisparo extends Visitor {
 
-public void visitAliado(Disparo a) {
+	public VisitorDisparo(Disparo e) {
+		miEntidad=e;
+	}
+	
+	public void visitAliado(Disparo a) {
 	
 }
 
 
-public void visitEnemigo(Enemigo e) {
-	miEntidad.atacar(e);
+	public void visitEnemigo(Enemigo e) {
+		miEntidad.atacar(e);
 }
 
 
