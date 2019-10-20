@@ -39,6 +39,8 @@ public class Enemigo1 extends Enemigo{
 		hp-=daño;
 		if(hp<=0) 
 			Eliminar();
+		//else
+		//System.out.println(":::::daño:::::");
 	}
 	
 	public ObjetoGrafico getGrafico() {

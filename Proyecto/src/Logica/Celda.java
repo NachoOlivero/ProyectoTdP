@@ -147,31 +147,32 @@ public class Celda {
 	}
 
 	public void recibirEnemigo(Enemigo enemigo2) {
+		
+		if(listaDisparos.size()>0) {
+			Disparo aux= getDisparo(enemigo2.PosActual());
+			if(aux!=null) {
+				//System.out.println("::::::ENTRO1::::::");
+				aux.AceptarEnemigo(enemigo2);
+			}
+		}
 		if(estructura!=null) {
 			estructura.AceptarEnemigo(enemigo2);
 		}else {
 			enemigo2.avanzar();
 		}
 		
-		if(listaDisparos.size()>0) {
-			Disparo aux= getDisparo(enemigo2.PosActual());
-			if(aux!=null) {
-				System.out.println("::::::ENTRO::::::");
-				aux.AceptarEnemigo(enemigo2);
-			}
-		}
-		
 		
 	}
 	
-	public void recibirDisparo(Disparo p) {
-		Enemigo e=null;
-		if(listaEnem.size()>0) {
-			e=getEnemigo(p.pos());
+		public void recibirDisparo(Disparo p) {
+			Enemigo e=null;
+			if(listaEnem.size()>0) {
+				e=getEnemigo(p.pos());
+			}
+			if(e==null)
+				p.avanzar();
+			else
+				e.aceptarAliado(p);
 		}
-		if(e==null)
-			p.avanzar();
-		else
-			e.aceptarAliado(p);
+	
 	}
-}
