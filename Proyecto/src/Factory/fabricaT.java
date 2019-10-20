@@ -19,5 +19,8 @@ public class fabricaT extends AbstractFactoryT {
 	public ImageIcon killAll() {
 		return new ImageIcon(this.getClass().getResource("./Proyectiltemp.png"));
 	}
+	public ImageIcon barrera() {
+		return new ImageIcon(this.getClass().getResource("./Proyectiltemp.png"));
+	}
 
 }

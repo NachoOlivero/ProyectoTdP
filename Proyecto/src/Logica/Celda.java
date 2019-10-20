@@ -16,6 +16,7 @@ public class Celda {
 	protected Mapa mapa;
 	protected List<Enemigo> listaEnem;
 	protected List<Disparo> listaDisparos;
+	protected boolean barrera;
 	
 	public Celda(int f,int c,Mapa map) {
 		torre=null;
@@ -25,6 +26,7 @@ public class Celda {
 		fila=f;
 		columna=c;
 		mapa=map;
+		barrera=false;
 	}
 	
 	public boolean hayTorre() {
@@ -57,10 +59,12 @@ public class Celda {
 	}
 	
 	public void addEnemigo(Enemigo ene) {
-		listaEnem.add(ene);
+		if(!barrera)
+			listaEnem.add(ene);
+		else {ene.Eliminar();System.out.println("Hola");}
 	}
 	
-	public void eliminarTorre() {  //avisar al mapa
+	public void eliminarTorre() {  
 		torre.Eliminar();
 		torre=null;
 	}
@@ -144,5 +148,10 @@ public class Celda {
 				ret=disp;
 		}
 		return ret;
+	}
+	
+	public void setBarrera(boolean valor) {
+		barrera=valor;
+		System.out.println("Celda logica: "+this);
 	}
 }

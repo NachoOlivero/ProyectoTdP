@@ -9,5 +9,7 @@ public abstract class AbstractFactoryT {
 	public abstract ImageIcon Enemigo1();
 	
 	public abstract ImageIcon killAll();
+	
+	public abstract ImageIcon barrera();
 
 }
