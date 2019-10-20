@@ -2,13 +2,15 @@ package ObjetosGraficos;
 
 import javax.swing.JLabel;
 
+import Factory.AbstractFactoryT;
 import Factory.fabricaT;
+import GUI.Eliminador;
 import Logica.Singleton;
 
 public class OGEnemigo1 extends OGMovil {
 	
 	public OGEnemigo1() {
-		fabricaT f=new fabricaT();
+		AbstractFactoryT f=new fabricaT();
 		grafico=new JLabel(f.Enemigo1());
 	}
 	public void avanzar() {
@@ -27,4 +29,9 @@ public class OGEnemigo1 extends OGMovil {
 		grafico.setBounds(1220,pos*100, 50, 50);
 		Singleton.getGui().add(grafico);
 	}
+	/*public void eliminar(){
+		AbstractFactoryT t=new fabricaT();
+		Eliminador ele=new Eliminador();
+		ele.eliminar(grafico, t.MuerteEne1());
+	}**/
 }

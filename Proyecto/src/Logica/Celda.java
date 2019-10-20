@@ -155,8 +155,10 @@ public class Celda {
 		
 		if(listaDisparos.size()>0) {
 			Disparo aux= getDisparo(enemigo2.PosActual());
-			if(aux!=null)
-				enemigo2.aceptarAliado(aux);
+			if(aux!=null) {
+				System.out.println("::::::ENTRO::::::");
+				aux.AceptarEnemigo(enemigo2);
+			}
 		}
 		
 		

@@ -16,7 +16,7 @@ public class VisitorDisparo extends Visitor {
 
 
 	public void visitEnemigo(Enemigo e) {
-	miEntidad.atacar(e);
+		miEntidad.atacar(e);
 }
 
 
