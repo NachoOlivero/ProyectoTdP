@@ -35,4 +35,11 @@ public class fabricaT extends AbstractFactoryT {
 		return new ImageIcon(this.getClass().getResource("./Ene1Muerte.gif"));
 	
 	}
+
+
+	public ImageIcon TorreD() {
+		return new ImageIcon(this.getClass().getResource("./Tienda.png"));
+	}
+	
+
 }

@@ -44,21 +44,21 @@ public class GUI extends JFrame {
 		pun=new JLabel();
 		pun.setForeground(Color.WHITE);
 		pun.setText("Puntaje: "+ju.getPuntaje());
-		pun.setBounds(1100,590,80,80);
+		pun.setBounds(1100,580,80,80);
 		pun.setVisible(true);
 		add(pun);
 		//
 		din=new JLabel();
 		din.setForeground(Color.WHITE);
 		din.setText("Dinero: "+ju.getDinero());
-		din.setBounds(1100,570,80,80);
+		din.setBounds(1100,560,80,80);
 		din.setVisible(true);
 		add(din);
 		
 		bombas=new JLabel();
 		bombas.setForeground(Color.RED);
 		bombas.setText("Bombas: "+ju.getBombas());
-		bombas.setBounds(1100,550,80,80);
+		bombas.setBounds(1100,600,80,80);
 		bombas.setVisible(true);
 		add(bombas);
 	}
