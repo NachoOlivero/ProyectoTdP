@@ -1,9 +1,10 @@
-package Logica;
+package PowerUp;
 
 import java.awt.event.MouseListener;
 
-import ObjetosGraficos.GraficoKillAll;
-import ObjetosGraficos.ObjetoGrafico;
+import Grafica.GraficoKillAll;
+import Grafica.ObjetoGrafico;
+import Logica.Singleton;
 
 public class KillAll extends PowerUp {
 	protected MouseListener oyente;

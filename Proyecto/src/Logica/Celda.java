@@ -11,7 +11,6 @@ import java.util.List;
 
 public class Celda {
 	protected Estructura estructura;
-	protected Enemigo enemigo; //o bien una coleccion de enemigos
 	protected int fila;
 	protected int columna;
 	protected Mapa mapa;
@@ -23,7 +22,6 @@ public class Celda {
 		estructura=null;
 		listaEnem=new LinkedList<Enemigo>();
 		listaDisparos=new LinkedList<Disparo>();
-		enemigo=null; //o bien inicializar la coleccion
 		fila=f;
 		columna=c;
 		mapa=map;
@@ -32,8 +30,13 @@ public class Celda {
 	
 	
 	
-	public Estructura getTorre() {
+	public Estructura getEstructura() {
 		return estructura;
+	}
+	
+	public void dañarEstructura(float daño) {
+		if(estructura!=null)
+			estructura.recibirDaño(daño);
 	}
 	
 	public boolean insertarTorre(Torre t) {
@@ -141,8 +144,7 @@ public class Celda {
 
 	
 	public void setBarrera(boolean valor) {
-		barrera=valor;
-		System.out.println("Celda logica: "+this);
+			barrera=valor;
 	}
 
 	private Enemigo getEnemigo(int posicion) { 
@@ -184,5 +186,10 @@ public class Celda {
 			p.avanzar();
 		else
 			e.aceptarAliado(p);
+	}
+	
+	
+	public List<Enemigo> getEnemigos() {
+		return listaEnem;
 	}
 }

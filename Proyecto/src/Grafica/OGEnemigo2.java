@@ -1,4 +1,4 @@
-package ObjetosGraficos;
+package Grafica;
 
 import javax.swing.JLabel;
 
@@ -7,9 +7,9 @@ import Factory.fabricaT;
 import GUI.Eliminador;
 import Logica.Singleton;
 
-public class OGEnemigo1 extends OGMovil {
+public class OGEnemigo2 extends OGMovil {
 	
-	public OGEnemigo1() {
+	public OGEnemigo2() {
 		AbstractFactoryT f=new fabricaT();
 		grafico=new JLabel(f.Enemigo1());
 	}

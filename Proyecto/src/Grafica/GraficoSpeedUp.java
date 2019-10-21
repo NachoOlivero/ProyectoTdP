@@ -1,4 +1,4 @@
-package ObjetosGraficos;
+package Grafica;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -6,13 +6,13 @@ import javax.swing.JLabel;
 
 import Factory.AbstractFactoryT;
 import Factory.fabricaT;
-import Logica.PowerUp;
 import Logica.Singleton;
+import PowerUp.PowerUp;
 
-public class GraficoKillAll extends ObjetoGrafico {
+public class GraficoSpeedUp extends ObjetoGrafico {
 	protected PowerUp miPowerUp;
 	
-	public GraficoKillAll(int x,int y,PowerUp pu) {
+	public GraficoSpeedUp(int x,int y,PowerUp pu) {
 		miPowerUp=pu;
 		AbstractFactoryT f=new fabricaT();
 		grafico=new JLabel(f.killAll());
@@ -25,3 +25,4 @@ public class GraficoKillAll extends ObjetoGrafico {
 		Singleton.getGui().add(grafico);
 	}
 }
+

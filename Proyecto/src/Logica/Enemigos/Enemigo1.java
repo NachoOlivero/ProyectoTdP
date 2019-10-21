@@ -1,13 +1,13 @@
 package Logica.Enemigos;
 
+import Grafica.OGEnemigo1;
+import Grafica.ObjetoGrafico;
 import Logica.Celda;
 import Logica.Disparo;
-import Logica.PowerUp;
 import Logica.Singleton;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Personaje;
-import ObjetosGraficos.OGEnemigo1;
-import ObjetosGraficos.ObjetoGrafico;
+import PowerUp.PowerUp;
 import Visitors.VisitorEnemigos;
 
 public class Enemigo1 extends Enemigo{
@@ -50,8 +50,7 @@ public class Enemigo1 extends Enemigo{
 		grafico.eliminar();
 		Singleton.getJugador().aumentarPuntaje(20);
 		Singleton.getJugador().aumentarDinero(50);
-		//PowerUp pu=Singleton.powerUp(grafico.getGrafico().getX(),grafico.getGrafico().getY());
-		//Singleton.getMapa().insertarPowerUp(pu);
+		PowerUp.randonPowerUp(grafico.getGrafico().getX(),grafico.getGrafico().getY());
 	}
 	
 	public void actualizarCelda(Celda c) {

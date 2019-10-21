@@ -1,4 +1,4 @@
-package ObjetosGraficos;
+package Grafica;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -7,8 +7,8 @@ import javax.swing.JLabel;
 
 import Factory.AbstractFactoryT;
 import Factory.fabricaT;
-import Logica.PowerUp;
 import Logica.Singleton;
+import PowerUp.PowerUp;
 
 public class GraficoBarrera extends ObjetoGrafico {
 	PowerUp miPowerUp;
@@ -20,7 +20,7 @@ public class GraficoBarrera extends ObjetoGrafico {
 		AbstractFactoryT fabrica=new fabricaT();
 		grafico=new JLabel(fabrica.barrera());
 		grafico.setVisible(true);
-		grafico.setBounds(x+((x-40) % 120), y, 5, 50);  //asi queda bien pegado al borde derecho de la celda
+		grafico.setBounds(x+(120-((x-40) % 120)), y, 20, 50);  //asi queda bien pegado al borde derecho de la celda
 		grafico.addMouseListener((new MouseAdapter() {
 		      public void mouseClicked(MouseEvent me) {
 		          if(!activado) {

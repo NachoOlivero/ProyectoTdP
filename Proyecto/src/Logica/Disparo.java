@@ -1,9 +1,9 @@
 package Logica;
 
+import Grafica.GraficoDisparo;
+import Grafica.OGMovil;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Personaje;
-import ObjetosGraficos.GraficoDisparo;
-import ObjetosGraficos.OGMovil;
 import Visitors.VisitorDisparo;
 
 public class Disparo extends Personaje{

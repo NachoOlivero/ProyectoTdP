@@ -14,6 +14,9 @@ public abstract class AbstractFactoryT {
 
 	public abstract ImageIcon disparo();
 	
+	public abstract ImageIcon bomba();
+	
+	
 	public abstract ImageIcon MuerteEne1();
 
 }

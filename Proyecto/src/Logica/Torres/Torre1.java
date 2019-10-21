@@ -1,11 +1,11 @@
 package Logica.Torres;
 
+import Grafica.ObjetoGraficoT1;
 import Logica.Celda;
 import Logica.Disparo;
 import Logica.Singleton;
 import Logica.abstracto.Personaje;
 import Logica.abstracto.Torre;
-import ObjetosGraficos.ObjetoGraficoT1;
 import Visitors.VisitorCeldaTorre1;
 
 public class Torre1 extends Torre {

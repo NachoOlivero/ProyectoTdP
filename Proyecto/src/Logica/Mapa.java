@@ -5,22 +5,26 @@ import java.util.List;
 
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Torre;
+import PowerUp.Bomba;
+import PowerUp.PowerUp;
 
 public class Mapa {
 	private Celda celdas[][];
 	private int maxColumnas;
-	//private int maxFilas;
+	private int maxFilas;
 	private List<Torre> listaTorres;
 	private List<PowerUp> listaPowerUps;
+	private List<Bomba> listaBombas;
 	
 	public Mapa() {
 		listaTorres=new LinkedList<Torre>();
 		listaPowerUps=new LinkedList<PowerUp>();
+		listaBombas=new LinkedList<Bomba>();
 	}
 	
 	public void inicializarCeldas(int x,int y) {
 		maxColumnas=y;
-		//maxFilas=x;
+		maxFilas=x;
 		celdas= new Celda[x][y];
 		for(int i=0;i<x;i++)
 			for(int j=0;j<y;j++)
@@ -88,7 +92,9 @@ public class Mapa {
 	}
 	
 	public Celda getCelda(int x,int y) {
-		return celdas[x][y];
+		if(x>=0 && x<maxFilas && y>=0 && y<maxColumnas)
+			return celdas[x][y];
+		else return null;
 	}
 	
 	public Celda getCelda(int x) {

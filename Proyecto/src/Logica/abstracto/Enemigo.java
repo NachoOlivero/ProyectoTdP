@@ -1,7 +1,7 @@
 package Logica.abstracto;
 
+import Grafica.OGMovil;
 import Logica.Celda;
-import ObjetosGraficos.OGMovil;
 import Visitors.Visitor;
 
 public abstract class Enemigo extends Personaje{

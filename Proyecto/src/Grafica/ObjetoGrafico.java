@@ -1,4 +1,4 @@
-package ObjetosGraficos;
+package Grafica;
 
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;

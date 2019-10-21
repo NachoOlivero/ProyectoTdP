@@ -3,14 +3,12 @@ package GUI;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Logica.Jugador;
 import Logica.Singleton;
 
 import java.awt.Color;
-import java.awt.TextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 
@@ -20,6 +18,7 @@ public class GUI extends JFrame {
 	private JButton[] botonesT;
 	private JLabel  pun;
 	private JLabel din;
+	private JLabel bombas;
 
 	public GUI() {
 		getContentPane().setLayout(null);
@@ -55,6 +54,13 @@ public class GUI extends JFrame {
 		din.setBounds(1100,570,80,80);
 		din.setVisible(true);
 		add(din);
+		
+		bombas=new JLabel();
+		bombas.setForeground(Color.RED);
+		bombas.setText("Bombas: "+ju.getBombas());
+		bombas.setBounds(1100,550,80,80);
+		bombas.setVisible(true);
+		add(bombas);
 	}
 	
 	public void agregarOyenteBoton(ActionListener ac,int boton) {
@@ -64,10 +70,11 @@ public class GUI extends JFrame {
 	public void agregarOyenteClick(MouseListener ac) {
 		addMouseListener(ac);
 	}
-	public void actualizarPunOdin() {
+	public void actualizarValores() {
 		Jugador ju=Singleton.getJugador();
 		pun.setText("Puntaje: "+ju.getPuntaje());
 		din.setText("Dinero: "+ju.getDinero());
+		bombas.setText("Bombas: "+ju.getBombas());
 	}
 	
 	

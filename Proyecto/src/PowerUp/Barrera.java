@@ -1,9 +1,11 @@
-package Logica;
+package PowerUp;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
-import ObjetosGraficos.GraficoBarrera;
+import Grafica.GraficoBarrera;
+import Logica.Celda;
+import Logica.Singleton;
 
 public class Barrera extends PowerUp {
 
@@ -13,8 +15,9 @@ public class Barrera extends PowerUp {
 	public Barrera(int x,int y) {
 		grafico=new GraficoBarrera(x,y,this);
 		timer=new Timer();
-		celda=Singleton.getMapa().getCelda(y%6,(x-40)%10);
+		celda=Singleton.getMapa().getCelda(y/100,(x-40)/120);
 		System.out.println("Celda del powerup: "+celda);
+		System.out.println("Fila del powerup: "+celda.getY()+"Coumna del powerup: "+celda.getX());
 	}
 
 	public void comenzar() {

@@ -15,6 +15,7 @@ import Logica.Mapa;
 import Logica.Singleton;
 import Logica.Tienda;
 import Logica.abstracto.Torre;
+import PowerUp.Bomba;
 
 
 public class HiloGui extends Thread {
@@ -22,18 +23,22 @@ public class HiloGui extends Thread {
 	private GUI gui;
 	private MovimientoEnemigos movEnemigos;
 	private AbstractFactoryT torres;
-	private Torre torreactiva;
+	private Torre torreActiva;
+	private Bomba bombaActiva;
 
 
 	public HiloGui(GUI g,MovimientoEnemigos movEnem) {
 		gui = g;
 		movEnemigos=movEnem;
 		torres=new fabricaT(); 
+		torreActiva=null;
+		bombaActiva=null;
 		
 		gui.agregarOyenteBoton(new ComprarTorre1(),0);
 		gui.agregarOyenteBoton(new Eliminar(),2);
 		gui.agregarOyenteBoton(new EliminarAll(),1);
 		gui.agregarOyenteClick(new Mouse());
+		gui.agregarOyenteBoton(new OyenteBomba(), 5);
 	}
 	
 
@@ -74,14 +79,19 @@ public class HiloGui extends Thread {
 	    	Mapa mapa=Singleton.getMapa();
 	    	boolean control=false;
 	    	//System.out.println("mapa "+mapa+"  "+hayTorre);
-	    	if(f>=0 && f<6 && c>=0 && c<10 && torreactiva!=null) {  //por ahora numeros, dps vemos como poner atributos para los limites
-		    	
-		    	torreactiva.setCelda(mapa.getCelda(f, c));
-		    	//agregarDibujo(e.getX(),e.getY());
-		    	control=mapa.insertarTorre(torreactiva,f,c);
-		    	//System.out.println("Fila: "+f+" Columna: "+c);
-		    	if(control)
-		    		torreactiva=null;
+	    	if(f>=0 && f<6 && c>=0 && c<10 ) {  //por ahora numeros, dps vemos como poner atributos para los limites
+		    	if(torreActiva!=null) {
+			    	torreActiva.setCelda(mapa.getCelda(f, c));
+			    	//agregarDibujo(e.getX(),e.getY());
+			    	control=mapa.insertarTorre(torreActiva,f,c);
+			    	//System.out.println("Fila: "+f+" Columna: "+c);
+			    	if(control)
+			    		torreActiva=null;
+		    	}
+		    	else if(bombaActiva!=null) {
+		    		bombaActiva.ubicar(f,c);
+		    		bombaActiva=null;
+		    	}
 	    	}
 	    	//System.out.println("las gui's son iguales"+ (gui==Singleton.getGui()));
 	  
@@ -112,13 +122,23 @@ public class HiloGui extends Thread {
 			gui.repaint();
 		}
 	}
+	
 	public class ComprarTorre1 implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
-			if (torreactiva==null)
-					torreactiva=Tienda.comprarT1();
+			if (torreActiva==null && bombaActiva==null)
+					torreActiva=Tienda.comprarT1();
 			
 		}
 	}
+	
+	private class OyenteBomba implements ActionListener{
+
+		public void actionPerformed(ActionEvent click) {
+			if(bombaActiva==null && torreActiva==null) 
+				bombaActiva=Singleton.getJugador().getBomba();
+		}
+			
+		}
 		
 }
 

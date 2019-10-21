@@ -1,12 +1,13 @@
-package Logica;
+package PowerUp;
 
 
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import Grafica.GraficoSpeedUp;
+import Logica.Singleton;
 import Logica.abstracto.Torre;
-import ObjetosGraficos.GraficoSpeedUp;
 
 public class SpeedUp extends PowerUp {
 	protected Timer timer;

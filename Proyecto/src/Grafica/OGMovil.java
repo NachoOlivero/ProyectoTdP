@@ -1,4 +1,4 @@
-package ObjetosGraficos;
+package Grafica;
 
 public abstract class OGMovil extends ObjetoGrafico {
 	
@@ -7,4 +7,5 @@ public abstract class OGMovil extends ObjetoGrafico {
 	public abstract int ubicacionGrafico();
 	
 	public abstract void setPosicion(int pos);
+	
 }
