@@ -1,7 +1,10 @@
 package Logica.abstracto;
 
 import Grafica.OGMovil;
+import Grafica.ObjetoGrafico;
 import Logica.Celda;
+import Logica.Singleton;
+import PowerUp.PowerUp;
 import Visitors.Visitor;
 
 public abstract class Enemigo extends Personaje{
@@ -10,26 +13,60 @@ public abstract class Enemigo extends Personaje{
 	protected final int min=1;
 	protected int pos=120;
 	
-	
-	public abstract void avanzar();
-	
-	public abstract void actualizarCelda(Celda c);
-	
-	public abstract boolean estaEnPosicion(int pos);
-	
-	public abstract boolean tieneMenorPosicion(int pos);
-	
 	public int PosActual() {
 		return pos;
 	}
-	
-	public abstract void setGrafico(int pos);
 	
 	public void turno() {
 		celda.recibirEnemigo(this);
 	}
 	
-	
+	public void avanzar() {
+		grafico.avanzar();
+		pos-=vel;
+		if(pos<min) {
+			celda.moverEnemigoCelda(this);
+			pos=120;
+		}
+	}
 
+	public void atacar(Personaje p) {
+		p.recibirDaño(dp);
+	}
 	
+	public void recibirDaño(float daño) {
+		hp-=daño;
+		if(hp<=0) 
+			Eliminar();
+	}
+	
+	public ObjetoGrafico getGrafico() {
+		return grafico;
+	}
+	
+	public void Eliminar() {
+		celda.eliminarEnemigo(this);
+		grafico.eliminar();
+		Singleton.getJugador().aumentarPuntaje(20);
+		Singleton.getJugador().aumentarDinero(50);
+		PowerUp.randonPowerUp(grafico.getGrafico().getX(),grafico.getGrafico().getY());
+	}
+	
+	public void actualizarCelda(Celda c) {
+		celda=c;
+	}
+	
+	public boolean estaEnPosicion(int pos) {
+		return this.pos==pos;
+	}
+	
+	public boolean tieneMenorPosicion(int pos) {
+		return this.pos<pos;
+	}
+	
+	public void setGrafico(int pos) {
+		grafico.setPosicion(pos);
+	}
+	
+		
 }
