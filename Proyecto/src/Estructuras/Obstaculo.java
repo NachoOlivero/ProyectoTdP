@@ -21,8 +21,10 @@ public class Obstaculo extends Estructura{
 
 	public void recibirDaño(float daño) {
 		hp=-daño;
-		if(hp<=0)
+		if(hp<=0) {
 			Eliminar();
+			celda.eliminarEstructura();
+		}
 		
 	}
 
