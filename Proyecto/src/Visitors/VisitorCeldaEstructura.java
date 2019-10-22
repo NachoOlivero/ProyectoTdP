@@ -2,21 +2,22 @@ package Visitors;
 
 import Logica.Disparo;
 import Logica.abstracto.Enemigo;
+import Logica.abstracto.Personaje;
 import Logica.abstracto.Torre;
 
 public class VisitorCeldaEstructura extends Visitor {
 
+	public VisitorCeldaEstructura(Personaje p) {
+		miEntidad=p;
+	}
 	
-	@Override
 	public void visitAliado(Disparo a) {
-		// TODO Auto-generated method stub
-		
+		a.atacar(miEntidad);
 	}
 
 	@Override
 	public void visitEnemigo(Enemigo e) {
-		// TODO Auto-generated method stub
-		
+		e.atacar(miEntidad);
 	}
 
 }

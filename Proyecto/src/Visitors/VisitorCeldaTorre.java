@@ -1,13 +1,12 @@
 package Visitors;
 
 import Logica.Disparo;
-import Logica.Torres.Torre1;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Torre;
 
-public class VisitorCeldaTorre1 extends Visitor {
+public class VisitorCeldaTorre extends Visitor {
 
-	public VisitorCeldaTorre1(Torre1 torre) {
+	public VisitorCeldaTorre(Torre torre) {
 		miEntidad=torre;
 	}
 	

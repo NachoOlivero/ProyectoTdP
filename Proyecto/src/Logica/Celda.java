@@ -39,7 +39,7 @@ public class Celda {
 			estructura.recibirDaño(daño);
 	}
 	
-	public boolean insertarTorre(Torre t) {
+	public boolean insertarEstructura(Estructura t) {
 		boolean aux=(estructura==null);
 		if(aux)
 			estructura=t;
@@ -168,24 +168,31 @@ public class Celda {
 				aux.AceptarEnemigo(enemigo2);
 			}
 		}
+		if(enemigo2!=null) {
 		if(estructura!=null) {
 			estructura.AceptarEnemigo(enemigo2);
 		}else {
 			enemigo2.avanzar();
+			}
 		}
 		
 		
 	}
 	
 		public void recibirDisparo(Disparo p) {
-			Enemigo e=null;
-			if(listaEnem.size()>0) {
-				e=getEnemigo(p.pos());
+			if(estructura!=null) {
+				estructura.aceptarAliado(p);
+				}
+			if(p!=null) {
+				Enemigo e=null;
+				if(listaEnem.size()>0) {
+					e=getEnemigo(p.pos());
+				}
+				if(e==null)
+					p.avanzar();
+				else
+					e.aceptarAliado(p);
 			}
-			if(e==null)
-				p.avanzar();
-			else
-				e.aceptarAliado(p);
 		}
 	
 	

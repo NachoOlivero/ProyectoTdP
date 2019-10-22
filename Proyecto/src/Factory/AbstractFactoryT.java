@@ -6,6 +6,8 @@ public abstract class AbstractFactoryT {
 	
 	public abstract ImageIcon Torre1(); 
 	
+	public abstract ImageIcon TorreD();
+	
 	public abstract ImageIcon Enemigo1();
 	
 	public abstract ImageIcon killAll();
@@ -16,7 +18,10 @@ public abstract class AbstractFactoryT {
 	
 	public abstract ImageIcon bomba();
 	
-	
 	public abstract ImageIcon MuerteEne1();
+
+	public abstract ImageIcon charco();
+
+	public abstract ImageIcon obstaculo();
 
 }

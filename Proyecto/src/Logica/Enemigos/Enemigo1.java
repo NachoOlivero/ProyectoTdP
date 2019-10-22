@@ -8,8 +8,8 @@ import Visitors.VisitorEnemigos;
 public class Enemigo1 extends Enemigo{
 
 	public Enemigo1(Celda cel) {
-		hp=1000;
-		dp=1000;
+		hp=15;
+		dp=5;
 		celda=cel;
 		vel=1;
 		grafico=new OGEnemigo1();
