@@ -72,8 +72,8 @@ public class Mapa {
 			celdas[fila][columna].addEnemigo(ene);
 	}
 	
-	public boolean insertarTorre(Torre t,int fila,int columna) {  
-		boolean aux =celdas[fila][columna].insertarTorre(t);
+	public boolean insertarEstructura(Torre t,int fila,int columna) {  
+		boolean aux =celdas[fila][columna].insertarEstructura(t);
 		if(aux) listaTorres.add(t); 
 		return aux;
 	}

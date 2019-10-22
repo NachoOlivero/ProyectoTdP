@@ -28,7 +28,7 @@ public class fabricaT extends AbstractFactoryT {
 	}
 	
 	public ImageIcon bomba() {
-		return new ImageIcon(this.getClass().getResource("./Proyectiltemp.png"));
+		return new ImageIcon(this.getClass().getResource("./Bomba.png"));
 	}
 
 	public ImageIcon MuerteEne1() {
@@ -39,6 +39,16 @@ public class fabricaT extends AbstractFactoryT {
 
 	public ImageIcon TorreD() {
 		return new ImageIcon(this.getClass().getResource("./Tienda.png"));
+	}
+
+	@Override
+	public ImageIcon charco() {
+		return new ImageIcon(this.getClass().getResource("./charco.png"));
+	}
+
+	@Override
+	public ImageIcon obstaculo() {
+		return new ImageIcon(this.getClass().getResource("./Obstaculo.png"));
 	}
 	
 

@@ -20,4 +20,8 @@ public abstract class AbstractFactoryT {
 	
 	public abstract ImageIcon MuerteEne1();
 
+	public abstract ImageIcon charco();
+
+	public abstract ImageIcon obstaculo();
+
 }

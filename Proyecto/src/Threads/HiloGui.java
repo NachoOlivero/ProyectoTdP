@@ -84,7 +84,7 @@ public class HiloGui extends Thread {
 		    	if(torreActiva!=null) {
 			    	torreActiva.setCelda(mapa.getCelda(f, c));
 			    	//agregarDibujo(e.getX(),e.getY());
-			    	control=mapa.insertarTorre(torreActiva,f,c);
+			    	control=mapa.insertarEstructura(torreActiva,f,c);
 			    	//System.out.println("Fila: "+f+" Columna: "+c);
 			    	if(control)
 			    		torreActiva=null;
