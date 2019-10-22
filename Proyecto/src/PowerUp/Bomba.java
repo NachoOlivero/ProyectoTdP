@@ -40,7 +40,7 @@ public class Bomba extends PowerUp{
 		
 		for(int i=-1;i<2;i++) {
 			if(i!=0) { //para no dañar dos veces la misma celda
-				celdaADañar=mapa.getCelda(posX + i, posY);
+				celdaADañar=mapa.getCelda(posX, posY + i);
 				if(celdaADañar!=null) {
 					celdaADañar.dañarEstructura(daño);
 					List<Enemigo>enemigos=celdaADañar.getEnemigos();

@@ -1,11 +1,17 @@
 package Threads;
 
 import java.util.LinkedList;
+import java.util.Random;
 
+import Estructuras.Charco;
+import Estructuras.Obstaculo;
 import GUI.GUI;
+import Logica.Celda;
 import Logica.Mapa;
+import Logica.Singleton;
 import Logica.Enemigos.Enemigo1;
 import Logica.abstracto.Enemigo;
+import Logica.abstracto.Estructura;
 
 public class MovimientoEnemigos extends Thread {
 	protected volatile boolean execute;
@@ -35,6 +41,7 @@ public class MovimientoEnemigos extends Thread {
 			}
 			else coolDown--;
 			
+			crearObstaculo();
 			mapa.mover();
 			//System.out.println("---------------------");
 		}
@@ -54,6 +61,41 @@ public class MovimientoEnemigos extends Thread {
 		return nuevo;
 	}
 
+	private void  crearObstaculo() {
+		Random rand=new Random();
+		Mapa mapa=Singleton.getMapa();
+		
+		int probabilidad=rand.nextInt(5);
+		
+		if(probabilidad==1 || probabilidad==2) {
+			boolean insercion=false;
+			int cont=0;
+			Estructura est=null;
+			
+			while(!insercion && cont<10) {
+				int fila=rand.nextInt(6); //cambiar por metodo en el mapa de ultima
+			
+				int columna=rand.nextInt(10);
+				
+				Celda celda=mapa.getCelda(fila,columna);
+				
+				if(probabilidad==1)
+					est=new Charco(celda);
+				else est=new Obstaculo(celda);
+				
+				insercion=mapa.insertarEstructura(est, fila, columna);
+				cont++;
+				
+				if(!insercion)
+					est.Eliminar();
+			}
+			
+		}
+			
+		
+		
+
+	}
 
 
 	public void eliminarAll() {

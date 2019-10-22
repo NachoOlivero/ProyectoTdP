@@ -79,24 +79,23 @@ public class HiloGui extends Thread {
 	    	int c=(e.getX()-40)/120;
 	    	Mapa mapa=Singleton.getMapa();
 	    	boolean control=false;
-	    	//System.out.println("mapa "+mapa+"  "+hayTorre);
+	  
 	    	if(f>=0 && f<6 && c>=0 && c<10 ) {  //por ahora numeros, dps vemos como poner atributos para los limites
 		    	if(torreActiva!=null) {
-			    	torreActiva.setCelda(mapa.getCelda(f, c));
-			    	//agregarDibujo(e.getX(),e.getY());
-			    	control=mapa.insertarEstructura(torreActiva,f,c);
-			    	//System.out.println("Fila: "+f+" Columna: "+c);
-			    	if(control)
+			    	control=mapa.insertarTorre(torreActiva,f,c);
+			    	if(control) {
+			    		torreActiva.setCelda(mapa.getCelda(f, c));
 			    		torreActiva=null;
-		    	}
+		    	    }
+			    }
 		    	else if(bombaActiva!=null) {
 		    		bombaActiva.ubicar(f,c);
 		    		bombaActiva=null;
 		    	}
 	    	}
-	    	//System.out.println("las gui's son iguales"+ (gui==Singleton.getGui()));
 	  
 	    }  
+	    
 	    public void mouseEntered(MouseEvent e) {  
 	    }  
 	    public void mouseExited(MouseEvent e) {   

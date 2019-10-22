@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import Logica.abstracto.Enemigo;
+import Logica.abstracto.Estructura;
 import Logica.abstracto.Torre;
 import PowerUp.Bomba;
 import PowerUp.PowerUp;
@@ -72,14 +73,19 @@ public class Mapa {
 			celdas[fila][columna].addEnemigo(ene);
 	}
 	
-	public boolean insertarEstructura(Torre t,int fila,int columna) {  
+	public boolean insertarEstructura(Estructura t,int fila,int columna) {
+		boolean aux =celdas[fila][columna].insertarEstructura(t);
+		return aux;
+	}
+	
+	public boolean insertarTorre(Torre t,int fila,int columna) {  
 		boolean aux =celdas[fila][columna].insertarEstructura(t);
 		if(aux) listaTorres.add(t); 
 		return aux;
 	}
 	
 	public void eliminarTorre(Torre t,int fila,int columna) {  
-		celdas[fila][columna].eliminarTorre();
+		celdas[fila][columna].eliminarEstructura();
 		listaTorres.remove(t); 
 	}
 	

@@ -8,10 +8,10 @@ import Logica.abstracto.Estructura;
 import Logica.abstracto.Personaje;
 import Visitors.VisitorCeldaEstructura;
 
-public class obstaculo extends Estructura{
+public class Obstaculo extends Estructura{
 	
-	public obstaculo(Celda c) {
-		hp=200;
+	public Obstaculo(Celda c) {
+		hp=20;
 		visitor=new VisitorCeldaEstructura(this);
 		AbstractFactoryT aux= new fabricaT();
 		grafico=new ObjetoGraficoT(c,aux.obstaculo(),20);
@@ -20,7 +20,9 @@ public class obstaculo extends Estructura{
 
 
 	public void recibirDaño(float daño) {
-		hp=hp-daño;
+		hp=-daño;
+		if(hp<=0)
+			Eliminar();
 		
 	}
 

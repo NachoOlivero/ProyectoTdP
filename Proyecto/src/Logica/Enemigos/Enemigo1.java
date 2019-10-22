@@ -15,4 +15,5 @@ public class Enemigo1 extends Enemigo{
 		grafico=new OGEnemigo1();
 		visitor=new VisitorEnemigos(this);
 	}
+	
 }

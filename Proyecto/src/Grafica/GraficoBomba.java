@@ -14,7 +14,7 @@ public class GraficoBomba extends ObjetoGrafico{
 	
 	public GraficoBomba(int x,int y,Bomba bomba) {
 		fabricaT f=new fabricaT();
-		grafico=new JLabel(f.Torre1());
+		grafico=new JLabel(f.bomba());
 		grafico.setVisible(true);
 		miPowerUp=bomba;
 		grafico.setBounds(x,y,30,30);

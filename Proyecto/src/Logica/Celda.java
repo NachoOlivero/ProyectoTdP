@@ -58,8 +58,7 @@ public class Celda {
 		else {ene.Eliminar();System.out.println("Hola");}
 	}
 	
-	public void eliminarTorre() {  //avisar al mapa
-		estructura.Eliminar();
+	public void eliminarEstructura() {  //avisar al mapa
 		estructura=null;
 	}
 	

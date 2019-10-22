@@ -17,6 +17,7 @@ public class ObjetoGraficoT extends OGTorre {
 		gui.add(grafico);
 		grafico.setVisible(true);
 		gui.repaint();
+		System.out.println("creado el grafico");
 		
 	}
 	
@@ -27,6 +28,6 @@ public class ObjetoGraficoT extends OGTorre {
 		gui.add(grafico);
 		grafico.setVisible(true);
 		gui.repaint();
-		
+		System.out.println("creado el grafico");
 	}
 }
