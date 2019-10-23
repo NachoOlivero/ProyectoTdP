@@ -21,7 +21,7 @@ public class VisitorCeldaEstructura extends Visitor {
 	}
 
 	@Override
-	public void DetectorTorre(Torre e, int a) {
+	public void DetectorTorre(Torre e) {
 		// TODO Auto-generated method stub
 		
 	}

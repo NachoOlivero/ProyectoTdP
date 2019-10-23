@@ -32,12 +32,10 @@ public abstract class Torre extends Estructura{
 	
 	private void avisarEnemigos() {
 		int aux=celda.getX()+1;
-		int distancia=1;
 		while(aux<10) {
 			Singleton.getMapa().getCelda(aux, celda.getY());
 			for(Enemigo e:celda.getEnemigos())
-				e.aceptarTorre(this,distancia);
-			distancia++;
+				e.aceptarTorre(this);
 			aux++;
 		}
 	}

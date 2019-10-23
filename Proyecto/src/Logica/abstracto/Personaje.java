@@ -18,10 +18,12 @@ public abstract class Personaje extends ObjetoJuego {
 		visitor.visitAliado(e);
 	}
 	
-	public void aceptarTorre(Torre e,int a) {
-		visitor.DetectorTorre(e, a);
+	public void aceptarTorre(Torre e) {
+		visitor.DetectorTorre(e);
 	}
 	public abstract void turno();
+	
+	
 	
 
 }

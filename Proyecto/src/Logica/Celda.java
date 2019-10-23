@@ -112,7 +112,6 @@ public class Celda {
 			listaEnem.remove(e);
 			mapa.insertarEnemigo(e, fila,columna-1);
 			e.actualizarCelda(mapa.getCelda(fila, columna-1));
-			e.setCharco(false);
 	}
 	
 	public void eliminarEnemigo(Enemigo ene) {

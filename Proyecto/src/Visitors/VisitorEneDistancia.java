@@ -23,11 +23,8 @@ public class VisitorEneDistancia extends Visitor {
 	}
 
 	@Override
-	public void DetectorTorre(Torre e, int a) {
-		EnemigoDistancia aux=(EnemigoDistancia) miEntidad;
-		if(aux.Rango()>a) {
-			aux.setTD(true);
-		}
+	public void DetectorTorre(Torre e) {
+		miEntidad.atacar(e);
 	}
 
 	@Override

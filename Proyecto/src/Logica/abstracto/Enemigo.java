@@ -14,6 +14,7 @@ public abstract class Enemigo extends Personaje{
 	protected boolean charco=false;
 	protected int tiempoFrenar=0;
 	protected int MovD;
+	protected int cooldown;
 	
 	
 	public int PosActual() {
@@ -27,9 +28,7 @@ public abstract class Enemigo extends Personaje{
 	
 	
 	public void avanzar() {
-		if(charco && tiempoFrenar>0) 
-			tiempoFrenar--;
-		else {
+		
 			grafico.avanzar();
 			pos-=vel;
 			if(pos<min) {
@@ -49,7 +48,7 @@ public abstract class Enemigo extends Personaje{
 			}
 		celda.recibirEnemigo(this);
 	 */
-		}
+		
 	}
 
 	public void atacar(Personaje p) {
