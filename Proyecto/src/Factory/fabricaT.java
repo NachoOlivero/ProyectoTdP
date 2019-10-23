@@ -48,7 +48,12 @@ public class fabricaT extends AbstractFactoryT {
 
 	@Override
 	public ImageIcon obstaculo() {
-		return new ImageIcon(this.getClass().getResource("./Obstaculo.png"));
+		return new ImageIcon(this.getClass().getResource("./pinches.png"));
+	}
+
+	@Override
+	protected ImageIcon pinchos() {
+		return new ImageIcon(this.getClass().getResource("./pinches.png"));
 	}
 	
 
