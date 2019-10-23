@@ -19,5 +19,17 @@ public class VisitorEnemigos extends Visitor  {
 	public void visitEnemigo(Enemigo e) {
 	}
 
+	@Override
+	public void DetectorTorre(Torre e, int a) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void DisparoEnemigo() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 }

@@ -21,4 +21,16 @@ public class VisitorCeldaTorre extends Visitor {
 		e.atacar(miEntidad);
 	}
 
+	@Override
+	public void DetectorTorre(Torre e, int a) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void DisparoEnemigo() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

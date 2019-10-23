@@ -25,11 +25,6 @@ public abstract class Enemigo extends Personaje{
 		celda.recibirEnemigo(this);
 	}
 	
-	public void setCharco(boolean c) {
-		charco=c;
-		if(c==false)
-			tiempoFrenar=0;
-	}
 	
 	public void avanzar() {
 		if(charco && tiempoFrenar>0) 
