@@ -18,7 +18,7 @@ public class MovimientoEnemigos extends Thread {
 	
 	protected Mapa mapa;
 	protected LinkedList<Enemigo> listaEnemigos;
-	protected GUI gui; // por ahora tine la gui
+	protected GUI gui;
 	protected int coolDown=0;
 	
 	public MovimientoEnemigos(Mapa map,GUI g) {
@@ -32,7 +32,6 @@ public class MovimientoEnemigos extends Thread {
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			if(coolDown==0) {
@@ -43,7 +42,6 @@ public class MovimientoEnemigos extends Thread {
 			
 			crearObstaculo();
 			mapa.mover();
-			//System.out.println("---------------------");
 		}
 	}
 	
