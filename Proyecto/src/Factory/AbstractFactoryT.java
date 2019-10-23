@@ -24,4 +24,6 @@ public abstract class AbstractFactoryT {
 
 	public abstract ImageIcon obstaculo();
 
+	public abstract ImageIcon pinchos();
+
 }

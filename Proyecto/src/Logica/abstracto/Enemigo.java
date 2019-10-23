@@ -13,6 +13,7 @@ public abstract class Enemigo extends Personaje{
 	protected int pos=120;
 	protected boolean charco=false;
 	protected int tiempoFrenar=0;
+	protected int MovD;
 	
 	
 	public int PosActual() {
@@ -20,6 +21,7 @@ public abstract class Enemigo extends Personaje{
 	}
 	
 	public void turno() {
+		MovD=vel;
 		celda.recibirEnemigo(this);
 	}
 	
@@ -41,6 +43,17 @@ public abstract class Enemigo extends Personaje{
 			}
 			if(charco) 
 				tiempoFrenar=10;
+	/**		//no se bien como es esto,por eso lo dejo comentado
+		MovD--;
+		if(MovD>=0) {
+		grafico.avanzar();
+		pos-=vel;
+		if(pos<min) {
+			celda.moverEnemigoCelda(this);
+			pos=120;
+			}
+		celda.recibirEnemigo(this);
+	 */
 		}
 	}
 
