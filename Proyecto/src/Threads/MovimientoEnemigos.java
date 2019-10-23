@@ -88,8 +88,7 @@ public class MovimientoEnemigos extends Thread {
 				
 				if(!insercion)
 					est.Eliminar();
-				else if(probabilidad==1)
-						((Charco)est).iniciar();
+				
 			}
 			
 		}

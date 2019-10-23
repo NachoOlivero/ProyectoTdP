@@ -15,7 +15,7 @@ public class Celda {
 	protected List<Enemigo> listaEnem;
 	protected List<Disparo> listaDisparos;
 	protected boolean barrera;
-	protected boolean charco;
+	//protected boolean charco;
 	
 	public Celda(int f,int c,Mapa map) {
 		estructura=null;
@@ -54,8 +54,6 @@ public class Celda {
 	public void addEnemigo(Enemigo ene) {
 		if(!barrera) {
 			listaEnem.add(ene);
-			if(charco) 
-				ene.setCharco(true);
 		}
 		else ene.Eliminar();
 	}
@@ -148,11 +146,7 @@ public class Celda {
 		barrera=valor;
 	}
 	
-	public void setCharco(boolean valor) {
-		charco=valor;
-		for(Enemigo ene:listaEnem)
-				ene.setCharco(valor);
-	}
+	
 
 	private Enemigo getEnemigo(int posicion) { 
 		Enemigo ret=null;
