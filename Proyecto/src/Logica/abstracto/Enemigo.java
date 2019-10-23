@@ -35,19 +35,6 @@ public abstract class Enemigo extends Personaje{
 				celda.moverEnemigoCelda(this);
 				pos=120;
 			}
-			if(charco) 
-				tiempoFrenar=10;
-	/**		//no se bien como es esto,por eso lo dejo comentado
-		MovD--;
-		if(MovD>=0) {
-		grafico.avanzar();
-		pos-=vel;
-		if(pos<min) {
-			celda.moverEnemigoCelda(this);
-			pos=120;
-			}
-		celda.recibirEnemigo(this);
-	 */
 		
 	}
 

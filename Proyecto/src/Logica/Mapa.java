@@ -8,6 +8,8 @@ import Logica.abstracto.Estructura;
 import Logica.abstracto.Torre;
 import PowerUp.Bomba;
 import PowerUp.PowerUp;
+import Threads.HiloGui;
+import Threads.MovimientoEnemigos;
 
 public class Mapa {
 	private Celda celdas[][];
@@ -71,6 +73,7 @@ public class Mapa {
 	public void insertarEnemigo(Enemigo ene,int fila,int columna) {
 		if(columna>=0)
 			celdas[fila][columna].addEnemigo(ene);
+		else MovimientoEnemigos.Game();
 	}
 	
 	public boolean insertarEstructura(Estructura t,int fila,int columna) {

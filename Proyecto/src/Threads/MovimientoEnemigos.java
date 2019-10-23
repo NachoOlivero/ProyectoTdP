@@ -5,7 +5,11 @@ import java.util.Random;
 
 import Estructuras.Charco;
 import Estructuras.Obstaculo;
+import Factory.AbstractFactoryT;
+import Factory.fabricaT;
 import GUI.GUI;
+import GUI.GUIDyV;
+import GUI.JPanelConFondo;
 import Logica.Celda;
 import Logica.Mapa;
 import Logica.Singleton;
@@ -18,19 +22,23 @@ public class MovimientoEnemigos extends Thread {
 	
 	protected Mapa mapa;
 	protected LinkedList<Enemigo> listaEnemigos;
-	protected GUI gui; // por ahora tine la gui
+	protected GUI gui; 
 	protected int coolDown=0;
+	protected static boolean gameOver;
+	protected GUIDyV gui2;
 	
 	public MovimientoEnemigos(Mapa map,GUI g) {
 		listaEnemigos=new LinkedList<Enemigo>();
 		mapa=map;
+		gameOver=false;
 		gui=g;
+		gui2=null;
 	}
 	
 	public void run() {
-		while(true) {
+		while(!gameOver) {
 			try {
-				Thread.sleep(100);
+				Thread.sleep(1);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -41,10 +49,13 @@ public class MovimientoEnemigos extends Thread {
 			}
 			else coolDown--;
 			
-			crearObstaculo();
+			//crearObstaculo();
 			mapa.mover();
 			//System.out.println("---------------------");
 		}
+		gui.setVisible(false);
+		gui2 = new GUIDyV("./GameOver.png");
+		
 	}
 	
 	private Enemigo crearEnemigo() {
@@ -97,6 +108,10 @@ public class MovimientoEnemigos extends Thread {
 		
 
 	}
+	public static void Game() {
+		gameOver=true;
+	}
+	
 
 
 	public void eliminarAll() {
@@ -108,10 +123,11 @@ public class MovimientoEnemigos extends Thread {
 			if(!(listaEnemigos.isEmpty())) {
 				Enemigo eliminado=listaEnemigos.removeFirst();
 				eliminado.Eliminar();
-				gui.repaint();
+				Singleton.getGui().repaint();
 				//cant--;
 			}
 	}
+
 	
 }
 
