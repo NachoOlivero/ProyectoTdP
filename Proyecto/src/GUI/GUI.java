@@ -22,7 +22,6 @@ public class GUI extends JFrame {
 
 	public GUI() {
 		getContentPane().setLayout(null);
-		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0,0, 1280, 700);
 		setResizable(false);
@@ -49,7 +48,7 @@ public class GUI extends JFrame {
 		add(pun);
 		//
 		din=new JLabel();
-		din.setForeground(Color.WHITE);
+		din.setForeground(Color.YELLOW);
 		din.setText("Dinero: "+ju.getDinero());
 		din.setBounds(1100,560,80,80);
 		din.setVisible(true);

@@ -56,5 +56,7 @@ public class fabricaT extends AbstractFactoryT {
 		return new ImageIcon(this.getClass().getResource("./pinches.png"));
 	}
 	
+	
+	
 
 }

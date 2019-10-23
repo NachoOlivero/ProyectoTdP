@@ -17,4 +17,8 @@ public void Eliminar() {
 	}
 
 public abstract void atacar(Personaje e);
+
+public Celda getCelda() {
+	return celda;
+}
 }
