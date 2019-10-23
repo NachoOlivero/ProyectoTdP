@@ -27,7 +27,7 @@ public class GUI extends JFrame {
 		setBounds(0,0, 1280, 700);
 		setResizable(false);
 		
-		contentPane = new JPanelConFondo("./mapaV2_3(64x35).jpg");
+		contentPane = new JPanelConFondo("./mapaV2_4(64x35).jpg");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
