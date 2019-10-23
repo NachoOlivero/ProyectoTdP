@@ -6,6 +6,7 @@ import Grafica.ObjetoGraficoT;
 import Logica.Celda;
 import Logica.abstracto.Estructura;
 import Logica.abstracto.Personaje;
+import Visitors.VisitorPinche;
 
 public class Clavos extends Estructura {
 	
@@ -13,6 +14,7 @@ public class Clavos extends Estructura {
 		AbstractFactoryT aux= new fabricaT();
 		grafico=new ObjetoGraficoT(c,aux.pinchos(),20);
 		celda=c;
+		visitor=new VisitorPinche(this);
 	}
 
 
