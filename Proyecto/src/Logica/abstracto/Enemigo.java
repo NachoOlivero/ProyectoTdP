@@ -12,21 +12,27 @@ public abstract class Enemigo extends Personaje{
 	protected OGMovil grafico;
 	protected final int min=1;
 	protected int pos=120;
+	protected int MovD;
 	
 	public int PosActual() {
 		return pos;
 	}
 	
 	public void turno() {
+		MovD=vel;
 		celda.recibirEnemigo(this);
 	}
 	
 	public void avanzar() {
+		MovD--;
+		if(MovD>=0) {
 		grafico.avanzar();
 		pos-=vel;
 		if(pos<min) {
 			celda.moverEnemigoCelda(this);
 			pos=120;
+			}
+		celda.recibirEnemigo(this);
 		}
 	}
 
