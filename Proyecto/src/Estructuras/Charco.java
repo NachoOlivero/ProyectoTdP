@@ -24,12 +24,16 @@ public class Charco extends Estructura{
 		grafico=new ObjetoGraficoT(c,aux.charco(),20);
 		celda=c;
 		temp=new Timer();
-		temp.schedule(new Eliminar(), 10000);
 		
 	}
 
 	public void recibirDaño(float daño) {	
 		
+	}
+	
+	public void iniciar() {
+		temp.schedule(new Eliminar(), 10000);
+		celda.setCharco(true);
 	}
 
 	
@@ -51,6 +55,7 @@ public class Charco extends Estructura{
 	
 	private class Eliminar extends TimerTask {
 		public void run() {
+			celda.setCharco(false);
 			Eliminar();
 			celda.eliminarEstructura();
 		}

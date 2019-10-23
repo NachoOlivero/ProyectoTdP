@@ -5,13 +5,15 @@ import Grafica.ObjetoGrafico;
 import Logica.Celda;
 import Logica.Singleton;
 import PowerUp.PowerUp;
-import Visitors.Visitor;
 
 public abstract class Enemigo extends Personaje{
 	protected int vel;
 	protected OGMovil grafico;
 	protected final int min=1;
 	protected int pos=120;
+	protected boolean charco=false;
+	protected int tiempoFrenar=0;
+	
 	
 	public int PosActual() {
 		return pos;
@@ -21,12 +23,24 @@ public abstract class Enemigo extends Personaje{
 		celda.recibirEnemigo(this);
 	}
 	
+	public void setCharco(boolean c) {
+		charco=c;
+		if(c==false)
+			tiempoFrenar=0;
+	}
+	
 	public void avanzar() {
-		grafico.avanzar();
-		pos-=vel;
-		if(pos<min) {
-			celda.moverEnemigoCelda(this);
-			pos=120;
+		if(charco && tiempoFrenar>0) 
+			tiempoFrenar--;
+		else {
+			grafico.avanzar();
+			pos-=vel;
+			if(pos<min) {
+				celda.moverEnemigoCelda(this);
+				pos=120;
+			}
+			if(charco) 
+				tiempoFrenar=10;
 		}
 	}
 

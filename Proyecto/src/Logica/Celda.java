@@ -2,8 +2,6 @@ package Logica;
 
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Estructura;
-import Logica.abstracto.Torre;
-
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -17,6 +15,7 @@ public class Celda {
 	protected List<Enemigo> listaEnem;
 	protected List<Disparo> listaDisparos;
 	protected boolean barrera;
+	protected boolean charco;
 	
 	public Celda(int f,int c,Mapa map) {
 		estructura=null;
@@ -53,9 +52,12 @@ public class Celda {
 
 	
 	public void addEnemigo(Enemigo ene) {
-		if(!barrera)
+		if(!barrera) {
 			listaEnem.add(ene);
-		else {ene.Eliminar();System.out.println("Hola");}
+			if(charco) 
+				ene.setCharco(true);
+		}
+		else ene.Eliminar();
 	}
 	
 	public void eliminarEstructura() {  //avisar al mapa
@@ -112,7 +114,7 @@ public class Celda {
 			listaEnem.remove(e);
 			mapa.insertarEnemigo(e, fila,columna-1);
 			e.actualizarCelda(mapa.getCelda(fila, columna-1));
-			//System.out.println("movimiento");
+			e.setCharco(false);
 	}
 	
 	public void eliminarEnemigo(Enemigo ene) {
@@ -143,7 +145,13 @@ public class Celda {
 
 	
 	public void setBarrera(boolean valor) {
-			barrera=valor;
+		barrera=valor;
+	}
+	
+	public void setCharco(boolean valor) {
+		charco=valor;
+		for(Enemigo ene:listaEnem)
+				ene.setCharco(valor);
 	}
 
 	private Enemigo getEnemigo(int posicion) { 
