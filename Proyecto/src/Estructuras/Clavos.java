@@ -6,7 +6,6 @@ import Grafica.ObjetoGraficoT;
 import Logica.Celda;
 import Logica.abstracto.Estructura;
 import Logica.abstracto.Personaje;
-import Visitors.VisitorCeldaEstructura;
 
 public class Clavos extends Estructura {
 	
@@ -18,11 +17,6 @@ public class Clavos extends Estructura {
 
 
 	public void recibirDaño(float daño) {
-		hp=-daño;
-		if(hp<=0) {
-			Eliminar();
-			celda.eliminarEstructura();
-		}
 		
 	}
 
@@ -41,4 +35,4 @@ public class Clavos extends Estructura {
 	
 }
 
-}
+
