@@ -11,6 +11,10 @@ public class Juego {
 	private static HiloGui contador;
 	
 	public static void main(String args[]) {
+		Start();
+	}
+	
+	public static void Start() {
 		GUI gui=Singleton.getGui();
 		gui.setVisible(true);
 		Mapa mapa=Singleton.getMapa();
@@ -20,10 +24,6 @@ public class Juego {
 	
 		movEnemigos.run();
 		contador.run();
-	}
-	
-	public void gameOver(){
-		//movEnemigos.destroy();
-		//HiloGui.setFondo(new JPanel("Game Over"));
+		
 	}
 }

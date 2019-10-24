@@ -28,14 +28,18 @@ public abstract class Enemigo extends Personaje{
 	
 	
 	public void avanzar() {
-		
+			MovD--;
+			if(MovD>=0) {
 			grafico.avanzar();
-			pos-=vel;
+			pos-=1;
 			if(pos<min) {
 				celda.moverEnemigoCelda(this);
 				pos=120;
-			}
+				}
+			if(celda!=null) //solucion temporal
+				celda.recibirEnemigo(this);
 		
+			}
 	}
 
 	public void atacar(Personaje p) {
@@ -44,8 +48,10 @@ public abstract class Enemigo extends Personaje{
 	
 	public void recibirDaño(float daño) {
 		hp-=daño;
-		if(hp<=0) 
+		if(hp<=0) {
 			Eliminar();
+			System.out.println("en recivir daño");
+		}
 	}
 	
 	public ObjetoGrafico getGrafico() {

@@ -3,6 +3,7 @@ package Logica;
 import java.util.LinkedList;
 import java.util.List;
 
+import Logica.abstracto.DisparoAbstracto;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Estructura;
 import Logica.abstracto.Torre;
@@ -38,8 +39,8 @@ public class Mapa {
 		
 		for(int i=0;i<celdas.length;i++) {
 			for(int j=0;j<celdas[0].length;j++) {
-				celdas[i][j].avanzarEnemigo();
 				celdas[i][j].dispararTorre();
+				celdas[i][j].avanzarEnemigo();
 				for(int m=0;m<10;m++)
 					celdas[i][j].avanzarDisparos();
 			}
@@ -77,7 +78,10 @@ public class Mapa {
 	}
 	
 	public boolean insertarEstructura(Estructura t,int fila,int columna) {
-		boolean aux =celdas[fila][columna].insertarEstructura(t);
+		boolean aux=false;
+		if(fila<5 && columna<9) {
+		 aux =celdas[fila][columna].insertarEstructura(t);
+		}
 		return aux;
 	}
 	
@@ -92,7 +96,7 @@ public class Mapa {
 		listaTorres.remove(t); 
 	}
 	
-	public void insertarDisparo(Disparo disp, int fila,int columna) {
+	public void insertarDisparo(DisparoAbstracto disp, int fila,int columna) {
 		if(columna<maxColumnas) {
 			celdas[fila][columna].añadirDisparo(disp);
 			disp.setCelda(celdas[fila][columna]);
@@ -121,6 +125,7 @@ public class Mapa {
 	public void eliminarPowerUp(PowerUp pu) {  
 		listaPowerUps.remove(pu); 
 	}
+	
 	
 	
 }

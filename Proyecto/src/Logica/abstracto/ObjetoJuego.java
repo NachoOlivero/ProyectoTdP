@@ -12,7 +12,7 @@ public abstract class ObjetoJuego {
 	}
 	
 public void Eliminar() {
-		System.out.println("eliminado el objeto: "+grafico);
+		//System.out.println("eliminado el objeto: "+grafico);
 		grafico.eliminar();
 	}
 

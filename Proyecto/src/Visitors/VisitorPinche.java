@@ -1,6 +1,7 @@
 package Visitors;
 
 import Logica.Disparo;
+import Logica.abstracto.DisparoAbstracto;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Personaje;
 import Logica.abstracto.Torre;
@@ -12,7 +13,7 @@ public class VisitorPinche extends Visitor{
 	}
 
 	@Override
-	public void visitAliado(Disparo a) {
+	public void visitAliado(DisparoAbstracto a) {
 		
 	}
 
@@ -29,8 +30,8 @@ public class VisitorPinche extends Visitor{
 	}
 
 	@Override
-	public void DisparoEnemigo() {
-		// TODO Auto-generated method stub
+	public void DisparoEnemigo(DisparoAbstracto a) {
+		
 		
 	}
 

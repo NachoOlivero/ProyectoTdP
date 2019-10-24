@@ -1,16 +1,17 @@
 package Visitors;
 
 import Logica.Disparo;
+import Logica.abstracto.DisparoAbstracto;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Torre;
 
 public class VisitorDisparo extends Visitor {
 
-	public VisitorDisparo(Disparo e) {
+	public VisitorDisparo(DisparoAbstracto e) {
 		miEntidad=e;
 	}
 	
-	public void visitAliado(Disparo a) {
+	public void visitAliado(DisparoAbstracto a) {
 	
 }
 
@@ -26,7 +27,7 @@ public class VisitorDisparo extends Visitor {
 	}
 
 	@Override
-	public void DisparoEnemigo() {
+	public void DisparoEnemigo(DisparoAbstracto a) {
 		// TODO Auto-generated method stub
 		
 	}

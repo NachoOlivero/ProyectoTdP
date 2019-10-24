@@ -2,6 +2,8 @@ package Threads;
 
 import java.util.LinkedList;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import Estructuras.Charco;
 import Estructuras.Obstaculo;
@@ -26,19 +28,25 @@ public class MovimientoEnemigos extends Thread {
 	protected int coolDown=0;
 	protected static boolean gameOver;
 	protected GUIDyV gui2;
+	protected boolean gane;
+	protected Timer temp;
 	
 	public MovimientoEnemigos(Mapa map,GUI g) {
 		listaEnemigos=new LinkedList<Enemigo>();
 		mapa=map;
 		gameOver=false;
+		gane=false;
 		gui=g;
 		gui2=null;
+		temp= new Timer();
 	}
 	
 	public void run() {
-		while(!gameOver) {
+		temp.schedule(new Victoria(), 300000);
+		while(!gameOver && !gane) {
 			try {
 				Thread.sleep(10);
+				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -51,8 +59,12 @@ public class MovimientoEnemigos extends Thread {
 			crearObstaculo();
 			mapa.mover();
 		}
+		mapa.inicializarCeldas(10,6);
 		gui.setVisible(false);
-		gui2 = new GUIDyV("./GameOver.png");
+		if(!gane)
+			gui2 = new GUIDyV("./GameOver.png");
+		else
+			gui2=new GUIDyV("./Victory.png");
 		
 	}
 	
@@ -124,6 +136,11 @@ public class MovimientoEnemigos extends Thread {
 				Singleton.getGui().repaint();
 				//cant--;
 			}
+	}
+	private class Victoria extends TimerTask {
+		public void run() {
+			gane=true;
+		}
 	}
 
 	

@@ -1,6 +1,7 @@
 package Visitors;
 
 import Logica.Disparo;
+import Logica.abstracto.DisparoAbstracto;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.EnemigoDistancia;
 import Logica.abstracto.Torre;
@@ -12,7 +13,7 @@ public class VisitorEneDistancia extends Visitor {
 	}
 
 	
-	public void visitAliado(Disparo a) {
+	public void visitAliado(DisparoAbstracto a) {
 		a.atacar(miEntidad);
 		
 	}
@@ -28,8 +29,7 @@ public class VisitorEneDistancia extends Visitor {
 	}
 
 	@Override
-	public void DisparoEnemigo() {
-	
+	public void DisparoEnemigo(DisparoAbstracto a) {
 	}
 
 }

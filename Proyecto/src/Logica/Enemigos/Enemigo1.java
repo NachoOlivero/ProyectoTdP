@@ -3,7 +3,10 @@ package Logica.Enemigos;
 import Grafica.OGEnemigo1;
 import Logica.Celda;
 import Logica.abstracto.Enemigo;
+import Logica.abstracto.EnemigoDistancia;
+import Visitors.VisitorEneDistancia;
 import Visitors.VisitorEnemigos;
+
 
 public class Enemigo1 extends Enemigo{
 
@@ -11,9 +14,10 @@ public class Enemigo1 extends Enemigo{
 		hp=15;
 		dp=5;
 		celda=cel;
-		vel=1;
+		vel=2;
 		grafico=new OGEnemigo1();
 		visitor=new VisitorEnemigos(this);
+
 	}
 	
 }

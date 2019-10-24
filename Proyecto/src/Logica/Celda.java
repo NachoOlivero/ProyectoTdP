@@ -1,5 +1,6 @@
 package Logica;
 
+import Logica.abstracto.DisparoAbstracto;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Estructura;
 import java.util.Iterator;
@@ -13,14 +14,14 @@ public class Celda {
 	protected int columna;
 	protected Mapa mapa;
 	protected List<Enemigo> listaEnem;
-	protected List<Disparo> listaDisparos;
+	protected List<DisparoAbstracto> listaDisparos;
 	protected boolean barrera;
 	//protected boolean charco;
 	
 	public Celda(int f,int c,Mapa map) {
 		estructura=null;
 		listaEnem=new LinkedList<Enemigo>();
-		listaDisparos=new LinkedList<Disparo>();
+		listaDisparos=new LinkedList<DisparoAbstracto>();
 		fila=f;
 		columna=c;
 		mapa=map;
@@ -62,25 +63,25 @@ public class Celda {
 		estructura=null;
 	}
 	
-	public void añadirDisparo(Disparo disp) {
+	public void añadirDisparo(DisparoAbstracto disp) {
 		listaDisparos.add(disp);
 	}
 	
-	public void eliminarDisparo(Disparo disp) {
-		listaDisparos.remove(disp);
+	public void eliminarDisparo(DisparoAbstracto disparoAbstracto) {
+		listaDisparos.remove(disparoAbstracto);
 	}
 	
 	public void avanzarDisparos() {
-		LinkedList<Disparo> listaAux=new LinkedList<Disparo>();
-		for(Disparo d:listaDisparos)
+		LinkedList<DisparoAbstracto> listaAux=new LinkedList<DisparoAbstracto>();
+		for(DisparoAbstracto d:listaDisparos)
 			listaAux.add(d);
-		Iterator<Disparo> it=listaAux.iterator();
+		Iterator<DisparoAbstracto> it=listaAux.iterator();
 		while(it.hasNext())
 				it.next().turno();
 	}
 	
-	public void moverCeldaDisparo(Disparo disp) {
-		mapa.insertarDisparo(disp,fila,columna+1);
+	public void moverCeldaDisparo(DisparoAbstracto disp,int a) {
+		mapa.insertarDisparo(disp,fila,columna+a);
 		listaDisparos.remove(disp);
 	}
 	
@@ -129,11 +130,11 @@ public class Celda {
 		return listaDisparos.size();
 	}
 
-	private Disparo getDisparo(int pos) {
-		Disparo ret=null;
-		Iterator<Disparo> it=listaDisparos.iterator();
+	private DisparoAbstracto getDisparo(int pos) {
+		DisparoAbstracto ret=null;
+		Iterator<DisparoAbstracto> it=listaDisparos.iterator();
 		while(it.hasNext() && ret==null) {
-			Disparo disp=it.next();
+			DisparoAbstracto disp=it.next();
 			if(disp.estaEnPosicion(pos))
 				ret=disp;
 		}
@@ -162,7 +163,7 @@ public class Celda {
 	public void recibirEnemigo(Enemigo enemigo2) {
 		
 		if(listaDisparos.size()>0) {
-			Disparo aux= getDisparo(enemigo2.PosActual());
+			DisparoAbstracto aux= getDisparo(enemigo2.PosActual());
 			if(aux!=null) {
 				//System.out.println("::::::ENTRO1::::::");
 				aux.AceptarEnemigo(enemigo2);
@@ -179,7 +180,7 @@ public class Celda {
 		
 	}
 	
-		public void recibirDisparo(Disparo p) {
+		public void recibirDisparo(DisparoAbstracto p) {
 			if(estructura!=null) {
 				estructura.aceptarAliado(p);
 				}
@@ -198,6 +199,25 @@ public class Celda {
 	
 	public List<Enemigo> getEnemigos() {
 		return listaEnem;
+	}
+
+
+
+	public void recibirDisparoEnemigo(DisparoAbstracto p) {
+		if(estructura!=null) {
+			estructura.AceptarDisparoEnemigo(p);
+			}
+		if(p!=null) {
+			Enemigo e=null;
+			if(listaEnem.size()>0) {
+				e=getEnemigo(p.pos());
+			}
+			if(e==null)
+				p.avanzar();
+			else
+				e.AceptarDisparoEnemigo(p);
+		
+		}
 	}
 }
 
