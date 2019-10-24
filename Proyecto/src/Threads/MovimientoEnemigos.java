@@ -7,11 +7,8 @@ import java.util.TimerTask;
 
 import Estructuras.Charco;
 import Estructuras.Obstaculo;
-import Factory.AbstractFactoryT;
-import Factory.fabricaT;
 import GUI.GUI;
 import GUI.GUIDyV;
-import GUI.JPanelConFondo;
 import Logica.Celda;
 import Logica.Mapa;
 import Logica.Singleton;
@@ -45,7 +42,6 @@ public class MovimientoEnemigos extends Thread {
 		temp.schedule(new Victoria(), 300000);
 		while(!gameOver && !gane) {
 			try {
-				Thread.sleep(10);
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();

@@ -28,7 +28,7 @@ public class Barricada extends Torre {
 		AbstractFactoryT aux= new fabricaT();
 		grafico=new GraficoDoble(c,aux.barricada());
 		celda=c;
-		System.out.println("celda" +celda.getX()+ "  "+celda.getY());
+		//System.out.println("celda" +celda.getX()+ "  "+celda.getY());
 		if(!Singleton.getMapa().insertarEstructura(this, celda.getY(),celda.getX()-1)) {
 			this.Eliminar();
 			Singleton.getJugador().aumentarDinero(140);
@@ -66,13 +66,6 @@ public class Barricada extends Torre {
 		return 0;
 	}
 
-	@Override
-	public void recibirDaño(float daño) {
-		hp-=daño;
-		if(hp<=0)
-			Eliminar();
-		
-	}
 
 	@Override
 	public void atacar(Personaje e) {

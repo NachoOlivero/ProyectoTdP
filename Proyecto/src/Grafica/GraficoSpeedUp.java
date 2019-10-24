@@ -15,7 +15,7 @@ public class GraficoSpeedUp extends ObjetoGrafico {
 	public GraficoSpeedUp(int x,int y,PowerUp pu) {
 		miPowerUp=pu;
 		AbstractFactoryT f=new fabricaT();
-		grafico=new JLabel(f.killAll());
+		grafico=new JLabel(f.speedUp()); 
 		grafico.setBounds(x,y, 50, 50);
 		grafico.addMouseListener(new MouseAdapter() {
 		      public void mouseClicked(MouseEvent me) {

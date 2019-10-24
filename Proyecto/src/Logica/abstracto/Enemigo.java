@@ -50,7 +50,7 @@ public abstract class Enemigo extends Personaje{
 		hp-=daño;
 		if(hp<=0) {
 			Eliminar();
-			System.out.println("en recivir daño");
+			//System.out.println("en recibir daño");
 		}
 	}
 	

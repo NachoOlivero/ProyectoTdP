@@ -16,8 +16,8 @@ public class Barrera extends PowerUp {
 		grafico=new GraficoBarrera(x,y,this);
 		timer=new Timer();
 		celda=Singleton.getMapa().getCelda(y/100,(x-40)/120);
-		System.out.println("Celda del powerup: "+celda);
-		System.out.println("Fila del powerup: "+celda.getY()+"Coumna del powerup: "+celda.getX());
+		//System.out.println("Celda del powerup: "+celda);
+		//System.out.println("Fila del powerup: "+celda.getY()+"Coumna del powerup: "+celda.getX());
 	}
 
 	public void comenzar() {

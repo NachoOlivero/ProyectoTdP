@@ -26,4 +26,18 @@ public class Juego {
 		contador.run();
 		
 	}
+	
+	public static void reStart() {
+		GUI gui=Singleton.getGui();
+		Mapa mapa=Singleton.getMapa();
+		
+		gui.setVisible(true);
+		mapa.inicializarCeldas(6, 10);
+		
+		movEnemigos= new MovimientoEnemigos(mapa,gui);
+	
+		movEnemigos.run();
+		contador.run();
+		
+	}
 }

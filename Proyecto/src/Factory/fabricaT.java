@@ -1,8 +1,5 @@
 package Factory;
 
-import java.io.File;
-
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 
@@ -12,6 +9,14 @@ public class fabricaT extends AbstractFactoryT {
 
 	public ImageIcon Torre1() {
 		return new ImageIcon(this.getClass().getResource("./Seige_Tower.png"));
+	}
+	
+	public ImageIcon Torre2() {
+		return new ImageIcon(this.getClass().getResource("./Seige_Tower.png"));
+	}
+	
+	public ImageIcon Torre3() {
+		return new ImageIcon(this.getClass().getResource("./torreLanzallamas.png"));
 	}
 	
 	public ImageIcon Enemigo1() {
@@ -25,6 +30,10 @@ public class fabricaT extends AbstractFactoryT {
 	}
 	public ImageIcon barrera() {
 		return new ImageIcon(this.getClass().getResource("./shield.png"));
+	}
+	
+	public ImageIcon speedUp() {
+		return new ImageIcon(this.getClass().getResource("./speedUp.png"));
 	}
 	
 	public ImageIcon bomba() {

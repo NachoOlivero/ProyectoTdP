@@ -12,6 +12,16 @@ public class  Tienda {
 		}
 		return toReturn;
 	}
+	
+	public static Torre comprarT3() {
+		Torre toReturn=null;
+		if(Singleton.getJugador().getDinero()>=200) {
+			Singleton.getJugador().reducirDinero(200);
+			toReturn=new Torre3();
+		}
+		return toReturn;
+	}
+	
 	public static Torre comprarDinero() {
 		Torre toReturn=null;
 		if(Singleton.getJugador().getDinero()>=50) {

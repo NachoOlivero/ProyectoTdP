@@ -11,7 +11,7 @@ import Visitors.VisitorCeldaEstructura;
 public class Obstaculo extends Estructura{
 	
 	public Obstaculo(Celda c) {
-		hp=20;
+		hp=100;
 		visitor=new VisitorCeldaEstructura(this);
 		AbstractFactoryT aux= new fabricaT();
 		grafico=new ObjetoGraficoT(c,aux.obstaculo(),20);

@@ -51,7 +51,7 @@ public class Charco extends Estructura{
 	}
 	
 	public  void AceptarEnemigo(Enemigo e) {
-		System.out.println(control);
+		//System.out.println(control);
 		 if (control==0)
 			 visitor.visitEnemigo(e);
 	}

@@ -36,7 +36,7 @@ import Juego.Juego;
 
 			public void actionPerformed(ActionEvent arg0) {
 				setVisible(false);
-				Juego.Start();
+				//Juego.reStart();  hacemos despues lo 
 				
 			}
 			

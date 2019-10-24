@@ -58,7 +58,7 @@ public class prueba extends JFrame {
 	}
 	
 	protected void mover(KeyEvent key){
-		System.out.println(key.getKeyCode());
+		//System.out.println(key.getKeyCode());
 		
 		Rectangle pos = dibujo.getBounds();
 		

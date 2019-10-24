@@ -16,6 +16,7 @@ public class KillAll extends PowerUp {
 
 	public void comenzar() {
 		Singleton.getMapa().KillAll();
+		System.out.println("hola kill all");
 		eliminar();
 	}
 	
