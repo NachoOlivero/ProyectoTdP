@@ -23,8 +23,8 @@ public class  Tienda {
 	
 	public static Torre comprarBarricada() {
 		Torre toReturn=null;
-		if(Singleton.getJugador().getDinero()>=10) {
-			Singleton.getJugador().reducirDinero(10);
+		if(Singleton.getJugador().getDinero()>=140) {
+			Singleton.getJugador().reducirDinero(140);
 			toReturn=new Barricada();
 		}
 		return toReturn;

@@ -28,12 +28,14 @@ public class Barricada extends Torre {
 		AbstractFactoryT aux= new fabricaT();
 		grafico=new GraficoDoble(c,aux.barricada());
 		celda=c;
-		if(!Singleton.getMapa().insertarEstructura(this, celda.getX()-1, celda.getY())) {
+		System.out.println("celda" +celda.getX()+ "  "+celda.getY());
+		if(!Singleton.getMapa().insertarEstructura(this, celda.getY(),celda.getX()-1)) {
 			this.Eliminar();
 			Singleton.getJugador().aumentarDinero(140);
 		}else {
 			celdaExtra=Singleton.getMapa().getCelda(celda.getX()-1, celda.getY());
 		}
+	
 		
 	}
 	
@@ -74,6 +76,12 @@ public class Barricada extends Torre {
 
 	@Override
 	public void atacar(Personaje e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void turno() {
 		// TODO Auto-generated method stub
 		
 	}
