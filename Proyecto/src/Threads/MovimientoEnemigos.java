@@ -42,7 +42,7 @@ public class MovimientoEnemigos extends Thread {
 	}
 	
 	public void run() {
-		temp.schedule(new Victoria(), 1000);
+		temp.schedule(new Victoria(), 300000);
 		while(!gameOver && !gane) {
 			try {
 				Thread.sleep(100);
