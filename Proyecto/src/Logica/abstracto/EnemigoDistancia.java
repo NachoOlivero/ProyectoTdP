@@ -3,6 +3,7 @@ package Logica.abstracto;
 import Factory.AbstractFactoryT;
 import Factory.fabricaT;
 import Logica.Disparo;
+import Logica.DisparoEnemigo;
 
 public abstract class EnemigoDistancia extends Enemigo {
 	protected int rango;
@@ -30,7 +31,7 @@ public abstract class EnemigoDistancia extends Enemigo {
 	private void crearDisparo() {
 		if(cooldown==0) {
 			AbstractFactoryT k=new fabricaT();
-			Disparo disp=new Disparo(rango,dp,celda,k.disparo());
+			DisparoAbstracto disp=new DisparoEnemigo(rango,dp,celda,pos);
 			celda.añadirDisparo(disp);
 			cooldown=10;
 		}

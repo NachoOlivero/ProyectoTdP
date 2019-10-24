@@ -3,7 +3,9 @@ package Logica.Enemigos;
 import Grafica.OGEnemigo1;
 import Logica.Celda;
 import Logica.abstracto.Enemigo;
+import Logica.abstracto.EnemigoDistancia;
 import Visitors.VisitorEnemigos;
+
 
 public class Enemigo1 extends Enemigo{
 
