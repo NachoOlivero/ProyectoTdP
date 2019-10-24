@@ -92,7 +92,7 @@ public class Mapa {
 		listaTorres.remove(t); 
 	}
 	
-	public void insertarDisparo(Disparo disp, int fila,int columna) {
+	public void insertarDisparo(DisparoAbstracto disp, int fila,int columna) {
 		if(columna<maxColumnas) {
 			celdas[fila][columna].añadirDisparo(disp);
 			disp.setCelda(celdas[fila][columna]);

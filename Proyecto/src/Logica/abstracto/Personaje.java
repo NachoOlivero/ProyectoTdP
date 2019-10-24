@@ -1,6 +1,7 @@
 package Logica.abstracto;
 
 import Logica.Disparo;
+import Logica.DisparoAbstracto;
 import Visitors.Visitor;
 
 public abstract class Personaje extends ObjetoJuego {
@@ -14,12 +15,16 @@ public abstract class Personaje extends ObjetoJuego {
 	public  void AceptarEnemigo(Enemigo e) {
 		visitor.visitEnemigo(e);
 	}
-	public void aceptarAliado(Disparo e) {
+	public void aceptarAliado(DisparoAbstracto e) {
 		visitor.visitAliado(e);
 	}
 	
 	public void aceptarTorre(Torre e) {
 		visitor.DetectorTorre(e);
+	}
+	
+	public void AceptarDisparoEnemigo(DisparoAbstracto e) {
+		visitor.DisparoEnemigo(e);
 	}
 	public abstract void turno();
 	

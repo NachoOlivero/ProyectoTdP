@@ -30,7 +30,8 @@ public class Torre1 extends Torre {
 
 	public void atacar(Personaje e) {
 		if(cooldown==0) {
-			Disparo disp=new Disparo(rango,dp,celda);
+			AbstractFactoryT k=new fabricaT();
+			Disparo disp=new Disparo(rango,dp,celda,k.disparo());
 			celda.añadirDisparo(disp);
 			cooldown=cooldownActual;
 		}

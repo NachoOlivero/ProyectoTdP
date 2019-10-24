@@ -2,6 +2,7 @@ package Visitors;
 
 import Estructuras.Charco;
 import Logica.Disparo;
+import Logica.DisparoAbstracto;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Torre;
 
@@ -13,7 +14,7 @@ public class VisitorEstructurac extends Visitor {
 	}
 
 
-	public void visitAliado(Disparo a) {
+	public void visitAliado(DisparoAbstracto a) {
 		
 		
 	}
@@ -32,7 +33,7 @@ public class VisitorEstructurac extends Visitor {
 
 
 	@Override
-	public void DisparoEnemigo(Disparo a) {
+	public void DisparoEnemigo(DisparoAbstracto a) {
 		// TODO Auto-generated method stub
 		
 	}
