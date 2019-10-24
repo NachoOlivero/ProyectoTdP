@@ -27,8 +27,8 @@ public class VisitorCeldaEstructura extends Visitor {
 	}
 
 	@Override
-	public void DisparoEnemigo() {
-		// TODO Auto-generated method stub
+	public void DisparoEnemigo(Disparo a) {
+		a.atacar(miEntidad);
 		
 	}
 

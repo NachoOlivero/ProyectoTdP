@@ -28,7 +28,7 @@ public class VisitorEneDistancia extends Visitor {
 	}
 
 	@Override
-	public void DisparoEnemigo() {
+	public void DisparoEnemigo(Disparo a) {
 	
 	}
 

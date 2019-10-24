@@ -29,8 +29,8 @@ public class VisitorPinche extends Visitor{
 	}
 
 	@Override
-	public void DisparoEnemigo() {
-		// TODO Auto-generated method stub
+	public void DisparoEnemigo(Disparo a) {
+		
 		
 	}
 

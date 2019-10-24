@@ -26,7 +26,7 @@ public class VisitorDisparo extends Visitor {
 	}
 
 	@Override
-	public void DisparoEnemigo() {
+	public void DisparoEnemigo(Disparo a) {
 		// TODO Auto-generated method stub
 		
 	}

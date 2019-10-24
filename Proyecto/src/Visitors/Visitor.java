@@ -16,6 +16,8 @@ public abstract class Visitor {
 	
 	public abstract void DetectorTorre(Torre e);
 	
-	public abstract void DisparoEnemigo();
+	public abstract void DisparoEnemigo(Disparo a);
+	
+	
 
 }
