@@ -12,13 +12,14 @@ public abstract class EnemigoDistancia extends Enemigo {
 	
 	
 	public void atacar(Personaje p) {
-		if(cooldown==0 && celda.getX()-p.getCelda().getX()<=rango) {
+		System.out.println("En atacar");
+		if(cooldown==0 && (celda.getX()-p.getCelda().getX())<=rango) {
 			torre=true;
 			if(accion) {
 			crearDisparo();
 			accion=false;
 			}
-		}torre=false;
+		}else torre=false;
 		
 	}
 	

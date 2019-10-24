@@ -25,6 +25,7 @@ public class VisitorEneDistancia extends Visitor {
 
 	@Override
 	public void DetectorTorre(Torre e) {
+		System.out.println("hola");
 		miEntidad.atacar(e);
 	}
 
