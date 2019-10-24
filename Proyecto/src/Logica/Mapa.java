@@ -39,8 +39,8 @@ public class Mapa {
 		
 		for(int i=0;i<celdas.length;i++) {
 			for(int j=0;j<celdas[0].length;j++) {
-				celdas[i][j].avanzarEnemigo();
 				celdas[i][j].dispararTorre();
+				celdas[i][j].avanzarEnemigo();
 				for(int m=0;m<10;m++)
 					celdas[i][j].avanzarDisparos();
 			}

@@ -12,8 +12,8 @@ public abstract class EnemigoDistancia extends Enemigo {
 	
 	
 	public void atacar(Personaje p) {
-		System.out.println("En atacar");
 		if(cooldown==0 && (celda.getX()-p.getCelda().getX())<=rango) {
+			//System.out.println(accion);
 			torre=true;
 			if(accion) {
 			crearDisparo();
@@ -24,6 +24,7 @@ public abstract class EnemigoDistancia extends Enemigo {
 	}
 	
 	public void turno() {
+		torre=false;
 		if(cooldown != 0)
 			cooldown--;
 		celda.recibirEnemigo(this);

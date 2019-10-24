@@ -4,6 +4,7 @@ import Grafica.OGEnemigo1;
 import Logica.Celda;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.EnemigoDistancia;
+import Visitors.VisitorEneDistancia;
 import Visitors.VisitorEnemigos;
 
 
@@ -16,6 +17,7 @@ public class Enemigo1 extends Enemigo{
 		vel=1;
 		grafico=new OGEnemigo1();
 		visitor=new VisitorEnemigos(this);
+
 	}
 	
 }

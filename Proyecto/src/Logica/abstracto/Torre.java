@@ -31,11 +31,14 @@ public abstract class Torre extends Estructura{
 	}
 	
 	protected void avisarEnemigos() {
+		System.out.println(celda);
 		int aux=celda.getX()+1;
 		while(aux<10) {
-			Singleton.getMapa().getCelda(aux, celda.getY());
-			for(Enemigo e:celda.getEnemigos())
+			Celda a =Singleton.getMapa().getCelda(celda.getY(), aux);
+			//System.out.println(a);
+			for(Enemigo e:a.getEnemigos()) {
 				e.aceptarTorre(this);
+			}
 			aux++;
 		}
 	}

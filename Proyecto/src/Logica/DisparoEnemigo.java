@@ -6,6 +6,7 @@ import Factory.fabricaT;
 import Grafica.GraficoDisparoEne;
 import Logica.abstracto.DisparoAbstracto;
 import Visitors.VisitorDisparo;
+import Visitors.VisitorDisparoEnemigo;
 
 public class DisparoEnemigo extends DisparoAbstracto {
 
@@ -16,7 +17,8 @@ public class DisparoEnemigo extends DisparoAbstracto {
 		posRelativa=posRel;
 		this.celda=celda;
 		grafico=new GraficoDisparoEne(celda.getX(),celda.getY(),posRel,t.disparo());
-		visitor=new VisitorDisparo(this);
+		visitor=new VisitorDisparoEnemigo(this);
+	
 	}
 	
 	public void avanzar() {

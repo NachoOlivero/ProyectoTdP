@@ -48,8 +48,10 @@ public abstract class Enemigo extends Personaje{
 	
 	public void recibirDaño(float daño) {
 		hp-=daño;
-		if(hp<=0) 
+		if(hp<=0) {
 			Eliminar();
+			System.out.println("en recivir daño");
+		}
 	}
 	
 	public ObjetoGrafico getGrafico() {

@@ -1,35 +1,36 @@
 package Visitors;
 
-import Logica.Disparo;
 import Logica.abstracto.DisparoAbstracto;
 import Logica.abstracto.Enemigo;
-import Logica.abstracto.EnemigoDistancia;
+import Logica.abstracto.Personaje;
 import Logica.abstracto.Torre;
 
-public class VisitorEneDistancia extends Visitor {
+public class VisitorDisparoEnemigo extends Visitor {
 	
-	public VisitorEneDistancia(EnemigoDistancia ene) {
-		miEntidad=ene;
+	public VisitorDisparoEnemigo(Personaje e) {
+		miEntidad=e;
 	}
 
-	
+	@Override
 	public void visitAliado(DisparoAbstracto a) {
-		a.atacar(miEntidad);
 		
 	}
 
 	@Override
 	public void visitEnemigo(Enemigo e) {
 
+		
 	}
 
 	@Override
 	public void DetectorTorre(Torre e) {
-		miEntidad.atacar(e);
+		
 	}
 
 	@Override
 	public void DisparoEnemigo(DisparoAbstracto a) {
+	    
+		
 	}
 
 }
