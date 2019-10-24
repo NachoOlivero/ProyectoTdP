@@ -1,5 +1,6 @@
 package Logica;
 
+import Logica.abstracto.DisparoAbstracto;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Estructura;
 import java.util.Iterator;

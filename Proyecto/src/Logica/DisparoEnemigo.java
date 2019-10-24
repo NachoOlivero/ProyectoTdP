@@ -4,6 +4,7 @@ package Logica;
 import Factory.AbstractFactoryT;
 import Factory.fabricaT;
 import Grafica.GraficoDisparoEne;
+import Logica.abstracto.DisparoAbstracto;
 import Visitors.VisitorDisparo;
 
 public class DisparoEnemigo extends DisparoAbstracto {

@@ -1,7 +1,6 @@
 package Logica.abstracto;
 
 import Logica.Disparo;
-import Logica.DisparoAbstracto;
 import Visitors.Visitor;
 
 public abstract class Personaje extends ObjetoJuego {

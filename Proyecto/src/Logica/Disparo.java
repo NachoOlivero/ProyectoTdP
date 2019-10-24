@@ -4,6 +4,7 @@ import javax.swing.ImageIcon;
 
 import Grafica.GraficoDisparo;
 import Grafica.OGMovil;
+import Logica.abstracto.DisparoAbstracto;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Personaje;
 import Visitors.VisitorDisparo;

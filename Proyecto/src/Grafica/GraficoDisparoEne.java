@@ -13,13 +13,13 @@ public class GraficoDisparoEne extends OGMovil {
 
 	public GraficoDisparoEne(int x,int y,int posRelativa,ImageIcon l) {
 		grafico=new JLabel(l);
-		grafico.setBounds(x*posRelativa,y*100,30,30);
+		grafico.setBounds((x*120)+posRelativa,y*100,30,30);
 		Singleton.getGui().add(grafico);
 	}
 
 	@Override
 	public void avanzar() {
-		// TODO Auto-generated method stub
+		grafico.setBounds(grafico.getX()-1, grafico.getY(), 110, 60);
 		
 	}
 

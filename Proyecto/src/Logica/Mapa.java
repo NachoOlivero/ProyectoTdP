@@ -3,6 +3,7 @@ package Logica;
 import java.util.LinkedList;
 import java.util.List;
 
+import Logica.abstracto.DisparoAbstracto;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Estructura;
 import Logica.abstracto.Torre;
