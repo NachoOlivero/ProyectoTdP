@@ -1,7 +1,7 @@
-package Logica;
+package Logica.abstracto;
 
 import Grafica.OGMovil;
-import Logica.abstracto.Personaje;
+import Logica.Celda;
 
 public abstract class DisparoAbstracto extends Personaje {
 	protected int recorrido_restante;

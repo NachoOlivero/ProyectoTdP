@@ -26,6 +26,8 @@ public abstract class AbstractFactoryT {
 
 	public abstract ImageIcon pinchos();
 	
+	public abstract ImageIcon barricada();
+	
 
 
 }

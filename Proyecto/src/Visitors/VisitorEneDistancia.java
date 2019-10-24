@@ -1,7 +1,7 @@
 package Visitors;
 
 import Logica.Disparo;
-import Logica.DisparoAbstracto;
+import Logica.abstracto.DisparoAbstracto;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.EnemigoDistancia;
 import Logica.abstracto.Torre;
@@ -25,6 +25,7 @@ public class VisitorEneDistancia extends Visitor {
 
 	@Override
 	public void DetectorTorre(Torre e) {
+		System.out.println("hola");
 		miEntidad.atacar(e);
 	}
 

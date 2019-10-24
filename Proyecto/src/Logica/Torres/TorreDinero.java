@@ -70,6 +70,7 @@ public class TorreDinero extends Torre{
 			Singleton.getJugador().aumentarDinero(30);
 			cooldown=cooldownActual;
 		}else cooldown--;
+		this.avisarEnemigos();
 	}
 	
 	

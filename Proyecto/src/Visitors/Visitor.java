@@ -1,7 +1,7 @@
 package Visitors;
 
 import Logica.Disparo;
-import Logica.DisparoAbstracto;
+import Logica.abstracto.DisparoAbstracto;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Personaje;
 import Logica.abstracto.Torre;

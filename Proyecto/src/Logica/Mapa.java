@@ -3,6 +3,7 @@ package Logica;
 import java.util.LinkedList;
 import java.util.List;
 
+import Logica.abstracto.DisparoAbstracto;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Estructura;
 import Logica.abstracto.Torre;
@@ -77,7 +78,10 @@ public class Mapa {
 	}
 	
 	public boolean insertarEstructura(Estructura t,int fila,int columna) {
-		boolean aux =celdas[fila][columna].insertarEstructura(t);
+		boolean aux=false;
+		if(fila<5 && columna<9) {
+		 aux =celdas[fila][columna].insertarEstructura(t);
+		}
 		return aux;
 	}
 	
