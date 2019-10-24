@@ -38,7 +38,7 @@ public class MovimientoEnemigos extends Thread {
 	public void run() {
 		while(!gameOver) {
 			try {
-				Thread.sleep(1);
+				Thread.sleep(10);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -74,7 +74,7 @@ public class MovimientoEnemigos extends Thread {
 		Random rand=new Random();
 		Mapa mapa=Singleton.getMapa();
 		
-		int probabilidad=rand.nextInt(5);
+		int probabilidad=rand.nextInt(500);
 		
 		if(probabilidad==1 || probabilidad==2) {
 			boolean insercion=false;
