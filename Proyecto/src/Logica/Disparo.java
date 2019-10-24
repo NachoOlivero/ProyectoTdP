@@ -38,13 +38,9 @@ public class Disparo extends DisparoAbstracto{
 	}
 
 	
-
-	@Override
-	public void recibirDaño(float daño) {	
-	}
-	
 	public void turno() {
 		celda.recibirDisparo(this);
 	}
+
 	
 }

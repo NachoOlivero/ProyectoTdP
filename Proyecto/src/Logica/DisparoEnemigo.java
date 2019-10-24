@@ -1,17 +1,20 @@
 package Logica;
 
-import Grafica.GraficoDisparo;
+
+import Factory.AbstractFactoryT;
+import Factory.fabricaT;
 import Grafica.GraficoDisparoEne;
 import Visitors.VisitorDisparo;
 
 public class DisparoEnemigo extends DisparoAbstracto {
 
 	public DisparoEnemigo(int alcance, float dñ, Celda celda,int posRel) {
+		AbstractFactoryT t=new fabricaT();
 		recorrido_restante=alcance;
 		daño=dñ;
 		posRelativa=posRel;
 		this.celda=celda;
-		//grafico=new GraficoDisparoEne(celda.getX(),celda.getY(),posRel);
+		grafico=new GraficoDisparoEne(celda.getX(),celda.getY(),posRel,t.disparo());
 		visitor=new VisitorDisparo(this);
 	}
 	
@@ -27,9 +30,11 @@ public class DisparoEnemigo extends DisparoAbstracto {
 		}
 		else grafico.avanzar();
 		}
+	
 	public void turno() {
 		celda.recibirDisparoEnemigo(this);
 	}
+
 	
 
 }

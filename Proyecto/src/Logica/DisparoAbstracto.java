@@ -35,4 +35,8 @@ public boolean estaEnPosicion(int vel) {
 	}
 	
 	public abstract void avanzar();
+	
+	public void recibirDaño(float daño) {
+	}
+	
 }
