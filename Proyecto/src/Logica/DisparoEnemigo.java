@@ -21,7 +21,7 @@ public class DisparoEnemigo extends DisparoAbstracto {
 	public void avanzar() {
 		if(--posRelativa<0) {
 			if(--recorrido_restante>0) {
-				//celda.moverCeldaDisparo(this);
+				celda.moverCeldaDisparo(this,-1);
 				posRelativa=120;
 				grafico.avanzar();
 			}
