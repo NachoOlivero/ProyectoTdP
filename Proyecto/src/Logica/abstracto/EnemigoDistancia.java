@@ -8,23 +8,19 @@ import Logica.DisparoEnemigo;
 public abstract class EnemigoDistancia extends Enemigo {
 	protected int rango;
 	protected boolean accion;
-	protected boolean torre;
+	
 	
 	
 	public void atacar(Personaje p) {
 		if(cooldown==0 && (celda.getX()-p.getCelda().getX())<=rango) {
-			//System.out.println(accion);
-			torre=true;
-			if(accion) {
 			crearDisparo();
 			accion=false;
-			}
-		}else torre=false;
+			cooldown=cooldownMax;
+		}
 		
 	}
 	
 	public void turno() {
-		torre=false;
 		if(cooldown != 0)
 			cooldown--;
 		celda.recibirEnemigo(this);
@@ -41,7 +37,7 @@ public abstract class EnemigoDistancia extends Enemigo {
 	}
 	
 	public void avanzar() {
-		if(accion && !torre) {//si le queda accion y no detecto torre
+		if(accion && cooldown<4) {//si le queda accion y no detecto torre
 			grafico.avanzar();
 			pos-=vel;
 			if(pos<min) {

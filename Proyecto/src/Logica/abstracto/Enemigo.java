@@ -15,6 +15,7 @@ public abstract class Enemigo extends Personaje{
 	protected int tiempoFrenar=0;
 	protected int MovD;
 	protected int cooldown;
+	protected int cooldownMax;//a cuanto va el numero despues de atacar
 	
 	
 	public int PosActual() {
