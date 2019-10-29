@@ -14,7 +14,6 @@ public abstract class EnemigoDistancia extends Enemigo {
 	public void atacar(Personaje p) {
 		if(cooldown==0 && (celda.getX()-p.getCelda().getX())<=rango) {
 			crearDisparo();
-			accion=false;
 			cooldown=cooldownMax;
 		}
 		
@@ -27,17 +26,13 @@ public abstract class EnemigoDistancia extends Enemigo {
 	}
 	
 	private void crearDisparo() {
-		if(cooldown==0) {
-			AbstractFactoryT k=new fabricaT();
+			//AbstractFactoryT k=new fabricaT();
 			DisparoAbstracto disp=new DisparoEnemigo(rango,dp,celda,pos);
-			celda.añadirDisparo(disp);
-			cooldown=10;
-		}
-		
+			celda.añadirDisparo(disp);		
 	}
 	
 	public void avanzar() {
-		if(accion && cooldown<4) {//si le queda accion y no detecto torre
+		if(cooldown<10) {//si le queda accion y no detecto torre
 			grafico.avanzar();
 			pos-=vel;
 			if(pos<min) {

@@ -2,6 +2,7 @@ package Logica.Enemigos;
 
 import Logica.abstracto.EnemigoDistancia;
 import Grafica.OGEnemigo1;
+import Grafica.OGEnemigo2;
 import Logica.Celda;
 import Logica.abstracto.Enemigo;
 import Visitors.VisitorEneDistancia;
@@ -13,8 +14,10 @@ public class Enemigo3 extends EnemigoDistancia {
 		dp=5;
 		celda=cel;
 		vel=1;
-		rango=2;
+		rango=5;
 		visitor= new VisitorEneDistancia(this);
+		grafico=new OGEnemigo2();
+		cooldownMax=30;
 	}
 	
 }

@@ -27,6 +27,7 @@ public class VisitorEnemigos extends Visitor  {
 
 	@Override
 	public void DisparoEnemigo(DisparoAbstracto a) {
+		a.avanzar();
 		
 	}
 

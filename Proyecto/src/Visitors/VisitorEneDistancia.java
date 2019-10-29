@@ -30,6 +30,7 @@ public class VisitorEneDistancia extends Visitor {
 
 	@Override
 	public void DisparoEnemigo(DisparoAbstracto a) {
+		a.avanzar();
 	}
 
 }

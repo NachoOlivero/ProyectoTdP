@@ -74,7 +74,7 @@ public class Mapa {
 	public void insertarEnemigo(Enemigo ene,int fila,int columna) {
 		if(columna>=0)
 			celdas[fila][columna].addEnemigo(ene);
-		else MovimientoEnemigos.Game();
+		else MovimientoEnemigos.GameOver();
 	}
 	
 	public boolean insertarEstructura(Estructura t,int fila,int columna) {
@@ -125,8 +125,6 @@ public class Mapa {
 	public void eliminarPowerUp(PowerUp pu) {  
 		listaPowerUps.remove(pu); 
 	}
-	
-	
 	
 }
 

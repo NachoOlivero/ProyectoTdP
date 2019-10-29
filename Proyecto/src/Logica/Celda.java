@@ -28,7 +28,9 @@ public class Celda {
 		barrera=false;
 	}
 	
-	
+	public boolean hayEstructura() {
+		return estructura!=null;
+	}
 	
 	public Estructura getEstructura() {
 		return estructura;

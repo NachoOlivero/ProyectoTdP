@@ -75,16 +75,17 @@ public class HiloGui extends Thread {
 	private class Mouse implements MouseListener { 
 	          
 	        
-	    public void mouseClicked(MouseEvent e) {
+	    public synchronized void mouseClicked(MouseEvent e) {
 	    	int f=e.getY()/100;
 	    	int c=(e.getX()-40)/120;
 	    	Mapa mapa=Singleton.getMapa();
-	    	boolean control=false;
+	    	boolean hay=false;
 	  
 	    	if(f>=0 && f<6 && c>=0 && c<10 ) {  //por ahora numeros, dps vemos como poner atributos para los limites
 		    	if(torreActiva!=null) {
-			    	control=mapa.insertarTorre(torreActiva,f,c);
-			    	if(control) {
+			    	hay=mapa.getCelda(f, c).hayEstructura();
+			    	if(!hay) { 
+			    		mapa.insertarTorre(torreActiva,f,c);
 			    		torreActiva.setCelda(mapa.getCelda(f, c));
 			    		torreActiva=null;
 		    	    }

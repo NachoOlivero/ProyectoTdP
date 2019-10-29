@@ -15,7 +15,7 @@ public abstract class Enemigo extends Personaje{
 	protected int tiempoFrenar=0;
 	protected int MovD;
 	protected int cooldown;
-	protected int cooldownMax;//a cuanto va el numero despues de atacar
+	protected int cooldownMax;
 	
 	
 	public int PosActual() {
@@ -82,6 +82,5 @@ public abstract class Enemigo extends Personaje{
 	public void setGrafico(int pos) {
 		grafico.setPosicion(pos);
 	}
-	
 		
 }

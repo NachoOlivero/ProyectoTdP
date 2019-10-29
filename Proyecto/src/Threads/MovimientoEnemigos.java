@@ -13,6 +13,10 @@ import Logica.Celda;
 import Logica.Mapa;
 import Logica.Singleton;
 import Logica.Enemigos.Enemigo1;
+import Logica.Enemigos.Enemigo2;
+import Logica.Enemigos.Enemigo3;
+import Logica.Enemigos.Enemigo4;
+import Logica.Enemigos.EnemigoJefe;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Estructura;
 
@@ -27,6 +31,7 @@ public class MovimientoEnemigos extends Thread {
 	protected GUIDyV gui2;
 	protected boolean gane;
 	protected Timer temp;
+	protected int contador;
 	
 	public MovimientoEnemigos(Mapa map,GUI g) {
 		listaEnemigos=new LinkedList<Enemigo>();
@@ -36,6 +41,7 @@ public class MovimientoEnemigos extends Thread {
 		gui=g;
 		gui2=null;
 		temp= new Timer();
+		contador=0;
 	}
 	
 	public void run() {
@@ -46,8 +52,9 @@ public class MovimientoEnemigos extends Thread {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			contador++;
 			if(coolDown==0) {
-				crearEnemigo();
+				crearEnemigo(contador);
 				coolDown=20;
 			}
 			else coolDown--;
@@ -55,7 +62,7 @@ public class MovimientoEnemigos extends Thread {
 			crearObstaculo();
 			mapa.mover();
 		}
-		mapa.inicializarCeldas(10,6);
+		mapa.inicializarCeldas(6,10);
 		gui.setVisible(false);
 		if(!gane)
 			gui2 = new GUIDyV("./GameOver.png");
@@ -64,18 +71,19 @@ public class MovimientoEnemigos extends Thread {
 		
 	}
 	
-	private Enemigo crearEnemigo() {
+	private void crearEnemigo(int contador) {
 		int fila=(int) (Math.random()*6);
 		if(fila==6)
 			fila=0;
 		
-		Enemigo nuevo=new Enemigo1(mapa.getCelda(fila));
-		nuevo.setGrafico(fila);
+		Enemigo nuevo=enemigoRandom(contador,mapa.getCelda(fila));//new Enemigo1(mapa.getCelda(fila));
 		
-		mapa.insertarEnemigo(nuevo,fila);
-		listaEnemigos.addLast(nuevo);
+		if(nuevo!=null) {
+			nuevo.setGrafico(fila);
+			mapa.insertarEnemigo(nuevo,fila);
+			listaEnemigos.addLast(nuevo);
+		}
 		
-		return nuevo;
 	}
 
 	private void  crearObstaculo() {
@@ -114,7 +122,7 @@ public class MovimientoEnemigos extends Thread {
 		
 
 	}
-	public static void Game() {
+	public static void GameOver() {
 		gameOver=true;
 	}
 	
@@ -133,6 +141,51 @@ public class MovimientoEnemigos extends Thread {
 				//cant--;
 			}
 	}
+	
+	public Enemigo enemigoRandom(int contador,Celda celda) {
+		int caso=-1;
+		Enemigo eneRet=null;
+		
+		if(contador<2000)
+			if(contador<1500)
+				if(contador<1000)
+					if(contador<500)
+						if(contador<200)
+							if(contador>100)
+								caso=0;
+							else caso=-100;
+						else caso=1;
+				else caso=2;
+			else caso=3;
+		else caso=4;
+			
+		int rand=-1;
+		System.out.print("Contador: "+contador);
+		if(caso>=0)	
+			rand=(int) (Math.random() * caso) ;
+		
+		switch (rand) {
+			case 0:	
+				eneRet=new Enemigo1(celda);
+					break;
+			case 1:	
+				eneRet=new Enemigo2(celda);
+				break;
+			case 2:	
+				eneRet=new Enemigo3(celda);
+				break;
+			case 3:	
+				eneRet=new Enemigo4(celda);
+				break;
+			case 4:	
+				eneRet=new EnemigoJefe(celda);
+				break;
+		}
+		
+		return eneRet;
+	
+	}
+	
 	private class Victoria extends TimerTask {
 		public void run() {
 			gane=true;
