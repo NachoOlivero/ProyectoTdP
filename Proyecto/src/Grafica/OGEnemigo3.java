@@ -11,10 +11,10 @@ public class OGEnemigo3 extends OGMovil {
 	
 	public OGEnemigo3() {
 		AbstractFactoryT f=new fabricaT();
-		grafico=new JLabel(f.Enemigo1());
+		grafico=new JLabel(f.Enemigo3());
 	}
 	public void avanzar() {
-		grafico.setBounds(grafico.getX()-1, grafico.getY(), 50, 50);
+		grafico.setBounds(grafico.getX()-1, grafico.getY(), 80, 80);
 	}
 
 	public JLabel getGrafico() {

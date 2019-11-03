@@ -93,27 +93,26 @@ public class MovimientoEnemigos extends Thread {
 		int probabilidad=rand.nextInt(500);
 		
 		if(probabilidad==1 || probabilidad==2) {
-			boolean insercion=false;
+			boolean sePuedeInsertar=false;
 			int cont=0;
 			Estructura est=null;
 			
-			while(!insercion && cont<10) {
+			while(!sePuedeInsertar && cont<10) {
 				int fila=rand.nextInt(6); //cambiar por metodo en el mapa de ultima
 			
 				int columna=rand.nextInt(10);
 				
 				Celda celda=mapa.getCelda(fila,columna);
 				
-				if(probabilidad==1)
-					est=new Charco(celda);
-				else est=new Obstaculo(celda);
+				sePuedeInsertar=!celda.hayEstructura();
 				
-				insercion=mapa.insertarEstructura(est, fila, columna);
+				if(sePuedeInsertar) {
+					if(probabilidad==1)
+						est=new Charco(celda);
+					else est=new Obstaculo(celda);
+				}
+				
 				cont++;
-				
-				if(!insercion)
-					est.Eliminar();
-				
 			}
 			
 		}
@@ -160,7 +159,7 @@ public class MovimientoEnemigos extends Thread {
 		else caso=4;
 			
 		int rand=-1;
-		System.out.print("Contador: "+contador);
+		//System.out.print("Contador: "+contador);
 		if(caso>=0)	
 			rand=(int) (Math.random() * caso) ;
 		

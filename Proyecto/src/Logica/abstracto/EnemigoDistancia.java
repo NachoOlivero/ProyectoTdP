@@ -12,7 +12,7 @@ public abstract class EnemigoDistancia extends Enemigo {
 	
 	
 	public void atacar(Personaje p) {
-		if(cooldown==0 && (celda.getX()-p.getCelda().getX())<=rango) {
+		if(cooldown==0 && (celda.getColumna()-p.getCelda().getColumna())<=rango) {
 			crearDisparo();
 			cooldown=cooldownMax;
 		}

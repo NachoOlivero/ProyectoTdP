@@ -121,11 +121,11 @@ public class Celda {
 			listaEnem.remove(ene);
 	}
 	
-	public int getX() {
+	public int getColumna() {
 		return columna;
 	}
 	
-	public int getY() {
+	public int getFila() {
 		return fila;
 	}
 	public int cantD() {
@@ -171,12 +171,13 @@ public class Celda {
 				aux.AceptarEnemigo(enemigo2);
 			}
 		}
+		
 		if(enemigo2!=null) {
-		if(estructura!=null) {
-			estructura.AceptarEnemigo(enemigo2);
-		}else {
-			enemigo2.avanzar();
-			}
+			if(estructura!=null) {
+				estructura.AceptarEnemigo(enemigo2);
+			}else {
+				enemigo2.avanzar();
+				}
 		}
 		
 		

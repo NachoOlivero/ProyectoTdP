@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import Factory.AbstractFactoryT;
 import Factory.fabricaT;
 import GUI.GUI;
+import Logica.Celda;
 import Logica.Mapa;
 import Logica.Singleton;
 import Logica.Tienda;
@@ -25,6 +26,7 @@ public class HiloGui extends Thread {
 	private AbstractFactoryT torres;
 	private Torre torreActiva;
 	private Bomba bombaActiva;
+	private Torre torreDobleActiva;
 
 
 	public HiloGui(GUI g,MovimientoEnemigos movEnem) {
@@ -32,6 +34,7 @@ public class HiloGui extends Thread {
 		movEnemigos=movEnem;
 		torres=new fabricaT(); 
 		torreActiva=null;
+		torreDobleActiva=null;
 		bombaActiva=null;
 		
 		gui.agregarOyenteBoton(new ComprarDinero(),0);
@@ -75,27 +78,37 @@ public class HiloGui extends Thread {
 	private class Mouse implements MouseListener { 
 	          
 	        
-	    public synchronized void mouseClicked(MouseEvent e) {
+	    public void mouseClicked(MouseEvent e) {
 	    	int f=e.getY()/100;
 	    	int c=(e.getX()-40)/120;
 	    	Mapa mapa=Singleton.getMapa();
-	    	boolean hay=false;
+	    	Celda celda=mapa.getCelda(f,c);
+	    	boolean hayEstructura=false;
 	  
 	    	if(f>=0 && f<6 && c>=0 && c<10 ) {  //por ahora numeros, dps vemos como poner atributos para los limites
 		    	if(torreActiva!=null) {
-			    	hay=mapa.getCelda(f, c).hayEstructura();
-			    	if(!hay) { 
+			    	hayEstructura=celda.hayEstructura();
+			    	if(!hayEstructura) { 
+			    		torreActiva.setCelda(celda);
 			    		mapa.insertarTorre(torreActiva,f,c);
-			    		torreActiva.setCelda(mapa.getCelda(f, c));
 			    		torreActiva=null;
 		    	    }
 			    }
 		    	else if(bombaActiva!=null) {
-		    		bombaActiva.ubicar(f,c);
-		    		bombaActiva=null;
-		    	}
-	    	}
-	  
+		    			bombaActiva.ubicar(f,c);
+		    			bombaActiva=null;
+		    		 }
+		    		else if(torreDobleActiva!=null) {
+		    				hayEstructura=celda.hayEstructura();
+		    				hayEstructura=( hayEstructura || mapa.getCelda(f,c-1)==null || mapa.getCelda(f,c-1).hayEstructura() );
+		    				if(!hayEstructura) {
+		    					torreDobleActiva.setCelda(celda);
+		    					mapa.insertarTorre(torreDobleActiva, f, c-1);
+		    					mapa.insertarTorre(torreDobleActiva,f,c);
+					    		torreDobleActiva=null;
+		    				}
+		    			 }
+		    }
 	    }  
 	    
 	    public void mouseEntered(MouseEvent e) {  
@@ -127,7 +140,7 @@ public class HiloGui extends Thread {
 	
 	public class ComprarTorre1 implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
-			if (torreActiva==null && bombaActiva==null)
+			if (torreActiva==null && bombaActiva==null && torreDobleActiva==null)
 					torreActiva=Tienda.comprarT1();
 			
 		}
@@ -135,7 +148,7 @@ public class HiloGui extends Thread {
 	
 	public class ComprarTorre3 implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
-			if (torreActiva==null && bombaActiva==null)
+			if (torreActiva==null && bombaActiva==null && torreDobleActiva==null)
 					torreActiva=Tienda.comprarT3();
 			
 		}
@@ -143,7 +156,7 @@ public class HiloGui extends Thread {
 	
 	public class ComprarDinero implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
-			if (torreActiva==null && bombaActiva==null)
+			if (torreActiva==null && bombaActiva==null && torreDobleActiva==null)
 					torreActiva=Tienda.comprarDinero();
 			
 		}
@@ -151,8 +164,8 @@ public class HiloGui extends Thread {
 	
 	public class comprarBarricada implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
-			if (torreActiva==null && bombaActiva==null)
-					torreActiva=Tienda.comprarBarricada();
+			if (torreActiva==null && bombaActiva==null && torreDobleActiva==null)
+					torreDobleActiva=Tienda.comprarBarricada();
 			
 		}
 	}
@@ -160,7 +173,7 @@ public class HiloGui extends Thread {
 	private class OyenteBomba implements ActionListener{
 
 		public void actionPerformed(ActionEvent click) {
-			if(bombaActiva==null && torreActiva==null) 
+			if(bombaActiva==null && torreActiva==null && torreDobleActiva==null) 
 				bombaActiva=Singleton.getJugador().getBomba();
 		}
 			

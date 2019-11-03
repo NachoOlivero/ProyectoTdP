@@ -16,7 +16,7 @@ public class Disparo extends DisparoAbstracto{
 		daño=dñ;
 		posRelativa=1;
 		this.celda=celda;
-		grafico=new GraficoDisparo(celda.getX(),celda.getY(),l);
+		grafico=new GraficoDisparo(celda.getColumna(),celda.getFila(),l);
 		visitor=new VisitorDisparo(this);
 	}
 	

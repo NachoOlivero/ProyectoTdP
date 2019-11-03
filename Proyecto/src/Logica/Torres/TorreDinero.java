@@ -53,7 +53,7 @@ public class TorreDinero extends Torre{
 	public void recibirDaño(float daño) {
 		hp-=daño;
 		if(hp<=0) {
-			Singleton.getMapa().eliminarTorre(this,celda.getY(),celda.getX());
+			Singleton.getMapa().eliminarTorre(this,celda.getFila(),celda.getColumna());
 			grafico.eliminar();
 		}
 		
@@ -69,7 +69,9 @@ public class TorreDinero extends Torre{
 		if (cooldown==0) {
 			Singleton.getJugador().aumentarDinero(30);
 			cooldown=cooldownActual;
-		}else cooldown--;
+		}
+		else cooldown--;
+		
 		this.avisarEnemigos();
 	}
 	

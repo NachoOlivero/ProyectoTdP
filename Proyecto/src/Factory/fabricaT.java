@@ -22,12 +22,35 @@ public class fabricaT extends AbstractFactoryT {
 	public ImageIcon Enemigo1() {
 		return new ImageIcon(this.getClass().getResource("./Esqueleto.gif"));
 	}
+	
+	public ImageIcon Enemigo2() {
+		return new ImageIcon(this.getClass().getResource("./jefe.gif"));
+	}
+	
+	public ImageIcon Enemigo3() {
+		return new ImageIcon(this.getClass().getResource("./boss.gif"));
+	}
+	
+	public ImageIcon Enemigo4() {
+		return new ImageIcon(this.getClass().getResource("./Esqueleto.gif"));
+	}
+	
+	public ImageIcon Enemigo5() {
+		return new ImageIcon(this.getClass().getResource("./Esqueleto.gif"));
+	}
+	
 	public ImageIcon disparo() {
 		return new ImageIcon(this.getClass().getResource("./Disparo.PNG"));
 	}
+	
+	public ImageIcon disparoFuego() {
+		return new ImageIcon(this.getClass().getResource("./fuego.png"));
+	}
+	
 	public ImageIcon killAll() {
 		return new ImageIcon(this.getClass().getResource("./Kill.png"));
 	}
+	
 	public ImageIcon barrera() {
 		return new ImageIcon(this.getClass().getResource("./shield.png"));
 	}

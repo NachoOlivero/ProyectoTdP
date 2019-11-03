@@ -44,7 +44,7 @@ public class Clavos extends Estructura {
 	
 	private class Eliminar extends TimerTask {
 		public void run() {
-			Eliminar();
+			eliminar();
 			celda.eliminarEstructura();
 		}
 	}

@@ -14,11 +14,21 @@ public abstract class AbstractFactoryT {
 	
 	public abstract ImageIcon Enemigo1();
 	
+	public abstract ImageIcon Enemigo2();
+	
+	public abstract ImageIcon Enemigo3();
+	
+	public abstract ImageIcon Enemigo4();
+	
+	public abstract ImageIcon Enemigo5();
+	
 	public abstract ImageIcon killAll();
 	
 	public abstract ImageIcon barrera();
 
 	public abstract ImageIcon disparo();
+	
+	public abstract ImageIcon disparoFuego();
 	
 	public abstract ImageIcon bomba();
 	

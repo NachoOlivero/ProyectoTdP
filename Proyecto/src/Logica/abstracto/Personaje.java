@@ -28,6 +28,6 @@ public abstract class Personaje extends ObjetoJuego {
 	public abstract void turno();
 	
 	
-	
+	//System.out.println("si");
 
 }

@@ -14,7 +14,7 @@ public class Barricada extends Torre {
 	protected Celda celdaExtra;
 
 	public Barricada() {
-		this.hp=100;
+		this.hp=1000;
 		this.dp=0;
 		this.rango=0;
 		cooldownOriginal=0;
@@ -28,55 +28,26 @@ public class Barricada extends Torre {
 		AbstractFactoryT aux= new fabricaT();
 		grafico=new GraficoDoble(c,aux.barricada());
 		celda=c;
-		//System.out.println("celda" +celda.getX()+ "  "+celda.getY());
-		if(!Singleton.getMapa().insertarEstructura(this, celda.getY(),celda.getX()-1)) {
-			this.Eliminar();
-			Singleton.getJugador().aumentarDinero(140);
-		}else {
-			celdaExtra=Singleton.getMapa().getCelda(celda.getX()-1, celda.getY());
-		}
-	
-		
+		celdaExtra=Singleton.getMapa().getCelda(celda.getFila(), celda.getColumna()-1);
 	}
 	
-	public void Eliminar() {
+	public void eliminar() {
 		grafico.eliminar();
-		if(celdaExtra!=null) 
-			celdaExtra.eliminarEstructura();
+		celdaExtra.eliminarEstructura();
 		celda.eliminarEstructura();
-		
-		
 	}
 
-	@Override
-	public void setCooldown(int cd) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void setCooldown(int cd) {}
 
-	@Override
-	public void resetCooldown() {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
+	public void resetCooldown() {}
+
 	public int getCooldown() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
+	public void atacar(Personaje e) {}
 
-	@Override
-	public void atacar(Personaje e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void turno() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	public void turno() {}
+	
 }

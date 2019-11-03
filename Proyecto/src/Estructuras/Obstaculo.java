@@ -11,7 +11,7 @@ import Visitors.VisitorCeldaEstructura;
 public class Obstaculo extends Estructura{
 	
 	public Obstaculo(Celda c) {
-		hp=100;
+		hp=500;
 		visitor=new VisitorCeldaEstructura(this);
 		AbstractFactoryT aux= new fabricaT();
 		grafico=new ObjetoGraficoT(c,aux.obstaculo(),20);
@@ -22,23 +22,15 @@ public class Obstaculo extends Estructura{
 	public void recibirDaño(float daño) {
 		hp=-daño;
 		if(hp<=0) {
-			Eliminar();
+			eliminar();
 			celda.eliminarEstructura();
 		}
 		
 	}
 
-	@Override
-	public void turno() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void turno() {}
 
-	@Override
-	public void atacar(Personaje e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void atacar(Personaje e) {}
 		
 	
 }

@@ -111,7 +111,9 @@ public class Mapa {
 	}
 	
 	public Celda getCelda(int x) {
-		return celdas[x][maxColumnas-1];
+		if(x>=0 && x<maxFilas)
+			return celdas[x][maxColumnas-1];
+		else return null;
 	}
 	
 	public List<Torre> getListaTorres(){

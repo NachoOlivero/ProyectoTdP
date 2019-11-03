@@ -11,14 +11,14 @@ public abstract class ObjetoJuego {
 		return grafico;
 	}
 	
-public void Eliminar() {
-		//System.out.println("eliminado el objeto: "+grafico);
+	public void eliminar() {
 		grafico.eliminar();
 	}
 
-public abstract void atacar(Personaje e);
+	public abstract void atacar(Personaje e);
 
-public Celda getCelda() {
-	return celda;
-}
+	public Celda getCelda() {
+		return celda;
+	}
+
 }

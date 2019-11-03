@@ -18,6 +18,8 @@ public class Torre3 extends Torre{
 		cooldown=0;
 		grafico=null;
 		visitor=new VisitorCeldaTorre(this);
+		AbstractFactoryT k=new fabricaT();
+		imagenDisparo=k.disparoFuego();
 	}
 	public void setCelda(Celda c) {
 		AbstractFactoryT aux= new fabricaT();
