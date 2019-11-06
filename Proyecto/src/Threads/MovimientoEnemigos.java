@@ -79,7 +79,6 @@ public class MovimientoEnemigos extends Thread {
 		Enemigo nuevo=enemigoRandom(contador,mapa.getCelda(fila));//new Enemigo1(mapa.getCelda(fila));
 		
 		if(nuevo!=null) {
-			nuevo.setGrafico(fila);
 			mapa.insertarEnemigo(nuevo,fila);
 			listaEnemigos.addLast(nuevo);
 		}

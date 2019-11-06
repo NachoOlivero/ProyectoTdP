@@ -18,24 +18,8 @@ public class GraficoDisparoEne extends OGMovil {
 		Singleton.getGui().add(grafico);
 	}
 
-	@Override
 	public void avanzar() {
 		grafico.setBounds(grafico.getX()-1, grafico.getY(), 110, 60);
-		
 	}
-
-	@Override
-	public int ubicacionGrafico() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void setPosicion(int pos) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
 
 }

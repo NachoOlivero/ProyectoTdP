@@ -3,7 +3,7 @@ package Logica.Torres;
 import Factory.AbstractFactoryT;
 import Factory.fabricaT;
 import Grafica.GraficoDoble;
-import Grafica.ObjetoGraficoT;
+import Grafica.OGTorre;
 import Logica.Celda;
 import Logica.Singleton;
 import Logica.abstracto.Personaje;

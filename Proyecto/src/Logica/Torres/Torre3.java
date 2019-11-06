@@ -2,7 +2,7 @@ package Logica.Torres;
 
 import Factory.AbstractFactoryT;
 import Factory.fabricaT;
-import Grafica.ObjetoGraficoT;
+import Grafica.OGTorre;
 import Logica.Celda;
 import Logica.abstracto.Torre;
 import Visitors.VisitorCeldaTorre;
@@ -23,7 +23,7 @@ public class Torre3 extends Torre{
 	}
 	public void setCelda(Celda c) {
 		AbstractFactoryT aux= new fabricaT();
-		grafico=new ObjetoGraficoT(c,aux.Torre3());
+		grafico=new OGTorre(c,aux.Torre3());
 		celda=c;
 	}
 

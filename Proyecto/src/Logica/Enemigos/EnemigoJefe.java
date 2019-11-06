@@ -1,6 +1,8 @@
 package Logica.Enemigos;
 
-import Grafica.OGEnemigoJefe;
+import Factory.AbstractFactoryT;
+import Factory.fabricaT;
+import Grafica.OGEnemigo;
 import Logica.Celda;
 import Visitors.VisitorEnemigos;
 import Logica.abstracto.Enemigo;
@@ -13,7 +15,8 @@ public class EnemigoJefe extends Enemigo {
 		dp=10;
 		celda=cel;
 		vel=1;
-		grafico=new OGEnemigoJefe();
+		AbstractFactoryT ab=new fabricaT();
+		grafico=new OGEnemigo(ab.Enemigo5(),celda.getFila());
 		visitor=new VisitorEnemigos(this);
 	}
 }

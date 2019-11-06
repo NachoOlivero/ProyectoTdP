@@ -5,7 +5,7 @@ import java.util.TimerTask;
 
 import Factory.AbstractFactoryT;
 import Factory.fabricaT;
-import Grafica.ObjetoGraficoT;
+import Grafica.OGTorre;
 import Logica.Celda;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Estructura;
@@ -21,7 +21,7 @@ public class Charco extends Estructura{
 		grafico=null;
 		visitor=new VisitorEstructurac(this);
 		AbstractFactoryT aux= new fabricaT();
-		grafico=new ObjetoGraficoT(c,aux.charco(),20);
+		grafico=new OGTorre(c,aux.charco(),20);
 		celda=c;
 		temp=new Timer();
 		

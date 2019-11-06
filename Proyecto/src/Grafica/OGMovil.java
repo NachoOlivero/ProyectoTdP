@@ -2,10 +2,8 @@ package Grafica;
 
 public abstract class OGMovil extends ObjetoGrafico {
 	
-	public abstract void avanzar();
-	
-	public abstract int ubicacionGrafico();
-	
-	public abstract void setPosicion(int pos);
+	public void avanzar() {
+		grafico.setBounds(grafico.getX()-1, grafico.getY(), 50, 50);
+	}
 	
 }

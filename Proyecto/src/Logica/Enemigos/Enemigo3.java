@@ -1,7 +1,9 @@
 package Logica.Enemigos;
 
 import Logica.abstracto.EnemigoDistancia;
-import Grafica.OGEnemigo3;
+import Factory.AbstractFactoryT;
+import Factory.fabricaT;
+import Grafica.OGEnemigo;
 import Logica.Celda;
 import Visitors.VisitorEneDistancia;
 
@@ -13,7 +15,8 @@ public class Enemigo3 extends EnemigoDistancia {
 		vel=1;
 		rango=5;
 		visitor= new VisitorEneDistancia(this);
-		grafico=new OGEnemigo3();
+		AbstractFactoryT ab=new fabricaT();
+		grafico=new OGEnemigo(ab.Enemigo3(),celda.getFila());
 		cooldownMax=30;
 	}
 	

@@ -1,7 +1,5 @@
 package Grafica;
 
-import javax.swing.ImageIcon;
-import javax.swing.JComponent;
 import javax.swing.JLabel;
 
 import GUI.GUI;
