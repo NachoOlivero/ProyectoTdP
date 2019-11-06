@@ -90,7 +90,7 @@ public class MovimientoEnemigos extends Thread {
 		Random rand=new Random();
 		Mapa mapa=Singleton.getMapa();
 		
-		int probabilidad=rand.nextInt(5);
+		int probabilidad=rand.nextInt(500);
 		
 		if(probabilidad==1 || probabilidad==2) {
 			boolean sePuedeInsertar=false;
