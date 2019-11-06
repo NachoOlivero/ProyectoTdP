@@ -4,7 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import Factory.AbstractFactoryT;
-import Factory.fabricaT;
+import Factory.FabricaImagenes;
 import Grafica.ObjetoGraficoT;
 import Logica.Celda;
 import Logica.abstracto.Estructura;
@@ -16,7 +16,7 @@ public class Clavos extends Estructura {
 	Timer temp;
 	
 	public Clavos(Celda c) {
-		AbstractFactoryT aux= new fabricaT();
+		AbstractFactoryT aux= new FabricaImagenes();
 		grafico=new ObjetoGraficoT(c,aux.pinchos(),20);
 		celda=c;
 		visitor=new VisitorPinche(this);

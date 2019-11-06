@@ -1,7 +1,7 @@
 package Logica.Torres;
 
 import Factory.AbstractFactoryT;
-import Factory.fabricaT;
+import Factory.FabricaImagenes;
 import Grafica.ObjetoGraficoT;
 import Logica.Celda;
 import Logica.Singleton;
@@ -25,7 +25,7 @@ public class TorreDinero extends Torre{
 	}
 	
 	public void setCelda(Celda c) {
-		AbstractFactoryT aux= new fabricaT();
+		AbstractFactoryT aux= new FabricaImagenes();
 		grafico=new ObjetoGraficoT(c,aux.TorreD(),10);
 		celda=c;
 		

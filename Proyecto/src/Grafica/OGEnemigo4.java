@@ -3,14 +3,14 @@ package Grafica;
 import javax.swing.JLabel;
 
 import Factory.AbstractFactoryT;
-import Factory.fabricaT;
+import Factory.FabricaImagenes;
 import GUI.Eliminador;
 import Logica.Singleton;
 
 public class OGEnemigo4 extends OGMovil {
 	
 	public OGEnemigo4() {
-		AbstractFactoryT f=new fabricaT();
+		AbstractFactoryT f=new FabricaImagenes();
 		grafico=new JLabel(f.Enemigo1());
 	}
 	public void avanzar() {

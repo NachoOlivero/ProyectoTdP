@@ -3,9 +3,9 @@ package Factory;
 import javax.swing.ImageIcon;
 
 
-public class fabricaT extends AbstractFactoryT {
+public class FabricaImagenes extends AbstractFactoryT {
 	
-	public fabricaT() {}
+	public FabricaImagenes() {}
 
 	public ImageIcon Torre1() {
 		return new ImageIcon(this.getClass().getResource("./Seige_Tower.png"));
@@ -36,7 +36,7 @@ public class fabricaT extends AbstractFactoryT {
 	}
 	
 	public ImageIcon Enemigo5() {
-		return new ImageIcon(this.getClass().getResource("./Esqueleto.gif"));
+		return new ImageIcon(this.getClass().getResource("./Minotaur.gif"));
 	}
 	
 	public ImageIcon disparo() {

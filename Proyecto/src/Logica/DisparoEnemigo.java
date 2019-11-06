@@ -2,7 +2,7 @@ package Logica;
 
 
 import Factory.AbstractFactoryT;
-import Factory.fabricaT;
+import Factory.FabricaImagenes;
 import Grafica.GraficoDisparoEne;
 import Logica.abstracto.DisparoAbstracto;
 import Visitors.VisitorDisparo;
@@ -11,7 +11,7 @@ import Visitors.VisitorDisparoEnemigo;
 public class DisparoEnemigo extends DisparoAbstracto {
 
 	public DisparoEnemigo(int alcance, float dñ, Celda celda,int posRel) {
-		AbstractFactoryT t=new fabricaT();
+		AbstractFactoryT t=new FabricaImagenes();
 		recorrido_restante=alcance;
 		daño=dñ;
 		posRelativa=posRel;

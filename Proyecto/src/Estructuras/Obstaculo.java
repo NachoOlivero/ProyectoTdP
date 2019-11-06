@@ -1,7 +1,7 @@
 package Estructuras;
 
 import Factory.AbstractFactoryT;
-import Factory.fabricaT;
+import Factory.FabricaImagenes;
 import Grafica.ObjetoGraficoT;
 import Logica.Celda;
 import Logica.abstracto.Estructura;
@@ -13,7 +13,7 @@ public class Obstaculo extends Estructura{
 	public Obstaculo(Celda c) {
 		hp=500;
 		visitor=new VisitorCeldaEstructura(this);
-		AbstractFactoryT aux= new fabricaT();
+		AbstractFactoryT aux= new FabricaImagenes();
 		grafico=new ObjetoGraficoT(c,aux.obstaculo(),20);
 		celda=c;
 	}
