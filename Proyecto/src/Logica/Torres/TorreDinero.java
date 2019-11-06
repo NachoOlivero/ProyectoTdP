@@ -1,8 +1,8 @@
 package Logica.Torres;
 
 import Factory.AbstractFactoryT;
+import Grafica.OGTorre;
 import Factory.FabricaImagenes;
-import Grafica.ObjetoGraficoT;
 import Logica.Celda;
 import Logica.Singleton;
 import Logica.abstracto.Personaje;
@@ -26,9 +26,8 @@ public class TorreDinero extends Torre{
 	
 	public void setCelda(Celda c) {
 		AbstractFactoryT aux= new FabricaImagenes();
-		grafico=new ObjetoGraficoT(c,aux.TorreD(),10);
+		grafico=new OGTorre(c,aux.TorreD(),10);
 		celda=c;
-		
 	}
 
 	
@@ -59,11 +58,7 @@ public class TorreDinero extends Torre{
 		
 	}
 
-	@Override
-	public void atacar(Personaje e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void atacar(Personaje e) {}
 	
 	public void turno() {
 		int aux;

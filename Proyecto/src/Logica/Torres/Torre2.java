@@ -1,8 +1,8 @@
 package Logica.Torres;
 
 import Factory.AbstractFactoryT;
+import Grafica.OGTorre;
 import Factory.FabricaImagenes;
-import Grafica.ObjetoGraficoT;
 import Logica.Celda;
 import Logica.abstracto.Torre;
 import Visitors.VisitorCeldaTorre;
@@ -23,7 +23,7 @@ public class Torre2 extends Torre {
 	}
 	public void setCelda(Celda c) {
 		AbstractFactoryT aux= new FabricaImagenes();
-		grafico=new ObjetoGraficoT(c,aux.Torre2());
+		grafico=new OGTorre(c,aux.Torre2());
 		celda=c;
 	}
 

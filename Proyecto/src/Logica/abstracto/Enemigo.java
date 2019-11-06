@@ -1,6 +1,8 @@
 package Logica.abstracto;
 
-import Grafica.OGMovil;
+import javax.swing.ImageIcon;
+
+import Grafica.OGEnemigo;
 import Grafica.ObjetoGrafico;
 import Logica.Celda;
 import Logica.Singleton;
@@ -8,7 +10,7 @@ import PowerUp.PowerUp;
 
 public abstract class Enemigo extends Personaje{
 	protected int vel;
-	protected OGMovil grafico;
+	protected OGEnemigo grafico;
 	protected final int min=1;
 	protected int pos=120;
 	protected boolean charco=false;
@@ -51,7 +53,6 @@ public abstract class Enemigo extends Personaje{
 		hp-=daño;
 		if(hp<=0) {
 			Eliminar();
-			//System.out.println("en recibir daño");
 		}
 	}
 	
@@ -80,8 +81,8 @@ public abstract class Enemigo extends Personaje{
 		return this.pos<pos;
 	}
 	
-	public void setGrafico(int pos) {
-		grafico.setPosicion(pos);
+	public void setImagen(ImageIcon imagen) {
+		grafico.setImagen(imagen);
 	}
 		
 }

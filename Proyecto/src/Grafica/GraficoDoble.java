@@ -4,7 +4,7 @@ import javax.swing.ImageIcon;
 
 import Logica.Celda;
 
-public class GraficoDoble extends ObjetoGraficoT{
+public class GraficoDoble extends OGTorre{
 	
 	public GraficoDoble(Celda c,ImageIcon imagen) {
 		super(c,imagen);
