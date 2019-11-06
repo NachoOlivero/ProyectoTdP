@@ -20,7 +20,7 @@ public class FabricaImagenes extends AbstractFactoryT {
 	}
 	
 	public ImageIcon Enemigo1() {
-		return new ImageIcon(this.getClass().getResource("./Esqueleto.gif"));
+		return new ImageIcon(this.getClass().getResource("./Dragon.gif"));
 	}
 	
 	public ImageIcon Enemigo2() {
