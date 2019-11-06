@@ -20,7 +20,7 @@ public class FabricaImagenes extends AbstractFactoryT {
 	}
 	
 	public ImageIcon Enemigo1() {
-		return new ImageIcon(this.getClass().getResource("./Esqueleto.gif"));
+		return new ImageIcon(this.getClass().getResource("./Dragon.gif"));
 	}
 	
 	public ImageIcon Enemigo2() {
@@ -32,11 +32,11 @@ public class FabricaImagenes extends AbstractFactoryT {
 	}
 	
 	public ImageIcon Enemigo4() {
-		return new ImageIcon(this.getClass().getResource("./Esqueleto.gif"));
+		return new ImageIcon(this.getClass().getResource("./Minotaur.gif"));
 	}
 	
 	public ImageIcon Enemigo5() {
-		return new ImageIcon(this.getClass().getResource("./Minotaur.gif"));
+		return new ImageIcon(this.getClass().getResource("./Dragon.gif"));
 	}
 	
 	public ImageIcon disparo() {
