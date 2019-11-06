@@ -19,7 +19,7 @@ public abstract class PowerUp {
 		Random rand=new Random();
 		PowerUp pu=null;
 		
-		int caso=rand.nextInt(10);
+		int caso=rand.nextInt(100);
 		
 		switch (caso) {
 		

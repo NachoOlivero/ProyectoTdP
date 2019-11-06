@@ -23,7 +23,6 @@ public class Obstaculo extends Estructura{
 		hp=-daño;
 		if(hp<=0) {
 			eliminar();
-			celda.eliminarEstructura();
 		}
 		
 	}
