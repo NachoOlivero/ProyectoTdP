@@ -3,7 +3,7 @@ package Grafica;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import Factory.fabricaT;
+import Factory.FabricaImagenes;
 import Logica.Singleton;
 
 public class GraficoDisparo extends OGMovil {

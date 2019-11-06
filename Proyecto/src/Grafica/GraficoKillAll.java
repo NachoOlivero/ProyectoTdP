@@ -5,7 +5,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
 
 import Factory.AbstractFactoryT;
-import Factory.fabricaT;
+import Factory.FabricaImagenes;
 import Logica.Singleton;
 import PowerUp.PowerUp;
 
@@ -14,7 +14,7 @@ public class GraficoKillAll extends ObjetoGrafico {
 	
 	public GraficoKillAll(int x,int y,PowerUp pu) {
 		miPowerUp=pu;
-		AbstractFactoryT f=new fabricaT();
+		AbstractFactoryT f=new FabricaImagenes();
 		grafico=new JLabel(f.killAll());
 		grafico.setBounds(x,y, 50, 50);
 		grafico.addMouseListener(new MouseAdapter() {

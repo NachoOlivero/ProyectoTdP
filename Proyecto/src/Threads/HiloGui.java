@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import Factory.AbstractFactoryT;
-import Factory.fabricaT;
+import Factory.FabricaImagenes;
 import GUI.GUI;
 import Logica.Celda;
 import Logica.Mapa;
@@ -32,7 +32,7 @@ public class HiloGui extends Thread {
 	public HiloGui(GUI g,MovimientoEnemigos movEnem) {
 		gui = g;
 		movEnemigos=movEnem;
-		torres=new fabricaT(); 
+		torres=new FabricaImagenes(); 
 		torreActiva=null;
 		torreDobleActiva=null;
 		bombaActiva=null;

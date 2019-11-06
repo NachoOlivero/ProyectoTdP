@@ -1,7 +1,7 @@
 package Logica.abstracto;
 
 import Factory.AbstractFactoryT;
-import Factory.fabricaT;
+import Factory.FabricaImagenes;
 import Logica.Disparo;
 import Logica.DisparoEnemigo;
 

@@ -4,8 +4,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import Factory.AbstractFactoryT;
-import Factory.fabricaT;
 import Grafica.OGTorre;
+import Factory.FabricaImagenes;
 import Logica.Celda;
 import Logica.abstracto.Estructura;
 import Logica.abstracto.Personaje;
@@ -16,7 +16,7 @@ public class Clavos extends Estructura {
 	Timer temp;
 	
 	public Clavos(Celda c) {
-		AbstractFactoryT aux= new fabricaT();
+		AbstractFactoryT aux= new FabricaImagenes();
 		grafico=new OGTorre(c,aux.pinchos(),20);
 		celda=c;
 		visitor=new VisitorPinche(this);
@@ -28,19 +28,13 @@ public class Clavos extends Estructura {
 	public void recibirDaño(float daño) {
 		
 	}
-
-	@Override
 	public void turno() {
 		if(!aux)
 			temp.schedule(new Eliminar(), 10000);
 		
 	}
 
-	@Override
-	public void atacar(Personaje e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void atacar(Personaje e) {}
 	
 	private class Eliminar extends TimerTask {
 		public void run() {

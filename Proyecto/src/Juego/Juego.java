@@ -12,9 +12,9 @@ public class Juego {
 	private static HiloGui contador;
 	
 	public static void main(String args[]) {
-		Inicio gui= new Inicio();
-		gui.setVisible(true);
-		//Start();
+		//Inicio gui= new Inicio();
+		//gui.setVisible(true);
+		Start();
 	}
 	
 	public static void Start() {
@@ -41,6 +41,8 @@ public class Juego {
 	
 		movEnemigos.run();
 		contador.run();
+		
+		//gui.repaint();
 		
 	}
 }

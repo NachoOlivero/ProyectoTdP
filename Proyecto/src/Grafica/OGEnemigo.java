@@ -3,11 +3,6 @@ package Grafica;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-import Factory.AbstractFactoryT;
-import Factory.fabricaT;
-import GUI.Eliminador;
-import Logica.Singleton;
-
 public class OGEnemigo extends OGMovil {
 	
 	public OGEnemigo(ImageIcon imagen,int fila) {

@@ -1,7 +1,7 @@
 package Logica.Torres;
 
 import Factory.AbstractFactoryT;
-import Factory.fabricaT;
+import Factory.FabricaImagenes;
 import Grafica.GraficoDoble;
 import Grafica.OGTorre;
 import Logica.Celda;
@@ -25,7 +25,7 @@ public class Barricada extends Torre {
 	}
 	
 	public void setCelda(Celda c) {
-		AbstractFactoryT aux= new fabricaT();
+		AbstractFactoryT aux= new FabricaImagenes();
 		grafico=new GraficoDoble(c,aux.barricada());
 		celda=c;
 		celdaExtra=Singleton.getMapa().getCelda(celda.getFila(), celda.getColumna()-1);

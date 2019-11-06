@@ -3,7 +3,7 @@ package Logica.abstracto;
 import javax.swing.ImageIcon;
 
 import Factory.AbstractFactoryT;
-import Factory.fabricaT;
+import Factory.FabricaImagenes;
 import Logica.Celda;
 import Logica.Disparo;
 import Logica.Mapa;

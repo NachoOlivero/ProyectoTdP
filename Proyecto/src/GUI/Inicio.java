@@ -47,12 +47,14 @@ public class Inicio extends JFrame {
 		botonInfo.setBounds(550, 400, 200, 80);
 		add(botonInfo);
 		
+		
 		botonLevel1.addActionListener(new boton1());
 	}
 	public class boton1 implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
 			setVisible(false);
-		Juego.Start();
+			dispose();
+			Juego.Start();
 		}
 	}
 	}

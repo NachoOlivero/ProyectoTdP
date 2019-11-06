@@ -1,12 +1,9 @@
 package Logica.Torres;
 
 import Factory.AbstractFactoryT;
-import Factory.fabricaT;
 import Grafica.OGTorre;
+import Factory.FabricaImagenes;
 import Logica.Celda;
-import Logica.Disparo;
-import Logica.Singleton;
-import Logica.abstracto.Personaje;
 import Logica.abstracto.Torre;
 import Visitors.VisitorCeldaTorre;
 
@@ -21,11 +18,11 @@ public class Torre1 extends Torre {
 		cooldown=0;
 		grafico=null;
 		visitor=new VisitorCeldaTorre(this);
-		AbstractFactoryT k=new fabricaT();
+		AbstractFactoryT k=new FabricaImagenes();
 		imagenDisparo=k.disparo();
 	}
 	public void setCelda(Celda c) {
-		AbstractFactoryT aux= new fabricaT();
+		AbstractFactoryT aux= new FabricaImagenes();
 		grafico=new OGTorre(c,aux.Torre1());
 		celda=c;
 	}

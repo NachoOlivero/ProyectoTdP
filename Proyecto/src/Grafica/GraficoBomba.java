@@ -5,7 +5,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JLabel;
 
-import Factory.fabricaT;
+import Factory.FabricaImagenes;
 import Logica.Singleton;
 import PowerUp.Bomba;
 
@@ -13,7 +13,7 @@ public class GraficoBomba extends ObjetoGrafico{
 	Bomba miPowerUp;
 	
 	public GraficoBomba(int x,int y,Bomba bomba) {
-		fabricaT f=new fabricaT();
+		FabricaImagenes f=new FabricaImagenes();
 		grafico=new JLabel(f.bomba());
 		grafico.setVisible(true);
 		miPowerUp=bomba;
