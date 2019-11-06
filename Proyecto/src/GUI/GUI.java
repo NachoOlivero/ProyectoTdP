@@ -21,6 +21,7 @@ public class GUI extends JFrame {
 	private JLabel bombas;
 
 	public GUI() {
+		
 		getContentPane().setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0,0, 1280, 700);
@@ -60,6 +61,7 @@ public class GUI extends JFrame {
 		bombas.setBounds(1100,600,80,80);
 		bombas.setVisible(true);
 		add(bombas);
+		System.out.println("GOLA");
 	}
 	
 	public void agregarOyenteBoton(ActionListener ac,int boton) {

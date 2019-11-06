@@ -1,6 +1,7 @@
 package Juego;
 
 import GUI.GUI;
+import GUI.Inicio;
 import Logica.Mapa;
 import Logica.Singleton;
 import Threads.HiloGui;
@@ -11,7 +12,9 @@ public class Juego {
 	private static HiloGui contador;
 	
 	public static void main(String args[]) {
-		Start();
+		Inicio gui= new Inicio();
+		gui.setVisible(true);
+		//Start();
 	}
 	
 	public static void Start() {
