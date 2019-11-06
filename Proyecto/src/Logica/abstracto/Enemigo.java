@@ -60,10 +60,11 @@ public abstract class Enemigo extends Personaje{
 	}
 	
 	public void Eliminar() {
+		int aux;
 		celda.eliminarEnemigo(this);
 		grafico.eliminar();
-		Singleton.getJugador().aumentarPuntaje(20);
-		Singleton.getJugador().aumentarDinero(50);
+		aux=Singleton.getJugador().getPuntaje();
+		Singleton.getJugador().setPuntaje(aux+20);
 		PowerUp.randonPowerUp(grafico.getGrafico().getX(),grafico.getGrafico().getY());
 	}
 	

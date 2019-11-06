@@ -16,7 +16,7 @@ public class TorreDinero extends Torre{
 		this.hp=20;
 		this.dp=0;
 		this.rango=0;
-		cooldownOriginal=20;
+		cooldownOriginal=30;
 		cooldownActual=cooldownOriginal;
 		cooldown=15;
 		grafico=null;
@@ -66,8 +66,10 @@ public class TorreDinero extends Torre{
 	}
 	
 	public void turno() {
+		int aux;
 		if (cooldown==0) {
-			Singleton.getJugador().aumentarDinero(30);
+			aux=Singleton.getJugador().getDinero();
+			Singleton.getJugador().setDinero(aux+20);
 			cooldown=cooldownActual;
 		}
 		else cooldown--;

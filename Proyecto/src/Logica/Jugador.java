@@ -29,18 +29,13 @@ public class Jugador {
 		return listaBombas.size();
 	}
 	
-	public void aumentarDinero(int d) {
-		dinero+=d;
+	public void setPuntaje(int d) {
+		puntaje=d;
 		actualizarGUI();
 	}
 	
-	public void reducirDinero(int d) {
-		dinero-=d;
-		actualizarGUI();
-	}
-	
-	public void aumentarPuntaje(int p) {
-		puntaje+=p;
+	public void setDinero(int a) {
+		dinero=a;
 		actualizarGUI();
 	}
 	
