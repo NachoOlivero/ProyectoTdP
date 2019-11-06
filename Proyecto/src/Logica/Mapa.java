@@ -18,12 +18,11 @@ public class Mapa {
 	private int maxFilas;
 	private List<Torre> listaTorres;
 	private List<PowerUp> listaPowerUps;
-	private List<Bomba> listaBombas;
 	
 	public Mapa() {
 		listaTorres=new LinkedList<Torre>();
 		listaPowerUps=new LinkedList<PowerUp>();
-		listaBombas=new LinkedList<Bomba>();
+		new LinkedList<Bomba>();
 	}
 	
 	public void inicializarCeldas(int x,int y) {
@@ -94,6 +93,11 @@ public class Mapa {
 	public void eliminarTorre(Torre t,int fila,int columna) {  
 		celdas[fila][columna].eliminarEstructura();
 		listaTorres.remove(t); 
+	}
+	
+	public void eliminarTorres() {  
+		for(Torre t:listaTorres)
+			t.eliminar();
 	}
 	
 	public void insertarDisparo(DisparoAbstracto disp, int fila,int columna) {
