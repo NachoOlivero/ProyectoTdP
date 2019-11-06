@@ -13,9 +13,13 @@ import Logica.Celda;
 import Logica.Mapa;
 import Logica.Singleton;
 import Logica.Enemigos.Enemigo1;
+import Logica.Enemigos.Enemigo1M;
 import Logica.Enemigos.Enemigo2;
+import Logica.Enemigos.Enemigo2M;
 import Logica.Enemigos.Enemigo3;
+import Logica.Enemigos.Enemigo3M;
 import Logica.Enemigos.Enemigo4;
+import Logica.Enemigos.Enemigo4M;
 import Logica.Enemigos.EnemigoJefe;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Estructura;
@@ -32,6 +36,7 @@ public class MovimientoEnemigos extends Thread {
 	protected boolean gane;
 	protected Timer temp;
 	protected int contador;
+	protected boolean jefeCreado;
 	
 	public MovimientoEnemigos(Mapa map,GUI g) {
 		listaEnemigos=new LinkedList<Enemigo>();
@@ -42,6 +47,7 @@ public class MovimientoEnemigos extends Thread {
 		gui2=null;
 		temp= new Timer();
 		contador=0;
+		jefeCreado=false;
 	}
 	
 	public void run() {
@@ -53,7 +59,7 @@ public class MovimientoEnemigos extends Thread {
 				e.printStackTrace();
 			}
 			contador++;
-			if(coolDown==0) {
+			if(coolDown==0 && !jefeCreado) {
 				crearEnemigo(contador);
 				coolDown=20;
 			}
@@ -131,7 +137,6 @@ public class MovimientoEnemigos extends Thread {
 
 	public void eliminarAll() {
 			mapa.KillAll();
-			//cant--;
 	}
 
 	public void eliminarEnemigo() {
@@ -139,12 +144,13 @@ public class MovimientoEnemigos extends Thread {
 				Enemigo eliminado=listaEnemigos.removeFirst();
 				eliminado.Eliminar();
 				Singleton.getGui().repaint();
-				//cant--;
 			}
 	}
 	
 	public Enemigo enemigoRandom(int contador,Celda celda) {
 		int caso=-1;
+		int rand=-1;
+		boolean magia=false;
 		Enemigo eneRet=null;
 		
 		if(contador<2000)
@@ -154,34 +160,60 @@ public class MovimientoEnemigos extends Thread {
 						if(contador<200)
 							if(contador>100)
 								caso=0;
-							else caso=-100;
+							else caso=-2;
 						else caso=1;
 				else caso=2;
 			else caso=3;
-		else caso=4;
-			
-		int rand=-1;
-		//System.out.print("Contador: "+contador);
-		if(caso>=0)	
-			rand=(int) (Math.random() * caso) ;
 		
-		switch (rand) {
-			case 0:	
-				eneRet=new Enemigo1(celda);
-					break;
-			case 1:	
-				eneRet=new Enemigo2(celda);
-				break;
-			case 2:	
-				eneRet=new Enemigo3(celda);
-				break;
-			case 3:	
-				eneRet=new Enemigo4(celda);
-				break;
-			case 4:	
-				eneRet=new EnemigoJefe(celda);
-				break;
+		if(caso==-1) {
+			caso=4;  //quiere decir que ya tiene que aparecer el boss
+			jefeCreado=true;
 		}
+	
+		if(caso>=0 && caso<4) {
+			rand=(int) (Math.random() * 10) ;
+			if(rand==1)
+				magia=true;
+			
+			rand=(int) (Math.random() * caso) ;
+		}
+		
+		if(!magia)
+			
+			switch (rand) {
+			
+				case 0:	
+					eneRet=new Enemigo1(celda);
+						break;
+				case 1:	
+					eneRet=new Enemigo2(celda);
+					break;
+				case 2:	
+					eneRet=new Enemigo3(celda);
+					break;
+				case 3:	
+					eneRet=new Enemigo4(celda);
+					break;
+		}
+		
+		else
+			switch(rand) {
+				case 0:	
+					eneRet=new Enemigo1M(celda);
+						break;
+				case 1:	
+					eneRet=new Enemigo2M(celda);
+					break;
+				case 2:	
+					eneRet=new Enemigo3M(celda);
+					break;
+				case 3:	
+					eneRet=new Enemigo4M(celda);
+					break;
+			}
+		
+		if(caso==4)
+			eneRet=new EnemigoJefe(celda);
 		
 		return eneRet;
 	
