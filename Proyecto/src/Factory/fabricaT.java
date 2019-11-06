@@ -94,7 +94,7 @@ public class fabricaT extends AbstractFactoryT {
 
 	@Override
 	public ImageIcon EsqueletoNegativo() {
-		return new ImageIcon(this.getClass().getResource("./Esqueleto.gif"));
+		return new ImageIcon(this.getClass().getResource("./EsqueletoNegativo.gif"));
 	}
 	
 	
