@@ -110,7 +110,8 @@ public class MovimientoEnemigos extends Thread {
 					if(probabilidad==1)
 						est=new Charco(celda);
 					else est=new Obstaculo(celda);
-					celda.insertarEstructura(est);
+					
+					mapa.insertarEstructura(est, fila, columna);
 				}
 				
 				cont++;

@@ -79,7 +79,7 @@ public class Mapa {
 	
 	public boolean insertarEstructura(Estructura t,int fila,int columna) {
 		boolean aux=false;
-		if(fila<5 && columna<9) {
+		if(fila<6 && columna<10) {
 		 aux =celdas[fila][columna].insertarEstructura(t);
 		}
 		return aux;
