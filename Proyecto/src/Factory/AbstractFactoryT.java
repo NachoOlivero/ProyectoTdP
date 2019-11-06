@@ -44,6 +44,9 @@ public abstract class AbstractFactoryT {
 	
 	public abstract ImageIcon speedUp() ;
 	
+	public abstract ImageIcon EsqueletoNegativo();
+	
+	
 
 
 }
