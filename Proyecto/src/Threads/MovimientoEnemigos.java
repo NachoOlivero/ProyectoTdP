@@ -64,6 +64,7 @@ public class MovimientoEnemigos extends Thread {
 		}
 		mapa.inicializarCeldas(6,10);
 		gui.setVisible(false);
+		gui.dispose(); //cerramos la ventana
 		if(!gane)
 			gui2 = new GUIDyV("./GameOver.png");
 		else
