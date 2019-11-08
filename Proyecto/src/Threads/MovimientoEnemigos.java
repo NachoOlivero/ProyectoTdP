@@ -55,7 +55,7 @@ public class MovimientoEnemigos extends Thread {
 		temp.schedule(new Victoria(), 300000);
 		while(!gameOver && !gane) {
 			try {
-				Thread.sleep(100);
+				Thread.sleep(10);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -70,9 +70,12 @@ public class MovimientoEnemigos extends Thread {
 			mapa.mover();
 		}
 		mapa.inicializarCeldas(6,10);
-		if(!gane)
+		if(!gane) {
 			Singleton.getGui().Derrota();
+			mapa.KillAll();
+		}
 		else {
+			mapa.KillAll();
 			Singleton.getGui().Victoria();
 			lv2();
 		}
@@ -85,6 +88,7 @@ public class MovimientoEnemigos extends Thread {
 		gane=false;
 		Singleton.getJugador().setDinero(100);
 		Singleton.getJugador().setPuntaje(0);
+		contador=0;
 		while(!gameOver && !gane) {//programar aca abajo el lv 2 (ahora es el 1)
 			try {
 				Thread.sleep(100);

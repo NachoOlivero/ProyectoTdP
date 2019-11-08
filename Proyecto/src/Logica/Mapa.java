@@ -73,8 +73,12 @@ public class Mapa {
 	public void insertarEnemigo(Enemigo ene,int fila,int columna) {
 		if(columna>=0)
 			celdas[fila][columna].addEnemigo(ene);
-		else MovimientoEnemigos.GameOver();
-	}
+		else {
+			KillAll();
+			MovimientoEnemigos.GameOver();
+					}
+		}
+	
 	
 	public boolean insertarEstructura(Estructura t,int fila,int columna) {
 		boolean aux=false;

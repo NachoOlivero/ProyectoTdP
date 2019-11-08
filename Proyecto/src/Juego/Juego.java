@@ -28,16 +28,13 @@ public class Juego {
 	}
 	
 	public static void reStart() {
-		GUI gui=Singleton.getGui();
-		Mapa mapa=Singleton.getMapa();
-		
-		gui.setVisible(true);
-		mapa.inicializarCeldas(6, 10);
 		
 		movEnemigos= Singleton.getMovEne();
+		Mapa mapa=Singleton.getMapa();
+		mapa.eliminarTorres();
+		mapa.KillAll();
 	
 		movEnemigos.run();
-		contador.run();
 		
 		//gui.repaint();
 		

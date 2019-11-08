@@ -10,7 +10,7 @@ import Logica.Tienda;
 import Logica.Torres.*;
 import PowerUp.*;
 import Threads.MovimientoEnemigos;
-
+import Juego.Juego;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,6 +28,7 @@ public class GUI extends JFrame {
 	private JPanelConFondo Derrota;
 	private JButton restart;
 	private JButton siglv;
+	
 	
 
 	public GUI() {
@@ -160,12 +161,16 @@ public class GUI extends JFrame {
 	
 	public void Victoria() {
 		remove(contentPane);
+		repaint();
 		setContentPane(Victoria);
+		repaint();
 		
 	}
 	public void Derrota() {
 		remove(contentPane);
+		repaint();
 		setContentPane(Derrota);
+		repaint();
 	}
 	private void lv2() {
 		remove(Victoria);
@@ -181,7 +186,10 @@ public class GUI extends JFrame {
 	}
 	private class Restart implements ActionListener{//por implementar
 		public void actionPerformed(ActionEvent arg0) {
-		
+			Juego.reStart();
+			remove(Derrota);
+			setContentPane(contentPane);
+			repaint();
 		}
 	}
 	
