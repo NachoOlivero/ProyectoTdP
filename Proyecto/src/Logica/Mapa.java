@@ -74,6 +74,7 @@ public class Mapa {
 		if(columna>=0)
 			celdas[fila][columna].addEnemigo(ene);
 		else {
+			ene.Eliminar();
 			KillAll();
 			MovimientoEnemigos.GameOver();
 					}

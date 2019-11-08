@@ -69,13 +69,13 @@ public class MovimientoEnemigos extends Thread {
 			crearObstaculo();
 			mapa.mover();
 		}
-		mapa.inicializarCeldas(6,10);
 		if(!gane) {
 			Singleton.getGui().Derrota();
-			mapa.KillAll();
+			Singleton.getGui().repaint();
 		}
 		else {
 			mapa.KillAll();
+			mapa.eliminarTorres();
 			Singleton.getGui().Victoria();
 			lv2();
 		}

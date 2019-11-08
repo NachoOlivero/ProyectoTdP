@@ -30,13 +30,10 @@ public class Juego {
 	public static void reStart() {
 		
 		movEnemigos= Singleton.getMovEne();
-		Mapa mapa=Singleton.getMapa();
-		mapa.eliminarTorres();
-		mapa.KillAll();
 	
 		movEnemigos.run();
 		
-		//gui.repaint();
+	
 		
 	}
 }
