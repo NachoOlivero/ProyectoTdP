@@ -10,10 +10,11 @@ public class  Tienda {
 	public static Torre comprarT1() {
 		int aux;
 		Torre toReturn=null;
-		if(Singleton.getJugador().getDinero()>=100) {
+		Torre auxt=new Torre1();
+		if(Singleton.getJugador().getDinero()>=auxt.getCosto()) {
 			aux=Singleton.getJugador().getDinero();
 			Singleton.getJugador().setDinero(aux-100);
-			toReturn=new Torre1();
+			toReturn=auxt;
 		}
 		return toReturn;
 	}
@@ -21,10 +22,11 @@ public class  Tienda {
 	public static Torre comprarT3() {
 		int aux;
 		Torre toReturn=null;
-		if(Singleton.getJugador().getDinero()>=200) {
+		Torre auxt=new Torre3();
+		if(Singleton.getJugador().getDinero()>=auxt.getCosto()) {
 			aux=Singleton.getJugador().getDinero();
 			Singleton.getJugador().setDinero(aux-200);
-			toReturn=new Torre3();
+			toReturn=auxt;
 		}
 		return toReturn;
 	}
@@ -32,10 +34,11 @@ public class  Tienda {
 	public static Torre comprarDinero() {
 		int aux;
 		Torre toReturn=null;
-		if(Singleton.getJugador().getDinero()>=50) {
+		Torre auxt=new TorreDinero();
+		if(Singleton.getJugador().getDinero()>=auxt.getCosto()) {
 			aux=Singleton.getJugador().getDinero();
 			Singleton.getJugador().setDinero(aux-50);
-			toReturn=new TorreDinero();
+			toReturn=auxt;
 		}
 		return toReturn;
 	}
@@ -43,10 +46,11 @@ public class  Tienda {
 	public static Torre comprarBarricada() {
 		int aux;
 		Torre toReturn=null;
-		if(Singleton.getJugador().getDinero()>=140) {
+		Torre auxt=new Barricada();
+		if(Singleton.getJugador().getDinero()>=auxt.getCosto()) {
 			aux=Singleton.getJugador().getDinero();
 			Singleton.getJugador().setDinero(aux-140);
-			toReturn=new Barricada();
+			toReturn=auxt;
 		}
 		return toReturn;
 	}

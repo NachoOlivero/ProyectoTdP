@@ -20,6 +20,7 @@ public class Torre1 extends Torre {
 		visitor=new VisitorCeldaTorre(this);
 		AbstractFactoryT k=new FabricaImagenes();
 		imagenDisparo=k.disparo();
+		costo=100;
 	}
 	public void setCelda(Celda c) {
 		AbstractFactoryT aux= new FabricaImagenes();

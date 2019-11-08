@@ -15,6 +15,7 @@ public abstract class Torre extends Estructura{
 	protected int cooldownActual;
 	protected int cooldownOriginal;
 	protected ImageIcon imagenDisparo;
+	protected int costo;
 	
 	public int getRango() {
 		return rango;
@@ -73,5 +74,8 @@ public abstract class Torre extends Estructura{
 	
 	public void resetCooldown() {
 		cooldownActual=cooldownOriginal;
+	}
+	public int getCosto() {
+		return costo;
 	}
 }

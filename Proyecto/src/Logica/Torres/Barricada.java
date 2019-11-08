@@ -22,6 +22,7 @@ public class Barricada extends Torre {
 		cooldown=0;
 		grafico=null;
 		visitor=new VisitorCeldaTorre(this);
+		costo=140;
 	}
 	
 	public void setCelda(Celda c) {

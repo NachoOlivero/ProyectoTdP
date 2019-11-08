@@ -34,9 +34,9 @@ public class GUI extends JFrame {
 
 		botonesT=new JButton[10];
 		for(int b=0 ; b<botonesT.length;  b++) {
-		botonesT[b]=new JButton("test:"+b);
+		botonesT[b]=new JButton();
 		contentPane.add(botonesT[b]);
-		botonesT[b].setBounds(40+(b*100), 590 , 70, 70);
+		botonesT[b].setBounds(30+(b*100), 590 , 90, 40);
 		//agregar listener
 		}
 		//creo zona de puntaje y dinero
@@ -61,6 +61,18 @@ public class GUI extends JFrame {
 		bombas.setBounds(1100,600,80,80);
 		bombas.setVisible(true);
 		contentPane.add(bombas);
+		
+		//le pongo los verdaderos nombres a los botones
+		botonesT[0].setText("Tienda");
+		botonesT[1].setText("Torre");
+		botonesT[2].setText("Muro");
+		botonesT[3].setText("Fire");
+		botonesT[4].setText("TPesada");
+		botonesT[5].setText("Bomba");
+		botonesT[6].setText("C Barrera");
+		botonesT[7].setText("C bomba");
+		botonesT[8].setText("C Nuke");
+		botonesT[9].setText("C Speed");
 	}
 	
 	public void agregarOyenteBoton(ActionListener ac,int boton) {
