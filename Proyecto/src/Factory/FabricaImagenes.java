@@ -12,7 +12,7 @@ public class FabricaImagenes implements AbstractFactoryT {
 	}
 	
 	public ImageIcon Torre2() {
-		return new ImageIcon(this.getClass().getResource("./Seige_Tower.png"));
+		return new ImageIcon(this.getClass().getResource("./Samurai.png"));
 	}
 	
 	public ImageIcon Torre3() {

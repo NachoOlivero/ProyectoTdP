@@ -22,4 +22,7 @@ public class KillAll extends PowerUp {
 	
 	public void ubicar(int x,int y) {}
 	
+	public static int getCosto() {
+		return 1500;
+	}
 }

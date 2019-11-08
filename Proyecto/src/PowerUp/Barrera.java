@@ -43,4 +43,7 @@ public class Barrera extends PowerUp {
 			celda.setBarrera(false);
 		}
 	}
+	public static int getCosto() {
+		return 300;
+	}
 }

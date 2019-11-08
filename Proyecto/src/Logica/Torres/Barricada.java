@@ -22,7 +22,7 @@ public class Barricada extends Torre {
 		cooldown=0;
 		grafico=null;
 		visitor=new VisitorCeldaTorre(this);
-		costo=140;
+		
 	}
 	
 	public void setCelda(Celda c) {
@@ -51,4 +51,7 @@ public class Barricada extends Torre {
 
 	public void turno() {}
 	
+	public static int getCosto() {
+		return 140;
+	}
 }

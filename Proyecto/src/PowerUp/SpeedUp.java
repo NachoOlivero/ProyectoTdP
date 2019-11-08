@@ -45,6 +45,9 @@ public class SpeedUp extends PowerUp {
 	
 	
 	}
+	public static int getCosto() {
+		return 500;
+	}
 		
 	
 }

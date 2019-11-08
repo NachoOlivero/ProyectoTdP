@@ -43,7 +43,7 @@ public class HiloGui extends Thread {
 		gui.agregarOyenteBoton(new ComprarTorre1(),1);
 		gui.agregarOyenteBoton(new ComprarTorre3(),3);
 		gui.agregarOyenteBoton(new comprarBarricada(),2);
-		gui.agregarOyenteBoton(new EliminarAll(),4);
+		gui.agregarOyenteBoton(new ComprarTorre2(),4);
 		gui.agregarOyenteClick(new Mouse());
 		gui.agregarOyenteBoton(new OyenteBomba(), 5);
 		gui.agregarOyenteBoton(new ComprarBarrera(), 6);
@@ -156,6 +156,13 @@ public class HiloGui extends Thread {
 		public void actionPerformed(ActionEvent arg0) {
 			if (torreActiva==null && puActivo==null && torreDobleActiva==null)
 					torreActiva=Tienda.comprarT3();
+			
+		}
+	}
+	public class ComprarTorre2 implements ActionListener{
+		public void actionPerformed(ActionEvent arg0) {
+			if (torreActiva==null && puActivo==null && torreDobleActiva==null)
+					torreActiva=Tienda.comprarT2();
 			
 		}
 	}

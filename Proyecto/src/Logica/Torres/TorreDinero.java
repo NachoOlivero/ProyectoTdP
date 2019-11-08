@@ -21,7 +21,6 @@ public class TorreDinero extends Torre{
 		cooldown=15;
 		grafico=null;
 		visitor=new VisitorCeldaTorre(this);
-		costo=50;
 	}
 	
 	public void setCelda(Celda c) {
@@ -70,6 +69,9 @@ public class TorreDinero extends Torre{
 		else cooldown--;
 		
 		this.avisarEnemigos();
+	}
+	public static int getCosto() {
+		return 50;
 	}
 	
 	

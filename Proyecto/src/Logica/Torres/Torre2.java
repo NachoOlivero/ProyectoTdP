@@ -20,12 +20,15 @@ public class Torre2 extends Torre {
 		visitor=new VisitorCeldaTorre(this);
 		AbstractFactoryT k=new FabricaImagenes();
 		imagenDisparo=k.disparo();
-		costo=260;
+		
 	}
 	public void setCelda(Celda c) {
 		AbstractFactoryT aux= new FabricaImagenes();
 		grafico=new OGTorre(c,aux.Torre2());
 		celda=c;
+	}
+	public static int getCosto() {
+		return 260;
 	}
 
 }

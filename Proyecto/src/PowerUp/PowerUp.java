@@ -44,6 +44,9 @@ public abstract class PowerUp {
 		if(pu!=null)
 			Singleton.getMapa().insertarPowerUp(pu);
 	}
+	public static int getCosto() {
+		return 0;
+	}
 	
 
 }

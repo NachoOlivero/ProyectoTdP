@@ -67,6 +67,9 @@ public class Bomba extends PowerUp{
 	public void eliminar() {
 		Singleton.getMapa().eliminarPowerUp(this);
 	}
+	public static int getCosto() {
+		return 200;
+	}
 	
 
 }
