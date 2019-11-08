@@ -67,6 +67,7 @@ public class GUI extends JFrame {
 
 
 	public void agregarOyenteBoton(ActionListener ac,int boton) {
+		System.out.println(this);
 		botonesT[boton].addActionListener(ac);
 	}
 	
@@ -180,7 +181,7 @@ public class GUI extends JFrame {
 			lv2();
 		}
 	}
-	private class Restart implements ActionListener{
+	private class Restart implements ActionListener{//por implementar
 		public void actionPerformed(ActionEvent arg0) {
 		
 		}

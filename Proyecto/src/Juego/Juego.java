@@ -21,7 +21,7 @@ public class Juego {
 		Mapa mapa=Singleton.getMapa();
 		
 		movEnemigos= Singleton.getMovEne();
-		contador=new HiloGui(gui,movEnemigos);
+		contador=Singleton.getHilo();
 	
 		movEnemigos.run();
 		contador.run();
@@ -35,7 +35,7 @@ public class Juego {
 		gui.setVisible(true);
 		mapa.inicializarCeldas(6, 10);
 		
-		movEnemigos= new MovimientoEnemigos(mapa,gui);
+		movEnemigos= Singleton.getMovEne();
 	
 		movEnemigos.run();
 		contador.run();

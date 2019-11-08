@@ -1,6 +1,7 @@
 package Logica;
 
 import GUI.GUI;
+import Threads.HiloGui;
 import Threads.MovimientoEnemigos;
 
 public class Singleton {
@@ -8,6 +9,7 @@ public class Singleton {
 	protected static GUI gui;
 	protected static Jugador ju;
 	protected static MovimientoEnemigos ene;
+	protected static HiloGui hilo;
 	
 	public synchronized static Mapa getMapa() {
 		if(mapa != null)
@@ -41,6 +43,14 @@ public class Singleton {
 		else {
 			ene = new MovimientoEnemigos(getMapa(), getGui());
 			return ene;
+		}
+	}
+	public synchronized static HiloGui getHilo() {
+		if(hilo != null)
+			return hilo;
+		else {
+			hilo = new HiloGui();
+			return hilo;
 		}
 	}
 	
