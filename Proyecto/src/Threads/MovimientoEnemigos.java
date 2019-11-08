@@ -43,7 +43,7 @@ public class MovimientoEnemigos extends Thread {
 		listaEnemigos=new LinkedList<Enemigo>();
 		
 		gameOver=false;
-		gane=true;
+		gane=false;
 		
 		temp= new Timer();
 		contador=0;
@@ -80,9 +80,11 @@ public class MovimientoEnemigos extends Thread {
 	}
 	protected void lv2() {
 		while(gane && !lv2) {
-			System.out.println("HOLA");
-			//espera a que el jugador empieze el lv2
-		}gane=false;
+			
+		}
+		gane=false;
+		Singleton.getJugador().setDinero(100);
+		Singleton.getJugador().setPuntaje(0);
 		while(!gameOver && !gane) {//programar aca abajo el lv 2 (ahora es el 1)
 			try {
 				Thread.sleep(100);

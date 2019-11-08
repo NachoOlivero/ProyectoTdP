@@ -47,12 +47,12 @@ public class FabricaEnemigosMagia implements AbstractFactoryT{
 
 	@Override
 	public ImageIcon Enemigo4() {
-		return new ImageIcon(this.getClass().getResource("./Dragon.gif"));
+		return new ImageIcon(this.getClass().getResource("./MinMag.gif"));
 	}
 
 	@Override
 	public ImageIcon Enemigo5() {
-		return new ImageIcon(this.getClass().getResource("./Dragon.gif"));
+		return new ImageIcon(this.getClass().getResource("./BandidoRojo.gif"));
 	}
 	
 	@Override
