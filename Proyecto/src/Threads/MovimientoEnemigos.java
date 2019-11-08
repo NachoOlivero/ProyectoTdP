@@ -46,7 +46,7 @@ public class MovimientoEnemigos extends Thread {
 		gane=false;
 		
 		temp= new Timer();
-		contador=3330; //para probar nada mas
+		contador=0; //para probar nada mas
 		jefeCreado=false;
 		lv2=false;
 	}
@@ -65,7 +65,9 @@ public class MovimientoEnemigos extends Thread {
 			contador++;
 			if(coolDown==0 && !jefeCreado) {
 				crearEnemigo(contador);
-				coolDown=20;
+				if(contador%900==0)
+					coolDown=200;
+				else coolDown=15;
 			}
 			else coolDown--;
 			
@@ -89,15 +91,19 @@ public class MovimientoEnemigos extends Thread {
 		}
 		
 	}
+	
 	protected void lv2() {
-		while(!lv2) {//esperamos al boton
-		}System.out.println("perdi");
+		while(!lv2) {}//esperamos al boton
+		
+		System.out.println("perdi");
 		gane=false;
 		jefeCreado=false;
+		contador=0;
+		
 		Singleton.getJugador().setDinero(100);
 		Singleton.getJugador().setPuntaje(0);
 		Singleton.getGui().actualizarValores();
-		contador=0;
+		
 		while(!gameOver && !gane) {//programar aca abajo el lv 2 (ahora es el 1)
 			try {
 				Thread.sleep(100);
@@ -107,7 +113,9 @@ public class MovimientoEnemigos extends Thread {
 			contador++;
 			if(coolDown==0 && !jefeCreado) {
 				crearEnemigo(contador);
-				coolDown=20;
+				if(contador%900==0)
+					coolDown=200;
+				else coolDown=15;
 			}
 			else coolDown--;
 			System.out.println("perdi");
@@ -115,9 +123,9 @@ public class MovimientoEnemigos extends Thread {
 			mapa.mover();
 		}
 		gui.Derrota();
-		
-		
 	}
+	
+	
 	public  void lv2_start() {
 		lv2=true;
 	}
@@ -199,7 +207,7 @@ public class MovimientoEnemigos extends Thread {
 		Enemigo eneRet=null;
 		
 
-		if(contador<3000)
+		if(contador<=2700)
 			if(contador<2000)
 				if(contador<1000)
 					if(contador<500)
