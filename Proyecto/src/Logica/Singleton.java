@@ -41,7 +41,7 @@ public class Singleton {
 		if(ene != null)
 			return ene;
 		else {
-			ene = new MovimientoEnemigos(getMapa(), getGui());
+			ene = new MovimientoEnemigos();
 			return ene;
 		}
 	}

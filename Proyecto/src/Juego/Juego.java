@@ -18,7 +18,6 @@ public class Juego {
 	public static void Start() {
 		GUI gui=Singleton.getGui();
 		gui.setVisible(true);
-		Mapa mapa=Singleton.getMapa();
 		
 		movEnemigos= Singleton.getMovEne();
 		contador=Singleton.getHilo();

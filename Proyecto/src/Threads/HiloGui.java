@@ -159,7 +159,6 @@ public class HiloGui extends Thread {
 		public void actionPerformed(ActionEvent arg0) {
 			if (torreActiva==null && puActivo==null && torreDobleActiva==null)
 					torreActiva=Tienda.comprarT3();
-			System.out.println("hola");
 		}
 	}
 	private class ComprarTorre2 implements ActionListener{

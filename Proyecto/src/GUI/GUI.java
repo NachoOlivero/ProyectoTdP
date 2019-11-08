@@ -58,55 +58,12 @@ public class GUI extends JFrame {
 		Derrota.add(restart);
 		restart.addActionListener(new Restart());
 		
-		inicializarPanelLv1();
-		Inicializarbotones();
-		InicializarLabels();
-		InicializarLabelsCostos();
-	}
-
-
-
-	public void agregarOyenteBoton(ActionListener ac,int boton) {
-		System.out.println(this);
-		botonesT[boton].addActionListener(ac);
-	}
-	
-	public void agregarOyenteClick(MouseListener ac) {
-		addMouseListener(ac);
-	}
-	public void actualizarValores() {
-		Jugador ju=Singleton.getJugador();
-		pun.setText("Puntaje: "+ju.getPuntaje());
-		din.setText("Dinero: "+ju.getDinero());
-		bombas.setText("Bombas: "+ju.getBombas());
-	}
-	
-	private void inicializarPanelLv1() {
-		contentPane.setImagen("./mapaV2_4(64x35).jpg");
-		Inicializarbotones();
-		InicializarLabels();
-		InicializarLabelsCostos();
-	}
-	
-	private void Inicializarbotones() {
 		botonesT=new JButton[10];
 		for(int b=0 ; b<botonesT.length;  b++) {
 		botonesT[b]=new JButton();
 		contentPane.add(botonesT[b]);
 		botonesT[b].setBounds(30+(b*100), 590 , 90, 40);
 		}
-		botonesT[0].setText("Tienda");
-		botonesT[1].setText("Torre");
-		botonesT[2].setText("Muro");
-		botonesT[3].setText("Fire");
-		botonesT[4].setText("TPesada"); //si a alguien se le ocurre mejores nombres que los cambie
-		botonesT[5].setText("Bomba");
-		botonesT[6].setText("C Barrera");
-		botonesT[7].setText("C bomba");
-		botonesT[8].setText("C Nuke");
-		botonesT[9].setText("C Speed");
-	}
-	private void InicializarLabels() {
 		//puntaje
 		Jugador ju=Singleton.getJugador();
 		pun=new JLabel();
@@ -129,7 +86,48 @@ public class GUI extends JFrame {
 		bombas.setBounds(1100,600,80,80);
 		bombas.setVisible(true);
 		contentPane.add(bombas);
+		
+		inicializarPanelLv1();
+		Inicializarbotones();
+		InicializarLabelsCostos();
 	}
+
+
+
+	public void agregarOyenteBoton(ActionListener ac,int boton) {
+		botonesT[boton].addActionListener(ac);
+	}
+	
+	public void agregarOyenteClick(MouseListener ac) {
+		addMouseListener(ac);
+	}
+	public void actualizarValores() {
+		Jugador ju=Singleton.getJugador();
+		pun.setText("Puntaje: "+ju.getPuntaje());
+		din.setText("Dinero: "+ju.getDinero());
+		bombas.setText("Bombas: "+ju.getBombas());
+	}
+	
+	private void inicializarPanelLv1() {
+		contentPane.setImagen("./mapaV2_4(64x35).jpg");
+		Inicializarbotones();
+		InicializarLabelsCostos();
+	}
+	
+	private void Inicializarbotones() {
+		
+		botonesT[0].setText("Tienda");
+		botonesT[1].setText("Torre");
+		botonesT[2].setText("Muro");
+		botonesT[3].setText("Fire");
+		botonesT[4].setText("TPesada"); //si a alguien se le ocurre mejores nombres que los cambie
+		botonesT[5].setText("Bomba");
+		botonesT[6].setText("C Barrera");
+		botonesT[7].setText("C bomba");
+		botonesT[8].setText("C Nuke");
+		botonesT[9].setText("C Speed");
+	}
+	
 	private void InicializarLabelsCostos() {
 		costos=new JLabel[10];
 		for(int b=0 ; b<costos.length;  b++) {

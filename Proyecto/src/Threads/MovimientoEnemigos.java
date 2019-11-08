@@ -37,12 +37,14 @@ public class MovimientoEnemigos extends Thread {
 	protected boolean jefeCreado;
 	protected boolean lv2;
 	
-	public MovimientoEnemigos(Mapa map,GUI g) {
+	public MovimientoEnemigos() {
+		mapa=Singleton.getMapa();
+		gui=Singleton.getGui();
 		listaEnemigos=new LinkedList<Enemigo>();
-		mapa=map;
+		
 		gameOver=false;
-		gane=false;
-		gui=g;
+		gane=true;
+		
 		temp= new Timer();
 		contador=0;
 		jefeCreado=false;
@@ -78,9 +80,9 @@ public class MovimientoEnemigos extends Thread {
 	}
 	protected void lv2() {
 		while(gane && !lv2) {
+			System.out.println("HOLA");
 			//espera a que el jugador empieze el lv2
 		}gane=false;
-		Singleton.getHilo().seteos();
 		while(!gameOver && !gane) {//programar aca abajo el lv 2 (ahora es el 1)
 			try {
 				Thread.sleep(100);
@@ -97,6 +99,7 @@ public class MovimientoEnemigos extends Thread {
 			crearObstaculo();
 			mapa.mover();
 		}
+		gui.Derrota();
 		
 		
 	}
