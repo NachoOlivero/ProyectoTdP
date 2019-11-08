@@ -33,8 +33,6 @@ public interface AbstractFactoryT {
 	public abstract ImageIcon disparoFuego();
 	
 	public abstract ImageIcon bomba();
-	
-	public abstract ImageIcon MuerteEne1();
 
 	public abstract ImageIcon charco();
 

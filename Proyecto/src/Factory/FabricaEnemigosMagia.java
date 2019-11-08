@@ -91,11 +91,6 @@ public class FabricaEnemigosMagia implements AbstractFactoryT{
 		return null;
 	}
 
-	@Override
-	public ImageIcon MuerteEne1() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public ImageIcon charco() {

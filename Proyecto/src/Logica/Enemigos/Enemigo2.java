@@ -16,5 +16,8 @@ public class Enemigo2 extends Enemigo{
 		estado=est;
 		grafico=new OGEnemigo(estado.getFactory().Enemigo2(),celda.getFila());
 		visitor=new VisitorEnemigos(this);
+		cooldown=0;
+		cooldownMax=5;
 	}
+	
 }

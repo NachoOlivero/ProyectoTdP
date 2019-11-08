@@ -36,7 +36,7 @@ public class FabricaImagenes implements AbstractFactoryT {
 	}
 	
 	public ImageIcon Enemigo5() {
-		return new ImageIcon(this.getClass().getResource("./Dragon.gif")); //cambiar
+		return new ImageIcon(this.getClass().getResource("./Bandido.gif")); //cambiar
 	}
 	
 	public ImageIcon Enemigo6() {
@@ -65,11 +65,6 @@ public class FabricaImagenes implements AbstractFactoryT {
 	
 	public ImageIcon bomba() {
 		return new ImageIcon(this.getClass().getResource("./Bomba.png"));
-	}
-
-	public ImageIcon MuerteEne1() {
-		return new ImageIcon(this.getClass().getResource("./Ene1Muerte.gif"));
-	
 	}
 
 

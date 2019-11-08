@@ -19,6 +19,7 @@ public class Enemigo3 extends EnemigoDistancia {
 		estado=est;
 		grafico=new OGEnemigo(estado.getFactory().Enemigo3(),celda.getFila());
 		cooldownMax=30;
+		cooldown=0;
 	}
 	
 }

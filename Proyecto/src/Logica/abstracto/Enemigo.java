@@ -28,6 +28,8 @@ public abstract class Enemigo extends Personaje{
 	}
 	
 	public void turno() {
+		if(cooldown!=0)
+			cooldown--;
 		MovD=vel;
 		celda.recibirEnemigo(this);
 	}
@@ -49,7 +51,10 @@ public abstract class Enemigo extends Personaje{
 	}
 
 	public void atacar(Personaje p) {
-		p.recibirDaño(dp);
+		if(cooldown==0) {
+			p.recibirDaño(dp);
+			cooldown=cooldownMax;
+		}
 	}
 	
 	public void recibirDaño(float daño) {
