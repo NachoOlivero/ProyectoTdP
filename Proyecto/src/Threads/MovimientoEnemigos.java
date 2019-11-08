@@ -8,7 +8,6 @@ import java.util.TimerTask;
 import Estructuras.Charco;
 import Estructuras.Obstaculo;
 import GUI.GUI;
-import GUI.GUIDyV;
 import Logica.Celda;
 import Logica.Mapa;
 import Logica.Singleton;
@@ -32,22 +31,22 @@ public class MovimientoEnemigos extends Thread {
 	protected GUI gui;
 	protected int coolDown=0;
 	protected static boolean gameOver;
-	protected GUIDyV gui2;
 	protected boolean gane;
 	protected Timer temp;
 	protected int contador;
 	protected boolean jefeCreado;
+	protected boolean lv2;
 	
 	public MovimientoEnemigos(Mapa map,GUI g) {
 		listaEnemigos=new LinkedList<Enemigo>();
 		mapa=map;
 		gameOver=false;
-		gane=false;
+		gane=true;
 		gui=g;
-		gui2=null;
 		temp= new Timer();
 		contador=0;
 		jefeCreado=false;
+		lv2=false;
 	}
 	
 	public void run() {
@@ -69,14 +68,41 @@ public class MovimientoEnemigos extends Thread {
 			mapa.mover();
 		}
 		mapa.inicializarCeldas(6,10);
-		gui.setVisible(false);
-		gui.dispose(); //cerramos la ventana
 		if(!gane)
-			gui2 = new GUIDyV("./GameOver.png");
-		else
-			gui2=new GUIDyV("./Victory.png");
+			Singleton.getGui().Derrota();
+		else {
+			Singleton.getGui().Victoria();
+			lv2();
+		}
 		
 	}
+	protected void lv2() {
+		while(gane && !lv2) {
+			//espera a que el jugador empieze el lv2
+		}gane=false;
+		while(!gameOver && !gane) {//programar aca abajo el lv 2 (ahora es el 1)
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			contador++;
+			if(coolDown==0 && !jefeCreado) {
+				crearEnemigo(contador);
+				coolDown=20;
+			}
+			else coolDown--;
+			
+			crearObstaculo();
+			mapa.mover();
+		}
+		
+		
+	}
+	public  void lv2_start() {
+		lv2=true;
+	}
+
 	
 	private void crearEnemigo(int contador) {
 		int fila=(int) (Math.random()*6);

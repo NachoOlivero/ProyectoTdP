@@ -128,7 +128,7 @@ public class HiloGui extends Thread {
      }
 
 
-	public class EliminarAll implements ActionListener{
+/**	private class EliminarAll implements ActionListener{
 
 		public void actionPerformed(ActionEvent arg0) {
 			movEnemigos.eliminarEnemigo();
@@ -136,15 +136,15 @@ public class HiloGui extends Thread {
 		}
 	}
 	
-	public class Eliminar implements ActionListener{
+	private class Eliminar implements ActionListener{
 	
 		public void actionPerformed(ActionEvent arg0) {
 			movEnemigos.eliminarAll();
 			gui.repaint();
 		}
-	}
+	}*/
 	
-	public class ComprarTorre1 implements ActionListener{
+	private class ComprarTorre1 implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
 			if (torreActiva==null && puActivo==null && torreDobleActiva==null)
 					torreActiva=Tienda.comprarT1();
@@ -152,14 +152,14 @@ public class HiloGui extends Thread {
 		}
 	}
 	
-	public class ComprarTorre3 implements ActionListener{
+	private class ComprarTorre3 implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
 			if (torreActiva==null && puActivo==null && torreDobleActiva==null)
 					torreActiva=Tienda.comprarT3();
 			
 		}
 	}
-	public class ComprarTorre2 implements ActionListener{
+	private class ComprarTorre2 implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
 			if (torreActiva==null && puActivo==null && torreDobleActiva==null)
 					torreActiva=Tienda.comprarT2();
@@ -167,7 +167,7 @@ public class HiloGui extends Thread {
 		}
 	}
 	
-	public class ComprarDinero implements ActionListener{
+	private class ComprarDinero implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
 			if (torreActiva==null && puActivo==null && torreDobleActiva==null)
 					torreActiva=Tienda.comprarDinero();
@@ -175,7 +175,7 @@ public class HiloGui extends Thread {
 		}
 	}
 	
-	public class comprarBarricada implements ActionListener{
+	private class comprarBarricada implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
 			if (torreActiva==null && puActivo==null && torreDobleActiva==null)
 					torreDobleActiva=Tienda.comprarBarricada();
@@ -200,19 +200,19 @@ public class HiloGui extends Thread {
 			
 	}
 	
-	public class ComprarBomba implements ActionListener{
+	private class ComprarBomba implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
 			Tienda.comprarBomba();
 		}
 	}
 	
-	public class ComprarKillAll implements ActionListener{
+	private class ComprarKillAll implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
 			Tienda.comprarKillAll();
 		}
 	}
 	
-	public class ComprarSpeedUp implements ActionListener{
+	private class ComprarSpeedUp implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
 			Tienda.comprarSpeedUp();
 		}

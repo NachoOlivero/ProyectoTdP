@@ -6,10 +6,13 @@ import javax.swing.JLabel;
 import javax.swing.border.EmptyBorder;
 import Logica.Jugador;
 import Logica.Singleton;
+import Logica.Tienda;
 import Logica.Torres.*;
 import PowerUp.*;
+import Threads.MovimientoEnemigos;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 
@@ -21,6 +24,11 @@ public class GUI extends JFrame {
 	private JLabel din;
 	private JLabel bombas;
 	private JLabel[] costos;
+	private JPanelConFondo Victoria;
+	private JPanelConFondo Derrota;
+	private JButton restart;
+	private JButton siglv;
+	
 
 	public GUI() {
 		
@@ -29,11 +37,28 @@ public class GUI extends JFrame {
 		setBounds(0,0, 1280, 700);
 		setResizable(false);
 		
-		contentPane = new JPanelConFondo("./mapaV2_4(64x35).jpg");
+		contentPane = new JPanelConFondo();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
+		
+		Victoria = new JPanelConFondo("Victory.png");
+		Victoria.setBorder(new EmptyBorder(5, 5, 5, 5));
+		Victoria.setLayout(null);
+		siglv=new JButton("Siguiente lv");
+		siglv.setBounds(550, 580 , 200, 90);
+		Victoria.add(siglv);
+		siglv.addActionListener(new sigLv());
+		
+		Derrota = new JPanelConFondo("GameOver.png");
+		Derrota.setBorder(new EmptyBorder(5, 5, 5, 5));
+		Derrota.setLayout(null);
+		restart=new JButton("try again");
+		restart.setBounds(550, 580 , 200, 90);
+		Derrota.add(restart);
+		restart.addActionListener(new Restart());
+		
+		inicializarPanelLv1();
 		Inicializarbotones();
 		InicializarLabels();
 		InicializarLabelsCostos();
@@ -54,6 +79,14 @@ public class GUI extends JFrame {
 		din.setText("Dinero: "+ju.getDinero());
 		bombas.setText("Bombas: "+ju.getBombas());
 	}
+	
+	private void inicializarPanelLv1() {
+		contentPane.setImagen("./mapaV2_4(64x35).jpg");
+		Inicializarbotones();
+		InicializarLabels();
+		InicializarLabelsCostos();
+	}
+	
 	private void Inicializarbotones() {
 		botonesT=new JButton[10];
 		for(int b=0 ; b<botonesT.length;  b++) {
@@ -80,14 +113,14 @@ public class GUI extends JFrame {
 		pun.setText("Puntaje: "+ju.getPuntaje());
 		pun.setBounds(1100,580,80,80);
 		pun.setVisible(true);
-		add(pun);
+		contentPane.add(pun);
 		//Money
 		din=new JLabel();
 		din.setForeground(Color.YELLOW);
 		din.setText("Dinero: "+ju.getDinero());
 		din.setBounds(1100,560,80,80);
 		din.setVisible(true);
-		add(din);
+		contentPane.add(din);
 		//puntos
 		bombas=new JLabel();
 		bombas.setForeground(Color.RED);
@@ -124,6 +157,33 @@ public class GUI extends JFrame {
 		costos[9].setText(""+SpeedUp.getCosto());
 		costos[9].setForeground(Color.ORANGE);
 		
+	}
+	
+	public void Victoria() {
+		remove(contentPane);
+		setContentPane(Victoria);
+		
+	}
+	public void Derrota() {
+		remove(contentPane);
+		setContentPane(Derrota);
+	}
+	private void lv2() {
+		remove(Victoria);
+		contentPane.setImagen("mapaV2_5(64x35).jpg");
+		setContentPane(contentPane);
+	}
+	
+	private class sigLv implements ActionListener{
+		public void actionPerformed(ActionEvent arg0) {
+			Singleton.getMovEne().lv2_start();
+			lv2();
+		}
+	}
+	private class Restart implements ActionListener{
+		public void actionPerformed(ActionEvent arg0) {
+		
+		}
 	}
 	
 	

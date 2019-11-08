@@ -1,7 +1,6 @@
 package Juego;
 
 import GUI.GUI;
-import GUI.GUIFinal;
 import GUI.Inicio;
 import Logica.Mapa;
 import Logica.Singleton;
@@ -13,8 +12,6 @@ public class Juego {
 	private static HiloGui contador;
 	
 	public static void main(String args[]) {
-		//GUIFinal gui= new GUIFinal();
-		//gui.setVisible(true);
 		Start();
 	}
 	
@@ -23,7 +20,7 @@ public class Juego {
 		gui.setVisible(true);
 		Mapa mapa=Singleton.getMapa();
 		
-		movEnemigos= new MovimientoEnemigos(mapa,gui);
+		movEnemigos= Singleton.getMovEne();
 		contador=new HiloGui(gui,movEnemigos);
 	
 		movEnemigos.run();
