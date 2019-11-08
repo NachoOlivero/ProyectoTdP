@@ -52,6 +52,8 @@ public class MovimientoEnemigos extends Thread {
 	}
 	
 	public void run() {
+		gameOver=false;
+		gane=false;
 		temp.schedule(new Victoria(), 300000);
 		while(!gameOver && !gane) {
 			try {
@@ -59,6 +61,7 @@ public class MovimientoEnemigos extends Thread {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			
 			contador++;
 			if(coolDown==0 && !jefeCreado) {
 				crearEnemigo(contador);
@@ -70,25 +73,29 @@ public class MovimientoEnemigos extends Thread {
 			mapa.mover();
 		}
 		if(!gane) {
+			System.out.println("perdi");
 			Singleton.getGui().Derrota();
 			Singleton.getGui().repaint();
+			Singleton.getJugador().setDinero(100);
+			Singleton.getJugador().setPuntaje(0);
 		}
 		else {
 			mapa.KillAll();
 			mapa.eliminarTorres();
 			Singleton.getGui().Victoria();
 			lv2();
+			
 		}
 		
 	}
 	protected void lv2() {
-		while(gane && !lv2) {
-			
+		while(gane && !lv2) {//esperamos al boton
 		}
 		gane=false;
 		Singleton.getJugador().setDinero(100);
 		Singleton.getJugador().setPuntaje(0);
 		contador=0;
+		System.out.println("perdi");
 		while(!gameOver && !gane) {//programar aca abajo el lv 2 (ahora es el 1)
 			try {
 				Thread.sleep(100);
@@ -101,7 +108,7 @@ public class MovimientoEnemigos extends Thread {
 				coolDown=20;
 			}
 			else coolDown--;
-			
+			System.out.println("perdi");
 			crearObstaculo();
 			mapa.mover();
 		}

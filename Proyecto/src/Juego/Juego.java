@@ -30,7 +30,7 @@ public class Juego {
 	public static void reStart() {
 		
 		movEnemigos= Singleton.getMovEne();
-	
+		
 		movEnemigos.run();
 		
 	

@@ -42,6 +42,7 @@ public class GUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		contentPane.setImagen("./mapaV2_4(64x35).jpg");
 		
 		Victoria = new JPanelConFondo("Victory.png");
 		Victoria.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -88,7 +89,7 @@ public class GUI extends JFrame {
 		bombas.setVisible(true);
 		contentPane.add(bombas);
 		
-		inicializarPanelLv1();
+
 		Inicializarbotones();
 		InicializarLabelsCostos();
 	}
@@ -109,11 +110,6 @@ public class GUI extends JFrame {
 		bombas.setText("Bombas: "+ju.getBombas());
 	}
 	
-	private void inicializarPanelLv1() {
-		contentPane.setImagen("./mapaV2_4(64x35).jpg");
-		Inicializarbotones();
-		InicializarLabelsCostos();
-	}
 	
 	private void Inicializarbotones() {
 		
@@ -184,13 +180,23 @@ public class GUI extends JFrame {
 			lv2();
 		}
 	}
-	private class Restart implements ActionListener{//por implementar
+	private class Restart implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
-			Juego.reStart();
-			remove(Derrota);
-			setContentPane(contentPane);
-			repaint();
+			reset();
+		
 		}
+	}
+	private void reset() {
+		//remove(Derrota);
+		setContentPane(contentPane);
+		repaint();
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Juego.reStart();
 	}
 	
 	
