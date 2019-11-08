@@ -24,11 +24,12 @@ public class Barrera extends PowerUp {
 		
 		timer=new Timer();
 		if(comprado)
-			grafico=new GraficoBarrera(c,f,this,false);
+			grafico=new GraficoBarrera(c,f);
 		celda=Singleton.getMapa().getCelda(f,c);
-		
-		if(comprado)
+		if(comprado) {
 			comenzar();
+			
+		}
 	}
 
 	public void comenzar() {

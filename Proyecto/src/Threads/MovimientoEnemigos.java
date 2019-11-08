@@ -107,14 +107,12 @@ public class MovimientoEnemigos extends Thread {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			System.out.println(coolDown);
 			contador++;
 			if(coolDown==0 && !jefeCreado) {
 				crearEnemigo(contador);
 				coolDown=20;
 			}
 			else coolDown--;
-			System.out.println("perdi");
 			crearObstaculo();
 			mapa.mover();
 		}

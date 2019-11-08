@@ -33,5 +33,13 @@ public class GraficoBarrera extends ObjetoGrafico {
 			      }));
 		Singleton.getGui().add(grafico);
 	}
+	public GraficoBarrera(int x, int y) {
+		AbstractFactoryT fabrica=new FabricaImagenes();
+		grafico=new JLabel(fabrica.barrera());
+		grafico.setVisible(true);
+		grafico.setBounds(x*120+50,y*100,20,50);
+		Singleton.getGui().add(grafico);
+		Singleton.getGui().repaint();
+	}
 
 }
