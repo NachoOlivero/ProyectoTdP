@@ -190,6 +190,7 @@ public class GUI extends JFrame {
 	}
 	private void reset() {
 		remove(Derrota);
+		contentPane.setImagen("./mapaV2_4(64x35).jpg");
 		setContentPane(contentPane);
 		repaint();
 		try {

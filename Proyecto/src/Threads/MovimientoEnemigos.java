@@ -27,7 +27,7 @@ public class MovimientoEnemigos extends Thread {
 	protected volatile boolean execute;
 	
 	protected Mapa mapa;
-	protected LinkedList<Enemigo> listaEnemigos;
+	//protected LinkedList<Enemigo> listaEnemigos;
 	protected GUI gui;
 	protected int coolDown=0;
 	protected static boolean gameOver;
@@ -40,7 +40,7 @@ public class MovimientoEnemigos extends Thread {
 	public MovimientoEnemigos() {
 		mapa=Singleton.getMapa();
 		gui=Singleton.getGui();
-		listaEnemigos=new LinkedList<Enemigo>();
+		//listaEnemigos=new LinkedList<Enemigo>();
 		
 		gameOver=false;
 		gane=false;
@@ -142,7 +142,7 @@ public class MovimientoEnemigos extends Thread {
 		
 		if(nuevo!=null) {
 			mapa.insertarEnemigo(nuevo,fila);
-			listaEnemigos.addLast(nuevo);
+			//listaEnemigos.addLast(nuevo);
 		}
 		
 	}
@@ -194,13 +194,13 @@ public class MovimientoEnemigos extends Thread {
 			mapa.KillAll();
 	}
 
-	public void eliminarEnemigo() {
+	/**public void eliminarEnemigo() {
 			if(!(listaEnemigos.isEmpty())) {
 				Enemigo eliminado=listaEnemigos.removeFirst();
 				eliminado.Eliminar();
 				Singleton.getGui().repaint();
 			}
-	}
+	}*/
 	
 	public Enemigo enemigoRandom(int contador,Celda celda) {
 		int caso=-1;

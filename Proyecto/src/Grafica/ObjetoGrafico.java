@@ -1,5 +1,6 @@
 package Grafica;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import GUI.GUI;
@@ -18,5 +19,10 @@ public abstract class ObjetoGrafico {
 		grafico.setIcon(null);
 		gui.remove(grafico);
 
+	}
+	public void avanzar() {}
+	
+	public void setImage(ImageIcon Imagen) {
+		grafico.setIcon(Imagen);
 	}
 }
