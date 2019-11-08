@@ -57,7 +57,7 @@ public class HiloGui extends Thread {
 
 	public void run() {
 		while(true){
-			//System.out.println("hola");
+			//Evita que debido a la gran carga del hilo principal, no funcionen los botones
 		}
 	}
 	

@@ -12,7 +12,7 @@ import PowerUp.PowerUp;
 
 public abstract class Enemigo extends Personaje{
 	protected int vel;
-	protected OGEnemigo grafico;
+
 	protected final int min=1;
 	protected int pos=120;
 	protected boolean charco=false;
@@ -90,7 +90,7 @@ public abstract class Enemigo extends Personaje{
 	}
 	
 	public void setImagen(ImageIcon imagen) {
-		grafico.setImagen(imagen);
+		grafico.setImage(imagen);
 	}
 		
 }
