@@ -24,7 +24,6 @@ import PowerUp.PowerUp;
 public class HiloGui extends Thread {
 
 	private GUI gui;
-	private MovimientoEnemigos movEnemigos;
 	private AbstractFactoryT torres;
 	private Torre torreActiva;
 	private PowerUp puActivo;
@@ -33,7 +32,7 @@ public class HiloGui extends Thread {
 
 	public HiloGui() {
 		gui = Singleton.getGui();
-		movEnemigos=Singleton.getMovEne();
+		Singleton.getMovEne();
 		torres=new FabricaImagenes(); 
 		torreActiva=null;
 		torreDobleActiva=null;
@@ -59,28 +58,6 @@ public class HiloGui extends Thread {
 	public void run() {
 		while(true){
 			//System.out.println("hola");
-		}
-	}
-	
-	private void agregarDibujo(int x,int y){
-		JLabel dibujo;
-		//System.out.println(x+" "+y);
-		//agrega dibujo solo dentro de las coordenadas posibles
-		if(x>40 && x<1240 && y<600) {
-		//System.out.println(x+"::::"+y);
-			x=(x-40)/120; //compenso el espacio de 50 pixeles que decidimos no utilizar
-			y=y/100;
-			
-			    ImageIcon imagen = torres.Torre1();
-				//dibujo = new JLabel("");
-				dibujo = new JLabel(imagen);
-				//dibujo.setIcon(imagen);
-				
-				dibujo.setBounds((x*110)+60, (y*100)-15 , 80, 90);  //75=50 de lo compensado  y 20 extra para centrar (el 10 del y tambien es para centrar)
-																	//110 y 100 son el ancho y el alto en px de las celdas
-				gui.add(dibujo);
-				gui.repaint();
-			
 		}
 	}
 	

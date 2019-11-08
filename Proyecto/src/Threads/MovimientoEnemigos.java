@@ -54,7 +54,7 @@ public class MovimientoEnemigos extends Thread {
 	public void run() {
 		gameOver=false;
 		gane=false;
-		temp.schedule(new Victoria(), 300000);
+		//temp.schedule(new Victoria(), 300000);
 		while(!gameOver && !gane) {
 			try {
 				Thread.sleep(100);
@@ -75,11 +75,7 @@ public class MovimientoEnemigos extends Thread {
 			mapa.mover();
 		}
 		if(!gane) {
-			contador=0;
-			Singleton.getJugador().setDinero(100);
-			Singleton.getJugador().setPuntaje(0);
-			Singleton.getGui().Derrota();
-			Singleton.getGui().repaint();
+			perder();
 			
 		}
 		else {
@@ -93,9 +89,16 @@ public class MovimientoEnemigos extends Thread {
 	}
 	
 	protected void lv2() {
-		while(!lv2) {}//esperamos al boton
-		
-		System.out.println("perdi");
+
+		while(!lv2) {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}												//esperamos al boton
+			}
+		coolDown=5;
 		gane=false;
 		jefeCreado=false;
 		contador=0;
@@ -118,7 +121,6 @@ public class MovimientoEnemigos extends Thread {
 				else coolDown=15;
 			}
 			else coolDown--;
-			System.out.println("perdi");
 			crearObstaculo();
 			mapa.mover();
 		}
@@ -128,6 +130,14 @@ public class MovimientoEnemigos extends Thread {
 	
 	public  void lv2_start() {
 		lv2=true;
+	}
+	
+	private void perder() {
+		contador=0;
+		Singleton.getJugador().setDinero(100);
+		Singleton.getJugador().setPuntaje(0);
+		Singleton.getGui().Derrota();
+		Singleton.getGui().repaint();
 	}
 
 	
