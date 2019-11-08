@@ -60,8 +60,7 @@ public class GUI extends JFrame {
 		bombas.setText("Bombas: "+ju.getBombas());
 		bombas.setBounds(1100,600,80,80);
 		bombas.setVisible(true);
-		add(bombas);
-		System.out.println("GOLA");
+		contentPane.add(bombas);
 	}
 	
 	public void agregarOyenteBoton(ActionListener ac,int boton) {
