@@ -6,5 +6,6 @@ public class EnemigoMagia extends Estado {
 	
 	public EnemigoMagia() {
 		factory=new FabricaEnemigosMagia();
+		aumento=2;
 	}
 }

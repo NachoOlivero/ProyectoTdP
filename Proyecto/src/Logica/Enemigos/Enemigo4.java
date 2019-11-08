@@ -11,11 +11,11 @@ import Logica.abstracto.Personaje;
 public class Enemigo4 extends Enemigo {
 	
 	public Enemigo4(Celda cel,Estado est) {//enemigo lento que pega mucho (carga el ataque)
-		hp=120;
-		dp=60;
-		vel=1;
-		celda=cel;
 		estado=est;
+		hp=120* estado.getAumento();
+		dp=60;
+		vel=1* estado.getAumento();
+		celda=cel;
 		grafico=new OGEnemigo(estado.getFactory().Enemigo4(),celda.getFila());
 		visitor=new VisitorEnemigos(this);
 		cooldown=40;

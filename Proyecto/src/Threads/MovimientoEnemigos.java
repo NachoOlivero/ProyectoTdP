@@ -57,7 +57,7 @@ public class MovimientoEnemigos extends Thread {
 		temp.schedule(new Victoria(), 300000);
 		while(!gameOver && !gane) {
 			try {
-				Thread.sleep(10);
+				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

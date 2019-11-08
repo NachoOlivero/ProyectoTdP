@@ -6,6 +6,7 @@ public class EnemigoComun extends Estado {
 	
 	public EnemigoComun() {
 		factory=new FabricaImagenes();
+		aumento=1;
 	}
 
 }
