@@ -20,4 +20,6 @@ public class KillAll extends PowerUp {
 		eliminar();
 	}
 	
+	public void ubicar(int x,int y) {}
+	
 }

@@ -13,7 +13,7 @@ public class Jugador {
 	
 	public Jugador() {
 		listaBombas=new LinkedList<Bomba>();
-		dinero=100;
+		dinero=1000;
 		puntaje=0;
 	}
 	

@@ -32,8 +32,8 @@ public class GUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		botonesT=new JButton[6];
-		for(int b=0 ; b<6;  b++) {
+		botonesT=new JButton[10];
+		for(int b=0 ; b<botonesT.length;  b++) {
 		botonesT[b]=new JButton("test:"+b);
 		contentPane.add(botonesT[b]);
 		botonesT[b].setBounds(40+(b*100), 590 , 70, 70);

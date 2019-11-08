@@ -12,12 +12,23 @@ public class Barrera extends PowerUp {
 	protected Timer timer;
 	protected Celda celda;
 	
-	public Barrera(int x,int y) {
-		grafico=new GraficoBarrera(x,y,this);
+	public Barrera(int x,int y) {  //en este caso es dropeada por un enemigo
+		grafico=new GraficoBarrera(x,y,this,true);
+		ubicar(y/100,(x-40)/120);
+	}
+	
+	public Barrera() {}  //para cuando la compra el cliente
+	
+	public void ubicar(int f,int c) {
+		boolean comprado=grafico==null;
+		
 		timer=new Timer();
-		celda=Singleton.getMapa().getCelda(y/100,(x-40)/120);
-		//System.out.println("Celda del powerup: "+celda);
-		//System.out.println("Fila del powerup: "+celda.getY()+"Coumna del powerup: "+celda.getX());
+		if(comprado)
+			grafico=new GraficoBarrera(c,f,this,false);
+		celda=Singleton.getMapa().getCelda(f,c);
+		
+		if(comprado)
+			comenzar();
 	}
 
 	public void comenzar() {

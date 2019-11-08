@@ -1,6 +1,9 @@
 package Logica;
 
 import Logica.abstracto.Torre;
+import PowerUp.Barrera;
+import PowerUp.Bomba;
+import PowerUp.SpeedUp;
 import Logica.Torres.*;
 public class  Tienda {
 
@@ -46,6 +49,44 @@ public class  Tienda {
 			toReturn=new Barricada();
 		}
 		return toReturn;
+	}
+	
+	public static Bomba comprarBomba() {
+		int dinero=Singleton.getJugador().getDinero();
+		Bomba toRet=null;
+		if(dinero>=200) {
+			Singleton.getJugador().setDinero(dinero-200);
+			toRet=new Bomba();
+			Singleton.getJugador().insertarBomba(toRet);
+		}
+		return toRet;	
+	}
+	
+	public static void comprarKillAll() {
+		int dinero=Singleton.getJugador().getDinero();
+		if(dinero>=1500) {
+			Singleton.getJugador().setDinero(dinero-1500);
+			Singleton.getMapa().KillAll();
+		}
+	}
+	
+	public static void comprarSpeedUp() {
+		int dinero=Singleton.getJugador().getDinero();
+		if(dinero>=500) {
+			Singleton.getJugador().setDinero(dinero-500);
+			SpeedUp spUp=new SpeedUp();
+			spUp.comenzar();
+		}
+	}
+	
+	public static Barrera comprarBarrera() {
+		int dinero=Singleton.getJugador().getDinero();
+		Barrera toRet=null;
+		if(dinero>=200) {
+			Singleton.getJugador().setDinero(dinero-200);
+			toRet=new Barrera();
+		}
+		return toRet;	
 	}
 	
 }

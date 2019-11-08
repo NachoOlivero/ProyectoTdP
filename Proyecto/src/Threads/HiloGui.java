@@ -16,7 +16,9 @@ import Logica.Mapa;
 import Logica.Singleton;
 import Logica.Tienda;
 import Logica.abstracto.Torre;
+import PowerUp.Barrera;
 import PowerUp.Bomba;
+import PowerUp.PowerUp;
 
 
 public class HiloGui extends Thread {
@@ -25,7 +27,7 @@ public class HiloGui extends Thread {
 	private MovimientoEnemigos movEnemigos;
 	private AbstractFactoryT torres;
 	private Torre torreActiva;
-	private Bomba bombaActiva;
+	private PowerUp puActivo;
 	private Torre torreDobleActiva;
 
 
@@ -35,7 +37,7 @@ public class HiloGui extends Thread {
 		torres=new FabricaImagenes(); 
 		torreActiva=null;
 		torreDobleActiva=null;
-		bombaActiva=null;
+		puActivo=null;
 		
 		gui.agregarOyenteBoton(new ComprarDinero(),0);
 		gui.agregarOyenteBoton(new ComprarTorre1(),1);
@@ -44,6 +46,10 @@ public class HiloGui extends Thread {
 		gui.agregarOyenteBoton(new EliminarAll(),4);
 		gui.agregarOyenteClick(new Mouse());
 		gui.agregarOyenteBoton(new OyenteBomba(), 5);
+		gui.agregarOyenteBoton(new ComprarBarrera(), 6);
+		gui.agregarOyenteBoton(new ComprarBomba(), 7);
+		gui.agregarOyenteBoton(new ComprarKillAll(), 8);
+		gui.agregarOyenteBoton(new ComprarSpeedUp(), 9);
 	}
 	
 
@@ -94,9 +100,9 @@ public class HiloGui extends Thread {
 			    		torreActiva=null;
 		    	    }
 			    }
-		    	else if(bombaActiva!=null) {
-		    			bombaActiva.ubicar(f,c);
-		    			bombaActiva=null;
+		    	else if(puActivo!=null) {
+		    			puActivo.ubicar(f,c);
+		    			puActivo=null;
 		    		 }
 		    		else if(torreDobleActiva!=null) {
 		    				hayEstructura=celda.hayEstructura();
@@ -140,7 +146,7 @@ public class HiloGui extends Thread {
 	
 	public class ComprarTorre1 implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
-			if (torreActiva==null && bombaActiva==null && torreDobleActiva==null)
+			if (torreActiva==null && puActivo==null && torreDobleActiva==null)
 					torreActiva=Tienda.comprarT1();
 			
 		}
@@ -148,7 +154,7 @@ public class HiloGui extends Thread {
 	
 	public class ComprarTorre3 implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
-			if (torreActiva==null && bombaActiva==null && torreDobleActiva==null)
+			if (torreActiva==null && puActivo==null && torreDobleActiva==null)
 					torreActiva=Tienda.comprarT3();
 			
 		}
@@ -156,7 +162,7 @@ public class HiloGui extends Thread {
 	
 	public class ComprarDinero implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
-			if (torreActiva==null && bombaActiva==null && torreDobleActiva==null)
+			if (torreActiva==null && puActivo==null && torreDobleActiva==null)
 					torreActiva=Tienda.comprarDinero();
 			
 		}
@@ -164,7 +170,7 @@ public class HiloGui extends Thread {
 	
 	public class comprarBarricada implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
-			if (torreActiva==null && bombaActiva==null && torreDobleActiva==null)
+			if (torreActiva==null && puActivo==null && torreDobleActiva==null)
 					torreDobleActiva=Tienda.comprarBarricada();
 			
 		}
@@ -173,11 +179,37 @@ public class HiloGui extends Thread {
 	private class OyenteBomba implements ActionListener{
 
 		public void actionPerformed(ActionEvent click) {
-			if(bombaActiva==null && torreActiva==null && torreDobleActiva==null) 
-				bombaActiva=Singleton.getJugador().getBomba();
+			if(puActivo==null && torreActiva==null && torreDobleActiva==null) 
+				puActivo=Singleton.getJugador().getBomba();
 		}
 			
+	}
+	
+	private class ComprarBarrera implements ActionListener{
+		public void actionPerformed(ActionEvent click) {
+			if(puActivo==null && torreActiva==null && torreDobleActiva==null) 
+				puActivo=Tienda.comprarBarrera();
 		}
+			
+	}
+	
+	public class ComprarBomba implements ActionListener{
+		public void actionPerformed(ActionEvent arg0) {
+			Tienda.comprarBomba();
+		}
+	}
+	
+	public class ComprarKillAll implements ActionListener{
+		public void actionPerformed(ActionEvent arg0) {
+			Tienda.comprarKillAll();
+		}
+	}
+	
+	public class ComprarSpeedUp implements ActionListener{
+		public void actionPerformed(ActionEvent arg0) {
+			Tienda.comprarSpeedUp();
+		}
+	}
 		
 }
 

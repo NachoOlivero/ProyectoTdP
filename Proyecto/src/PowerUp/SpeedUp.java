@@ -16,6 +16,10 @@ public class SpeedUp extends PowerUp {
 		grafico=new GraficoSpeedUp(x,y,this);
 		timer=new Timer();
 	}
+	
+	public SpeedUp() {		//para cuando lo compra el jugador
+		timer=new Timer();
+	}
 
 
 	public void comenzar() {
@@ -28,11 +32,7 @@ public class SpeedUp extends PowerUp {
 		timer.schedule(new SpeedUpAction(), 5000);
 	}
 	
-	
-	public void eliminar() {
-		grafico.eliminar();
-		Singleton.getMapa().eliminarPowerUp(this);
-	}
+	public void ubicar(int x,int y) {}
 	
 	private class SpeedUpAction extends TimerTask {
 

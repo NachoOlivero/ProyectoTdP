@@ -2,6 +2,8 @@ package Logica.abstracto;
 
 import javax.swing.ImageIcon;
 
+import Factory.AbstractFactoryT;
+import Factory.FabricaImagenes;
 import Grafica.OGEnemigo;
 import Grafica.ObjetoGrafico;
 import Logica.Celda;
@@ -18,6 +20,7 @@ public abstract class Enemigo extends Personaje{
 	protected int MovD;
 	protected int cooldown;
 	protected int cooldownMax;
+	protected Estado estado;
 	
 	
 	public int PosActual() {

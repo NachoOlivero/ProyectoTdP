@@ -15,5 +15,6 @@ public class OGEnemigo extends OGMovil {
 	
 	public void setImagen(ImageIcon imagen) {
 		grafico.setIcon(imagen);
+		grafico.setVisible(true);
 	}
 }

@@ -2,7 +2,7 @@ package Factory;
 
 import javax.swing.ImageIcon;
 
-public abstract class AbstractFactoryT {
+public interface AbstractFactoryT {
 	
 	public abstract ImageIcon Torre1(); 
 	
@@ -21,6 +21,8 @@ public abstract class AbstractFactoryT {
 	public abstract ImageIcon Enemigo4();
 	
 	public abstract ImageIcon Enemigo5();
+	
+	public abstract ImageIcon Enemigo6();
 	
 	public abstract ImageIcon killAll();
 	

@@ -13,15 +13,15 @@ import Logica.Celda;
 import Logica.Mapa;
 import Logica.Singleton;
 import Logica.Enemigos.Enemigo1;
-import Logica.Enemigos.Enemigo1M;
 import Logica.Enemigos.Enemigo2;
-import Logica.Enemigos.Enemigo2M;
 import Logica.Enemigos.Enemigo3;
-import Logica.Enemigos.Enemigo3M;
 import Logica.Enemigos.Enemigo4;
-import Logica.Enemigos.Enemigo4M;
+import Logica.Enemigos.Enemigo5;
 import Logica.Enemigos.EnemigoJefe;
 import Logica.abstracto.Enemigo;
+import Logica.abstracto.EnemigoComun;
+import Logica.abstracto.EnemigoMagia;
+import Logica.abstracto.Estado;
 import Logica.abstracto.Estructura;
 
 public class MovimientoEnemigos extends Thread {
@@ -150,69 +150,58 @@ public class MovimientoEnemigos extends Thread {
 	public Enemigo enemigoRandom(int contador,Celda celda) {
 		int caso=-1;
 		int rand=-1;
-		boolean magia=false;
+		Estado estado=null;
 		Enemigo eneRet=null;
 		
-		if(contador<2000)
-			if(contador<1500)
+
+		if(contador<3000)
+			if(contador<2000)
 				if(contador<1000)
 					if(contador<500)
 						if(contador<200)
-							if(contador>100)
-								caso=0;
-							else caso=-2;
+							if(contador<100)
+								caso=-2;
+							else caso=0;
 						else caso=1;
-				else caso=2;
-			else caso=3;
-		
-		if(caso==-1) {
-			caso=4;  //quiere decir que ya tiene que aparecer el boss
+					else caso=2;
+				else caso=3;
+			else caso=4;
+		else {
+			caso=5;
 			jefeCreado=true;
 		}
 	
-		if(caso>=0 && caso<4) {
-			rand=(int) (Math.random() * 10) ;
+		if(caso>=0 && caso<5) {
+			Random rnd=new Random();
+			rand=rnd.nextInt(10);
 			if(rand==1)
-				magia=true;
+				estado=new EnemigoMagia();
+			else estado=new EnemigoComun();
 			
-			rand=(int) (Math.random() * caso) ;
+			if(caso>0)
+				rand=rnd.nextInt(caso+1);
+			else rand=0;
 		}
-		
-		if(!magia)
-			
-			switch (rand) {
-			
-				case 0:	
-					eneRet=new Enemigo1(celda);
-						break;
-				case 1:	
-					eneRet=new Enemigo2(celda);
-					break;
-				case 2:	
-					eneRet=new Enemigo3(celda);
-					break;
-				case 3:	
-					eneRet=new Enemigo4(celda);
-					break;
-		}
-		
-		else
+
 			switch(rand) {
 				case 0:	
-					eneRet=new Enemigo1M(celda);
+					eneRet=new Enemigo1(celda,estado);
 						break;
 				case 1:	
-					eneRet=new Enemigo2M(celda);
+					eneRet=new Enemigo2(celda,estado);
 					break;
 				case 2:	
-					eneRet=new Enemigo3M(celda);
+					eneRet=new Enemigo3(celda,estado);
 					break;
 				case 3:	
-					eneRet=new Enemigo4M(celda);
+					eneRet=new Enemigo4(celda,estado);
+					break;
+				case 4:	
+					eneRet=new Enemigo5(celda,estado);
 					break;
 			}
 		
-		if(caso==4)
+		if(caso==5)
 			eneRet=new EnemigoJefe(celda);
 		
 		return eneRet;

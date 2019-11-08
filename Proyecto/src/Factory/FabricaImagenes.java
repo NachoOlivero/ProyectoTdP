@@ -3,7 +3,7 @@ package Factory;
 import javax.swing.ImageIcon;
 
 
-public class FabricaImagenes extends AbstractFactoryT {
+public class FabricaImagenes implements AbstractFactoryT {
 	
 	public FabricaImagenes() {}
 
@@ -36,6 +36,10 @@ public class FabricaImagenes extends AbstractFactoryT {
 	}
 	
 	public ImageIcon Enemigo5() {
+		return new ImageIcon(this.getClass().getResource("./Dragon.gif")); //cambiar
+	}
+	
+	public ImageIcon Enemigo6() {
 		return new ImageIcon(this.getClass().getResource("./Dragon.gif"));
 	}
 	

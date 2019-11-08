@@ -10,16 +10,26 @@ import Logica.Singleton;
 import Logica.abstracto.Enemigo;
 
 public class Bomba extends PowerUp{
-	
-	protected int posX;
-	protected int posY;
+
 	protected Mapa mapa;
 	protected float daño=3000000;
 	protected GraficoBomba grafico;
+	protected int posX,posY;
 
 	public Bomba(int x,int y) {
 		mapa=Singleton.getMapa();
 		grafico=new GraficoBomba(x,y,this);		
+	}
+	
+	public Bomba() {
+		mapa=Singleton.getMapa();
+	}  //se utiliza si el jugador la compra, no tiene grafico
+	
+	public void ubicar(int f, int c) {
+		posX=f;
+		posY=c;
+		
+		comenzar();
 	}
 	
 	public void comenzar() {  //que en este caso seria explotar
@@ -51,15 +61,7 @@ public class Bomba extends PowerUp{
 				}
 			}
 		}
-		grafico.eliminar();
 		eliminar(); //la bomba se elimina de la lista de bombas del jugador cunado la solicita el hiloGui para colocarla en el mapa
-	}
-	
-	public void ubicar(int x,int y) {
-		posX=x;
-		posY=y;
-		
-		comenzar();
 	}
 	
 	public void eliminar() {

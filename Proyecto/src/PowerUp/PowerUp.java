@@ -10,9 +10,12 @@ public abstract class PowerUp {
 	
 	public abstract void comenzar();
 	
+	public abstract void ubicar(int f,int c);
+	
 	public void eliminar() {
 		Singleton.getMapa().eliminarPowerUp(this);
-		grafico.eliminar();
+		if(grafico!=null)
+			grafico.eliminar();
 	}
 	
 	public static void randonPowerUp(int x,int y) {
@@ -20,7 +23,7 @@ public abstract class PowerUp {
 		PowerUp pu=null;
 		
 		int caso=rand.nextInt(100);
-		
+	
 		switch (caso) {
 		
 		case 0:
