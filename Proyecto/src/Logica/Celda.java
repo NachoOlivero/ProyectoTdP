@@ -16,7 +16,7 @@ public class Celda {
 	protected List<Enemigo> listaEnem;
 	protected List<DisparoAbstracto> listaDisparos;
 	protected boolean barrera;
-	//protected boolean charco;
+
 	
 	public Celda(int f,int c,Mapa map) {
 		estructura=null;
@@ -26,6 +26,24 @@ public class Celda {
 		columna=c;
 		mapa=map;
 		barrera=false;
+	}
+	
+	public void limpiar() {
+		
+		if(estructura!=null)
+			estructura.eliminar();
+		
+		eliminarTodos();
+		
+		List<DisparoAbstracto> aux =new LinkedList<DisparoAbstracto>();
+		for(DisparoAbstracto d: listaDisparos) {
+			aux.add(d);
+	}
+		for(DisparoAbstracto d:aux) {
+			d.eliminar();
+			listaDisparos.remove(d);
+		}
+		
 	}
 	
 	public boolean hayEstructura() {

@@ -9,7 +9,6 @@ import Logica.abstracto.Estructura;
 import Logica.abstracto.Torre;
 import PowerUp.Bomba;
 import PowerUp.PowerUp;
-import Threads.HiloGui;
 import Threads.MovimientoEnemigos;
 
 public class Mapa {
@@ -23,6 +22,23 @@ public class Mapa {
 		listaTorres=new LinkedList<Torre>();
 		listaPowerUps=new LinkedList<PowerUp>();
 		new LinkedList<Bomba>();
+	}
+	
+	public void limpiar() {
+		for(int i=0;i<6;i++)
+			for(int j=0;j<10;j++)
+				celdas[i][j].limpiar();
+		
+		List<PowerUp>listaPuAux=new LinkedList<PowerUp>();
+		
+		for(PowerUp pu:listaPowerUps)
+			listaPuAux.add(pu);
+		
+		for(PowerUp pu:listaPuAux)
+			pu.eliminar();
+		
+		Singleton.getJugador().vaciar();
+			
 	}
 	
 	public void inicializarCeldas(int x,int y) {
@@ -98,11 +114,6 @@ public class Mapa {
 	public void eliminarTorre(Torre t,int fila,int columna) {  
 		celdas[fila][columna].eliminarEstructura();
 		listaTorres.remove(t); 
-	}
-	
-	public void eliminarTorres() {  
-		for(Torre t:listaTorres)
-			t.eliminar();
 	}
 	
 	public void insertarDisparo(DisparoAbstracto disp, int fila,int columna) {
