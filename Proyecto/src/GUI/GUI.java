@@ -4,17 +4,17 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.border.EmptyBorder;
+import Juego.Juego;
 import Logica.Jugador;
 import Logica.Singleton;
-import Logica.Tienda;
 import Logica.Torres.*;
 import PowerUp.*;
-import Threads.MovimientoEnemigos;
-import Juego.Juego;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class GUI extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -28,11 +28,12 @@ public class GUI extends JFrame {
 	private JPanelConFondo Derrota;
 	private JButton restart;
 	private JButton siglv;
+	private Timer t;
 	
 	
 
 	public GUI() {
-		
+		t=new Timer();
 		getContentPane().setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0,0, 1280, 700);
@@ -157,16 +158,17 @@ public class GUI extends JFrame {
 	
 	public void Victoria() {
 		remove(contentPane);
-		repaint();
 		setContentPane(Victoria);
-		repaint();
+		setVisible(false);
+		setVisible(true);
 		
 	}
 	public void Derrota() {
 		remove(contentPane);
 		repaint();
 		setContentPane(Derrota);
-		repaint();
+		setVisible(false);
+		setVisible(true);
 	}
 	private void lv2() {
 		remove(Victoria);
@@ -187,16 +189,17 @@ public class GUI extends JFrame {
 		}
 	}
 	private void reset() {
-		//remove(Derrota);
+		remove(Derrota);
 		setContentPane(contentPane);
-		repaint();
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		setVisible(false); //esto anda mejor que el repaint
+		setVisible(true);
+		
+		t.schedule(new Reset(), 10000);
+	}
+	private class Reset extends TimerTask {
+		public void run() {//si dejabamos todo junto el programa tardaba en volver a poner el mapa y ya habian enemigos
+			Juego.reStart();
 		}
-		Juego.reStart();
 	}
 	
 	

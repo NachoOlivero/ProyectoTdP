@@ -73,11 +73,12 @@ public class MovimientoEnemigos extends Thread {
 			mapa.mover();
 		}
 		if(!gane) {
-			System.out.println("perdi");
-			Singleton.getGui().Derrota();
-			Singleton.getGui().repaint();
+			contador=0;
 			Singleton.getJugador().setDinero(100);
 			Singleton.getJugador().setPuntaje(0);
+			Singleton.getGui().Derrota();
+			Singleton.getGui().repaint();
+			
 		}
 		else {
 			mapa.KillAll();
