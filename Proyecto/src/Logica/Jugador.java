@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import PowerUp.Bomba;
+import PowerUp.PowerUp;
 
 public class Jugador {
 	
@@ -48,6 +49,11 @@ public class Jugador {
 		Singleton.getGui().actualizarValores();
 	}
 	
+	public void eliminarBomba(Bomba bomba) {
+		listaBombas.remove(bomba);
+		Singleton.getGui().actualizarValores();
+	}
+	
 	public Bomba getBomba() {
 		Bomba bombaRet=null;
 		if(listaBombas.isEmpty())
@@ -58,6 +64,18 @@ public class Jugador {
 			Singleton.getGui().actualizarValores();
 			return bombaRet;
 		}
+	}
+	
+	public void vaciar() {
+		dinero=100;
+		puntaje=0;
+		
+		List<Bomba> listaBAux=new LinkedList<Bomba>();
+		for(Bomba b:listaBombas)
+			listaBAux.add(b);
+		
+		for(Bomba b:listaBAux)
+			b.eliminar();
 	}
 
 }

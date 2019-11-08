@@ -46,7 +46,7 @@ public class MovimientoEnemigos extends Thread {
 		gane=false;
 		
 		temp= new Timer();
-		contador=0; //para probar nada mas
+		contador=3330; //para probar nada mas
 		jefeCreado=false;
 		lv2=false;
 	}
@@ -79,8 +79,7 @@ public class MovimientoEnemigos extends Thread {
 			
 		}
 		else {
-			mapa.KillAll();
-			mapa.eliminarTorres();
+			mapa.limpiar();
 			Singleton.getGui().Victoria();
 			lv2();
 			
@@ -92,7 +91,7 @@ public class MovimientoEnemigos extends Thread {
 
 		while(!lv2) {
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(1);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -103,8 +102,6 @@ public class MovimientoEnemigos extends Thread {
 		jefeCreado=false;
 		contador=0;
 		
-		Singleton.getJugador().setDinero(100);
-		Singleton.getJugador().setPuntaje(0);
 		Singleton.getGui().actualizarValores();
 		
 		while(!gameOver && !gane) {//programar aca abajo el lv 2 (ahora es el 1)
@@ -273,6 +270,10 @@ public class MovimientoEnemigos extends Thread {
 	
 	public void victoria() {
 		gane=true;
+	}
+	
+	public void resetContador() {
+		contador=0;
 	}
 	
 	private class Victoria extends TimerTask {
