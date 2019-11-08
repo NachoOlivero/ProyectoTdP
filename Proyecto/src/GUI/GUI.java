@@ -142,7 +142,7 @@ public class GUI extends JFrame {
 		costos[3].setForeground(Color.ORANGE);
 		costos[4].setText(""+Torre2.getCosto());
 		costos[4].setForeground(Color.ORANGE);
-		costos[5].setText("1");
+		costos[5].setText("");
 		costos[5].setForeground(Color.RED);
 		costos[6].setText(""+Barrera.getCosto());
 		costos[6].setForeground(Color.ORANGE);
@@ -191,7 +191,7 @@ public class GUI extends JFrame {
 		setContentPane(contentPane);
 		repaint();
 		try {
-			Thread.sleep(10000);
+			Thread.sleep(1);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

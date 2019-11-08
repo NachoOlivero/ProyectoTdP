@@ -46,7 +46,7 @@ public class MovimientoEnemigos extends Thread {
 		gane=false;
 		
 		temp= new Timer();
-		contador=0;
+		contador=3330; //para probar nada mas
 		jefeCreado=false;
 		lv2=false;
 	}
@@ -89,13 +89,14 @@ public class MovimientoEnemigos extends Thread {
 		
 	}
 	protected void lv2() {
-		while(gane && !lv2) {//esperamos al boton
-		}
+		while(!lv2) {//esperamos al boton
+		}System.out.println("perdi");
 		gane=false;
+		jefeCreado=false;
 		Singleton.getJugador().setDinero(100);
 		Singleton.getJugador().setPuntaje(0);
+		Singleton.getGui().actualizarValores();
 		contador=0;
-		System.out.println("perdi");
 		while(!gameOver && !gane) {//programar aca abajo el lv 2 (ahora es el 1)
 			try {
 				Thread.sleep(100);
@@ -245,10 +246,14 @@ public class MovimientoEnemigos extends Thread {
 			}
 		
 		if(caso==5)
-			eneRet=new EnemigoJefe(celda);
+			eneRet=new EnemigoJefe(celda,this);
 		
 		return eneRet;
 	
+	}
+	
+	public void victoria() {
+		gane=true;
 	}
 	
 	private class Victoria extends TimerTask {

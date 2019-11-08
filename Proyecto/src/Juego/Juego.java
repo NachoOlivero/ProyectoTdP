@@ -1,8 +1,6 @@
 package Juego;
 
 import GUI.GUI;
-import GUI.Inicio;
-import Logica.Mapa;
 import Logica.Singleton;
 import Threads.HiloGui;
 import Threads.MovimientoEnemigos;
