@@ -262,7 +262,7 @@ public class MovimientoEnemigos extends Thread {
 			}
 		
 		if(caso==5)
-			eneRet=new EnemigoJefe(celda,this);
+			eneRet=new EnemigoJefe(celda);
 		
 		return eneRet;
 	

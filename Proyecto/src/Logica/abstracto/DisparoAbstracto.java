@@ -8,7 +8,7 @@ public abstract class DisparoAbstracto extends Personaje {
 	protected float daño;
 	protected int posRelativa;
 	protected Celda celda;
-	protected OGMovil grafico;
+	
 	
 public boolean estaEnPosicion(int vel) {
 		

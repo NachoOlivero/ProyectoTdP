@@ -2,6 +2,7 @@ package Logica.Enemigos;
 
 import Grafica.OGEnemigo;
 import Logica.Celda;
+import Logica.Singleton;
 import Visitors.VisitorEnemigos;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.EnemigoComun;
@@ -9,10 +10,8 @@ import Threads.MovimientoEnemigos;
 
 
 public class EnemigoJefe extends Enemigo {
-	MovimientoEnemigos movEne;
 	
-	public EnemigoJefe(Celda cel,MovimientoEnemigos mov) {
-		movEne=mov;
+	public EnemigoJefe(Celda cel) {
 		hp=150;
 		dp=10;
 		celda=cel;
@@ -24,6 +23,6 @@ public class EnemigoJefe extends Enemigo {
 
 	public void Eliminar() {
 		super.Eliminar();
-		movEne.victoria();
+		Singleton.getMovEne().victoria();
 	}
 }
