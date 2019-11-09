@@ -46,7 +46,7 @@ public class MovimientoEnemigos extends Thread {
 		gane=false;
 		
 		temp= new Timer();
-		contador=3330; //para probar nada mas
+		contador=0;
 		jefeCreado=false;
 		lv2=false;
 	}
@@ -104,7 +104,7 @@ public class MovimientoEnemigos extends Thread {
 		
 		Singleton.getGui().actualizarValores();
 		
-		while(!gameOver && !gane) {//programar aca abajo el lv 2 (ahora es el 1)
+		while(!gameOver && !gane) {//programar aca abajo el lv 2 
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
@@ -121,7 +121,10 @@ public class MovimientoEnemigos extends Thread {
 			crearObstaculo();
 			mapa.mover();
 		}
-		gui.Derrota();
+		if(gameOver)
+			perder();
+		else 
+			gui.Victoria2();
 	}
 	
 	
@@ -130,6 +133,7 @@ public class MovimientoEnemigos extends Thread {
 	}
 	
 	private void perder() {
+		mapa.limpiar();
 		contador=0;
 		Singleton.getJugador().setDinero(100);
 		Singleton.getJugador().setPuntaje(0);

@@ -211,6 +211,13 @@ public class GUI extends JFrame {
 
 		}
 	}
+	public void Victoria2() {
+		remove(contentPane);
+		siglv.setVisible(false);
+		setContentPane(Victoria);
+		setVisible(false);
+		setVisible(true);
+	}
 	
 	
 }

@@ -4,7 +4,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import PowerUp.Bomba;
-import PowerUp.PowerUp;
 
 public class Jugador {
 	
@@ -14,7 +13,7 @@ public class Jugador {
 	
 	public Jugador() {
 		listaBombas=new LinkedList<Bomba>();
-		dinero=1000;
+		dinero=100;
 		puntaje=0;
 	}
 	

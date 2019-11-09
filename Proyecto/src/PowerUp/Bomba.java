@@ -12,7 +12,7 @@ import Logica.abstracto.Enemigo;
 public class Bomba extends PowerUp{
 
 	protected Mapa mapa;
-	protected float daño=3000000;
+	protected float daño=50;
 	protected GraficoBomba grafico;
 	protected int posX,posY;
 
