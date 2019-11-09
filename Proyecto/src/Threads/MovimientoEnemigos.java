@@ -41,7 +41,7 @@ public class MovimientoEnemigos extends Thread {
 		gane=false;
 		
 		temp= new Timer();
-		contador=850;
+		contador=0;
 		jefeCreado=false;
 		lv2=false;
 	}
