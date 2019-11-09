@@ -56,7 +56,7 @@ public class MovimientoEnemigos extends Thread {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			System.out.println(contador);
+			
 			contador++;
 			
 			if(contador%900==0)
