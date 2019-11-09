@@ -24,7 +24,6 @@ import PowerUp.PowerUp;
 public class HiloGui extends Thread {
 
 	private GUI gui;
-	private AbstractFactoryT torres;
 	private Torre torreActiva;
 	private PowerUp puActivo;
 	private Torre torreDobleActiva;
@@ -33,7 +32,7 @@ public class HiloGui extends Thread {
 	public HiloGui() {
 		gui = Singleton.getGui();
 		Singleton.getMovEne();
-		torres=new FabricaImagenes(); 
+		new FabricaImagenes(); 
 		torreActiva=null;
 		torreDobleActiva=null;
 		puActivo=null;
@@ -107,23 +106,6 @@ public class HiloGui extends Thread {
 	    }  
      }
 
-
-/**	private class EliminarAll implements ActionListener{
-
-		public void actionPerformed(ActionEvent arg0) {
-			movEnemigos.eliminarEnemigo();
-			gui.repaint();
-		}
-	}
-	
-	private class Eliminar implements ActionListener{
-	
-		public void actionPerformed(ActionEvent arg0) {
-			movEnemigos.eliminarAll();
-			gui.repaint();
-		}
-	}*/
-	
 	private class ComprarTorre1 implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
 			if (torreActiva==null && puActivo==null && torreDobleActiva==null)

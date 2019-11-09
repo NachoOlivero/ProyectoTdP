@@ -8,7 +8,8 @@ import Logica.abstracto.Torre;
 import Visitors.VisitorCeldaTorre;
 
 public class Torre2 extends Torre {
-
+	protected static int costo=260;
+	
 	public Torre2() {
 		this.hp=10;
 		this.dp=300;
@@ -22,13 +23,14 @@ public class Torre2 extends Torre {
 		imagenDisparo=k.disparo();
 		
 	}
+	
 	public void setCelda(Celda c) {
 		AbstractFactoryT aux= new FabricaImagenes();
 		grafico=new OGTorre(c,aux.Torre2());
 		celda=c;
 	}
-	public static int getCosto() {
-		return 260;
+	
+	public static int costo() {
+		return costo;
 	}
-
 }

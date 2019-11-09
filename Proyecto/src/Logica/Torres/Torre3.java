@@ -8,6 +8,7 @@ import Logica.abstracto.Torre;
 import Visitors.VisitorCeldaTorre;
 
 public class Torre3 extends Torre{
+	protected static int costo=200;
 	
 	public Torre3() {
 		this.hp=50;
@@ -27,8 +28,9 @@ public class Torre3 extends Torre{
 		grafico=new OGTorre(c,aux.Torre3());
 		celda=c;
 	}
-	public static int getCosto() {
-		return 200;
+	
+	public static int costo() {
+		return costo;
 	}
 
 }

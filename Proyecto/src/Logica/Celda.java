@@ -64,7 +64,6 @@ public class Celda {
 		if(aux)
 			estructura=t;
 		return aux;
-		//System.out.println("Torre "+t+" insertada");
 	}
 	
 	public boolean hayEnemigo() { // retorna el enemigo con menor valor de posicion
@@ -185,7 +184,6 @@ public class Celda {
 		if(listaDisparos.size()>0) {
 			DisparoAbstracto aux= getDisparo(enemigo2.PosActual());
 			if(aux!=null) {
-				//System.out.println("::::::ENTRO1::::::");
 				aux.AceptarEnemigo(enemigo2);
 			}
 		}

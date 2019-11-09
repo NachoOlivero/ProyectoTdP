@@ -84,17 +84,16 @@ public class Mapa {
 	
 	public void insertarEnemigo(Enemigo ene,int fila) {			
 			celdas[fila][maxColumnas-1].addEnemigo(ene);
-		}
+	}
 	
 	public void insertarEnemigo(Enemigo ene,int fila,int columna) {
 		if(columna>=0)
 			celdas[fila][columna].addEnemigo(ene);
 		else {
 			ene.Eliminar();
-			KillAll();
 			MovimientoEnemigos.GameOver();
-					}
 		}
+	}
 	
 	
 	public boolean insertarEstructura(Estructura t,int fila,int columna) {

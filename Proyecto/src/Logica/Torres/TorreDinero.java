@@ -11,6 +11,7 @@ import Visitors.VisitorCeldaTorre;
 
 
 public class TorreDinero extends Torre{
+	protected static int costo=50;
 
 	public TorreDinero() {
 		this.hp=20;
@@ -70,9 +71,9 @@ public class TorreDinero extends Torre{
 		
 		this.avisarEnemigos();
 	}
-	public static int getCosto() {
-		return 50;
-	}
 	
+	public static int costo() {
+		return costo;
+	}
 	
 }

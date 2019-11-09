@@ -2,11 +2,8 @@ package Logica.abstracto;
 
 import javax.swing.ImageIcon;
 
-import Factory.AbstractFactoryT;
-import Factory.FabricaImagenes;
 import Logica.Celda;
 import Logica.Disparo;
-import Logica.Mapa;
 import Logica.Singleton;
 
 public abstract class Torre extends Estructura{
@@ -14,6 +11,7 @@ public abstract class Torre extends Estructura{
 	protected int cooldown;
 	protected int cooldownActual;
 	protected int cooldownOriginal;
+	protected int costo;
 	protected ImageIcon imagenDisparo;
 	
 	
@@ -75,7 +73,5 @@ public abstract class Torre extends Estructura{
 	public void resetCooldown() {
 		cooldownActual=cooldownOriginal;
 	}
-	public static int getCosto() {
-		return 0;
-	}
+
 }

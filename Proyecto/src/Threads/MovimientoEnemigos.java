@@ -1,10 +1,7 @@
 package Threads;
 
-import java.util.LinkedList;
 import java.util.Random;
 import java.util.Timer;
-import java.util.TimerTask;
-
 import Estructuras.Charco;
 import Estructuras.Obstaculo;
 import GUI.GUI;
@@ -27,7 +24,6 @@ public class MovimientoEnemigos extends Thread {
 	protected volatile boolean execute;
 	
 	protected Mapa mapa;
-	//protected LinkedList<Enemigo> listaEnemigos;
 	protected GUI gui;
 	protected int coolDown=0;
 	protected static boolean gameOver;
@@ -40,13 +36,12 @@ public class MovimientoEnemigos extends Thread {
 	public MovimientoEnemigos() {
 		mapa=Singleton.getMapa();
 		gui=Singleton.getGui();
-		//listaEnemigos=new LinkedList<Enemigo>();
 		
 		gameOver=false;
 		gane=false;
 		
 		temp= new Timer();
-		contador=0;
+		contador=850;
 		jefeCreado=false;
 		lv2=false;
 	}
@@ -54,20 +49,22 @@ public class MovimientoEnemigos extends Thread {
 	public void run() {
 		gameOver=false;
 		gane=false;
-		//temp.schedule(new Victoria(), 300000);
+
 		while(!gameOver && !gane) {
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			
+			System.out.println(contador);
 			contador++;
+			
+			if(contador%900==0)
+				coolDown+=300;
+			
 			if(coolDown==0 && !jefeCreado) {
 				crearEnemigo(contador);
-				if(contador%900==0)
-					coolDown=200;
-				else coolDown=15;
+				coolDown=15;
 			}
 			else coolDown--;
 			
@@ -89,14 +86,13 @@ public class MovimientoEnemigos extends Thread {
 	
 	protected void lv2() {
 
-		while(!lv2) {
+		while(!lv2) {  //esperamos al boton
 			try {
 				Thread.sleep(1);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}												//esperamos al boton
-			}
+			}												
+		}
 		coolDown=5;
 		gane=false;
 		jefeCreado=false;
@@ -104,18 +100,20 @@ public class MovimientoEnemigos extends Thread {
 		
 		Singleton.getGui().actualizarValores();
 		
-		while(!gameOver && !gane) {//programar aca abajo el lv 2 
+		while(!gameOver && !gane) {
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 			contador++;
+			
+			if(contador%900==0)
+				coolDown+=300;
+			
 			if(coolDown==0 && !jefeCreado) {
 				crearEnemigo(contador);
-				if(contador%900==0)
-					coolDown=200;
-				else coolDown=15;
+				coolDown=15;
 			}
 			else coolDown--;
 			crearObstaculo();
@@ -133,10 +131,7 @@ public class MovimientoEnemigos extends Thread {
 	}
 	
 	private void perder() {
-		mapa.limpiar();
-		contador=0;
-		Singleton.getJugador().setDinero(100);
-		Singleton.getJugador().setPuntaje(0);
+		Singleton.getMapa().limpiar();
 		Singleton.getGui().Derrota();
 		Singleton.getGui().repaint();
 	}
@@ -147,11 +142,10 @@ public class MovimientoEnemigos extends Thread {
 		if(fila==6)
 			fila=0;
 		
-		Enemigo nuevo=enemigoRandom(contador,mapa.getCelda(fila));//new Enemigo1(mapa.getCelda(fila));
+		Enemigo nuevo=enemigoRandom(contador,mapa.getCelda(fila));
 		
 		if(nuevo!=null) {
 			mapa.insertarEnemigo(nuevo,fila);
-			//listaEnemigos.addLast(nuevo);
 		}
 		
 	}
@@ -168,7 +162,7 @@ public class MovimientoEnemigos extends Thread {
 			Estructura est=null;
 			
 			while(!sePuedeInsertar && cont<10) {
-				int fila=rand.nextInt(6); //cambiar por metodo en el mapa de ultima
+				int fila=rand.nextInt(6); 
 			
 				int columna=rand.nextInt(10);
 				
@@ -202,14 +196,6 @@ public class MovimientoEnemigos extends Thread {
 	public void eliminarAll() {
 			mapa.KillAll();
 	}
-
-	/**public void eliminarEnemigo() {
-			if(!(listaEnemigos.isEmpty())) {
-				Enemigo eliminado=listaEnemigos.removeFirst();
-				eliminado.Eliminar();
-				Singleton.getGui().repaint();
-			}
-	}*/
 	
 	public Enemigo enemigoRandom(int contador,Celda celda) {
 		int caso=-1;
@@ -279,13 +265,6 @@ public class MovimientoEnemigos extends Thread {
 	public void resetContador() {
 		contador=0;
 	}
-	
-	private class Victoria extends TimerTask {
-		public void run() {
-			gane=true;
-		}
-	}
-
 	
 }
 

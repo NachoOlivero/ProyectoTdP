@@ -3,7 +3,6 @@ package Logica.Torres;
 import Factory.AbstractFactoryT;
 import Factory.FabricaImagenes;
 import Grafica.GraficoDoble;
-import Grafica.OGTorre;
 import Logica.Celda;
 import Logica.Singleton;
 import Logica.abstracto.Personaje;
@@ -12,6 +11,7 @@ import Visitors.VisitorCeldaTorre;
 
 public class Barricada extends Torre {
 	protected Celda celdaExtra;
+	protected static int costo=140;
 
 	public Barricada() {
 		this.hp=1000;
@@ -51,7 +51,8 @@ public class Barricada extends Torre {
 
 	public void turno() {}
 	
-	public static int getCosto() {
-		return 140;
+	public static int costo() {
+		return costo;
 	}
+
 }

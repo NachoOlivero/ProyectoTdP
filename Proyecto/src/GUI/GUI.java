@@ -56,7 +56,7 @@ public class GUI extends JFrame {
 		Derrota = new JPanelConFondo("GameOver.png");
 		Derrota.setBorder(new EmptyBorder(5, 5, 5, 5));
 		Derrota.setLayout(null);
-		restart=new JButton("try again");
+		restart=new JButton("Try again");
 		restart.setBounds(550, 580 , 200, 90);
 		Derrota.add(restart);
 		restart.addActionListener(new Restart());
@@ -133,15 +133,15 @@ public class GUI extends JFrame {
 		contentPane.add(costos[b]);
 		costos[b].setBounds(50+(b*100), 620 , 90, 40);
 		}
-		costos[0].setText(""+TorreDinero.getCosto());
+		costos[0].setText(""+TorreDinero.costo());
 		costos[0].setForeground(Color.ORANGE);
-		costos[1].setText(""+Torre1.getCosto());
+		costos[1].setText(""+Torre1.costo());
 		costos[1].setForeground(Color.ORANGE);
-		costos[2].setText(""+Barricada.getCosto());
+		costos[2].setText(""+Barricada.costo());
 		costos[2].setForeground(Color.ORANGE);
-		costos[3].setText(""+Torre3.getCosto());
+		costos[3].setText(""+Torre3.costo());
 		costos[3].setForeground(Color.ORANGE);
-		costos[4].setText(""+Torre2.getCosto());
+		costos[4].setText(""+Torre2.costo());
 		costos[4].setForeground(Color.ORANGE);
 		costos[5].setText("");
 		costos[5].setForeground(Color.RED);
@@ -192,6 +192,7 @@ public class GUI extends JFrame {
 		remove(Derrota);
 		contentPane.setImagen("./mapaV2_4(64x35).jpg");
 		setContentPane(contentPane);
+		actualizarValores();
 		repaint();
 		try {
 			Thread.sleep(1);
@@ -201,7 +202,7 @@ public class GUI extends JFrame {
 		setVisible(false); //esto anda mejor que el repaint
 		setVisible(true);
 		
-		t.schedule(new Reset(), 10000);
+		t.schedule(new Reset(), 1);
 		
 	}
 		
