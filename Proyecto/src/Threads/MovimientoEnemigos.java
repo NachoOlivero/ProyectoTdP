@@ -64,7 +64,7 @@ public class MovimientoEnemigos extends Thread {
 			
 			if(coolDown==0 && !jefeCreado) {
 				crearEnemigo(contador);
-				coolDown=15;
+				coolDown=30;
 			}
 			else coolDown--;
 			
@@ -80,7 +80,7 @@ public class MovimientoEnemigos extends Thread {
 			Singleton.getGui().Victoria();
 			lv2();
 			
-		}
+		} 
 		
 	}
 	

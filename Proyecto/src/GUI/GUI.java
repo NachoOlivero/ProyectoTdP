@@ -43,7 +43,7 @@ public class GUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		contentPane.setImagen("./mapaV2_4(64x35).jpg");
+		contentPane.setImagen("/GUI/mapaV2_4(64x35).jpg");
 		
 		Victoria = new JPanelConFondo("Victory.png");
 		Victoria.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -172,7 +172,7 @@ public class GUI extends JFrame {
 	}
 	private void lv2() {
 		remove(Victoria);
-		contentPane.setImagen("mapaV2_5(64x35).jpg");
+		contentPane.setImagen("/GUI/mapaV2_5(64x35).jpg");
 		setContentPane(contentPane);
 	}
 	
@@ -190,7 +190,7 @@ public class GUI extends JFrame {
 	}
 	private void reset() {
 		remove(Derrota);
-		contentPane.setImagen("./mapaV2_4(64x35).jpg");
+		contentPane.setImagen("/GUI/mapaV2_4(64x35).jpg");
 		setContentPane(contentPane);
 		actualizarValores();
 		repaint();
