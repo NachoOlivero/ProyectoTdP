@@ -131,6 +131,15 @@ public class MovimientoEnemigos extends Thread {
 			else coolDown--;
 			crearObstaculo();
 			mapa.mover();
+			
+			while(pausa) {
+				  //esperamos al boton
+				try {
+					Thread.sleep(1);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}			
+			}
 		}
 		if(gameOver)
 			perder();
