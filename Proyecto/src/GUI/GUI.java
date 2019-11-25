@@ -61,12 +61,15 @@ public class GUI extends JFrame {
 		Derrota.add(restart);
 		restart.addActionListener(new Restart());
 		
-		botonesT=new JButton[10];
-		for(int b=0 ; b<botonesT.length;  b++) {
+		botonesT=new JButton[11];
+		for(int b=0 ; b<10;  b++) {
 		botonesT[b]=new JButton();
 		contentPane.add(botonesT[b]);
 		botonesT[b].setBounds(30+(b*100), 590 , 90, 40);
 		}
+		botonesT[10]=new JButton("P");
+		contentPane.add(botonesT[10]);
+		botonesT[10].setBounds(0, 0 ,45,40);
 		//puntaje
 		Jugador ju=Singleton.getJugador();
 		pun=new JLabel();

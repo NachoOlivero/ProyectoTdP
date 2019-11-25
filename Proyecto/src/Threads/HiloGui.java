@@ -51,6 +51,7 @@ public class HiloGui extends Thread {
 		gui.agregarOyenteBoton(new ComprarBomba(), 7);
 		gui.agregarOyenteBoton(new ComprarKillAll(), 8);
 		gui.agregarOyenteBoton(new ComprarSpeedUp(), 9);
+		gui.agregarOyenteBoton(new Pause(), 10);
 	}
 	
 
@@ -176,6 +177,11 @@ public class HiloGui extends Thread {
 	private class ComprarSpeedUp implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
 			Tienda.comprarSpeedUp();
+		}
+	}
+	private class Pause implements ActionListener{
+		public void actionPerformed(ActionEvent arg0) {
+			Singleton.getMovEne().Pause();
 		}
 	}
 		
