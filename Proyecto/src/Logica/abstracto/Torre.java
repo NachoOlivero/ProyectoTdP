@@ -22,17 +22,15 @@ public abstract class Torre extends Estructura{
 	public abstract void setCelda(Celda c);
 	
 	public void turno() {
-		if(Singleton.getMapa().hayEnemigoEnRango(rango, celda.getFila(), celda.getColumna()))
-				atacar(null);
 		avisarEnemigos();
 	}
 	
 	protected void avisarEnemigos() {
-		//System.out.println(celda);
+		
 		int aux=celda.getColumna()+1;
 		while(aux<10) {
 			Celda a =Singleton.getMapa().getCelda(celda.getFila(), aux);
-			//System.out.println(a);
+			
 			for(Enemigo e:a.getEnemigos()) {
 				e.aceptarTorre(this);
 			}
@@ -41,7 +39,8 @@ public abstract class Torre extends Estructura{
 	}
 	
 	public void atacar(Personaje e) {
-		if(cooldown==0) {
+		
+		if(cooldown==0 && (e.getCelda().getColumna()-celda.getColumna())<=rango) {
 			Disparo disp=new Disparo(rango,dp,celda,imagenDisparo);
 			celda.añadirDisparo(disp);
 			cooldown=cooldownActual;

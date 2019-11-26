@@ -34,5 +34,7 @@ public class VisitorPinche extends Visitor{
 		
 		
 	}
-
+public void DetectarEnemigo(Enemigo e) {
+		
+	}
 }

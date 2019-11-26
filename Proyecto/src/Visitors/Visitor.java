@@ -19,6 +19,8 @@ public abstract class Visitor {
 	
 	public abstract void DisparoEnemigo(DisparoAbstracto a);
 	
+	public abstract void DetectarEnemigo(Enemigo e);
+	
 	
 
 }

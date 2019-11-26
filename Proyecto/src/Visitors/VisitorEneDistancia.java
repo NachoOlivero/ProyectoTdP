@@ -32,5 +32,7 @@ public class VisitorEneDistancia extends Visitor {
 	public void DisparoEnemigo(DisparoAbstracto a) {
 		a.avanzar();
 	}
-
+public void DetectarEnemigo(Enemigo e) {
+		
+	}
 }

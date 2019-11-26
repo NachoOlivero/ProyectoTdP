@@ -32,5 +32,8 @@ public class VisitorDisparoEnemigo extends Visitor {
 	    
 		
 	}
-
+	
+public void DetectarEnemigo(Enemigo e) {
+		
+	}
 }

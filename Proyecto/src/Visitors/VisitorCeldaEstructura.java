@@ -33,4 +33,10 @@ public class VisitorCeldaEstructura extends Visitor {
 		
 	}
 
+	@Override
+	public void DetectarEnemigo(Enemigo e) {
+		
+		
+	}
+
 }

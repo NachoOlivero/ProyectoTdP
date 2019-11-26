@@ -33,5 +33,10 @@ public class VisitorCeldaTorre extends Visitor {
 		a.atacar(miEntidad);
 		
 	}
-
+	public void DetectarEnemigo(Enemigo e) {
+		System.out.println("HOLA");
+		miEntidad.atacar(e);
+	}
+	
+	
 }

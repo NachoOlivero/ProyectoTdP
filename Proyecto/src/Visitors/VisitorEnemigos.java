@@ -30,6 +30,8 @@ public class VisitorEnemigos extends Visitor  {
 		a.avanzar();
 		
 	}
-
+public void DetectarEnemigo(Enemigo e) {
+		
+	}
 	
 }

@@ -31,7 +31,10 @@ public class VisitorDisparo extends Visitor {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
+public void DetectarEnemigo(Enemigo e) {
+		
+	}
 
 
 }

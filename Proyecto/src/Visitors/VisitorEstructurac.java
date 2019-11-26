@@ -37,5 +37,7 @@ public class VisitorEstructurac extends Visitor {
 		// TODO Auto-generated method stub
 		
 	}
-
+public void DetectarEnemigo(Enemigo e) {
+		
+	}
 }

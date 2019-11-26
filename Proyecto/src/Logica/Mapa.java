@@ -71,16 +71,7 @@ public class Mapa {
 		
 	}
 	
-	public boolean hayEnemigoEnRango(int rango,int fila,int columna) {
-		boolean hayEnemigo=false;
-		int cont=0;
-		while(cont<rango && columna<10 && !hayEnemigo) {
-			hayEnemigo=celdas[fila][columna].hayEnemigo();
-			columna++;
-			cont++;
-		}
-		return hayEnemigo;
-	}
+
 	
 	public void insertarEnemigo(Enemigo ene,int fila) {			
 			celdas[fila][maxColumnas-1].addEnemigo(ene);
