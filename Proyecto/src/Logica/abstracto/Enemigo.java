@@ -37,8 +37,9 @@ public abstract class Enemigo extends Personaje{
 	
 	
 	protected void AvisarTorres() {
-		for(int i=0;i!=celda.getColumna();i++)
-			Singleton.getMapa().getCelda(celda.getFila(), i).detectarEnemigo(this);
+		if(celda!=null)//Revisa que no llegue al final del nivel
+			for(int i=0;i!=celda.getColumna();i++)
+				Singleton.getMapa().getCelda(celda.getFila(), i).detectarEnemigo(this);
 	}
 	public void avanzar() {
 			MovD--;
