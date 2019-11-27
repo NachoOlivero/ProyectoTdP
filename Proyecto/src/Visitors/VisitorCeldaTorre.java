@@ -51,7 +51,6 @@ public class VisitorCeldaTorre extends Visitor {
 
 
 	public void DetectarEnemigo(Enemigo e) {
-		System.out.println("HOLA");
 		miEntidad.atacar(e);
 	}
 	

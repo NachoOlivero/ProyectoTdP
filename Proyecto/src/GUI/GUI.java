@@ -61,15 +61,16 @@ public class GUI extends JFrame {
 		Derrota.add(restart);
 		restart.addActionListener(new Restart());
 		
-		botonesT=new JButton[11];
-		for(int b=0 ; b<botonesT.length;  b++) {
+		botonesT=new JButton[12];
+		for(int b=0 ; b<botonesT.length-1;  b++) {
 			botonesT[b]=new JButton();
 			contentPane.add(botonesT[b]);
 			botonesT[b].setBounds(30+(b*100), 590 , 90, 40);
 		}
-		botonesT[10]=new JButton("P");
-		contentPane.add(botonesT[10]);
-		botonesT[10].setBounds(0, 0 ,45,40);
+		botonesT[11]=new JButton();
+		contentPane.add(botonesT[11]);
+		botonesT[11].setBounds(0, 0 ,40,40);
+		
 		//puntaje
 		Jugador ju=Singleton.getJugador();
 		pun=new JLabel();
@@ -78,6 +79,7 @@ public class GUI extends JFrame {
 		pun.setBounds(1100,580,80,80);
 		pun.setVisible(true);
 		contentPane.add(pun);
+		
 		//Money
 		din=new JLabel();
 		din.setForeground(Color.YELLOW);
@@ -129,6 +131,7 @@ public class GUI extends JFrame {
 		botonesT[9].setText("C Speed");
 		botonesT[10].setText("Vender torre");
 		botonesT[10].setEnabled(false);
+		botonesT[11].setText("P");
 	}
 	
 	private void InicializarLabelsCostos() {

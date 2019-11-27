@@ -30,6 +30,7 @@ public class HiloGui extends Thread {
 	private Torre torreDobleActiva;
 	private boolean ventaTorre;
 	private VisitorVenta visitorVenta;
+	private boolean pausa;
 
 
 	public HiloGui() {
@@ -40,6 +41,7 @@ public class HiloGui extends Thread {
 		torreDobleActiva=null;
 		puActivo=null;
 		ventaTorre=false;
+		pausa=false;
 		visitorVenta=new VisitorVenta();
 		
 		seteos();
@@ -65,6 +67,11 @@ public class HiloGui extends Thread {
 		while(true){
 			//Evita que debido a la gran carga del hilo principal, no funcionen los botones
 		}
+	}
+	
+	public void setBotones(boolean f) {
+		for(int i=0;i<11;i++)
+			Singleton.getGui().setClickable(f, i);
 	}
 	
 	private class Mouse implements MouseListener { 
@@ -196,9 +203,19 @@ public class HiloGui extends Thread {
 		public void actionPerformed(ActionEvent arg0) {
 			ventaTorre=true;
 		}
-}
+	}
 	private class Pause implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
+			if(pausa) {
+				setBotones(true);
+				if(Singleton.getMapa().getListaTorres().isEmpty())
+					Singleton.getGui().setClickable(false,10);
+				pausa=false;
+			}
+			else {
+				setBotones(false);
+				pausa=true;
+			}
 			Singleton.getMovEne().Pause();
 		}
 	}

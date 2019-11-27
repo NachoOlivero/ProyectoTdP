@@ -51,4 +51,10 @@ public class VisitorVenta extends Visitor {
 		return true;
 	}
 
+	@Override
+	public void DetectarEnemigo(Enemigo e) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
