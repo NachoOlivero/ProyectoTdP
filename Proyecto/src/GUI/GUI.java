@@ -65,11 +65,11 @@ public class GUI extends JFrame {
 		for(int b=0 ; b<botonesT.length-1;  b++) {
 			botonesT[b]=new JButton();
 			contentPane.add(botonesT[b]);
-			botonesT[b].setBounds(30+(b*100), 590 , 90, 40);
+			botonesT[b].setBounds(3+(b*100), 590 , 90, 40);
 		}
 		botonesT[11]=new JButton();
 		contentPane.add(botonesT[11]);
-		botonesT[11].setBounds(0, 0 ,40,40);
+		botonesT[11].setBounds(-10, 0 ,50,40);
 		
 		//puntaje
 		Jugador ju=Singleton.getJugador();
