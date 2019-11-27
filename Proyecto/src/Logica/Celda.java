@@ -238,5 +238,11 @@ public class Celda {
 		
 		}
 	}
+
+	public void detectarEnemigo(Enemigo enemigo) {
+		if(estructura!=null)
+			estructura.aceptarDeteccion(enemigo);
+		
+	}
 }
 

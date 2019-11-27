@@ -32,6 +32,7 @@ public class MovimientoEnemigos extends Thread {
 	protected int contador;
 	protected boolean jefeCreado;
 	protected boolean lv2;
+	protected boolean pausa;
 	
 	public MovimientoEnemigos() {
 		mapa=Singleton.getMapa();
@@ -39,7 +40,7 @@ public class MovimientoEnemigos extends Thread {
 		
 		gameOver=false;
 		gane=false;
-		
+		pausa=false;
 		temp= new Timer();
 		contador=0;
 		jefeCreado=false;
@@ -70,6 +71,16 @@ public class MovimientoEnemigos extends Thread {
 			
 			crearObstaculo();
 			mapa.mover();
+			
+			while(pausa) {
+				  //esperamos al boton
+				try {
+					Thread.sleep(1);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}			
+			
+		}
 		}
 		if(!gane) {
 			perder();
@@ -81,6 +92,8 @@ public class MovimientoEnemigos extends Thread {
 			lv2();
 			
 		} 
+	
+		
 		
 	}
 	
@@ -118,6 +131,15 @@ public class MovimientoEnemigos extends Thread {
 			else coolDown--;
 			crearObstaculo();
 			mapa.mover();
+			
+			while(pausa) {
+				  //esperamos al boton
+				try {
+					Thread.sleep(1);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}			
+			}
 		}
 		if(gameOver)
 			perder();
@@ -264,6 +286,14 @@ public class MovimientoEnemigos extends Thread {
 	
 	public void resetContador() {
 		contador=0;
+	}
+
+	public void Pause() {
+		
+		if(pausa)
+			pausa=false;
+		else pausa=true;
+		
 	}
 	
 }

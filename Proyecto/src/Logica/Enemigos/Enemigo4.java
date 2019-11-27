@@ -22,8 +22,10 @@ public class Enemigo4 extends Enemigo {
 		cooldownMax=40;
 	}
 	public void turno() {
+		
 		MovD=vel;
 		celda.recibirEnemigo(this);
+		AvisarTorres();
 	}
 	public void atacar(Personaje p) {
 	if(cooldown==0) {

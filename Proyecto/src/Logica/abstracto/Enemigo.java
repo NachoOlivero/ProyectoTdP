@@ -15,7 +15,7 @@ public abstract class Enemigo extends Personaje{
 
 	protected final int min=1;
 	protected int pos=120;
-	protected boolean charco=false;
+	//protected boolean charco=false;
 	protected int tiempoFrenar=0;
 	protected int MovD;
 	protected int cooldown;
@@ -32,9 +32,14 @@ public abstract class Enemigo extends Personaje{
 			cooldown--;
 		MovD=vel;
 		celda.recibirEnemigo(this);
+		AvisarTorres();
 	}
 	
 	
+	protected void AvisarTorres() {
+		for(int i=0;i!=celda.getColumna();i++)
+			Singleton.getMapa().getCelda(celda.getFila(), i).detectarEnemigo(this);
+	}
 	public void avanzar() {
 			MovD--;
 			if(MovD>=0) {

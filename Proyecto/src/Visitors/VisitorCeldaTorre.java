@@ -35,6 +35,7 @@ public class VisitorCeldaTorre extends Visitor {
 		
 	}
 
+
 	@Override
 	public boolean venta(Estructura est) {
 		return false;
@@ -47,5 +48,12 @@ public class VisitorCeldaTorre extends Visitor {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+	public void DetectarEnemigo(Enemigo e) {
+		System.out.println("HOLA");
+		miEntidad.atacar(e);
+	}
+	
 
 }

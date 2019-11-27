@@ -23,6 +23,7 @@ public abstract class EnemigoDistancia extends Enemigo {
 		if(cooldown != 0)
 			cooldown--;
 		celda.recibirEnemigo(this);
+		AvisarTorres();
 	}
 	
 	private void crearDisparo() {

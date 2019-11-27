@@ -21,6 +21,8 @@ public abstract class Visitor {
 	public abstract void DisparoEnemigo(DisparoAbstracto a);
 	
 	public abstract boolean venta(Estructura est);
+
+	public abstract void DetectarEnemigo(Enemigo e);
 	
 	public abstract boolean venta(Torre t);
 

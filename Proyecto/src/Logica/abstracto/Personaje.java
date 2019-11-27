@@ -27,7 +27,9 @@ public abstract class Personaje extends ObjetoJuego {
 	}
 	public abstract void turno();
 	
-	
+	public void aceptarDeteccion(Enemigo e) {
+		visitor.DetectarEnemigo(e);
+	}
 	//System.out.println("si");
 
 }

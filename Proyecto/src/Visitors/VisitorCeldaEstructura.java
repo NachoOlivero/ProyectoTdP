@@ -35,6 +35,7 @@ public class VisitorCeldaEstructura extends Visitor {
 	}
 
 	@Override
+
 	public boolean venta(Estructura est) {
 		// TODO Auto-generated method stub
 		return false;
@@ -44,6 +45,10 @@ public class VisitorCeldaEstructura extends Visitor {
 	public boolean venta(Torre t) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	public void DetectarEnemigo(Enemigo e) {
+		
 	}
 
 }

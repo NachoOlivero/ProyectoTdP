@@ -33,6 +33,7 @@ public class VisitorDisparo extends Visitor {
 		
 	}
 
+
 	@Override
 	public boolean venta(Estructura est) {
 		return false;
@@ -44,6 +45,12 @@ public class VisitorDisparo extends Visitor {
 	public boolean venta(Torre t) {
 		return false;
 		// TODO Auto-generated method stub
+		
+	}
+
+
+	
+public void DetectarEnemigo(Enemigo e) {
 		
 	}
 
