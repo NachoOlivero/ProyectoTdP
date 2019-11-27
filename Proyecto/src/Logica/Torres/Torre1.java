@@ -8,10 +8,12 @@ import Logica.abstracto.Torre;
 import Visitors.VisitorCeldaTorre;
 
 public class Torre1 extends Torre {
-	protected static int costo=100;
+	protected static int costoS=100;
 	
 	public Torre1() {
 		this.hp=50;
+		this.maxHp=50;
+		this.costo=100;
 		this.dp=5;
 		this.rango=5;
 		cooldownOriginal=20;
@@ -29,6 +31,6 @@ public class Torre1 extends Torre {
 	}
 	
 	public static int costo() {
-		return costo;
+		return costoS;
 	}
 }

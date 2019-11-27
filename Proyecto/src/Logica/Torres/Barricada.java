@@ -11,10 +11,12 @@ import Visitors.VisitorCeldaTorre;
 
 public class Barricada extends Torre {
 	protected Celda celdaExtra;
-	protected static int costo=140;
+	protected static int costoS=140;
 
 	public Barricada() {
 		this.hp=1000;
+		this.maxHp=1000;
+		this.costo=140;
 		this.dp=0;
 		this.rango=0;
 		cooldownOriginal=0;
@@ -52,7 +54,7 @@ public class Barricada extends Torre {
 	public void turno() {}
 	
 	public static int costo() {
-		return costo;
+		return costoS;
 	}
 
 }

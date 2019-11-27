@@ -107,12 +107,15 @@ public class Mapa {
 	public boolean insertarTorre(Torre t,int fila,int columna) {  
 		boolean aux =celdas[fila][columna].insertarEstructura(t);
 		if(aux) listaTorres.add(t); 
+		Singleton.getGui().setClickable(true,10);  //abilita el boton de venta de torres
 		return aux;
 	}
 	
 	public void eliminarTorre(Torre t,int fila,int columna) {  
 		celdas[fila][columna].eliminarEstructura();
-		listaTorres.remove(t); 
+		listaTorres.remove(t);
+		if(listaTorres.isEmpty())
+			Singleton.getGui().setClickable(false,10);  //desabilita el boton de venta de torres
 	}
 	
 	public void insertarDisparo(DisparoAbstracto disp, int fila,int columna) {

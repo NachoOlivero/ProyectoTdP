@@ -5,6 +5,7 @@ import javax.swing.ImageIcon;
 import Logica.Celda;
 import Logica.Disparo;
 import Logica.Singleton;
+import Visitors.Visitor;
 
 public abstract class Torre extends Estructura{
 	protected int rango;
@@ -12,11 +13,16 @@ public abstract class Torre extends Estructura{
 	protected int cooldownActual;
 	protected int cooldownOriginal;
 	protected int costo;
+	protected int maxHp;
 	protected ImageIcon imagenDisparo;
 	
 	
 	public int getRango() {
 		return rango;
+	}
+	
+	public int getCosto() {
+		return costo;
 	}
 
 	public abstract void setCelda(Celda c);
@@ -72,6 +78,14 @@ public abstract class Torre extends Estructura{
 	
 	public void resetCooldown() {
 		cooldownActual=cooldownOriginal;
+	}
+	
+	public boolean maxVida() {
+		return hp==maxHp;
+	}
+	
+	public boolean aceptarVenta(Visitor v) {
+		return v.venta(this);
 	}
 
 }

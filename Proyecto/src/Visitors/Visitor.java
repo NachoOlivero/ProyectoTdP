@@ -3,6 +3,7 @@ package Visitors;
 import Logica.Disparo;
 import Logica.abstracto.DisparoAbstracto;
 import Logica.abstracto.Enemigo;
+import Logica.abstracto.Estructura;
 import Logica.abstracto.Personaje;
 import Logica.abstracto.Torre;
 
@@ -19,6 +20,8 @@ public abstract class Visitor {
 	
 	public abstract void DisparoEnemigo(DisparoAbstracto a);
 	
+	public abstract boolean venta(Estructura est);
 	
+	public abstract boolean venta(Torre t);
 
 }

@@ -4,6 +4,7 @@ import Logica.Disparo;
 import Logica.abstracto.DisparoAbstracto;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.EnemigoDistancia;
+import Logica.abstracto.Estructura;
 import Logica.abstracto.Torre;
 
 public class VisitorEneDistancia extends Visitor {
@@ -31,6 +32,22 @@ public class VisitorEneDistancia extends Visitor {
 	@Override
 	public void DisparoEnemigo(DisparoAbstracto a) {
 		a.avanzar();
+	}
+
+
+	@Override
+	public boolean venta(Estructura est) {
+		return false;
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public boolean venta(Torre t) {
+		return false;
+		// TODO Auto-generated method stub
+		
 	}
 
 }

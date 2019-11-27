@@ -61,7 +61,7 @@ public class GUI extends JFrame {
 		Derrota.add(restart);
 		restart.addActionListener(new Restart());
 		
-		botonesT=new JButton[10];
+		botonesT=new JButton[11];
 		for(int b=0 ; b<botonesT.length;  b++) {
 		botonesT[b]=new JButton();
 		contentPane.add(botonesT[b]);
@@ -124,6 +124,8 @@ public class GUI extends JFrame {
 		botonesT[7].setText("C bomba");
 		botonesT[8].setText("C Nuke");
 		botonesT[9].setText("C Speed");
+		botonesT[10].setText("Vender torre");
+		botonesT[10].setEnabled(false);
 	}
 	
 	private void InicializarLabelsCostos() {
@@ -218,6 +220,10 @@ public class GUI extends JFrame {
 		setContentPane(Victoria);
 		setVisible(false);
 		setVisible(true);
+	}
+	
+	public void setClickable(boolean f,int ind) {
+		botonesT[ind].setEnabled(f);
 	}
 	
 	

@@ -19,6 +19,7 @@ import Logica.abstracto.Torre;
 import PowerUp.Barrera;
 import PowerUp.Bomba;
 import PowerUp.PowerUp;
+import Visitors.VisitorVenta;
 
 
 public class HiloGui extends Thread {
@@ -27,6 +28,8 @@ public class HiloGui extends Thread {
 	private Torre torreActiva;
 	private PowerUp puActivo;
 	private Torre torreDobleActiva;
+	private boolean ventaTorre;
+	private VisitorVenta visitorVenta;
 
 
 	public HiloGui() {
@@ -36,6 +39,8 @@ public class HiloGui extends Thread {
 		torreActiva=null;
 		torreDobleActiva=null;
 		puActivo=null;
+		ventaTorre=false;
+		visitorVenta=new VisitorVenta();
 		
 		seteos();
 	}
@@ -51,6 +56,7 @@ public class HiloGui extends Thread {
 		gui.agregarOyenteBoton(new ComprarBomba(), 7);
 		gui.agregarOyenteBoton(new ComprarKillAll(), 8);
 		gui.agregarOyenteBoton(new ComprarSpeedUp(), 9);
+		gui.agregarOyenteBoton(new VentaTorre(), 10);
 	}
 	
 
@@ -68,11 +74,10 @@ public class HiloGui extends Thread {
 	    	int c=(e.getX()-40)/120;
 	    	Mapa mapa=Singleton.getMapa();
 	    	Celda celda=mapa.getCelda(f,c);
-	    	boolean hayEstructura=false;
+	    	boolean hayEstructura=celda.hayEstructura();
 	  
 	    	if(f>=0 && f<6 && c>=0 && c<10 ) {  //por ahora numeros, dps vemos como poner atributos para los limites
 		    	if(torreActiva!=null) {
-			    	hayEstructura=celda.hayEstructura();
 			    	if(!hayEstructura) { 
 			    		torreActiva.setCelda(celda);
 			    		mapa.insertarTorre(torreActiva,f,c);
@@ -84,7 +89,6 @@ public class HiloGui extends Thread {
 		    			puActivo=null;
 		    		 }
 		    		else if(torreDobleActiva!=null) {
-		    				hayEstructura=celda.hayEstructura();
 		    				hayEstructura=( hayEstructura || mapa.getCelda(f,c-1)==null || mapa.getCelda(f,c-1).hayEstructura() );
 		    				if(!hayEstructura) {
 		    					torreDobleActiva.setCelda(celda);
@@ -93,6 +97,14 @@ public class HiloGui extends Thread {
 					    		torreDobleActiva=null;
 		    				}
 		    			 }
+		    	
+		    			else if(ventaTorre && hayEstructura) {
+		    					boolean ventaExitosa=celda.getEstructura().aceptarVenta(visitorVenta); 
+		    					if(ventaExitosa) {
+		    						ventaTorre=false;
+		    						Singleton.getGui().actualizarValores();
+		    					}
+		    				}
 		    }
 	    }  
 	    
@@ -108,7 +120,7 @@ public class HiloGui extends Thread {
 
 	private class ComprarTorre1 implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
-			if (torreActiva==null && puActivo==null && torreDobleActiva==null)
+			if (torreActiva==null && puActivo==null && torreDobleActiva==null && !ventaTorre)
 					torreActiva=Tienda.comprarT1();
 			
 		}
@@ -116,13 +128,13 @@ public class HiloGui extends Thread {
 	
 	private class ComprarTorre3 implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
-			if (torreActiva==null && puActivo==null && torreDobleActiva==null)
+			if (torreActiva==null && puActivo==null && torreDobleActiva==null && !ventaTorre)
 					torreActiva=Tienda.comprarT3();
 		}
 	}
 	private class ComprarTorre2 implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
-			if (torreActiva==null && puActivo==null && torreDobleActiva==null)
+			if (torreActiva==null && puActivo==null && torreDobleActiva==null && !ventaTorre)
 					torreActiva=Tienda.comprarT2();
 			
 		}
@@ -130,7 +142,7 @@ public class HiloGui extends Thread {
 	
 	private class ComprarDinero implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
-			if (torreActiva==null && puActivo==null && torreDobleActiva==null)
+			if (torreActiva==null && puActivo==null && torreDobleActiva==null && !ventaTorre)
 					torreActiva=Tienda.comprarDinero();
 			
 		}
@@ -138,7 +150,7 @@ public class HiloGui extends Thread {
 	
 	private class comprarBarricada implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
-			if (torreActiva==null && puActivo==null && torreDobleActiva==null)
+			if (torreActiva==null && puActivo==null && torreDobleActiva==null && !ventaTorre)
 					torreDobleActiva=Tienda.comprarBarricada();
 			
 		}
@@ -147,7 +159,7 @@ public class HiloGui extends Thread {
 	private class OyenteBomba implements ActionListener{
 
 		public void actionPerformed(ActionEvent click) {
-			if(puActivo==null && torreActiva==null && torreDobleActiva==null) 
+			if(puActivo==null && torreActiva==null && torreDobleActiva==null && !ventaTorre) 
 				puActivo=Singleton.getJugador().getBomba();
 		}
 			
@@ -155,7 +167,7 @@ public class HiloGui extends Thread {
 	
 	private class ComprarBarrera implements ActionListener{
 		public void actionPerformed(ActionEvent click) {
-			if(puActivo==null && torreActiva==null && torreDobleActiva==null) 
+			if(puActivo==null && torreActiva==null && torreDobleActiva==null && !ventaTorre) 
 				puActivo=Tienda.comprarBarrera();
 		}
 			
@@ -176,6 +188,12 @@ public class HiloGui extends Thread {
 	private class ComprarSpeedUp implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
 			Tienda.comprarSpeedUp();
+		}
+	}
+	
+	private class VentaTorre implements ActionListener{
+		public void actionPerformed(ActionEvent arg0) {
+			ventaTorre=true;
 		}
 	}
 		
