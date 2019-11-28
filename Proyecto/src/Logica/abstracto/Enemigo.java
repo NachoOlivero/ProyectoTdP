@@ -40,7 +40,7 @@ public abstract class Enemigo extends Personaje{
 		if(celda!=null)//Revisa que no llegue al final del nivel
 			for(int i=0;i!=celda.getColumna();i++)
 				Singleton.getMapa().getCelda(celda.getFila(), i).detectarEnemigo(this);
-		else System.out.println("Solo al final");
+		
 	}
 	public void avanzar() {
 			MovD--;
