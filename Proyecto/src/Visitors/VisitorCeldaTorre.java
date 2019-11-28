@@ -1,6 +1,5 @@
 package Visitors;
 
-import Logica.Disparo;
 import Logica.abstracto.DisparoAbstracto;
 import Logica.abstracto.Enemigo;
 import Logica.abstracto.Estructura;
@@ -19,7 +18,6 @@ public class VisitorCeldaTorre extends Visitor {
 
 	@Override
 	public void visitEnemigo(Enemigo e) {
-		System.out.println("si");
 		e.atacar(miEntidad);
 	}
 

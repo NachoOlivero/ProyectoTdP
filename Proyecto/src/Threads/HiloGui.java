@@ -81,10 +81,11 @@ public class HiloGui extends Thread {
 	    	int f=e.getY()/100;
 	    	int c=(e.getX()-40)/120;
 	    	Mapa mapa=Singleton.getMapa();
-	    	Celda celda=mapa.getCelda(f,c);
-	    	boolean hayEstructura=celda.hayEstructura();
 	  
 	    	if(f>=0 && f<6 && c>=0 && c<10 ) {  //por ahora numeros, dps vemos como poner atributos para los limites
+	    		Celda celda=mapa.getCelda(f,c);
+		    	boolean hayEstructura=celda.hayEstructura();
+	    		
 		    	if(torreActiva!=null) {
 			    	if(!hayEstructura) { 
 			    		torreActiva.setCelda(celda);
