@@ -29,6 +29,9 @@ public abstract class Torre extends Estructura{
 	
 	public void turno() {
 		avisarEnemigos();
+		if(cooldown>0)
+			cooldown--;
+		
 	}
 	
 	protected void avisarEnemigos() {
@@ -51,7 +54,7 @@ public abstract class Torre extends Estructura{
 			celda.añadirDisparo(disp);
 			cooldown=cooldownActual;
 		}
-		else cooldown--;
+		
 	}
 	
 	public void eliminar() {
