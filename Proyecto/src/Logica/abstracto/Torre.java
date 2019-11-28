@@ -58,13 +58,7 @@ public abstract class Torre extends Estructura{
 		Singleton.getMapa().eliminarTorre(this,celda.getFila(),celda.getColumna());
 		grafico.eliminar();
 	}
-	
-	public void recibirDaño(float daño) {
-		hp-=daño;
-		if(hp<=0) {
-			eliminar();
-		}
-	}
+
 	
 	public int getCooldown() {
 		return cooldownActual;

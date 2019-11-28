@@ -18,15 +18,6 @@ public class Obstaculo extends Estructura{
 		celda=c;
 	}
 
-
-	public void recibirDaño(float daño) {
-		hp=-daño;
-		if(hp<=0) {
-			eliminar();
-		}
-		
-	}
-
 	public void turno() {}
 
 	public void atacar(Personaje e) {}

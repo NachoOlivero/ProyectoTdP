@@ -12,5 +12,12 @@ public abstract class Estructura extends Personaje {
 	public boolean aceptarVenta(Visitor v) {
 		return v.venta(this);
 	}
+	
+	public void recibirDaño(float daño) {
+		hp-=daño;
+		if(hp<=0) {
+			eliminar();
+		}
+	}
 
 }
